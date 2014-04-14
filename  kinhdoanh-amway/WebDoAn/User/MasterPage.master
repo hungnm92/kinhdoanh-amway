@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="User_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 297px;
+        }
+        .auto-style2 {
+            width: 297px;
+            height: 32px;
+        }
+        .auto-style3 {
+            height: 32px;
+        }
+        #Text1 {
+            height: 20px;
+            width: 212px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table style="border-width: thin; border-style: inset; width: 100%; height: 449px; background-color: #CCCCCC;">
+            <tr>
+                <td class="auto-style2">
+                    <input id="Text1" type="text" /><input id="Submit1" type="submit" value="submit" /></td>
+                <td class="auto-style3">
+                    <asp:Label ID="Label1" runat="server" Text="Trang chủ"></asp:Label>
+                </td>
+                <td class="auto-style3">
+                    <asp:Label ID="Label2" runat="server" Text="Nhà Phân Phối"></asp:Label>
+                </td>
+                <td class="auto-style3">
+                    <asp:Label ID="Label3" runat="server" Text="Khách Hàng"></asp:Label>
+                </td>
+                <td class="auto-style3">
+                    <asp:Label ID="Label4" runat="server" Text="Sản Phẩm"></asp:Label>
+                </td>
+                <td class="auto-style3">
+                    <asp:Label ID="Label5" runat="server" Text="Chương Trình"></asp:Label>
+                </td>
+                <td class="auto-style3">
+                    <asp:Label ID="Label6" runat="server" Text="Doanh Thu"></asp:Label>
+                </td>
+                <td class="auto-style3">
+                    <asp:Label ID="Label7" runat="server" Text="Trợ Giúp"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1" style="vertical-align: top">
+                    <asp:TreeView ID="TreeView1" runat="server">
+                    </asp:TreeView>
+                </br>
+                                                           
+                                        <asp:Label ID="lblMenu" runat="server" Text="Label"></asp:Label>                                                                          
+                </td>
+                <td colspan="5" style="vertical-align: top">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
