@@ -20,17 +20,24 @@
         .auto-style11 {
             height: 34px;
         }
+        .auto-style12 {
+            height: 30px;
+        }
+        .auto-style13 {
+            width: 401px;
+            height: 30px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-    <asp:GridView ID="griNhaPhanPhoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaADA" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNhaPhanPhoi_PageIndexChanging" OnSelectedIndexChanged="griNhaPhanPhoi_SelectedIndexChanged" PageSize="5">
+    <asp:GridView ID="griNhaPhanPhoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNhaPhanPhoi_PageIndexChanging" OnSelectedIndexChanged="griNhaPhanPhoi_SelectedIndexChanged" PageSize="5">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaADA" HeaderText="Mã ADA">
+            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -85,7 +92,7 @@
         <table class="auto-style5">
             <tr>
                 <td class="auto-style11">Mã ADA: 
-                    <asp:TextBox ID="txtMaADA" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMaNPP" runat="server"></asp:TextBox>
                 </td>
                 <td rowspan="3" class="auto-style8">
                     <asp:Image ID="imgAnhNPP" runat="server" style="margin-left: 0px; margin-top: 0px;" Height="16px" />
@@ -115,10 +122,10 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style7">Số CMND: 
+                <td class="auto-style12">Số CMND: 
                     <asp:TextBox ID="txtCMND" runat="server" Width="127px"></asp:TextBox>
                 </td>
-                <td class="auto-style8">Số điện thoại: 
+                <td class="auto-style13">Số điện thoại: 
                     <asp:TextBox ID="txtSoDT" runat="server"></asp:TextBox>
                 </td>
             </tr>
@@ -163,8 +170,8 @@
                     <asp:Button ID="btnThoat" runat="server" Text="Thoát" Width="8%" OnClick="btnThoat_Click" />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnChuyenMacDinh" runat="server" Text="Chuyển mặc định" Visible="False" Width="14%" />
-                    &nbsp;<asp:Button ID="btnChuyenTheoYeuCau" runat="server" Text="Chuyển theo yêu cầu" Visible="False" Width="16%" />
+                    <asp:Button ID="btnChuyenMacDinh" runat="server" Text="Chuyển mặc định" Visible="False" Width="14%" Height="26px" OnClick="btnChuyenMacDinh_Click" />
+                    &nbsp;<asp:Button ID="btnChuyenTheoYeuCau" runat="server" Text="Chuyển theo yêu cầu" Visible="False" Width="16%" OnClick="btnChuyenTheoYeuCau_Click" />
                 </td>
             </tr>
         </table>

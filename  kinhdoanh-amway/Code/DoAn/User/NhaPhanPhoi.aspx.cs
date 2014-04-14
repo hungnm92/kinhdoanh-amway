@@ -7,17 +7,22 @@ using System.Web.UI.WebControls;
 
 public partial class User_NhaPhanPhoi : System.Web.UI.Page
 {
-    lanhnt.NhaPhanPhoi npp = new lanhnt.NhaPhanPhoi();
-    lanhnt.CapDo cd = new lanhnt.CapDo();
-    lanhnt.Duong d = new lanhnt.Duong();
-    lanhnt.XaPhuong xp = new lanhnt.XaPhuong();
-    lanhnt.Huyen h = new lanhnt.Huyen();
-    lanhnt.Tinh t = new lanhnt.Tinh();
+    webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
+    webdoan.CapDo cd = new webdoan.CapDo();
+    webdoan.Duong d = new webdoan.Duong();
+    webdoan.XaPhuong xp = new webdoan.XaPhuong();
+    webdoan.Huyen h = new webdoan.Huyen();
+    webdoan.Tinh t = new webdoan.Tinh();
+    webdoan.NPPSuDung nppsd = new webdoan.NPPSuDung();
+    webdoan.KHSuDung khsd = new webdoan.KHSuDung();
+    webdoan.DaoTao dt = new webdoan.DaoTao();
+    webdoan.ChamSoc cs = new webdoan.ChamSoc();
+    webdoan.DoanhThu dthu = new webdoan.DoanhThu();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
         {
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo();//có tham số truyền vào.
+            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));//có tham số truyền vào.
             griNhaPhanPhoi.DataBind();
             droCapDo.DataSource = cd.DS();
             droCapDo.DataBind();
@@ -49,10 +54,10 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
-        npp.MaADA = griNhaPhanPhoi.SelectedValue.ToString();
+        npp.MaNPP = griNhaPhanPhoi.SelectedValue.ToString();
         npp.CT();
-        txtMaADA.Text = npp.MaADA;
-        txtMaADA.ReadOnly = true;
+        txtMaNPP.Text = npp.MaNPP;
+        txtMaNPP.ReadOnly = true;
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
         imgAnhNPP.ImageUrl = npp.AnhNPP;// m không biết lele.
@@ -98,7 +103,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     protected void griNhaPhanPhoi_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griNhaPhanPhoi.PageIndex = e.NewPageIndex;
-        griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo();// sửa có tham số truyền vào???.
+        griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));// sửa có tham số truyền vào???.
         griNhaPhanPhoi.DataBind();
     }
     protected void lbtThemMoi_Click(object sender, EventArgs e)
@@ -113,7 +118,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
-        txtMaADA.Text = "";
+        txtMaNPP.Text = "";
         txtHoNPP.Text = "";
         txtTenNPP.Text = "";
        // fileAnhNPP.HasFile = false;
@@ -127,7 +132,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     }
     protected void btnThem_Click(object sender, EventArgs e)
     {
-        bool bMaADA = string.IsNullOrWhiteSpace(txtMaADA.Text);
+        bool bMaADA = string.IsNullOrWhiteSpace(txtMaNPP.Text);
         bool bHoNPP = string.IsNullOrWhiteSpace(txtHoNPP.Text);
         bool bTenNPP = string.IsNullOrWhiteSpace(txtTenNPP.Text);
         bool bNgaySinh = string.IsNullOrWhiteSpace(txtNgaySinh.Text);
@@ -136,7 +141,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         bool bEmail = string.IsNullOrWhiteSpace(txtEmail.Text);
         if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == true)
         {
-            npp.MaADA = txtMaADA.Text;
+            npp.MaNPP = txtMaNPP.Text;
             npp.HoNPP = txtHoNPP.Text;
             npp.TenNPP = txtTenNPP.Text;
             npp.NgaySinh = txtNgaySinh.Text;//ngày sinh nên làm theo calendar.
@@ -185,31 +190,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     protected void btnXoa_Click(object sender, EventArgs e)
     {
         btnChuyenMacDinh.Visible = true;
-        btnChuyenTheoYeuCau.Visible = true;
-        //if(btnChuyenTheoYeuCau.Click = true)
-        npp.MaNPP = griNhaPhanPhoi.SelectedValue.ToString();
-        npp.Xoa_SDMH();
-        npp.Xoa_KHSDMH();
-        npp.Xoa_DoanhThu();
-        npp.Xoa_DaoTao();
-        npp.Xoa_CSKH();
-        //ghép các nhà phân phối cấp dưới lên nhà phân phối cấp trên: 1. ghép theo yêu cầu vợ chồng, 2 ghép theo mặc định cho nhà bảo trợ tuyến trên.
-        npp.Xoa();
-        lblTB.Visible = true;
-        lblTB.Text = npp.ThongBao;
-        txtMaADA.Text = "";
-        txtHoNPP.Text = "";
-        txtTenNPP.Text = "";
-        //fileAnhNPP.HasFile = false;
-        txtNgaySinh.Text = "";
-        txtCMND.Text = "";
-        txtSoDT.Text = "";
-        txtEmail.Text = "";
-        txtNgayKyThe.Text = "";
-        txtSoNhaNPPTT.Text = "";
-        txtSoNhaNPPLL.Text = "";
-        pnlChiTietNPP.Visible = false;
-        lbtThemMoi.Visible = true;
+        btnChuyenTheoYeuCau.Visible = true;       
     }
     protected void btnThoat_Click(object sender, EventArgs e)
     {
@@ -255,8 +236,10 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;*/
             npp.MaCD = int.Parse(droCapDo.SelectedValue);
             npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
-            lblTB.Visible = true;
-            lblTB.Text = npp.ThongBao;
+            griNhaPhanPhoi.DataSource = npp.DS();
+            griNhaPhanPhoi.DataBind();
+            pnlChiTietNPP.Visible = false;
+            lbtThemMoi.Visible = true;
         }
         else
             if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == false)
@@ -285,10 +268,12 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
                 npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
                 npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
                 npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;*/
-                    npp.MaCD = int.Parse(droCapDo.SelectedValue);
+                npp.MaCD = int.Parse(droCapDo.SelectedValue);
                 npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
-                lblTB.Visible = true;
-                lblTB.Text = npp.ThongBao;
+                griNhaPhanPhoi.DataSource = npp.DS();
+                griNhaPhanPhoi.DataBind();
+                pnlChiTietNPP.Visible = false;
+                lbtThemMoi.Visible = true;
             }
             else
             {
@@ -298,6 +283,68 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     }
     protected void btnChuyenMacDinh_Click(object sender, EventArgs e)
     {
-
+        npp.MaNPP = Session["MaNPP"].ToString();
+        //npp.MaNPP = Session["MaNPPClick"].ToString();
+        npp.CT();
+        //sửa mã nhà bảo trợ cho tất cả các nhà phân phối tuyến dưới nó. với mã nhà bảo trợ là mã nhà bảo trợ vừa tìm được trong npp.CT();
+        //string MaNBTMoi = npp.MaNBT;
+       //npp.Sua(); chắc sẽ có vòng lặp danh sách các nhà phân phối có mã bảo trợ là nó, rồi thay thế mã nhà bảo trợ.npp.DS_NhaPhanPhoi();
+        //while  ()
+        npp.MaNPP = griNhaPhanPhoi.SelectedValue.ToString();
+        nppsd.Xoa();
+        khsd.Xoa();
+        dthu.Xoa();
+        dt.Xoa();
+        cs.Xoa();
+        //ghép các nhà phân phối cấp dưới lên nhà phân phối cấp trên: 1. ghép theo yêu cầu vợ chồng, 2 ghép theo mặc định cho nhà bảo trợ tuyến trên.
+        npp.Xoa();
+        lblTB.Visible = true;
+        lblTB.Text = npp.ThongBao;
+        txtMaNPP.Text = "";
+        txtHoNPP.Text = "";
+        txtTenNPP.Text = "";
+        //fileAnhNPP.HasFile = false;
+        txtNgaySinh.Text = "";
+        txtCMND.Text = "";
+        txtSoDT.Text = "";
+        txtEmail.Text = "";
+        txtNgayKyThe.Text = "";
+        txtSoNhaNPPTT.Text = "";
+        txtSoNhaNPPLL.Text = "";
+        pnlChiTietNPP.Visible = false;
+        lbtThemMoi.Visible = true;
+    }
+    protected void btnChuyenTheoYeuCau_Click(object sender, EventArgs e)
+    {
+        npp.MaNPP = Session["MaNPP"].ToString();
+        //npp.MaNPP = Session["MaNPPClick"].ToString();
+        npp.CT();
+        //sửa mã nhà bảo trợ cho tất cả các nhà phân phối tuyến dưới nó. với mã nhà bảo trợ là mã nhà bảo trợ vừa tìm được trong npp.CT();
+        //string MaNBTMoi = npp.MaNBT;
+        //npp.Sua(); chắc sẽ có vòng lặp danh sách các nhà phân phối có mã bảo trợ là nó, rồi thay thế mã nhà bảo trợ.npp.DS_NhaPhanPhoi();
+        //while  ()NhaPhanPhoi_ChuyenNBT();
+        npp.MaNPP = griNhaPhanPhoi.SelectedValue.ToString();
+        nppsd.Xoa();
+        khsd.Xoa();
+        dthu.Xoa();
+        dt.Xoa();
+        cs.Xoa();
+        //ghép các nhà phân phối cấp dưới lên nhà phân phối cấp trên: 1. ghép theo yêu cầu vợ chồng, 2 ghép theo mặc định cho nhà bảo trợ tuyến trên.
+        npp.Xoa();
+        lblTB.Visible = true;
+        lblTB.Text = npp.ThongBao;
+        txtMaNPP.Text = "";
+        txtHoNPP.Text = "";
+        txtTenNPP.Text = "";
+        //fileAnhNPP.HasFile = false;
+        txtNgaySinh.Text = "";
+        txtCMND.Text = "";
+        txtSoDT.Text = "";
+        txtEmail.Text = "";
+        txtNgayKyThe.Text = "";
+        txtSoNhaNPPTT.Text = "";
+        txtSoNhaNPPLL.Text = "";
+        pnlChiTietNPP.Visible = false;
+        lbtThemMoi.Visible = true;
     }
 }

@@ -28,7 +28,7 @@
         <table style="width:100%;">
             <tr>
                 <td class="auto-style5">Mã ADA:
-                    <asp:TextBox ID="txtMaADA" runat="server" ReadOnly="True"></asp:TextBox>
+                    <asp:TextBox ID="txtMaNPP" runat="server" ReadOnly="True"></asp:TextBox>
                 </td>
                 <td class="auto-style9" rowspan="2">
                     <asp:Image ID="imgAnhNPP" runat="server" Width="85px" Height="30px" />

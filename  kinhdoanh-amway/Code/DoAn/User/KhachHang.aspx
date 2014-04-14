@@ -77,8 +77,8 @@
             <tr>
                 <td class="auto-style11">Mã số:
                     <asp:TextBox ID="txtMaKH" runat="server"></asp:TextBox>
-                    &nbsp;Mã ADA:
-                    <asp:TextBox ID="txtMaADA" runat="server"></asp:TextBox>
+                    Mã ADA:
+                    <asp:TextBox ID="txtMaNPP" runat="server"></asp:TextBox>
                 </td>
                 <td rowspan="3" class="auto-style8">
                     <asp:Image ID="imgAnhNPP" runat="server" style="margin-left: 0px; margin-top: 0px;" Height="16px" />

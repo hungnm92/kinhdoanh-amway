@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mã ADA:
-        <asp:TextBox ID="txtMaADA" runat="server" ReadOnly="True"></asp:TextBox>
+        <asp:TextBox ID="txtMaNPP" runat="server" ReadOnly="True"></asp:TextBox>
     </p>
     <p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mật khẩu cũ:
