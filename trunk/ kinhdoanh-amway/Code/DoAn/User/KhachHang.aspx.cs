@@ -7,17 +7,17 @@ using System.Web.UI.WebControls;
 
 public partial class User_KhachHang : System.Web.UI.Page
 {
-    lanhnt.KhachHang kh = new lanhnt.KhachHang();
-    lanhnt.Duong d = new lanhnt.Duong();
-    lanhnt.XaPhuong xp = new lanhnt.XaPhuong();
-    lanhnt.Huyen h = new lanhnt.Huyen();
-    lanhnt.Tinh t = new lanhnt.Tinh();
-    lanhnt.NhaPhanPhoi npp = new lanhnt.NhaPhanPhoi();
+    webdoan.KhachHang kh = new webdoan.KhachHang();
+    webdoan.Duong d = new webdoan.Duong();
+    webdoan.XaPhuong xp = new webdoan.XaPhuong();
+    webdoan.Huyen h = new webdoan.Huyen();
+    webdoan.Tinh t = new webdoan.Tinh();
+    webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
         {
-            griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai//có tham số truyền vào.
+            griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai(Session["MaNPP"].ToString(),bool.Parse(Session["Loai"].ToString()));//có tham số truyền vào.
             griKhachHang.DataBind();
             droDuongKHLL.DataSource = d.DS();
             droDuongKHLL.DataBind();
@@ -40,7 +40,7 @@ public partial class User_KhachHang : System.Web.UI.Page
     protected void griKhachHang_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griKhachHang.PageIndex = e.NewPageIndex;
-        griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai();// sửa có tham số truyền vào
+        griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai(Session["MaNPP"].ToString(), bool.Parse(Session["Loai"].ToString()));// sửa có tham số truyền vào
         griKhachHang.DataBind();
     }
     protected void griKhachHang_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,7 +56,7 @@ public partial class User_KhachHang : System.Web.UI.Page
         kh.MaKH = griKhachHang.SelectedValue.ToString();
         kh.CT();
         txtMaKH.Text = kh.MaKH;
-        txtMaKH.ReadOnly = true;
+        txtMaKH.Enabled = true;
         txtHoKH.Text = kh.HoKH;
         txtTenKH.Text = kh.TenKH;
         txtNgaySinh.Text = kh.NgaySinh;
@@ -109,7 +109,6 @@ public partial class User_KhachHang : System.Web.UI.Page
         txtMaKH.Text = "";
         txtHoKH.Text = "";
         txtTenKH.Text = "";
-        // fileAnhNPP.HasFile = false;
         txtNgaySinh.Text = "";
         txtCMND.Text = "";
         txtSoDT.Text = "";
@@ -148,7 +147,7 @@ public partial class User_KhachHang : System.Web.UI.Page
             kh.Them();
             lblTB.Visible = true;
             lblTB.Text = kh.ThongBao;
-            griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai();//có tham số truyền vào.
+            griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai(Session["MaNPP"].ToString(), bool.Parse(Session["Loai"].ToString()));//có tham số truyền vào.
             griKhachHang.DataBind();
             pnlChiTietKH.Visible = false;
             lbtThemMoi.Visible = true;
@@ -161,6 +160,8 @@ public partial class User_KhachHang : System.Web.UI.Page
     }
     protected void btnXoa_Click(object sender, EventArgs e)
     {
+        //khsd.Xoa();
+        //cs.Xoa(); xóa theo đệ quy, bởi vì xóa tất cả các bản ghi chứa nó.
         kh.MaKH = griKhachHang.SelectedValue.ToString();
         kh.Xoa();
         lblTB.Visible = true;
@@ -225,7 +226,7 @@ public partial class User_KhachHang : System.Web.UI.Page
     }
     protected void btnTroThanhNPP_Click(object sender, EventArgs e)
     {
-        bool bMaADA = string.IsNullOrWhiteSpace(txtMaADA.Text);
+        bool bMaNPP = string.IsNullOrWhiteSpace(txtMaNPP.Text);
         bool bHoNPP = string.IsNullOrWhiteSpace(txtHoKH.Text);
         bool bTenNPP = string.IsNullOrWhiteSpace(txtTenKH.Text);
         bool bNgaySinh = string.IsNullOrWhiteSpace(txtNgaySinh.Text);
@@ -234,7 +235,7 @@ public partial class User_KhachHang : System.Web.UI.Page
         bool bEmail = string.IsNullOrWhiteSpace(txtCMND.Text);
         if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == true)
         {
-            npp.MaADA = txtMaADA.Text;
+            npp.MaNPP = txtMaNPP.Text;
             npp.HoNPP = txtHoKH.Text;
             npp.TenNPP = txtTenKH.Text;
             npp.NgaySinh = txtNgaySinh.Text;//ngày sinh nên làm theo calendar.
@@ -264,10 +265,9 @@ public partial class User_KhachHang : System.Web.UI.Page
             lblTB.Visible = true;
             lblTB.Text = kh.ThongBao;
             txtMaKH.Text = "";
-            txtMaADA.Text = "";
+            txtMaNPP.Text = "";
             txtHoKH.Text = "";
             txtTenKH.Text = "";
-            //fileAnhNPP.HasFile = false;
             txtNgaySinh.Text = "";
             txtCMND.Text = "";
             txtSoDT.Text = "";
@@ -277,7 +277,7 @@ public partial class User_KhachHang : System.Web.UI.Page
             txtSoNhaKHLL.Text = "";
             lblTBKH.Visible = true;
             lblTBKH.Text = npp.ThongBao;
-            griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai();//có tham số truyền vào
+            griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai(Session["MaNPP"].ToString(), bool.Parse(Session["Loai"].ToString()));//có tham số truyền vào
             griKhachHang.DataBind();
             pnlChiTietKH.Visible = false;
             lbtThemMoi.Visible = true;

@@ -7,16 +7,33 @@ using System.Web.UI.WebControls;
 
 public partial class User_Default : System.Web.UI.Page
 {
-    lanhnt.NhaPhanPhoi npp = new lanhnt.NhaPhanPhoi();
-    lanhnt.CapDo cd = new lanhnt.CapDo();
-    lanhnt.Duong d = new lanhnt.Duong();
-    lanhnt.XaPhuong xp = new lanhnt.XaPhuong();
-    lanhnt.Huyen h = new lanhnt.Huyen();
-    lanhnt.Tinh t = new lanhnt.Tinh();
+    webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
+    webdoan.CapDo cd = new webdoan.CapDo();
+    webdoan.Duong d = new webdoan.Duong();
+    webdoan.XaPhuong xp = new webdoan.XaPhuong();
+    webdoan.Huyen h = new webdoan.Huyen();
+    webdoan.Tinh t = new webdoan.Tinh();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
         {
+            npp.MaNPP = Session["MaNPP"].ToString();
+            //npp.MaNPP = Session["MaNPPClick"].ToString();
+            npp.CT();
+            txtMaNPP.Text = npp.MaNPP;
+            txtHoNPP.Text = npp.HoNPP;
+            txtTenNPP.Text = npp.TenNPP;
+            txtNgaySinh.Text = npp.NgaySinh;
+            if (npp.GioiTinh == true)
+                rdoNam.Checked = true;
+            else
+                rdoNu.Checked = true;
+            txtCMND.Text = npp.CMND;
+            txtSoDT.Text = npp.SoDT;
+            txtEmail.Text = npp.Email;
+            txtNgayKyThe.Text = npp.NgayKyThe;
+            txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
+            txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
             droNBT.DataSource = npp.DS();
             droNBT.DataBind();
             droCapDo.DataSource = cd.DS();
@@ -49,11 +66,11 @@ public partial class User_Default : System.Web.UI.Page
         bool bEmail = string.IsNullOrWhiteSpace(txtEmail.Text);
         if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == true)
         {
-            npp.MaADA = //griSanPham.SelectedValue.ToString();//mã ADA của nhà phân phối đang login hoặc đang được click(sửa)
+            npp.MaNPP = Session["MaNPP"].ToString();
+            //npp.MaNPP = Session["MaNPPClick"].ToString();
             npp.HoNPP = txtHoNPP.Text;
             npp.TenNPP = txtTenNPP.Text;
             npp.NgaySinh = txtNgaySinh.Text;
-            //npp.GioiTinh = rdoNam.Checked;
             if(rdoNam.Checked == true)
                 npp.GioiTinh = true;
             else
@@ -85,8 +102,8 @@ public partial class User_Default : System.Web.UI.Page
         else
             if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == false)
             {
-                npp.MaADA =;//griSanPham.SelectedValue.ToString();//mã ADA của người đang login hoặc click
-                    //câu lệnh lấy mã NPP từ mã ADA
+                npp.MaNPP = Session["MaNPP"].ToString();
+               // npp.MaNPP = Session["MaNPPClick"].ToString();
                 npp.CT();
                 string temp = npp.AnhNPP.ToString();
                 npp.HoNPP = txtHoNPP.Text;
@@ -110,7 +127,7 @@ public partial class User_Default : System.Web.UI.Page
                 npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
                 npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
                 npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;*/
-                    npp.MaCD = int.Parse(droCapDo.SelectedValue);
+                npp.MaCD = int.Parse(droCapDo.SelectedValue);
                 npp.MaNBT = droNBT.SelectedValue;
                 npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
                 lblTB.Visible = true;
@@ -119,7 +136,7 @@ public partial class User_Default : System.Web.UI.Page
             else
             {
                 lblTB.Visible = true;
-                lblTB.Text = "CÁC VỊ TRÍ * LÀ CÁC BẮT BUỘC NHẬP.";
+                lblTB.Text = "Các vị trí * bắt buộc bạn phải nhập.";
             }
     }
 }

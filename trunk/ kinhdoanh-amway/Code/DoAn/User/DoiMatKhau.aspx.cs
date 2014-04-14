@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class User_DoiMatKhau : System.Web.UI.Page
 {
-    lanhnt.NhaPhanPhoi npp = new lanhnt.NhaPhanPhoi();
+    webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -19,7 +19,7 @@ public partial class User_DoiMatKhau : System.Web.UI.Page
         bool bMatKhauXN = string.IsNullOrWhiteSpace(txtMatKhauXN.Text);
         if (bMatKhauCu == false && bMatKhauMoi == false & bMatKhauXN == false)
         {
-            txtMaADA.Text = npp.MaADA;
+            txtMaNPP.Text = npp.MaNPP;
             npp.MatKhauCu = txtMatKhauCu.Text;
             npp.MatKhauMoi = txtMatKhauMoi.Text;
             npp.MatKhauXN = txtMatKhauXN.Text;
