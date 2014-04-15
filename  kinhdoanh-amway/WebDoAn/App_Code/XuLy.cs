@@ -349,6 +349,10 @@ namespace webdoan
         public string TenXaKHTT;
         public string TenHuyen;
         public string TenTinh;
+        public string MaHuyenKHLL;
+        public string MaHuyenKHTT;
+        public string MaTinhKHLL;
+        public string MaTinhKHTT;
         public void Them()
         {
             try
@@ -502,11 +506,15 @@ namespace webdoan
             public string SoNhaNPPLL;
             public string SoNhaNPPTT;
             public int MaCD;
-            public string HuyHieu;
+            public string TenCD;
             public string MaDuongNPPLL;
             public string MaDuongNPPTT;
             public string MaXaNPPLL;
             public string MaXaNPPTT;
+            public string MaHuyenNPPLL;
+            public string MaHuyenNPPTT;
+            public string MaTinhNPPLL;
+            public string MaTinhNPPTT;
             public string MaNBT;
             public string ThongBao;
             public string TenDuongNPPLL;
@@ -705,7 +713,7 @@ namespace webdoan
                     SoNhaNPPTT = DocDL["SoNhaNPPTT"].ToString();
                     SoNhaNPPLL = DocDL["SoNhaNPPLL"].ToString();
                     MaCD = int.Parse(DocDL["MaCD"].ToString());
-                    HuyHieu = DocDL["HuyHieu"].ToString();
+                    TenCD = DocDL["TenCD"].ToString();
                     MaDuongNPPLL = DocDL["MaDuongNPPLL"].ToString();
                     TenDuongNPPLL = DocDL["TenDuongNPPLL"].ToString();
                     MaDuongNPPTT = DocDL["MaDuongNPPTT"].ToString();
@@ -733,7 +741,7 @@ namespace webdoan
             }
             public DataTable NhaPhanPhoi_DS_TheoCapDo(string MaNPP, int MaCD)
             {
-                string SelectSQL = "SELECT MaNPP,HoNPP,TenNPP,NgaySinh,GioiTinh,AnhNPP,CMND,SoDT,Email,MatKhau,NgayKyThe,SoNhaNPPTT,SoNhaNPPLL,CD.MaCD, HuyHieu, NPP.MaDuongNPPLL,TenDuong AS TenDuongNPPLL, NPP.MaDuongNPPTT,TenDuong AS TenDuongNPPTT, NPP.MaXaNPPLL, TenXa AS TenXaNPPLL, NPP.MaXaNPPTT,TenXa AS TenXaNPPTT, MaNBT, HoNPP AS HoNBT, TenNPP AS TenNBT, TenHuyen, TenTinh FROM NhaPhanPhoi NPP, Duong D, XaPhuong XP, Huyen H, Tinh T, CapDo CD WHERE NPP.MaDuongNPPTT = D.MaDuong AND NPP.MaDuongNPPLL = D.MaDuong AND NPP.MaXaNPPLL = XP.MaXa AND NPP.MaXaNPPTT = XP.MaXa AND MaNBT = NPP.MaNPP AND XP.MaHuyen = H.MaHuyen AND H.MaTinh = T.MaTinh AND NPP.MaCD = CD.MaCD AND NPP.MaCD = @MaCD AND MaNPP = @MaNPP";
+                string SelectSQL = "SELECT MaNPP,HoNPP,TenNPP,NgaySinh,GioiTinh,AnhNPP,CMND,SoDT,Email,MatKhau,NgayKyThe,SoNhaNPPTT,SoNhaNPPLL,CD.MaCD, TenCD, NPP.MaDuongNPPLL,TenDuong AS TenDuongNPPLL, NPP.MaDuongNPPTT,TenDuong AS TenDuongNPPTT, NPP.MaXaNPPLL, TenXa AS TenXaNPPLL, NPP.MaXaNPPTT,TenXa AS TenXaNPPTT, MaNBT, HoNPP AS HoNBT, TenNPP AS TenNBT, TenHuyen, TenTinh FROM NhaPhanPhoi NPP, Duong D, XaPhuong XP, Huyen H, Tinh T, CapDo CD WHERE NPP.MaDuongNPPTT = D.MaDuong AND NPP.MaDuongNPPLL = D.MaDuong AND NPP.MaXaNPPLL = XP.MaXa AND NPP.MaXaNPPTT = XP.MaXa AND MaNBT = NPP.MaNPP AND XP.MaHuyen = H.MaHuyen AND H.MaTinh = T.MaTinh AND NPP.MaCD = CD.MaCD AND NPP.MaCD = @MaCD AND MaNPP = @MaNPP";
                 SqlConnection BaoVe = new SqlConnection("workstation  id=DoAn.mssql.somee.com;packet size=4096;user id=DoAn;pwd=12345678;data source=DoAn.mssql.somee.com;persist security info=False;initial catalog=DoAn");
                 DataTable ThungChua = new DataTable();
                 BaoVe.Open();

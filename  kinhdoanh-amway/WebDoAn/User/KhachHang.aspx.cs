@@ -204,10 +204,10 @@ public partial class User_KhachHang : System.Web.UI.Page
             kh.MaDuongKHLL = droDuongKHLL.SelectedValue;
             kh.MaXaKHTT = droXaKHTT.SelectedValue;
             kh.MaXaKHLL = droXaKHLL.SelectedValue;
-            /*npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
-            npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
-            npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
-            npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;*/
+            kh.MaHuyenKHTT = droHuyenKHTT.SelectedValue;
+            kh.MaHuyenKHLL = droHuyenKHLL.SelectedValue;
+            kh.MaTinhKHTT = droTinhKHTT.SelectedValue;
+            kh.MaTinhKHLL = droTinhKHLL.SelectedValue;
             kh.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
             lblTB.Visible = true;
             lblTB.Text = kh.ThongBao;
@@ -258,7 +258,7 @@ public partial class User_KhachHang : System.Web.UI.Page
             npp.MaDuongNPPLL = droDuongKHLL.SelectedValue;
             npp.MaXaNPPTT = droXaKHTT.SelectedValue;
             npp.MaXaNPPLL = droXaKHLL.SelectedValue;
-            npp.MaNBT = Session["MaNBT"].ToString();//mã người đang login hoặc click
+            npp.MaNBT = Session["MaNBT"].ToString();//mã người đang login hoặc click, chuyển Chăm sóc thành đào tạo, xóa chăm sóc, chuyển khsd thành nppsd, xóa khsd.
             npp.Them();
             kh.MaKH = griKhachHang.SelectedValue.ToString();
             kh.Xoa();

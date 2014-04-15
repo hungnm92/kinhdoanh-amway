@@ -230,10 +230,10 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.MaDuongNPPLL = droDuongNPPLL.SelectedValue;
             npp.MaXaNPPTT = droXaNPPTT.SelectedValue;
             npp.MaXaNPPLL = droXaNPPLL.SelectedValue;
-            /*npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
+            npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
             npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
             npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
-            npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;*/
+            npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
             npp.MaCD = int.Parse(droCapDo.SelectedValue);
             npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
             griNhaPhanPhoi.DataSource = npp.DS();
@@ -264,10 +264,10 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
                 npp.MaDuongNPPLL = droDuongNPPLL.SelectedValue;
                 npp.MaXaNPPTT = droXaNPPTT.SelectedValue;
                 npp.MaXaNPPLL = droXaNPPLL.SelectedValue;
-                 /*npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
+                npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
                 npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
                 npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
-                npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;*/
+                npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
                 npp.MaCD = int.Parse(droCapDo.SelectedValue);
                 npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
                 griNhaPhanPhoi.DataSource = npp.DS();
