@@ -4,10 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
+&nbsp;&nbsp;
         <asp:TextBox ID="txtMaNPP" runat="server" onblur='if (this.value == "") {this.value = "Mã ADA";}' onfocus='if (this.value == "Mã ADA") {this.value = "";}' value ='Mã ADA'></asp:TextBox>
-&nbsp;&nbsp;
-        <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "Mật khẩu";}' onfocus='if (this.value == "Mật khẩu") {this.value = "";}' value ='Mật khẩu'></asp:TextBox>
-&nbsp;&nbsp;
+&nbsp;
+        <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "Mật khẩu";}' onfocus='if (this.value == "Mật Khẩu") {this.value = "";}' value ='Mật khẩu'></asp:TextBox>
+        &nbsp;
         <asp:Button ID="btnDangNhap" runat="server" ForeColor="Red" OnClick="btnDangNhap_Click" Text="Login" />
     </p>
     <p>
