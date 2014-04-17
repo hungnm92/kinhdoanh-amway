@@ -7,10 +7,10 @@ using System.Web.UI.WebControls;
 
 public partial class User_SanPham_ChuaDung : System.Web.UI.Page
 {
-    lanhnt.NPPSuDung nppsd = new lanhnt.NPPSuDung();
-    lanhnt.KHSuDung khsd = new lanhnt.KHSuDung();
-    lanhnt.LoaiMH lmh = new lanhnt.LoaiMH();
-    lanhnt.MatHang mh = new lanhnt.MatHang();
+    webdoan.NPPSuDung nppsd = new webdoan.NPPSuDung();
+    webdoan.KHSuDung khsd = new webdoan.KHSuDung();
+    webdoan.LoaiMH lmh = new webdoan.LoaiMH();
+    webdoan.MatHang mh = new webdoan.MatHang();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["MaKH"].ToString() == null)//một gri nhưng 2 danh sách. không biết đúng không

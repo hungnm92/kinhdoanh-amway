@@ -7,10 +7,15 @@ using System.Web.UI.WebControls;
 
 public partial class User_DoiMatKhau : System.Web.UI.Page
 {
-    lanhnt.NhaPhanPhoi npp = new lanhnt.NhaPhanPhoi();
+    webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (IsPostBack == false)
+        {
+            Session["MaNPP"] = "2976313";
+            txtMaNPP.Text = Session["MaNPP"].ToString();
+            txtMaNPP.Enabled = false;
+        }
     }
     protected void btDoiMatKhau_Click(object sender, EventArgs e)
     {   
@@ -19,7 +24,7 @@ public partial class User_DoiMatKhau : System.Web.UI.Page
         bool bMatKhauXN = string.IsNullOrWhiteSpace(txtMatKhauXN.Text);
         if (bMatKhauCu == false && bMatKhauMoi == false & bMatKhauXN == false)
         {
-            txtMaADA.Text = npp.MaADA;
+            npp.MaNPP = txtMaNPP.Text;
             npp.MatKhauCu = txtMatKhauCu.Text;
             npp.MatKhauMoi = txtMatKhauMoi.Text;
             npp.MatKhauXN = txtMatKhauXN.Text;

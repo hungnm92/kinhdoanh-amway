@@ -7,8 +7,8 @@ using System.Web.UI.WebControls;
 
 public partial class User_ChuongTrinh_DaoTao : System.Web.UI.Page
 {
-    lanhnt.DaoTao dt = new lanhnt.DaoTao();
-    lanhnt.ChuongTrinh ct = new lanhnt.ChuongTrinh();
+    webdoan.DaoTao dt = new webdoan.DaoTao();
+    webdoan.ChuongTrinh ct = new webdoan.ChuongTrinh();
     protected void Page_Load(object sender, EventArgs e)
     {
         griChuongTrinhDaoTao.DataSource = dt.DS(Session["MaNPP"].ToString());

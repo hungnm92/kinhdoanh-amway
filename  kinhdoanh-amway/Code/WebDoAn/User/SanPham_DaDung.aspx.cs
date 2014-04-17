@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 
 public partial class User_SanPham_DaDung : System.Web.UI.Page
 {
-    lanhnt.NPPSuDung nppsd = new lanhnt.NPPSuDung();
-    lanhnt.KHSuDung khsd = new lanhnt.KHSuDung();
-    lanhnt.LoaiMH lmh = new lanhnt.LoaiMH();
+    webdoan.NPPSuDung nppsd = new webdoan.NPPSuDung();
+    webdoan.KHSuDung khsd = new webdoan.KHSuDung();
+    webdoan.LoaiMH lmh = new webdoan.LoaiMH();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["MaKH"].ToString() == null)//một gri nhưng 2 danh sách. không biết đúng không
@@ -35,7 +35,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
         lblTB.Visible = false;
         if (Session["MaKH"].ToString() == null)
         {
-            nppsd.MaNPPSD = int.Parse(griMatHangDaDung.SelectedValue.ToString());
+            nppsd.MaNPPSD = griMatHangDaDung.SelectedValue.ToString();
             nppsd.CT();
             txtMaMH.Text = nppsd.MaMH.ToString();
             txtMaMH.ReadOnly = true;
@@ -55,7 +55,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
         }
         else
         {
-            khsd.MaKHSD = int.Parse(griMatHangDaDung.SelectedValue.ToString());
+            khsd.MaKHSD = griMatHangDaDung.SelectedValue.ToString();
             khsd.CT();
             txtMaMH.Text = khsd.MaMH.ToString();
             txtMaMH.ReadOnly = true;
@@ -78,7 +78,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
     {
         if (Session["MaKH"].ToString() == null)// nếu không click khách hàng nào
         {
-            nppsd.MaNPPSD = int.Parse(griMatHangDaDung.SelectedValue.ToString());
+            nppsd.MaNPPSD = griMatHangDaDung.SelectedValue.ToString();
             nppsd.Xoa();
             lblTB.Visible = true;
             lblTB.Text = nppsd.ThongBao;
@@ -94,7 +94,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
         }
         else
         {
-            khsd.MaKHSD = int.Parse(griMatHangDaDung.SelectedValue.ToString());
+            khsd.MaKHSD = griMatHangDaDung.SelectedValue.ToString();
             khsd.Xoa();
             lblTB.Visible = true;
             lblTB.Text = khsd.ThongBao;
@@ -121,7 +121,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
                     nppsd.MinhHoa = true;
                 else
                     nppsd.MinhHoa = false;
-                nppsd.MaNPPSD = int.Parse(griMatHangDaDung.SelectedValue.ToString());
+                nppsd.MaNPPSD = griMatHangDaDung.SelectedValue.ToString();
                 nppsd.Sua();
                 griMatHangDaDung.DataSource = nppsd.MatHang_DaDung(Session["MaNPP"].ToString());// sửa có tham số truyền vào???.
                 griMatHangDaDung.DataBind();
@@ -135,7 +135,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
                     khsd.MinhHoa = true;
                 else
                     khsd.MinhHoa = false;
-                khsd.MaKHSD = int.Parse(griMatHangDaDung.SelectedValue.ToString());
+                khsd.MaKHSD = griMatHangDaDung.SelectedValue.ToString();
                 khsd.Sua();
                 griMatHangDaDung.DataSource = khsd.MatHang_DaDung(Session["MaNPP"].ToString(), Session["MaKH"].ToString());
                 griMatHangDaDung.DataBind();

@@ -7,8 +7,8 @@ using System.Web.UI.WebControls;
 
 public partial class User_ChuongTrinh_ChamSoc : System.Web.UI.Page
 {
-    lanhnt.ChamSoc cs = new lanhnt.ChamSoc();
-    lanhnt.ChuongTrinh ct = new lanhnt.ChuongTrinh();
+    webdoan.ChamSoc cs = new webdoan.ChamSoc();
+    webdoan.ChuongTrinh ct = new webdoan.ChuongTrinh();
     protected void Page_Load(object sender, EventArgs e)
     {
         griChuongTrinhChamSoc.DataSource = cs.DS(Session["MaNPP"].ToString(),Session["MaKH"].ToString());

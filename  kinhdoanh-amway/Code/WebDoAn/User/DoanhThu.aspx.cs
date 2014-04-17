@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class User_DoanhThu : System.Web.UI.Page
 {
-    lanhnt.DoanhThu dt = new lanhnt.DoanhThu();
+    webdoan.DoanhThu dt = new webdoan.DoanhThu();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)

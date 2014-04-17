@@ -32,32 +32,30 @@
                 <td class="auto-style2">
                     <input id="Text1" type="text" /><input id="Submit1" type="submit" value="submit" /></td>
                 <td class="auto-style3">
-                    <asp:Label ID="Label1" runat="server" Text="Trang chủ"></asp:Label>
+                    <asp:LinkButton ID="Label1" runat="server" Text="Trang chủ" PostBackUrl="~/User/TrangChu.aspx"></asp:LinkButton>
                 </td>
                 <td class="auto-style3">
-                    <asp:Label ID="Label2" runat="server" Text="Nhà Phân Phối"></asp:Label>
+                    <asp:LinkButton ID="Label2" runat="server" PostBackUrl ="~/User/NhaPhanPhoi.aspx" Text="Nhà Phân Phối"></asp:LinkButton>
                 </td>
                 <td class="auto-style3">
-                    <asp:Label ID="Label3" runat="server" Text="Khách Hàng"></asp:Label>
+                    <asp:LinkButton ID="Label3" runat="server" PostBackUrl ="~/User/KhachHang.aspx" Text="Khách Hàng"></asp:LinkButton>
                 </td>
                 <td class="auto-style3">
-                    <asp:Label ID="Label4" runat="server" Text="Sản Phẩm"></asp:Label>
+                    <asp:LinkButton ID="Label4" runat="server" PostBackUrl ="~/User/SanPham.aspx" Text="Sản Phẩm"></asp:LinkButton>
                 </td>
                 <td class="auto-style3">
-                    <asp:Label ID="Label5" runat="server" Text="Chương Trình"></asp:Label>
+                    <asp:LinkButton ID="Label5" runat="server" PostBackUrl ="~/User/SanPham_GoiY.aspx" Text="Gợi ý"></asp:LinkButton>
                 </td>
                 <td class="auto-style3">
-                    <asp:Label ID="Label6" runat="server" Text="Doanh Thu"></asp:Label>
+                    <asp:LinkButton ID="Label6" runat="server" PostBackUrl ="~/User/DoanhThu.aspx" Text="Đã dùng"></asp:LinkButton>
                 </td>
                 <td class="auto-style3">
-                    <asp:Label ID="Label7" runat="server" Text="Trợ Giúp"></asp:Label>
+                    <asp:LinkButton ID="Label7" runat="server" Text="Trợ Giúp"></asp:LinkButton>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style1" style="vertical-align: top">
-                    <asp:TreeView ID="TreeView1" runat="server">
-                    </asp:TreeView>
-                </br>
+                    </br>
                                                            
                                         <asp:Label ID="lblMenu" runat="server" Text="Label"></asp:Label>                                                                          
                 </td>

@@ -66,7 +66,7 @@
     <asp:LinkButton ID="lbtThemMoi" runat="server" Font-Bold="True" OnClick="lbtThemMoi_Click">Thêm mới.</asp:LinkButton>
 &nbsp;
     <asp:Label ID="lblTB" runat="server" Font-Italic="True" ForeColor="Red" Text="Thông báo." Visible="False"></asp:Label>
-&nbsp;<asp:Label ID="lblTBKH" runat="server" Font-Italic="True" ForeColor="Red" Text="Thông báo."></asp:Label>
+&nbsp;<asp:Label ID="lblTBKH" runat="server" Font-Italic="True" ForeColor="Red" Text="Thông báo." Visible="False"></asp:Label>
     <asp:Panel ID="pnlChiTietKH" runat="server" BorderStyle="Solid" Visible="False">
         <table style="width:100%;">
             <tr>
@@ -76,9 +76,9 @@
         <table class="auto-style5">
             <tr>
                 <td class="auto-style11">Mã số:
-                    <asp:TextBox ID="txtMaKH" runat="server"></asp:TextBox>
-                    &nbsp;Mã ADA:
-                    <asp:TextBox ID="txtMaADA" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMaKH" runat="server" Enabled="False"></asp:TextBox>
+                    &nbsp;<asp:Label ID="lblMaNPP" runat="server" Text="Mã ADA:"></asp:Label>
+                    &nbsp;<asp:TextBox ID="txtMaNPP" runat="server"></asp:TextBox>
                 </td>
                 <td rowspan="3" class="auto-style8">
                     <asp:Image ID="imgAnhNPP" runat="server" style="margin-left: 0px; margin-top: 0px;" Height="16px" />

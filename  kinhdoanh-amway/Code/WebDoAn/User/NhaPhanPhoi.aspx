@@ -31,13 +31,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-    <asp:GridView ID="griNhaPhanPhoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaADA" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNhaPhanPhoi_PageIndexChanging" OnSelectedIndexChanged="griNhaPhanPhoi_SelectedIndexChanged" PageSize="5">
+    <asp:GridView ID="griNhaPhanPhoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNhaPhanPhoi_PageIndexChanging" OnSelectedIndexChanged="griNhaPhanPhoi_SelectedIndexChanged" PageSize="5">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaADA" HeaderText="Mã ADA">
+            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -54,10 +54,6 @@
             <ItemStyle Wrap="False" />
             </asp:BoundField>
             <asp:BoundField DataField="TenCD" HeaderText="Cấp độ">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
-            </asp:BoundField>
-            <asp:BoundField DataField="HoTenNBT" HeaderText="Nhà bảo trợ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -92,7 +88,7 @@
         <table class="auto-style5">
             <tr>
                 <td class="auto-style11">Mã ADA: 
-                    <asp:TextBox ID="txtMaADA" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMaNPP" runat="server"></asp:TextBox>
                 </td>
                 <td rowspan="3" class="auto-style8">
                     <asp:Image ID="imgAnhNPP" runat="server" style="margin-left: 0px; margin-top: 0px;" Height="16px" />
