@@ -7,40 +7,46 @@ using System.Web.UI.WebControls;
 
 public partial class User_NhaPhanPhoi : System.Web.UI.Page
 {
-    lanhnt.NhaPhanPhoi npp = new lanhnt.NhaPhanPhoi();
-    lanhnt.CapDo cd = new lanhnt.CapDo();
-    lanhnt.Duong d = new lanhnt.Duong();
-    lanhnt.XaPhuong xp = new lanhnt.XaPhuong();
-    lanhnt.Huyen h = new lanhnt.Huyen();
-    lanhnt.Tinh t = new lanhnt.Tinh();
-    lanhnt.NPPSuDung nppsd = new lanhnt.NPPSuDung();
-    lanhnt.KHSuDung khsd = new lanhnt.KHSuDung();
-    lanhnt.DaoTao dt = new lanhnt.DaoTao();
-    lanhnt.ChamSoc cs = new lanhnt.ChamSoc();
-    lanhnt.DoanhThu dthu = new lanhnt.DoanhThu();
+    webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
+    webdoan.CapDo cd = new webdoan.CapDo();
+    webdoan.Duong dll = new webdoan.Duong();
+    webdoan.Duong dtt = new webdoan.Duong();
+    webdoan.XaPhuong xpll = new webdoan.XaPhuong();
+    webdoan.XaPhuong xptt = new webdoan.XaPhuong();
+    webdoan.Huyen hll = new webdoan.Huyen();
+    webdoan.Huyen htt = new webdoan.Huyen();
+    webdoan.Tinh tll = new webdoan.Tinh();
+    webdoan.Tinh ttt = new webdoan.Tinh();
+    webdoan.NPPSuDung nppsd = new webdoan.NPPSuDung();
+    webdoan.KHSuDung khsd = new webdoan.KHSuDung();
+    webdoan.DaoTao dt = new webdoan.DaoTao();
+    webdoan.ChamSoc cs = new webdoan.ChamSoc();
+    webdoan.DoanhThu dthu = new webdoan.DoanhThu();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
         {
+            Session["MaNPP"] = "2976313";
+            Session["MaCD"] = 1;
             griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));//có tham số truyền vào.
             griNhaPhanPhoi.DataBind();
             droCapDo.DataSource = cd.DS();
             droCapDo.DataBind();
-            droDuongNPPLL.DataSource = d.DS();
+            droDuongNPPLL.DataSource = dll.DS();
             droDuongNPPLL.DataBind();
-            droDuongNPPTT.DataSource = d.DS();
+            droDuongNPPTT.DataSource = dtt.DS();
             droDuongNPPTT.DataBind();
-            droXaNPPLL.DataSource = xp.DS();
+            droXaNPPLL.DataSource = xpll.DS();
             droXaNPPLL.DataBind();
-            droXaNPPTT.DataSource = xp.DS();
+            droXaNPPTT.DataSource = xptt.DS();
             droXaNPPTT.DataBind();
-            droHuyenNPPLL.DataSource = h.DS();
+            droHuyenNPPLL.DataSource = hll.DS();
             droHuyenNPPLL.DataBind();
-            droHuyenNPPTT.DataSource = h.DS();
+            droHuyenNPPTT.DataSource = htt.DS();
             droHuyenNPPTT.DataBind();
-            droTinhNPPLL.DataSource = t.DS();
+            droTinhNPPLL.DataSource = tll.DS();
             droTinhNPPLL.DataBind();
-            droTinhNPPTT.DataSource = t.DS();
+            droTinhNPPTT.DataSource = ttt.DS();
             droTinhNPPTT.DataBind();
         }
     }
@@ -54,51 +60,45 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
-        npp.MaADA = griNhaPhanPhoi.SelectedValue.ToString();
+        npp.MaNPP = griNhaPhanPhoi.SelectedValue.ToString();
         npp.CT();
-        txtMaADA.Text = npp.MaADA;
-        txtMaADA.ReadOnly = true;
+        txtMaNPP.Text = npp.MaNPP;
+        txtMaNPP.Enabled = false;
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
-        imgAnhNPP.ImageUrl = npp.AnhNPP;// m không biết lele.
-        cd.MaCD = npp.MaCD;
-        droCapDo.SelectedValue = cd.MaCD.ToString();
         txtNgaySinh.Text = npp.NgaySinh;
+        txtNgaySinh.Enabled = false;
         if (npp.GioiTinh == true)
-        {
             rdoNam.Checked = true;
-        }
         else
             rdoNu.Checked = true;
+        imgAnhNPP.ImageUrl = "~/src/emp/" + npp.AnhNPP;
         txtCMND.Text = npp.CMND;
+        txtCMND.Enabled = false;
         txtSoDT.Text = npp.SoDT;
         txtEmail.Text = npp.Email;
         txtNgayKyThe.Text = npp.NgayKyThe;
-        txtNgayKyThe.ReadOnly = true;
-        txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
+        txtNgayKyThe.Enabled = false;
         txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
-        d.MaDuong = npp.MaDuongNPPTT;
-        droDuongNPPTT.SelectedValue = d.MaDuong.ToString();
-        d.MaDuong = npp.MaDuongNPPLL;
-        droDuongNPPLL.SelectedValue = d.MaDuong.ToString();
-        xp.MaXa = npp.MaXaNPPTT;
-        droXaNPPTT.SelectedValue = xp.MaXa.ToString();
-        xp.MaXa = npp.MaXaNPPLL;
-        droXaNPPLL.SelectedValue = xp.MaXa.ToString();
-        xp.MaXa = npp.MaXaNPPTT;///////////// đúng không???.
-        h.MaHuyen = xp.MaHuyen;
-        droHuyenNPPTT.SelectedValue = h.MaHuyen.ToString();
-        xp.MaXa = npp.MaXaNPPLL;///////////// đúng không???.
-        h.MaHuyen = xp.MaHuyen;
-        droHuyenNPPLL.SelectedValue = h.MaHuyen.ToString();
-        xp.MaHuyen = npp.MaXaNPPTT;///////////// đúng không???.
-        h.MaHuyen = xp.MaHuyen;
-        t.MaTinh = h.MaTinh;
-        droHuyenNPPTT.SelectedValue = t.MaTinh.ToString();
-        xp.MaHuyen = npp.MaXaNPPLL;///////////// đúng không???.
-        h.MaHuyen = xp.MaHuyen;
-        t.MaTinh = h.MaTinh;
-        droHuyenNPPLL.SelectedValue = t.MaTinh.ToString();
+        txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
+        cd.MaCD = npp.MaCD;
+        droCapDo.SelectedValue = cd.MaCD.ToString();
+        dll.MaDuong = npp.MaDuongNPPLL;
+        droDuongNPPLL.SelectedValue = dll.MaDuong.ToString();
+        dtt.MaDuong = npp.MaDuongNPPTT;
+        droDuongNPPTT.SelectedValue = dtt.MaDuong.ToString();
+        xpll.MaXa = npp.MaXaNPPLL;
+        droXaNPPLL.SelectedValue = xpll.MaXa.ToString();
+        xptt.MaXa = npp.MaXaNPPTT;
+        droXaNPPTT.SelectedValue = xptt.MaXa.ToString();
+        hll.MaHuyen = npp.MaHuyenNPPLL;
+        droHuyenNPPLL.SelectedValue = hll.MaHuyen.ToString();
+        htt.MaHuyen = npp.MaHuyenNPPTT;
+        droHuyenNPPTT.SelectedValue = htt.MaHuyen.ToString();
+        tll.MaTinh = npp.MaTinhNPPLL;
+        droTinhNPPLL.SelectedValue = tll.MaTinh.ToString();
+        ttt.MaTinh = npp.MaTinhNPPTT;
+        droTinhNPPTT.SelectedValue = ttt.MaTinh.ToString();
     }
     protected void griNhaPhanPhoi_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -118,21 +118,25 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
-        txtMaADA.Text = "";
+        txtMaNPP.Text = "";
+        txtMaNPP.Enabled = true;
         txtHoNPP.Text = "";
         txtTenNPP.Text = "";
        // fileAnhNPP.HasFile = false;
         txtNgaySinh.Text = "";
+        txtNgaySinh.Enabled = true;
         txtCMND.Text = "";
+        txtCMND.Enabled = true;
         txtSoDT.Text = "";
         txtEmail.Text = "";
         txtNgayKyThe.Text = "";
+        txtNgayKyThe.Enabled = true;
         txtSoNhaNPPTT.Text = "";
         txtSoNhaNPPLL.Text = "";
     }
     protected void btnThem_Click(object sender, EventArgs e)
     {
-        bool bMaADA = string.IsNullOrWhiteSpace(txtMaADA.Text);
+        bool bMaADA = string.IsNullOrWhiteSpace(txtMaNPP.Text);
         bool bHoNPP = string.IsNullOrWhiteSpace(txtHoNPP.Text);
         bool bTenNPP = string.IsNullOrWhiteSpace(txtTenNPP.Text);
         bool bNgaySinh = string.IsNullOrWhiteSpace(txtNgaySinh.Text);
@@ -141,7 +145,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         bool bEmail = string.IsNullOrWhiteSpace(txtEmail.Text);
         if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == true)
         {
-            npp.MaADA = txtMaADA.Text;
+            npp.MaNPP = txtMaNPP.Text;
             npp.HoNPP = txtHoNPP.Text;
             npp.TenNPP = txtTenNPP.Text;
             npp.NgaySinh = txtNgaySinh.Text;//ngày sinh nên làm theo calendar.
@@ -230,10 +234,10 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.MaDuongNPPLL = droDuongNPPLL.SelectedValue;
             npp.MaXaNPPTT = droXaNPPTT.SelectedValue;
             npp.MaXaNPPLL = droXaNPPLL.SelectedValue;
-            /*npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
+            npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
             npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
             npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
-            npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;*/
+            npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
             npp.MaCD = int.Parse(droCapDo.SelectedValue);
             npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
             griNhaPhanPhoi.DataSource = npp.DS();
@@ -264,10 +268,10 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
                 npp.MaDuongNPPLL = droDuongNPPLL.SelectedValue;
                 npp.MaXaNPPTT = droXaNPPTT.SelectedValue;
                 npp.MaXaNPPLL = droXaNPPLL.SelectedValue;
-                 /*npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
+                npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
                 npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
                 npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
-                npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;*/
+                npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
                 npp.MaCD = int.Parse(droCapDo.SelectedValue);
                 npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
                 griNhaPhanPhoi.DataSource = npp.DS();
@@ -300,7 +304,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         npp.Xoa();
         lblTB.Visible = true;
         lblTB.Text = npp.ThongBao;
-        txtMaADA.Text = "";
+        txtMaNPP.Text = "";
         txtHoNPP.Text = "";
         txtTenNPP.Text = "";
         //fileAnhNPP.HasFile = false;
@@ -333,7 +337,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         npp.Xoa();
         lblTB.Visible = true;
         lblTB.Text = npp.ThongBao;
-        txtMaADA.Text = "";
+        txtMaNPP.Text = "";
         txtHoNPP.Text = "";
         txtTenNPP.Text = "";
         //fileAnhNPP.HasFile = false;

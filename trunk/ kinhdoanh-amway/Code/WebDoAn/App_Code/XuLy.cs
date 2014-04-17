@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Data;//chứa các đối tượng dataset.
 using System.Data.SqlClient;//chứa các đối tượng SqlConnection, SqlCommand.
-namespace lanhnt
+namespace webdoan
 {
     public class Tinh
     {
@@ -15,7 +15,7 @@ namespace lanhnt
         public string TenTinh;
         public DataTable DS()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlDataAdapter XeTai = new SqlDataAdapter("Tinh_DS", BaoVe);
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -31,7 +31,7 @@ namespace lanhnt
         public string MaTinh;
         public DataTable DS()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlDataAdapter XeTai = new SqlDataAdapter("Huyen_DS", BaoVe);
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -47,7 +47,7 @@ namespace lanhnt
         public string MaHuyen;
         public DataTable DS()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlDataAdapter XeTai = new SqlDataAdapter("XaPhuong_DS", BaoVe);
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -62,7 +62,7 @@ namespace lanhnt
         public string TenDuong;
         public DataTable DS()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlDataAdapter XeTai = new SqlDataAdapter("Duong_DS", BaoVe);
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -77,7 +77,7 @@ namespace lanhnt
         public string TenLMH;
         public DataTable DS()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlDataAdapter XeTai = new SqlDataAdapter("LoaiMH_DS", BaoVe);
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -89,12 +89,12 @@ namespace lanhnt
     public class CapDo
     {
         public int MaCD;
-        public string TieuChuan;
+        public string TenCD;
+        public string NoiDung;
         public string AnhCD;
-        public string HuyHieu;
         public DataTable DS()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlDataAdapter XeTai = new SqlDataAdapter("CapDo_DS", BaoVe);
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -116,7 +116,7 @@ namespace lanhnt
         public string ThongBao;
         public void CT()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlCommand Lenh = new SqlCommand("MatHang_CT", BaoVe);
             Lenh.CommandType = CommandType.StoredProcedure;
             SqlParameter ThamSo = new SqlParameter();
@@ -139,7 +139,7 @@ namespace lanhnt
         }
         public DataTable DS()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlDataAdapter XeTai = new SqlDataAdapter("MatHang_DS", BaoVe);
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -151,7 +151,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("MatHang_Them", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -176,7 +176,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("MatHang_Xoa", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -195,7 +195,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("MatHang_Sua", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -219,7 +219,7 @@ namespace lanhnt
         public DataTable MatHang_DS_TheoLoaiMH(int MaLMH)
         {
             string SelectSQL = "SELECT MaMH, MH.MaLMH, TenMH, TenLMH, ChiTiet, CachSuDung, AnhMH, Gia FROM MatHang MH, LoaiMH LMH WHERE MH.MaLMH = LMH.MaLMH AND MH.MaLMH = @MaLMH";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -242,8 +242,8 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
-                SqlCommand Lenh = new SqlCommand("NhanVien_Them", BaoVe);
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
+                SqlCommand Lenh = new SqlCommand("ChuongTrinh_Them", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
                 ThamSo = Lenh.Parameters.AddWithValue("@MaCT", MaCT);
@@ -262,7 +262,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=QuanLyCoDngVan");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("ChuongTrinh_Xoa", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -281,7 +281,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("ChuongTrinh_Sua", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -299,7 +299,7 @@ namespace lanhnt
         }
         public void CT()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlCommand Lenh = new SqlCommand("ChuongTrinh_CT", BaoVe);
             Lenh.CommandType = CommandType.StoredProcedure;
             SqlParameter ThamSo = new SqlParameter();
@@ -316,7 +316,7 @@ namespace lanhnt
         }
         public DataTable DS()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlDataAdapter XeTai = new SqlDataAdapter("ChuongTrinh_DS", BaoVe);
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -349,11 +349,15 @@ namespace lanhnt
         public string TenXaKHTT;
         public string TenHuyen;
         public string TenTinh;
+        public string MaHuyenKHLL;
+        public string MaHuyenKHTT;
+        public string MaTinhKHLL;
+        public string MaTinhKHTT;
         public void Them()
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("KhachHang_Them", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -384,7 +388,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("KhachHang_Xoa", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -403,7 +407,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("KhachHang_Sua", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -434,7 +438,7 @@ namespace lanhnt
         }
         public void CT()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlCommand Lenh = new SqlCommand("KhachHang_CT", BaoVe);
             Lenh.CommandType = CommandType.StoredProcedure;
             SqlParameter ThamSo = new SqlParameter();
@@ -469,8 +473,8 @@ namespace lanhnt
         }
         public DataTable KhachHang_DS_TheoTheLoai(string MaNPP, bool Loai)
         {
-            string SelectSQL = "SELECT KH.MaKH,HoKH,TenKH,KH.NgaySinh,KH.GioiTinh,KH.CMND,KH.SoDT,KH.Email,SoNhaKHTT, SoNhaKHLL,MaDuongKHLL,TenDuong AS TenDuongKHLL, MaDuongKHTT,TenDuong AS TenDuongKHTT, MaXaKHLL, TenXa AS TenXaKHLL, MaXaKHTT,TenXa AS TenXaKHTT, TenHuyen, TenTinh FROM KhachHang KH, Duong D, XaPhuong XP, Huyen H, Tinh T, KHSuDung,ChamSoc, NhaPhanPhoi NPP WHERE KH.MaDuongKHTT = D.MaDuong AND KH.MaDuongKHLL = D.MaDuong AND KH.MaXaKHLL = XP.MaXa AND KH.MaXaKHTT = XP.MaXa AND XP.MaHuyen = H.MaHuyen AND H.MaTinh = T.MaTinh  AND Loai = @Loai AND ((KHSuDung.MaKH = KH.MaKH AND KHSuDung.MaNPP = NPP.MaNPP AND KHSuDung.MaNPP = @MaNPP) OR (ChamSoc.MaKH = KH.MaKH AND ChamSoc.MaNPP = NPP.MaNPP AND ChamSoc.MaNPP = @MaNPP))";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            string SelectSQL = "SELECT KH.MaKH,HoKH +' '+ TenKH AS HoTenKH, KH.NgaySinh, KH.GioiTinh, KH.CMND, KH.SoDT, KH.Email, SoNhaKHTT+' '+DTT.TenDuong+' '+XTT.TenXa+' '+ HTT.TenHuyen+' '+ TTT.TenTinh AS DiaChiTT, SoNhaKHLL+' '+DLL.TenDuong+' '+XLL.TenXa+' '+ HLL.TenHuyen+' '+ TLL.TenTinh AS DiaChiLL, MaDuongKHLL, MaDuongKHTT, MaXaKHLL, MaXaKHTT,	XTT.MaHuyen AS MaHuyenKHTT, HTT.MaTinh AS MaTinhKHTT,XLL.MaHuyen AS MaHuyenKHLL, HLL.MaTinh AS MaTinhKHLL FROM KhachHang KH, XaPhuong XLL, XaPhuong XTT, Duong DLL, Duong DTT, Huyen HLL, Huyen HTT, Tinh TLL, Tinh TTT, NhaPhanPhoi NPP, KHSuDung, ChamSoc	WHERE KH.MaXaKHLL = XLL.MaXa AND KH.MaXaKHTT = XTT.MaXa AND KH.MaDuongKHLL = DLL.MaDuong AND KH.MaDuongKHTT = DTT.MaDuong AND XLL.MaHuyen = HLL.MaHuyen AND XTT.MaHuyen = HTT.MaHuyen AND HLL.MaTinh = TLL.MaTinh AND HTT.MaTinh = TTT.MaTinh AND Loai = @Loai AND ((KHSuDung.MaKH = KH.MaKH AND KHSuDung.MaNPP = NPP.MaNPP AND KHSuDung.MaNPP = @MaNPP) OR (ChamSoc.MaKH = KH.MaKH AND ChamSoc.MaNPP = NPP.MaNPP AND ChamSoc.MaNPP = @MaNPP))";
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -488,7 +492,6 @@ namespace lanhnt
     public class NhaPhanPhoi
         {
             public string MaNPP;
-            public string MaADA;
             public string HoNPP;
             public string TenNPP;
             public string HoTenNPP;
@@ -503,33 +506,28 @@ namespace lanhnt
             public string SoNhaNPPLL;
             public string SoNhaNPPTT;
             public int MaCD;
-            public string HuyHieu;
             public string MaDuongNPPLL;
             public string MaDuongNPPTT;
             public string MaXaNPPLL;
             public string MaXaNPPTT;
+            public string MaHuyenNPPLL;
+            public string MaHuyenNPPTT;
+            public string MaTinhNPPLL;
+            public string MaTinhNPPTT;
             public string MaNBT;
             public string ThongBao;
-            public string TenDuongNPPLL;
-            public string TenDuongNPPTT;
-            public string TenXaNPPLL;
-            public string TenXaNPPTT;
-            public string TenHuyen;
-            public string TenTinh;
             public string MatKhauCu;
             public string MatKhauMoi;
             public string MatKhauXN;
-            public string HoNBT;
-            public string TenNBT;
             public bool DangNhap()
             {
                 try
                 {
-                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                     SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_DangNhap", BaoVe);
                     Lenh.CommandType = CommandType.StoredProcedure;
                     SqlParameter ThamSo = new SqlParameter();
-                    ThamSo = Lenh.Parameters.AddWithValue("@MaADA", MaADA);
+                    ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
                     ThamSo = Lenh.Parameters.AddWithValue("@MatKhau", MatKhau);
                     SqlDataReader DocDL;
                     BaoVe.Open();
@@ -537,7 +535,6 @@ namespace lanhnt
                     if (DocDL.Read() == true)
                     {
                         MaNPP = DocDL["MaNPP"].ToString();
-                        MaADA = DocDL["MaADA"].ToString();
                         HoNPP = DocDL["HoNPP"].ToString();
                         TenNPP = DocDL["TenNPP"].ToString();
                         NgaySinh = DocDL["NgaySinh"].ToString();
@@ -575,11 +572,11 @@ namespace lanhnt
             {
                 try
                 {
-                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                     SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_DoiMatKhau", BaoVe);
                     Lenh.CommandType = CommandType.StoredProcedure;
                     SqlParameter ThamSo = new SqlParameter();
-                    ThamSo = Lenh.Parameters.AddWithValue("@MaADA", MaADA);
+                    ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
                     ThamSo = Lenh.Parameters.AddWithValue("@MatKhauCu", MatKhauCu);
                     ThamSo = Lenh.Parameters.AddWithValue("@MatKhauMoi", MatKhauMoi);
                     ThamSo = Lenh.Parameters.AddWithValue("@MatKhauXN", MatKhauXN);
@@ -597,11 +594,11 @@ namespace lanhnt
             {
                 try
                 {
-                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAnĐoAno");
+                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                     SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_Them", BaoVe);
                     Lenh.CommandType = CommandType.StoredProcedure;
                     SqlParameter ThamSo = new SqlParameter();
-                    ThamSo = Lenh.Parameters.AddWithValue("@MaADA", MaADA);
+                    ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
                     ThamSo = Lenh.Parameters.AddWithValue("@HoNPP", HoNPP);
                     ThamSo = Lenh.Parameters.AddWithValue("@TenNPP", TenNPP);
                     ThamSo = Lenh.Parameters.AddWithValue("@NgaySinh", NgaySinh);
@@ -632,7 +629,7 @@ namespace lanhnt
             {
                 try
                 {
-                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                     SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_Xoa", BaoVe);
                     Lenh.CommandType = CommandType.StoredProcedure;
                     SqlParameter ThamSo = new SqlParameter();
@@ -651,14 +648,13 @@ namespace lanhnt
             {
                 try
                 {
-                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                     SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_Sua", BaoVe);
                     Lenh.CommandType = CommandType.StoredProcedure;
                     SqlParameter ThamSo = new SqlParameter();
                     ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
                     ThamSo = Lenh.Parameters.AddWithValue("@HoNPP", HoNPP);
                     ThamSo = Lenh.Parameters.AddWithValue("@TenNPP", TenNPP);
-                    ThamSo = Lenh.Parameters.AddWithValue("@NgaySinh", NgaySinh);
                     ThamSo = Lenh.Parameters.AddWithValue("@GioiTinh", GioiTinh);
                     ThamSo = Lenh.Parameters.AddWithValue("@AnhNPP", AnhNPP);
                     ThamSo = Lenh.Parameters.AddWithValue("@SoDT", SoDT);
@@ -683,7 +679,7 @@ namespace lanhnt
             }
             public void CT()
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_CT", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -694,7 +690,6 @@ namespace lanhnt
                 if (DocDL.Read() == true)
                 {
                     MaNPP = DocDL["MaNPP"].ToString();
-                    MaADA = DocDL["MaADA"].ToString();
                     HoNPP = DocDL["HoNPP"].ToString();
                     TenNPP = DocDL["TenNPP"].ToString();
                     NgaySinh = DocDL["NgaySinh"].ToString();
@@ -708,25 +703,21 @@ namespace lanhnt
                     SoNhaNPPTT = DocDL["SoNhaNPPTT"].ToString();
                     SoNhaNPPLL = DocDL["SoNhaNPPLL"].ToString();
                     MaCD = int.Parse(DocDL["MaCD"].ToString());
-                    HuyHieu = DocDL["HuyHieu"].ToString();
-                    MaDuongNPPLL = DocDL["MaDuongNPPLL"].ToString();
-                    TenDuongNPPLL = DocDL["TenDuongNPPLL"].ToString();
+                    MaNBT = DocDL["MaNBT"].ToString();
+                    MaDuongNPPLL = DocDL["MaDuongNPPLL"].ToString();                    
                     MaDuongNPPTT = DocDL["MaDuongNPPTT"].ToString();
-                    TenDuongNPPTT = DocDL["TenDuongNPPTT"].ToString();
                     MaXaNPPLL = DocDL["MaXaNPPLL"].ToString();
-                    TenXaNPPLL = DocDL["TenXaNPPLL"].ToString();
                     MaXaNPPTT = DocDL["MaXaNPPTT"].ToString();
-                    TenXaNPPTT = DocDL["TenXaNPPTT"].ToString();
-                    HoNBT = DocDL["HoNBT"].ToString();
-                    TenNBT = DocDL["TenNBT"].ToString();
-                    TenHuyen = DocDL["TenHuyen"].ToString();
-                    TenTinh = DocDL["TenTinh"].ToString();
+                    MaHuyenNPPLL = DocDL["MaHuyenNPPLL"].ToString();
+                    MaHuyenNPPTT = DocDL["MaHuyenNPPTT"].ToString();
+                    MaTinhNPPLL = DocDL["MaTinhNPPLL"].ToString();
+                    MaTinhNPPTT = DocDL["MaTinhNPPTT"].ToString();
                 }
                 BaoVe.Close();
             }
             public DataTable DS()
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlDataAdapter XeTai = new SqlDataAdapter("NhaPhanPhoi_DS", BaoVe);
                 DataTable ThungChua = new DataTable();
                 BaoVe.Open();
@@ -736,8 +727,8 @@ namespace lanhnt
             }
             public DataTable NhaPhanPhoi_DS_TheoCapDo(string MaNPP, int MaCD)
             {
-                string SelectSQL = "SELECT MaNPP,MaADA,HoNPP,TenNPP,NgaySinh,GioiTinh,AnhNPP,CMND,SoDT,Email,MatKhau,NgayKyThe,SoNhaNPPTT,SoNhaNPPLL,CD.MaCD, HuyHieu, NPP.MaDuongNPPLL,TenDuong AS TenDuongNPPLL, NPP.MaDuongNPPTT,TenDuong AS TenDuongNPPTT, NPP.MaXaNPPLL, TenXa AS TenXaNPPLL, NPP.MaXaNPPTT,TenXa AS TenXaNPPTT, MaNBT, HoNPP AS HoNBT, TenNPP AS TenNBT, TenHuyen, TenTinh FROM NhaPhanPhoi NPP, Duong D, XaPhuong XP, Huyen H, Tinh T, CapDo CD WHERE NPP.MaDuongNPPTT = D.MaDuong AND NPP.MaDuongNPPLL = D.MaDuong AND NPP.MaXaNPPLL = XP.MaXa AND NPP.MaXaNPPTT = XP.MaXa AND MaNBT = NPP.MaNPP AND XP.MaHuyen = H.MaHuyen AND H.MaTinh = T.MaTinh AND NPP.MaCD = CD.MaCD AND NPP.MaCD = @MaCD AND MaNPP = @MaNPP";
-                SqlConnection BaoVe = new SqlConnection("workstation  id=DoAn.mssql.somee.com;packet size=4096;user id=DoAn;pwd=12345678;data source=DoAn.mssql.somee.com;persist security info=False;initial catalog=DoAn");
+                string SelectSQL = "SELECT MaNPP,HoNPP +' '+ TenNPP AS HoTenNPP, NgaySinh, GioiTinh, AnhNPP, CMND, SoDT, Email, MatKhau, NgayKyThe, SoNhaNPPTT+' '+DTT.TenDuong+' '+XTT.TenXa+' '+ HTT.TenHuyen+' '+ TTT.TenTinh AS DiaChiTT,SoNhaNPPLL+' '+DLL.TenDuong+' '+XLL.TenXa+' '+ HLL.TenHuyen+' '+ TLL.TenTinh AS DiaChiLL,CD.MaCD, TenCD, MaDuongNPPLL, MaDuongNPPTT, MaXaNPPLL, MaXaNPPTT, MaNBT, XTT.MaHuyen AS MaHuyenNPPTT, HTT.MaTinh AS MaTinhNPPTT,XLL.MaHuyen AS MaHuyenNPPLL, HLL.MaTinh AS MaTinhNPPLL	FROM NhaPhanPhoi NPP, CapDo CD, XaPhuong as XLL, XaPhuong as XTT, Duong as DLL, Duong as DTT, Huyen HLL, Huyen HTT, Tinh TLL, Tinh TTT	WHERE NPP.MaXaNPPLL = XLL.MaXa AND NPP.MaXaNPPTT = XTT.MaXa AND NPP.MaDuongNPPLL = DLL.MaDuong AND NPP.MaDuongNPPTT = DTT.MaDuong	AND XLL.MaHuyen = HLL.MaHuyen AND XTT.MaHuyen = HTT.MaHuyen AND HLL.MaTinh = TLL.MaTinh AND HTT.MaTinh = TTT.MaTinh AND NPP.MaCD = CD.MaCD AND NPP.MaCD = @MaCD AND MaNBT = @MaNPP";
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 DataTable ThungChua = new DataTable();
                 BaoVe.Open();
                 if (BaoVe.State == ConnectionState.Open)
@@ -753,8 +744,8 @@ namespace lanhnt
             }
             public DataTable DS_NhaPhanPhoi(string MaNBT)
             {
-                string SelectSQL = "SELECT MaNPP, MaADA, HoNPP + ''+ TenNPP AS HoTenNPP	FROM NhaPhanPhoi WHERE MaNBT = @MaNBT";
-                SqlConnection BaoVe = new SqlConnection("workstation  id=DoAn.mssql.somee.com;packet size=4096;user id=DoAn;pwd=12345678;data source=DoAn.mssql.somee.com;persist security info=False;initial catalog=DoAn");
+                string SelectSQL = "SELECT MaNPP, HoNPP + ''+ TenNPP AS HoTenNPP FROM NhaPhanPhoi WHERE MaNBT = @MaNBT";
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
                 DataTable ThungChua = new DataTable();
                 BaoVe.Open();
                 if (BaoVe.State == ConnectionState.Open)
@@ -778,7 +769,7 @@ namespace lanhnt
             {
                 try
                 {
-                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                     SqlCommand Lenh = new SqlCommand("DoanhThu_Them", BaoVe);
                     Lenh.CommandType = CommandType.StoredProcedure;
                     SqlParameter ThamSo = new SqlParameter();
@@ -799,7 +790,7 @@ namespace lanhnt
             {
                 try
                 {
-                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                     SqlCommand Lenh = new SqlCommand("DoanhThu_Xoa", BaoVe);
                     Lenh.CommandType = CommandType.StoredProcedure;
                     SqlParameter ThamSo = new SqlParameter();
@@ -819,7 +810,7 @@ namespace lanhnt
             {
                 try
                 {
-                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                     SqlCommand Lenh = new SqlCommand("DoanhThu_Sua", BaoVe);
                     Lenh.CommandType = CommandType.StoredProcedure;
                     SqlParameter ThamSo = new SqlParameter();
@@ -838,7 +829,7 @@ namespace lanhnt
             }
             public void CT()
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("DoanhThu_CT", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -858,7 +849,7 @@ namespace lanhnt
             public DataTable DS(string MaNPP)
             {
                 string SelectSQL = "SELECT ThangNam, Diem FROM DoanhThu	WHERE MaNPP = @MaNPP";
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 DataTable ThungChua = new DataTable();
                 BaoVe.Open();
                 if (BaoVe.State == ConnectionState.Open)
@@ -887,7 +878,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("ChamSoc_Them", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -909,7 +900,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("ChamSoc_Xoa", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -928,7 +919,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("ChamSoc_Sua", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -948,7 +939,7 @@ namespace lanhnt
         public DataTable DS(string MaNPP, string MaKH)
         {
             string SelectSQL = "SELECT MaCS, ThoiGian, SoLan,ThamDu,CS.MaCT, TenCT FROM ChamSoc CS,ChuongTrinh CT WHERE MaNPP = @MaNPP AND MaKH = @MaKH AND CS.MaCT = CT.MaCT";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -964,7 +955,7 @@ namespace lanhnt
         }
         public void CT()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlCommand Lenh = new SqlCommand("ChamSoc_CT", BaoVe);
             Lenh.CommandType = CommandType.StoredProcedure;
             SqlParameter ThamSo = new SqlParameter();
@@ -997,7 +988,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("DaoTao_Them", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -1017,7 +1008,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("DaoTao_Xoa", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -1036,7 +1027,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("DaoTao_Sua", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -1054,7 +1045,7 @@ namespace lanhnt
         }
         public void CT()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlCommand Lenh = new SqlCommand("DaoTao_CT", BaoVe);
             Lenh.CommandType = CommandType.StoredProcedure;
             SqlParameter ThamSo = new SqlParameter();
@@ -1075,7 +1066,7 @@ namespace lanhnt
         public DataTable DS(string MaNPP)
         {
             string SelectSQL = "SELECT MaDaoTao, NgayThamDu, CT.MaCT,TenCT, SoLan FROM DaoTao DT, ChuongTrinh CT WHERE MaNPP = @MaNPP AND DT.MaCT = CT.MaCT";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -1097,7 +1088,7 @@ namespace lanhnt
         public int SoLuong;
         public bool MinhHoa;
         public string MaNPP;
-        public int MaNPPSD;
+        public string MaNPPSD;
         public double Gia;
         public int MaLMH;
         public string CachSuDung;
@@ -1109,7 +1100,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("NPPSuDung_Them", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -1131,7 +1122,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("NPPSuDung_Xoa", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -1150,7 +1141,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("NPPSuDung_Sua", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -1170,7 +1161,7 @@ namespace lanhnt
         public DataTable DS(string MaNPP)
         {
             string SelectSQL = "SELECT MaNPPSD, ThoiGian, SoLuong, MinhHoa, NPPSuDung.MaMH, TenMH FROM NPPSuDung ,MatHang MH WHERE MaNPP = @MaNPP AND NPPSuDung.MaMH = MH.MaMH";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -1185,7 +1176,7 @@ namespace lanhnt
         }
         public void CT()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlCommand Lenh = new SqlCommand("NPPSuDung_CT", BaoVe);
             Lenh.CommandType = CommandType.StoredProcedure;
             SqlParameter ThamSo = new SqlParameter();
@@ -1195,7 +1186,7 @@ namespace lanhnt
             DocDL = Lenh.ExecuteReader();
             if (DocDL.Read() == true)
             {
-                MaNPPSD = int.Parse(DocDL["MaNPPSD"].ToString());
+                MaNPPSD = DocDL["MaNPPSD"].ToString();
                 MaMH = DocDL["MaMH"].ToString();
                 TenMH = DocDL["TenMH"].ToString();
                 MaNPP = DocDL["MaNPP"].ToString();
@@ -1213,7 +1204,7 @@ namespace lanhnt
         public DataTable MatHang_DaDung(string MaNPP)
         {
             string SelectSQL = "SELECT MH.MaMH, MH.MaLMH, TenMH, TenLMH, ChiTiet, CachSuDung, AnhMH, Gia, SoLuong, Minhhoa, NPPSuDung.MaNPPSD FROM MatHang MH, LoaiMH LMH, NPPSuDung WHERE MH.MaLMH = LMH.MaLMH AND NPPSuDung.MaMH = MH.MaMH AND NPPSuDung.MaNPP = @MaNPP";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -1229,7 +1220,7 @@ namespace lanhnt
         public DataTable MatHang_ChuaDung(string MaNPP)
         {
             string SelectSQL = "SELECT MH.MaMH, MH.MaLMH, TenMH, TenLMH, ChiTiet, CachSuDung, AnhMH, Gia FROM MatHang MH, LoaiMH LMH WHERE MH.MaMH not in (SELECT MH.MaMH	FROM MatHang MH, LoaiMH LMH, NPPSuDung	WHERE MH.MaLMH = LMH.MaLMH AND NPPSuDung.MaMH = MH.MaMH AND NPPSuDung.MaNPP = @MaNPP)";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -1250,7 +1241,7 @@ namespace lanhnt
         public string MaNPP;
         public int SoLuong;
         public bool MinhHoa;
-        public int MaKHSD;
+        public string MaKHSD;
         public string TenMH;
         public double Gia;
         public int MaLMH;
@@ -1264,7 +1255,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("KHSuDung_Them", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -1287,7 +1278,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("KHSuDung_Xoa", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -1306,7 +1297,7 @@ namespace lanhnt
         {
             try
             {
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
                 SqlCommand Lenh = new SqlCommand("KHSuDung_Sua", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
@@ -1325,7 +1316,7 @@ namespace lanhnt
         }
         public void CT()
         {
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             SqlCommand Lenh = new SqlCommand("KHSuDung_CT", BaoVe);
             Lenh.CommandType = CommandType.StoredProcedure;
             SqlParameter ThamSo = new SqlParameter();
@@ -1335,7 +1326,7 @@ namespace lanhnt
             DocDL = Lenh.ExecuteReader();
             if (DocDL.Read() == true)
             {
-                MaKHSD = int.Parse(DocDL["MaKHSD"].ToString());
+                MaKHSD = DocDL["MaKHSD"].ToString();
                 MaMH = DocDL["MaMH"].ToString();
                 TenMH = DocDL["TenMH"].ToString();
                 MaNPP = DocDL["MaNPP"].ToString();
@@ -1354,7 +1345,7 @@ namespace lanhnt
         public DataTable DS(string MaNPP, string MaKH)
         {
             string SelectSQL = "SELECT MaKHSD, ThoiGian, SoLuong, MinhHoa, KHSuDung.MaMH, TenMH FROM KHSuDung ,MatHang MH WHERE MaNPP = @MaNPP AND MaKH = @MaKH AND KHSuDung.MaMH = MH.MaMH";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -1371,7 +1362,7 @@ namespace lanhnt
         public DataTable MatHang_ChuaDung(string MaNPP, string MaKH)
         {
             string SelectSQL = "SELECT MH.MaMH, MH.MaLMH, TenMH, TenLMH, ChiTiet, CachSuDung, AnhMH, Gia FROM MatHang MH, LoaiMH LMH WHERE MH.MaMH not in (SELECT KHSuDung.MaMH FROM MatHang MH, LoaiMH LMH, KHSuDung WHERE MH.MaLMH = LMH.MaLMH AND KHSuDung.MaMH = MH.MaMH AND KHSuDung.MaKH = @MaKH AND KHSuDung.MaNPP = @MaNPP)";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -1388,7 +1379,7 @@ namespace lanhnt
         public DataTable MatHang_DaDung(string MaNPP, string MaKH)
         {
             string SelectSQL = "SELECT MH.MaMH, MH.MaLMH, TenMH, TenLMH, ChiTiet, CachSuDung, AnhMH, Gia, SoLuong, MinhHoa,KHSuDung.MaKHSD FROM MatHang MH, LoaiMH LMH, KHSuDung WHERE MH.MaLMH = LMH.MaLMH AND KHSuDung.MaMH = MH.MaMH AND KHSuDung.MaKH = @MaKH AND KHSuDung.MaNPP = @MaNPP";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -1455,45 +1446,45 @@ namespace lanhnt
             }
         }
     public class Menu
+    {
+        public string MaNPP;
+        public string HoTenNPP;
+        public string MaNBT;
+        public int MaCD;
+        public string AnhCD;
+        public string LoadMenu(string MaNBT, int level)
         {
-            public int MaNPP;
-            public string TenNPP;
-            public int MaNBT;
-
-            public string LoadMenu(int Me, int level)
+            string KetQua = string.Empty;
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;MultipleActiveResultSets=True;pooling=true;Max Pool Size=1000000;Connect Timeout=300000");
+            SqlCommand Lenh = new SqlCommand("MENU_DS", BaoVe);
+            Lenh.CommandType = CommandType.StoredProcedure;
+            SqlParameter ThamSo = new SqlParameter();
+            ThamSo = Lenh.Parameters.AddWithValue("@MaNBT", MaNBT);
+            SqlDataReader DocDL;
+            BaoVe.Open();
+            DocDL = Lenh.ExecuteReader();
+            if (!DocDL.HasRows)
             {
-                string KetQua = string.Empty;
-                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
-                SqlCommand Lenh = new SqlCommand("Menu_Lay", BaoVe);
-                Lenh.CommandType = CommandType.StoredProcedure;
-                SqlParameter ThamSo = new SqlParameter();
-                ThamSo = Lenh.Parameters.AddWithValue("@MaNBT", MaNBT);
-                SqlDataReader DocDL;
-                BaoVe.Open();
-                DocDL = Lenh.ExecuteReader();
-                if (!DocDL.HasRows)
-                {
-                    return KetQua;
-                }
-                else
-                {
-                    if (level == 0)
-                    {
-                        KetQua = "<ul id='nav'>";
-                    }
-                    else
-                        KetQua += "<ul>";
-                    while (DocDL.Read())
-                    {
-                        KetQua += "<li><a href='" + DocDL[""] + "'><span>" + DocDL["TenNPP"] + "</span></a>";
-                        KetQua += LoadMenu(Convert.ToInt32(DocDL["MaNPP"]), level + 1);
-                        KetQua += "</li>";
-                    }
-                    KetQua += "</ul>";
-                    BaoVe.Close();
-                }
                 return KetQua;
             }
-
+            else
+            {
+                if (level == 0)
+                {
+                    KetQua = "<ul id='nav'>";
+                }
+                else
+                    KetQua += "<ul>";
+                while (DocDL.Read())
+                {
+                    KetQua += "<li><img src='" + DocDL["AnhCD"] + "'><span>" + DocDL["HoTenNPP"] + "</span></a>";
+                    KetQua += LoadMenu(DocDL["MaNPP"].ToString(), level + 1);
+                    KetQua += "</li>";
+                }
+                KetQua += "</ul>";
+                BaoVe.Close();
+            }
+            return KetQua;
         }
+    }
     }

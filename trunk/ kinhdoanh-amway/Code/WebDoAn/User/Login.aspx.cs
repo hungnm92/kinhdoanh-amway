@@ -7,21 +7,20 @@ using System.Web.UI.WebControls;
 
 public partial class User_Login : System.Web.UI.Page
 {
-    lanhnt.NhaPhanPhoi npp = new lanhnt.NhaPhanPhoi();
+    webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
     protected void btnDangNhap_Click(object sender, EventArgs e)
     {
-        npp.MaADA  = txtMaADA.Text;
+        npp.MaNPP  = txtMaNPP.Text;
         npp.MatKhau = txtMatKhau.Text;
-        if ((string.IsNullOrWhiteSpace(txtMatKhau.Text) == false) && (string.IsNullOrWhiteSpace(txtMaADA.Text) == false))
+        if ((string.IsNullOrWhiteSpace(txtMatKhau.Text) == false) && (string.IsNullOrWhiteSpace(txtMaNPP.Text) == false))
         {
             if (npp.DangNhap() == true)
             {
-                Session["MaNPP"] = npp.MaNPP;
-                Session["MaADA"] = npp.MaADA;
+                Session["MaNPP"] = npp.MaNPP;         
                 Session["HoTenNPP"] = npp.HoNPP + " " + npp.TenNPP;
                 //Response.Redirect("~/TrangChu.aspx");
             }

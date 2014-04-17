@@ -28,7 +28,7 @@
         <table style="width:100%;">
             <tr>
                 <td class="auto-style5">Mã ADA:
-                    <asp:TextBox ID="txtMaADA" runat="server" ReadOnly="True"></asp:TextBox>
+                    <asp:TextBox ID="txtMaNPP" runat="server" ReadOnly="True" Enabled="False"></asp:TextBox>
                 </td>
                 <td class="auto-style9" rowspan="2">
                     <asp:Image ID="imgAnhNPP" runat="server" Width="85px" Height="30px" />
@@ -45,7 +45,7 @@
             </tr>
             <tr>
                 <td class="auto-style7">Ngày sinh:
-                    <asp:TextBox ID="txtNgaySinh" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtNgaySinh" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                 </td>
                 <td class="auto-style10">Giới tính:
                     <asp:RadioButton ID="rdoNam" runat="server" Checked="True" GroupName="GioiTinh" Text="Nam" />
@@ -66,7 +66,7 @@
                     <asp:TextBox ID="txtEmail" runat="server" style="width: 128px"></asp:TextBox>
                 </td>
                 <td class="auto-style10">Ngày ký thẻ:
-                    <asp:TextBox ID="txtNgayKyThe" runat="server" ReadOnly="True"></asp:TextBox>
+                    <asp:TextBox ID="txtNgayKyThe" runat="server" ReadOnly="True" Enabled="False"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -76,7 +76,7 @@
                     </asp:DropDownList>
                     <asp:DropDownList ID="droXaNPPTT" runat="server" DataTextField="TenXa" DataValueField="MaXa">
                     </asp:DropDownList>
-                    <asp:DropDownList ID="droHuyenNPPTT" runat="server" DataValueField="MaHuyen">
+                    <asp:DropDownList ID="droHuyenNPPTT" runat="server" DataValueField="MaHuyen" DataTextField="TenHuyen">
                     </asp:DropDownList>
                     <asp:DropDownList ID="droTinhNPPTT" runat="server" DataTextField="TenTinh" DataValueField="MaTinh">
                     </asp:DropDownList>

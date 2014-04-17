@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 
 public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
 {
-    lanhnt.ChuongTrinh ct = new lanhnt.ChuongTrinh();
-    lanhnt.DaoTao dt = new lanhnt.DaoTao();
-    lanhnt.ChamSoc cs = new lanhnt.ChamSoc();
+    webdoan.ChuongTrinh ct = new webdoan.ChuongTrinh();
+    webdoan.DaoTao dt = new webdoan.DaoTao();
+    webdoan.ChamSoc cs = new webdoan.ChamSoc();
     protected void Page_Load(object sender, EventArgs e)
     {
         griChuongTrinhSapDienRa.DataSource = ct.DS();

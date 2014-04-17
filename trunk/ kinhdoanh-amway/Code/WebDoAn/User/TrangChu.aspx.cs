@@ -7,21 +7,44 @@ using System.Web.UI.WebControls;
 
 public partial class User_Default : System.Web.UI.Page
 {
-    lanhnt.NhaPhanPhoi npp = new lanhnt.NhaPhanPhoi();
-    lanhnt.CapDo cd = new lanhnt.CapDo();
-    lanhnt.Duong d = new lanhnt.Duong();
-    lanhnt.XaPhuong xp = new lanhnt.XaPhuong();
-    lanhnt.Huyen h = new lanhnt.Huyen();
-    lanhnt.Tinh t = new lanhnt.Tinh();
+    webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
+    webdoan.CapDo cd = new webdoan.CapDo();
+    webdoan.Duong dll = new webdoan.Duong();
+    webdoan.Duong dtt = new webdoan.Duong();
+    webdoan.XaPhuong xpll = new webdoan.XaPhuong();
+    webdoan.XaPhuong xptt = new webdoan.XaPhuong();
+    webdoan.Huyen hll = new webdoan.Huyen();
+    webdoan.Huyen htt = new webdoan.Huyen();
+    webdoan.Tinh tll = new webdoan.Tinh();
+    webdoan.Tinh ttt = new webdoan.Tinh();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
         {
-            npp.MaNPP = Session["MaNPP"].ToString();//griSanPham.SelectedValue.ToString();//mã ADA của người đang login hoặc click
-            //câu lệnh lấy mã NPP từ mã ADA
+            droCapDo.DataSource = cd.DS();
+            droCapDo.DataBind();
+            droDuongNPPLL.DataSource = dll.DS();
+            droDuongNPPLL.DataBind();
+            droDuongNPPTT.DataSource = dtt.DS();
+            droDuongNPPTT.DataBind();
+            droXaNPPLL.DataSource = xpll.DS();
+            droXaNPPLL.DataBind();
+            droXaNPPTT.DataSource = xptt.DS();
+            droXaNPPTT.DataBind();
+            droHuyenNPPLL.DataSource = hll.DS();
+            droHuyenNPPLL.DataBind();
+            droHuyenNPPTT.DataSource = htt.DS();
+            droHuyenNPPTT.DataBind();
+            droTinhNPPLL.DataSource = tll.DS();
+            droTinhNPPLL.DataBind();
+            droTinhNPPTT.DataSource = ttt.DS();
+            droTinhNPPTT.DataBind();
+            droNBT.DataSource = npp.DS();
+            droNBT.DataBind();
+            npp.MaNPP = Session["MaNPP"].ToString();
             //npp.MaNPP = Session["MaNPPClick"].ToString();
             npp.CT();
-            txtMaADA.Text = npp.MaADA;
+            txtMaNPP.Text = npp.MaNPP;
             txtHoNPP.Text = npp.HoNPP;
             txtTenNPP.Text = npp.TenNPP;
             txtNgaySinh.Text = npp.NgaySinh;
@@ -29,32 +52,33 @@ public partial class User_Default : System.Web.UI.Page
                 rdoNam.Checked = true;
             else
                 rdoNu.Checked = true;
+            imgAnhNPP.ImageUrl = "~/src/emp/" + npp.AnhNPP;
             txtCMND.Text = npp.CMND;
             txtSoDT.Text = npp.SoDT;
             txtEmail.Text = npp.Email;
             txtNgayKyThe.Text = npp.NgayKyThe;
             txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
             txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
-            droNBT.DataSource = npp.DS();
-            droNBT.DataBind();
-            droCapDo.DataSource = cd.DS();
-            droCapDo.DataBind();
-            droDuongNPPLL.DataSource = d.DS();
-            droDuongNPPLL.DataBind();
-            droDuongNPPTT.DataSource = d.DS();
-            droDuongNPPTT.DataBind();
-            droXaNPPLL.DataSource = xp.DS();
-            droXaNPPLL.DataBind();
-            droXaNPPTT.DataSource = xp.DS();
-            droXaNPPTT.DataBind();
-            droHuyenNPPLL.DataSource = h.DS();
-            droHuyenNPPLL.DataBind();
-            droHuyenNPPTT.DataSource = h.DS();
-            droHuyenNPPTT.DataBind();
-            droTinhNPPLL.DataSource = t.DS();
-            droTinhNPPLL.DataBind();
-            droTinhNPPTT.DataSource = t.DS();
-            droTinhNPPTT.DataBind();
+            npp.MaNPP = npp.MaNBT;
+            droNBT.SelectedValue = npp.MaNPP.ToString();
+            cd.MaCD = npp.MaCD;
+            droCapDo.SelectedValue = cd.MaCD.ToString();
+            dll.MaDuong = npp.MaDuongNPPLL;
+            droDuongNPPLL.SelectedValue = dll.MaDuong.ToString();
+            dtt.MaDuong = npp.MaDuongNPPTT;
+            droDuongNPPTT.SelectedValue = dtt.MaDuong.ToString();
+            xpll.MaXa = npp.MaXaNPPLL;
+            droXaNPPLL.SelectedValue = xpll.MaXa.ToString();
+            xptt.MaXa = npp.MaXaNPPTT;
+            droXaNPPTT.SelectedValue = xptt.MaXa.ToString();
+            hll.MaHuyen = npp.MaHuyenNPPLL;
+            droHuyenNPPLL.SelectedValue = hll.MaHuyen.ToString();
+            htt.MaHuyen = npp.MaHuyenNPPTT;
+            droHuyenNPPTT.SelectedValue = htt.MaHuyen.ToString();
+            tll.MaTinh = npp.MaTinhNPPLL;
+            droTinhNPPLL.SelectedValue = tll.MaTinh.ToString();
+            ttt.MaTinh = npp.MaTinhNPPTT;
+            droTinhNPPTT.SelectedValue = ttt.MaTinh.ToString();
         }
     }
     protected void btnSua_Click(object sender, EventArgs e)
@@ -67,9 +91,10 @@ public partial class User_Default : System.Web.UI.Page
         bool bEmail = string.IsNullOrWhiteSpace(txtEmail.Text);
         if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == true)
         {
+            npp.MaNPP = Session["MaNPP"].ToString();
+            //npp.MaNPP = Session["MaNPPClick"].ToString();
             npp.HoNPP = txtHoNPP.Text;
             npp.TenNPP = txtTenNPP.Text;
-            npp.NgaySinh = txtNgaySinh.Text;
             if(rdoNam.Checked == true)
                 npp.GioiTinh = true;
             else
@@ -88,10 +113,10 @@ public partial class User_Default : System.Web.UI.Page
             npp.MaDuongNPPLL = droDuongNPPLL.SelectedValue;
             npp.MaXaNPPTT = droXaNPPTT.SelectedValue;
             npp.MaXaNPPLL = droXaNPPLL.SelectedValue;
-            /*npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
+            npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
             npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
             npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
-            npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;*/
+            npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
             npp.MaCD = int.Parse(droCapDo.SelectedValue);
             npp.MaNBT = droNBT.SelectedValue;
             npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
@@ -101,9 +126,8 @@ public partial class User_Default : System.Web.UI.Page
         else
             if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == false)
             {
-                npp.MaNPP = Session["MaNPP"].ToString();//griSanPham.SelectedValue.ToString();//mã ADA của người đang login hoặc click
-                    //câu lệnh lấy mã NPP từ mã ADA
-                npp.MaNPP = Session["MaNPPClick"].ToString();
+                npp.MaNPP = Session["MaNPP"].ToString();
+               // npp.MaNPP = Session["MaNPPClick"].ToString();
                 npp.CT();
                 string temp = npp.AnhNPP.ToString();
                 npp.HoNPP = txtHoNPP.Text;
@@ -123,10 +147,10 @@ public partial class User_Default : System.Web.UI.Page
                 npp.MaDuongNPPLL = droDuongNPPLL.SelectedValue;
                 npp.MaXaNPPTT = droXaNPPTT.SelectedValue;
                 npp.MaXaNPPLL = droXaNPPLL.SelectedValue;
-                 /*npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
+                npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
                 npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
                 npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
-                npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;*/
+                npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
                 npp.MaCD = int.Parse(droCapDo.SelectedValue);
                 npp.MaNBT = droNBT.SelectedValue;
                 npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???

@@ -7,10 +7,10 @@ using System.Web.UI.WebControls;
 
 public partial class User_SanPham : System.Web.UI.Page
 {
-    lanhnt.MatHang mh = new lanhnt.MatHang();
-    lanhnt.LoaiMH lmh = new lanhnt.LoaiMH();
-    lanhnt.NPPSuDung nppsd = new lanhnt.NPPSuDung();
-    lanhnt.KHSuDung khsd = new lanhnt.KHSuDung();
+    webdoan.MatHang mh = new webdoan.MatHang();
+    webdoan.LoaiMH lmh = new webdoan.LoaiMH();
+    webdoan.NPPSuDung nppsd = new webdoan.NPPSuDung();
+    webdoan.KHSuDung khsd = new webdoan.KHSuDung();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
