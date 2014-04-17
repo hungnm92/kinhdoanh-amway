@@ -120,55 +120,10 @@ Test Template Đồ Án
 </div>
 </div>
 <div id='main-wrapper'>
-<div class='main section' id='main'><div class='widget Blog' id='Blog1'>
 
-<div class='post'>
-<div class='inside'>
-<div class='intro'>
-<h3>
-<a href='#' title='HTML cơ bản: Các thẻ cơ bản phần 1'>Thông Tin</a>
-</h3>
-</div>
-<div class='post-body'>
-
-
-<div class='clear'></div></div>
-</div>
-<div class='post-footer'>
-<div class='post-footer-line-1'>
-<a class='jump-link' href='#' rel='nofollow'>Xem thêm</a>
-<span class='post-comment-link'>
-<a class='comment-link' href='#' onclick=''>1 ý kiến</a>
-</span>
-<span class='post-timestamp'>
-<span title='2012-12-28T19:07:00-08:00'>19:07</span>
-</span>
-</div>
-</div>
-</div>
-<div class='blog-pager' id='blog-pager'>
-<span id='blog-pager-older-link'>
-<a class='blog-pager-older-link' href='#' id='Blog1_blog-pager-older-link' title='Cũ hơn'>Cũ hơn</a>
-</span>
-<a class='home-link' href='#'>Trang chủ</a>
-</div>
-<div class='clear'></div>
-<div class='blog-feeds'>
-<div class='feed-links'>
-Đăng ký:
-<a class='feed-link' href='#' target='_blank' type='application/atom+xml'>Bài đăng (Atom)</a>
-</div>
-</div>
-</div></div>
 </div>
 <div id='sidebar-wrapper'>
 <div class='inside'>
-<div id='social_counters'>
-<a href='your twitter account' target='blank'><div class='twitter_count'>
-<span class='number'>1</span> followers</div></a>
-<a href='your rss link' target='blank'><div class='rss_count'>
-<span class='number'>1</span> subscribers</div></a>
-</div>
 <div class='clear'></div>
 <div class='sidebar section' id='sidebar'>
 <h2>Cây phân phối</h2>
@@ -193,7 +148,6 @@ Test Template Đồ Án
 </div>
 </div>
 <div class='clear'></div>
-</div>
 </div>
 </div>
 <div id='footer'>
