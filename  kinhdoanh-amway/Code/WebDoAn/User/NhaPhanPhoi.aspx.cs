@@ -168,11 +168,12 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.MaDuongNPPLL = droDuongNPPLL.SelectedValue;
             npp.MaXaNPPTT = droXaNPPTT.SelectedValue;
             npp.MaXaNPPLL = droXaNPPLL.SelectedValue;
+            Session["MaNBT"] = 2976313;
             npp.MaNBT = Session["MaNBT"].ToString();//mã người đang login hoặc click
             npp.Them();
             lblTB.Visible = true;
             lblTB.Text = npp.ThongBao;
-            griNhaPhanPhoi.DataSource = npp.DS();
+            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));// sửa có tham số truyền vào???.
             griNhaPhanPhoi.DataBind();
             pnlChiTietNPP.Visible = false;
             lbtThemMoi.Visible = true;

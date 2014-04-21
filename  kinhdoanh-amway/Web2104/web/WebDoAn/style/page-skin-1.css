@@ -74,7 +74,7 @@ p.description{font-family:'Roboto';font-weight:bold;font-size:22px;color:#006b03
 a.jump-link{color:#fff}
 .post-comment-link{display:block;float:right;padding:0 0 0 28px;background:url(../images/icon_comments.png) no-repeat left 50%}
 .post-comment-link a{color:#fff}
-.post-footer{background:#222;color:#FFF;height:50px;line-height:50px;padding:0 20px 0 30px}
+.post-footer{height:50px;line-height:50px;padding:0 20px 0 30px}
 #sidebar-wrapper{float:left;width:270px;margin:0 0 30px 0;background:#FFF url(../images/shadow_sidebar.png) no-repeat 50% bottom;padding:0 0 13px 0}
 #sidebar-wrapper .inside{background:url(../images/sidebar_bg.png) repeat-x left 1px;border:1px solid #e9e9e9;border-width:1px 1px 0 1px;padding:19px 19px 0 19px}
 #sidebar-wrapper .widget{padding-bottom:20px}
@@ -82,10 +82,11 @@ a.jump-link{color:#fff}
 #sidebar-wrapper li{padding:3px 6px;border-bottom:1px dotted #D8D8D8}
 #sidebar-wrapper li a{color:#666}
 #sidebar-wrapper li a:hover{color:#60b61c}
-#social_counters{display:block;margin-bottom:10px;float:left}
+/*#social_counters{display:block;margin-bottom:10px;float:left}
 #social_counters .twitter_count{background:url(../images/twitter_32.png) no-repeat left 50%;display:block;float:left;width:74px;height:32px;padding:0 0 0 40px}
 #social_counters .rss_count{background:url(../images/rss_32.png) no-repeat left 50%;display:block;float:left;width:74px;height:32px;padding:0 0 0 40px}
 #social_counters .number{display:block;clear:both;color:#222;font-size:18px;height:16px;padding:0;margin:0}
+*/
 #footer{font-size:11px;background:url(../images/footer_bg.jpg) repeat-x}
 .footer-wrap{width:960px;height:340px;margin:0 auto;padding:49px 0 0 0;background:url(../images/footer_content.jpg) repeat-x left top}
 #footer-nav{display:block;float:left;height:60px;line-height:60px;padding:0 0 0 30px;width:435px}
