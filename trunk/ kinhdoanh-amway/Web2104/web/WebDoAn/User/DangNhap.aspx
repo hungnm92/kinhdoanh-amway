@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DangNhap.aspx.cs" Inherits="User_DangNhap" %>
+<%@ Register assembly="GMaps" namespace="Subgurim.Controles" tagprefix="cc1" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -14,15 +15,14 @@ b[f] && b[f].csi && (a = Math.floor(b[f].csi().pageT), e && 0 < c && (e[k]("_tbn
 })(); b.tickAboveFold = function (d) { var a = 0; if (d.offsetParent) { do a += d.offsetTop; while (d = d.offsetParent) } d = a; 750 >= d && b[g].load[k]("aft") }; var l = !1; function m() { l || (l = !0, b[g].load[k]("firstScrollTime")) } b.addEventListener ? b.addEventListener("scroll", m, !1) : b.attachEvent("onscroll", m);
 })();</script>
 <meta content='blogger' name='generator'/>
-<link href='http://templatevietnam.blogspot.com/favicon.ico' rel='icon' type='../images/x-icon'/>
+<link href='../images/amway_logo.png' rel='icon' type='../images/x-icon'/>
 <link href='#' rel='canonical'/>
-<link rel="alternate" type="application/atom+xml" title="Test Template Blogger - Atom" href="#" />
-<link rel="alternate" type="application/rss+xml" title="Test Template Blogger - RSS" href="#" />
-<link rel="service.post" type="application/atom+xml" title="Test Template Blogger - Atom" href="http://www.blogger.com/feeds/3560386628283395839/posts/default" />
+<link rel="alternate" type="application/atom+xml" title="Test Template Amway - Atom" href="#" />
+<link rel="alternate" type="application/rss+xml" title="Test Template Amway - RSS" href="#" />
 <link rel="openid.server" href="#" />
 <link rel="openid.delegate" href="#" />
 <!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
-<title>Test Template Blogger</title>
+<title>Test Template Amway</title>
 <meta content='' name='description'/>
 <meta content='' name='keywords'/>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
@@ -119,8 +119,32 @@ Test Template Đồ Án
 <div class='jFlowNext'></div>
 </div>
 </div>
-<div id='main-wrapper'>
+<div id='main-wrapper'> 
+<script type='text/javascript'>
+    function initialize() {
+        var mapProp = {
+            center: new google.maps.LatLng(12.24876,109.156723, 0.194594,0.338173),
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    }
 
+    function loadScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false&callback=initialize";
+        document.body.appendChild(script);
+    }
+
+    window.onload = loadScript;
+</script>
+
+
+   
+<div class='post-footer'>
+     <div id="googleMap" style="width:500px;height:380px;"></div>
+</div>
 </div>
 <div id='sidebar-wrapper'>
 <div class='inside'>
@@ -134,6 +158,42 @@ Test Template Đồ Án
 <span dir='ltr'>(10)</span>
 </li>
 </ul>
+     <table>
+    <tr>
+        <td colspan="2">
+            </td>
+        <td rowspan="5">
+            <cc1:GMap ID="GMap1" runat="server" Height="500px" Width="600px" enableGoogleBar="true" enableContinuousZoom="true" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Street</td>
+        <td class="style3">
+            <asp:TextBox ID="txtStreet" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            City</td>
+        <td>
+            <asp:TextBox ID="txtCity" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Country</td>
+        <td>
+            <asp:TextBox ID="txtCountry" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <asp:Button ID="btnShowMap" runat="server" onclick="btnShowMap_Click" 
+                Text="ShowMap" />
+        </td>
+    </tr>
+</table>
 <div class='clear'></div>
 <span class='widget-item-control'>
 <span class='item-control blog-admin'>
@@ -159,8 +219,55 @@ Test Template Đồ Án
 <div class='copyright'>Copyright 2013 &#169; <a href='#' id='copyright'>Test Template Blogger</a> and <a href='#'>Blogger Templates</a></div>
 <div class='clear'></div>
 <div class='column section' id='leftcolumn'>
+    
 </div>
 <div class='column section' id='middlecolumn'>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+    var markers = [
+    <asp:Repeater ID="rptMarkers" runat="server">
+    <ItemTemplate>
+                {
+                    "title": '<%# Eval("Name") %>',
+                "lat": '<%# Eval("Latitude") %>',
+                "lng": '<%# Eval("Longitude") %>',
+                "description": '<%# Eval("Description") %>'
+            }
+</ItemTemplate>
+<SeparatorTemplate>
+    ,
+</SeparatorTemplate>
+</asp:Repeater>
+];
+</script>
+<script type="text/javascript">
+    window.onload = function () {
+        var mapOptions = {
+            center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var infoWindow = new google.maps.InfoWindow();
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+        for (i = 0; i < markers.length; i++) {
+            var data = markers[i]
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title
+            });
+            (function (marker, data) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    infoWindow.setContent(data.description);
+                    infoWindow.open(map, marker);
+                });
+            })(marker, data);
+        }
+    }
+</script>
+<div id="dvMap" style="width: 500px; height: 500px">
+</div> 
 </div>
 <div class='column section' id='rightcolumn'>
 </div>

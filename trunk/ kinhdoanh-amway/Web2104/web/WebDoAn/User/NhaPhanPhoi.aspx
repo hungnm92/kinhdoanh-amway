@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/MasterPage.master" AutoEventWireup="true" CodeFile="NhaPhanPhoi.aspx.cs" Inherits="User_NhaPhanPhoi" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .auto-style5 {
@@ -30,7 +33,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
     <asp:GridView ID="griNhaPhanPhoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNhaPhanPhoi_PageIndexChanging" OnSelectedIndexChanged="griNhaPhanPhoi_SelectedIndexChanged" PageSize="5">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -110,7 +113,8 @@
             </tr>
             <tr>
                 <td class="auto-style9">Ngày sinh: 
-                    <asp:TextBox ID="txtNgaySinh" runat="server"></asp:TextBox>
+                     <asp:TextBox ID="txtNgaySinh" runat="server"></asp:TextBox>
+                        <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtNgaySinh" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
                 <td class="auto-style10">Giới tính: 
                     <asp:RadioButton ID="rdoNam" runat="server" Checked="True" GroupName="GioiTinh" Text="Nam" />
