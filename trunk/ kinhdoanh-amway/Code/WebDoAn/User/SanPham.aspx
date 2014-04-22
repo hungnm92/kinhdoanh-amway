@@ -48,7 +48,7 @@
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="Giá" HeaderText="Giá">
+            <asp:BoundField DataField="Gia" HeaderText="Giá">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -77,7 +77,7 @@
         <table class="auto-style5">
             <tr>
                 <td class="auto-style15">Mã sản phẩm:
-                    <asp:TextBox ID="txtMaMH" runat="server" Enabled="False" Visible="False"></asp:TextBox>
+                    <asp:TextBox ID="txtMaMH" runat="server"></asp:TextBox>
                 </td>
                 <td class="auto-style13" rowspan="3">
                     <asp:Image ID="imgAnhMH" runat="server" />

@@ -40,9 +40,6 @@
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="HoTenNPP" HeaderText="Nhà phân phối">
-            <HeaderStyle Wrap="False" />
-            </asp:BoundField>
             <asp:BoundField DataField="DiaChiKHLL" HeaderText="Địa chỉ liên lạc">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
@@ -76,7 +73,7 @@
         <table class="auto-style5">
             <tr>
                 <td class="auto-style11">Mã số:
-                    <asp:TextBox ID="txtMaKH" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:TextBox ID="txtMaKH" runat="server" Enabled="False" ReadOnly="True" Width="71px"></asp:TextBox>
                     &nbsp;<asp:Label ID="lblMaNPP" runat="server" Text="Mã ADA:"></asp:Label>
                     &nbsp;<asp:TextBox ID="txtMaNPP" runat="server"></asp:TextBox>
                 </td>
@@ -93,7 +90,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style7">Cấp độ:
+                <td class="auto-style7">&nbsp;Loại:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblCapDo" runat="server" Text="Cấp độ: "></asp:Label>
                     <asp:DropDownList ID="droCapDo" runat="server" DataTextField="TenCD" DataValueField="MaCD">
                     </asp:DropDownList>
                 </td>
@@ -120,7 +117,7 @@
                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                 </td>
                 <td class="auto-style8">Ngày ký thẻ:
-                    <asp:TextBox ID="txtNgayKyThe" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtNgayKyThe" runat="server" Visible="False"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -152,7 +149,7 @@
                 <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnThem" runat="server" Text="Thêm" Width="8%" OnClick="btnThem_Click" />
                     <asp:Button ID="btnXoa" runat="server" Text="Xóa" Width="8%" OnClick="btnXoa_Click" />
                     <asp:Button ID="btnSua" runat="server" Text="Sửa" Width="8%" OnClick="btnSua_Click" />
-                    <asp:Button ID="btnTroThanhNPP" runat="server" Text="Trở thành NPP" Width="11%" OnClick="btnTroThanhNPP_Click" />
+                    <asp:Button ID="btnTroThanhNPP" runat="server" Text="Trở thành NPP" Width="11%" OnClick="btnTroThanhNPP_Click" Visible="False" />
                     <asp:Button ID="btnIn" runat="server" Text="In" Width="8%" />
                     <asp:Button ID="btnThoat" runat="server" Text="Thoát" Width="8%" OnClick="btnThoat_Click" />
                     <br />

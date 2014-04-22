@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 public partial class User_KhachHang : System.Web.UI.Page
 {
     webdoan.KhachHang kh = new webdoan.KhachHang();
+    webdoan.CapDo cd = new webdoan.CapDo();
     webdoan.Duong dll = new webdoan.Duong();
     webdoan.Duong dtt = new webdoan.Duong();
     webdoan.XaPhuong xpll = new webdoan.XaPhuong();
@@ -16,15 +17,21 @@ public partial class User_KhachHang : System.Web.UI.Page
     webdoan.Huyen htt = new webdoan.Huyen();
     webdoan.Tinh tll = new webdoan.Tinh();
     webdoan.Tinh ttt = new webdoan.Tinh();
+    webdoan.KHSuDung khsd = new webdoan.KHSuDung();
+    webdoan.NPPSuDung nppsd = new webdoan.NPPSuDung();
+    webdoan.ChamSoc cs = new webdoan.ChamSoc();
+    webdoan.DaoTao dt = new webdoan.DaoTao();
     webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
         {
-            Session["MaNPP"] = "2976313";
-            Session["Loai"] = true;
+            Session["MaNPP"] = 2976313;
+            Session["Loai"] = false;
             griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai(Session["MaNPP"].ToString(),bool.Parse(Session["Loai"].ToString()));//có tham số truyền vào.
             griKhachHang.DataBind();
+            droCapDo.DataSource = cd.DS();
+            droCapDo.DataBind();
             droDuongKHLL.DataSource = dll.DS();
             droDuongKHLL.DataBind();
             droDuongKHTT.DataSource = dtt.DS();
@@ -59,6 +66,8 @@ public partial class User_KhachHang : System.Web.UI.Page
         btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
+        btnTroThanhNPP.Visible = true;
+        txtNgayKyThe.Visible = true;
         kh.MaKH = griKhachHang.SelectedValue.ToString();
         kh.CT();
         txtMaKH.Text = kh.MaKH;
@@ -74,24 +83,24 @@ public partial class User_KhachHang : System.Web.UI.Page
             rdoNu.Checked = true;
         txtCMND.Text = kh.CMND;
         txtSoDT.Text = kh.SoDT;
-        txtCMND.Text = kh.Email;
+        txtEmail.Text = kh.Email;
         txtSoNhaKHTT.Text = kh.SoNhaKHTT;
         txtSoNhaKHLL.Text = kh.SoNhaKHLL;
-        dll.MaDuong = npp.MaDuongNPPLL;
+        dll.MaDuong = kh.MaDuongKHLL;
         droDuongKHLL.SelectedValue = dll.MaDuong.ToString();
-        dtt.MaDuong = npp.MaDuongNPPTT;
+        dtt.MaDuong = kh.MaDuongKHTT;
         droDuongKHTT.SelectedValue = dtt.MaDuong.ToString();
-        xpll.MaXa = npp.MaXaNPPLL;
+        xpll.MaXa = kh.MaXaKHLL;
         droXaKHLL.SelectedValue = xpll.MaXa.ToString();
-        xptt.MaXa = npp.MaXaNPPTT;
+        xptt.MaXa = kh.MaXaKHTT;
         droXaKHTT.SelectedValue = xptt.MaXa.ToString();
-        hll.MaHuyen = npp.MaHuyenNPPLL;
+        hll.MaHuyen = kh.MaHuyenKHLL;
         droHuyenKHLL.SelectedValue = hll.MaHuyen.ToString();
-        htt.MaHuyen = npp.MaHuyenNPPTT;
+        htt.MaHuyen = kh.MaHuyenKHTT;
         droHuyenKHTT.SelectedValue = htt.MaHuyen.ToString();
-        tll.MaTinh = npp.MaTinhNPPLL;
+        tll.MaTinh = kh.MaTinhKHLL;
         droTinhKHLL.SelectedValue = tll.MaTinh.ToString();
-        ttt.MaTinh = npp.MaTinhNPPTT;
+        ttt.MaTinh = kh.MaTinhKHTT;
         droTinhKHTT.SelectedValue = ttt.MaTinh.ToString();
     }
     protected void lbtThemMoi_Click(object sender, EventArgs e)
@@ -105,16 +114,19 @@ public partial class User_KhachHang : System.Web.UI.Page
         btnSua.Visible = false;
         btnIn.Visible = true;
         btnThoat.Visible = true;
+        btnTroThanhNPP.Visible = false;
         lblTB.Visible = false;
         txtMaKH.Text = "";
         lblMaNPP.Visible = false;
         txtMaNPP.Visible = false;
+        droCapDo.Visible = false;
+        txtNgayKyThe.Visible = false;
         txtHoKH.Text = "";
         txtTenKH.Text = "";
         txtNgaySinh.Text = "";
         txtCMND.Text = "";
         txtSoDT.Text = "";
-        txtCMND.Text = "";
+        txtEmail.Text = "";
         txtSoNhaKHTT.Text = "";
         txtSoNhaKHLL.Text = "";
         droDuongKHLL.SelectedValue = "0000";
@@ -128,7 +140,7 @@ public partial class User_KhachHang : System.Web.UI.Page
         bool bCMND = string.IsNullOrWhiteSpace(txtCMND.Text);
         bool bSoDT = string.IsNullOrWhiteSpace(txtSoDT.Text);
         bool bEmail = string.IsNullOrWhiteSpace(txtCMND.Text);
-        if (bHoKH == false && bTenKH == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == true)
+        if (bHoKH == false && bTenKH == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false)
         {
             kh.MaKH = txtMaKH.Text;
             kh.HoKH = txtHoKH.Text;
@@ -140,7 +152,7 @@ public partial class User_KhachHang : System.Web.UI.Page
                 kh.GioiTinh = false; 
             kh.CMND = txtCMND.Text;
             kh.SoDT = txtSoDT.Text;
-            kh.Email = txtCMND.Text;
+            kh.Email = txtEmail.Text;
             kh.SoNhaKHTT = txtSoNhaKHTT.Text;
             kh.SoNhaKHLL = txtSoNhaKHLL.Text;
             kh.MaDuongKHTT = droDuongKHTT.SelectedValue;
@@ -151,10 +163,13 @@ public partial class User_KhachHang : System.Web.UI.Page
             kh.Them();
             lblTB.Visible = true;
             lblTB.Text = kh.ThongBao;
+            Session["MaNPP"] = 2976313;
+            Session["Loai"] = false;
             griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai(Session["MaNPP"].ToString(), bool.Parse(Session["Loai"].ToString()));//có tham số truyền vào.
             griKhachHang.DataBind();
             pnlChiTietKH.Visible = false;
-            lbtThemMoi.Visible = true;
+            lbtThemMoi.Visible = true;//nếu thông báo là khách hàng này đã tồn tại thì không cho response, làm sao để lấy mã khách hàng vừa thêm thành công đến cho trang sản phẩm nếu sử dụng. Session["MaKH"] = griKhachHang.SelectedValue.ToString();
+            Response.Redirect("~/User/SanPham.aspx");
         }
         else
         {
@@ -164,10 +179,15 @@ public partial class User_KhachHang : System.Web.UI.Page
     }
     protected void btnXoa_Click(object sender, EventArgs e)
     {
-        //khsd.Xoa();
-        //cs.Xoa(); xóa theo đệ quy, bởi vì xóa tất cả các bản ghi chứa nó.
         kh.MaKH = griKhachHang.SelectedValue.ToString();
+        khsd.MaKH = kh.MaKH;
+        khsd.Xoa_DS();
+        cs.Xoa_DS();
         kh.Xoa();
+        Session["MaNPP"] = 2976313;
+        Session["Loai"] = false;
+        griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai(Session["MaNPP"].ToString(), bool.Parse(Session["Loai"].ToString()));//có tham số truyền vào.
+        griKhachHang.DataBind();
         lblTB.Visible = true;
         lblTB.Text = kh.ThongBao;
         txtMaKH.Text = "";
@@ -201,7 +221,7 @@ public partial class User_KhachHang : System.Web.UI.Page
                 kh.GioiTinh = false;
             kh.CMND = txtCMND.Text;
             kh.SoDT = txtSoDT.Text;
-            kh.Email = txtCMND.Text;
+            kh.Email = txtEmail.Text;
             kh.SoNhaKHTT = txtSoNhaKHTT.Text;
             kh.SoNhaKHLL = txtSoNhaKHLL.Text;
             kh.MaDuongKHTT = droDuongKHTT.SelectedValue;
@@ -215,6 +235,12 @@ public partial class User_KhachHang : System.Web.UI.Page
             kh.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
             lblTB.Visible = true;
             lblTB.Text = kh.ThongBao;
+            Session["MaNPP"] = 2976313;
+            Session["Loai"] = false;
+            griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai(Session["MaNPP"].ToString(), bool.Parse(Session["Loai"].ToString()));//có tham số truyền vào.
+            griKhachHang.DataBind();
+            pnlChiTietKH.Visible = false;
+            lbtThemMoi.Visible = true;
         }
         else
         {
@@ -236,8 +262,10 @@ public partial class User_KhachHang : System.Web.UI.Page
         bool bNgaySinh = string.IsNullOrWhiteSpace(txtNgaySinh.Text);
         bool bCMND = string.IsNullOrWhiteSpace(txtCMND.Text);
         bool bSoDT = string.IsNullOrWhiteSpace(txtSoDT.Text);
-        bool bEmail = string.IsNullOrWhiteSpace(txtCMND.Text);
-        if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == true)
+        bool bEmail = string.IsNullOrWhiteSpace(txtEmail.Text);
+        bool bNgayKyThe = string.IsNullOrWhiteSpace(txtNgayKyThe.Text);
+        if (bMaNPP == false && bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false
+           && bNgayKyThe == false && fileAnhNPP.HasFile == true)
         {
             npp.MaNPP = txtMaNPP.Text;
             npp.HoNPP = txtHoKH.Text;
@@ -254,7 +282,8 @@ public partial class User_KhachHang : System.Web.UI.Page
             npp.AnhNPP = fileAnhNPP.FileName;
             npp.CMND = txtCMND.Text;
             npp.SoDT = txtSoDT.Text;
-            npp.Email = txtCMND.Text;
+            npp.Email = txtEmail.Text;
+            npp.NgayKyThe = txtNgayKyThe.Text;
             npp.SoNhaNPPTT = txtSoNhaKHTT.Text;
             npp.SoNhaNPPLL = txtSoNhaKHLL.Text;
             npp.MaCD = int.Parse(droCapDo.SelectedValue);
@@ -262,12 +291,36 @@ public partial class User_KhachHang : System.Web.UI.Page
             npp.MaDuongNPPLL = droDuongKHLL.SelectedValue;
             npp.MaXaNPPTT = droXaKHTT.SelectedValue;
             npp.MaXaNPPLL = droXaKHLL.SelectedValue;
-            npp.MaNBT = Session["MaNBT"].ToString();//mã người đang login hoặc click, chuyển Chăm sóc thành đào tạo, xóa chăm sóc, chuyển khsd thành nppsd, xóa khsd.
-            npp.Them();
+            Session["MaNPP"] = 2976313;
+            npp.MaNBT = Session["MaNPP"].ToString();//mã người đang login hoặc click, chuyển Chăm sóc thành đào tạo, xóa chăm sóc, chuyển khsd thành nppsd, xóa khsd.
+            npp.Them();// nếu thành công mới làm những cái dưới.
+            kh.MaKH = griKhachHang.SelectedValue.ToString();
+            while (cs.SL_ChamSoc(kh.MaKH) > 0)
+            {
+                cs.DS_KH(kh.MaKH);
+                cs.CT();
+                dt.MaCT = cs.MaCT;
+                dt.NgayThamDu = cs.ThoiGian;
+                dt.MaNPP = txtMaNPP.ToString();
+                dt.Them();
+                cs.Xoa();
+            };
+            while (khsd.SL_KHSuDung(kh.MaKH) > 0)
+            {
+                khsd.DS_KH(kh.MaKH);
+                khsd.CT();
+                nppsd.MaMH = khsd.MaMH;
+                nppsd.MaNPP = txtMaNPP.ToString();
+                nppsd.ThoiGian = khsd.ThoiGian;
+                nppsd.SoLuong = khsd.SoLuong;
+                nppsd.MinhHoa = khsd.MinhHoa;
+                nppsd.Them();
+                khsd.Xoa();
+            };
             kh.MaKH = griKhachHang.SelectedValue.ToString();
             kh.Xoa();
             lblTB.Visible = true;
-            lblTB.Text = kh.ThongBao;
+            lblTB.Text = npp.ThongBao;
             txtMaKH.Text = "";
             txtMaNPP.Text = "";
             txtHoKH.Text = "";
@@ -280,7 +333,8 @@ public partial class User_KhachHang : System.Web.UI.Page
             txtSoNhaKHTT.Text = "";
             txtSoNhaKHLL.Text = "";
             lblTBKH.Visible = true;
-            lblTBKH.Text = npp.ThongBao;
+            lblTBKH.Text = kh.ThongBao;
+            Session["Loai"] = false;
             griKhachHang.DataSource = kh.KhachHang_DS_TheoTheLoai(Session["MaNPP"].ToString(), bool.Parse(Session["Loai"].ToString()));//có tham số truyền vào
             griKhachHang.DataBind();
             pnlChiTietKH.Visible = false;

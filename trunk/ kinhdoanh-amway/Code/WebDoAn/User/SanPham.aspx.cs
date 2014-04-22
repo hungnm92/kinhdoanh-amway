@@ -15,6 +15,7 @@ public partial class User_SanPham : System.Web.UI.Page
     {
         if (IsPostBack == false)
         {
+            Session["MaLMH"] = 1;
             griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));//có tham số truyền vào
             griMatHang.DataBind();
             droLoaiMH.DataSource = lmh.DS();
@@ -32,10 +33,13 @@ public partial class User_SanPham : System.Web.UI.Page
         btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
+        btnSuDung.Visible = true;
+        txtSoLuong.Visible = true;
+        chkMinhHoa.Visible = true;
         mh.MaMH = griMatHang.SelectedValue.ToString();
         mh.CT();
         txtMaMH.Text = mh.MaMH.ToString();
-        txtMaMH.Enabled = true;
+        txtMaMH.Enabled = false;
         txtTenMH.Text = mh.TenMH;
         txtGia.Text = mh.Gia.ToString();
         txtChiTiet.Text = mh.ChiTiet;
@@ -63,7 +67,9 @@ public partial class User_SanPham : System.Web.UI.Page
         btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
-        txtMaMH.Enabled = true;
+        btnSuDung.Visible = false;
+        txtSoLuong.Visible = false;
+        chkMinhHoa.Visible = false;
         txtMaMH.Text = "";
         txtTenMH.Text = "";
         txtGia.Text = "";
@@ -200,7 +206,7 @@ public partial class User_SanPham : System.Web.UI.Page
             nppsd.MaNPP = Session["MaNPP"].ToString();
             nppsd.SoLuong = int.Parse(txtSoLuong.Text);
             if (chkMinhHoa.Checked == true)
-                nppsd.MinhHoa = true;
+                nppsd.MinhHoa = true;//thiếu thời gian sử dụng
             else
                 nppsd.MinhHoa = false;
             nppsd.Them();
@@ -216,7 +222,7 @@ public partial class User_SanPham : System.Web.UI.Page
             if (chkMinhHoa.Checked == true)
                 khsd.MinhHoa = true;
             else
-                khsd.MinhHoa = false;
+                khsd.MinhHoa = false;//thiếu thời gian sử dụng
             khsd.Them();
             lblTB.Visible = true;
             lblTB.Text = khsd.ThongBao;
