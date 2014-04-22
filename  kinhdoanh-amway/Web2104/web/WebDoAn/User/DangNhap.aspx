@@ -43,11 +43,10 @@ b[f] && b[f].csi && (a = Math.floor(b[f].csi().pageT), e && 0 < c && (e[k]("_tbn
 <div class='section' id='top_nav'><div class='widget PageList' id='PageList1'>
 <div class='widget-content'>
 <ul>
-<li class='selected'><a href='#'>Trang chủ</a></li>
-<li><a href='#'>Xin chào: </a></li>
+<li class='selected'></li>
 <li>       <asp:Button ID="btnDangNhap" runat="server" ForeColor="Red" OnClick="btnDangNhap_Click" Text="Login" />
     </li>
-<li>       <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "Mật khẩu";}' onfocus='if (this.value == "Mật khẩu") {this.value = "";}; TextMode="Password"' value ='Mật khẩu' ></asp:TextBox>
+<li>       <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "Mật khẩu";}' onfocus='if (this.value == "Mật khẩu") {this.value = "";}; TextMode="Password"' value ='Mật khẩu' TextMode="Password" ></asp:TextBox>
 </li>
 <li>       <asp:TextBox ID="txtMaNPP" runat="server" onblur='if (this.value == "") {this.value = "Mã ADA";}' onfocus='if (this.value == "Mã ADA") {this.value = "";}' value ='Mã ADA'></asp:TextBox>
 </li>
@@ -74,31 +73,37 @@ Test Template Đồ Án
 </div>
 <div id='navigation'>
 <ul>
-<li><a href='#'><img alt='' src='../images/amway_logo.png' /></a>
-<li><a href='#'>Nhà Phân Phối<span>Meet your Distributor</span></a></li>
+<li><a href='TrangChu.aspx'><img alt='' src='../images/amway_logo.png' /></a></li>
+<li><a href='#'>Nhà Phân Phối<span>Bạn là chủ.</span></a>
 <ul class='sub_menu'>
-<li><a href='#'><span>Concerts (2)</span></a></li>
-<li><a href='#'><span>Clips (1)</span></a></li>
-<li><a href='#'><span>Making-of (1)</span></a></li>
+<li><a href='#'><span>Nomal</span></a></li>
+<li><a href='#'><span>Silver</span></a></li>
+<li><a href='#'><span>Gold</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Khách Hàng<span>Khách hàng tiềm năng</span></a></li>
-<li><a href='#'>Sản Phẩm<span>Chất lượng là số 1...</span></a>
+<li><a href='#'>Khách Hàng<span>Hãy đến với chúng tôi.</span></a>
 <ul class='sub_menu'>
-<li><a href='#'><span>Reviews (1)</span></a></li>
-<li><a href='#'><span>Concerts (1)</span></a></li>
-<li><a href='#'><span>News (3)</span></a></li>
-<li><a href='#'><span>Photographies (2)</span></a></li>
+<li><a href='#'><span>Khách Hàng Sử Dụng</span></a></li>
+<li><a href='#'><span>Khách Hàng Tiềm Năng</span></a></li>
 </ul>
 </li>
-<li><a href='#' id='signin_show'>Chương trình<span>Nâng cao kỹ năng</span></a></li>
+<li><a href='#'>Sản Phẩm<span>Chất lượng là số 1.</span></a>
+<ul class='sub_menu'>
+<li><a href='#'><span>Sản Phẩm</span></a></li>
+<li><a href='#'><span>Sản Phẩm Gợi Ý</span></a></li>
+<li><a href='#'><span>Sản Phẩm Đã Dùng</span></a></li>
+</ul>
+</li>
+<li><a href='#'>Chương Trình<span>Sát cánh bên bạn.</span></a>
+<ul class='sub_menu'>
+<li><a href='#'><span>Sắp diễn ra</span></a></li>
+<li><a href='#'><span>Đào tạo</span></a></li>
+<li><a href='#'><span>Chăm sóc</span></a></li>
+</ul>
+</li>
 <li><a href='#'>Doanh Thu<span>Theo dõi doanh thu</span></a></li>
 <li><a href='#'>Trợ giúp<span>Xem thêm thông tin</span></a></li>
 </ul>
-</div>
-<div id='search_engine'>
-<div class='field'><input name='q' onblur='if (this.value == "") {this.value = "Search...";}' onfocus='if (this.value == "Search...") {this.value = "";}' type='text' value='Search...'/></div>
-<input class='button' type='submit' value=''/>
 </div>
 <div class='content'>
 <div id='home_slider'>

@@ -72,11 +72,12 @@ Test Template Đồ Án
 </div>
 <div id='navigation'>
 <ul>
-<li><a href='#'><img alt='' src='../images/amway_logo.png' /></a></li>
+<li><a href='TrangChu.aspx'><img alt='' src='../images/amway_logo.png' /></a></li>
 <li><a href='NhaPhanPhoi.aspx'>Nhà Phân Phối<span>Bạn là chủ.</span></a>
 <ul class='sub_menu'>
-<li><a href='#'><span>Nomal</span></a></li>
-<li><a href='#'><span>Silver</span></a></li>
+<li>
+    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="ChuyenTrang"><span>Nomal</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton2" runat="server" OnClick="ChuyenTrang1" ><span>Silver</span></asp:LinkButton></li>
 <li><a href='#'><span>Gold</span></a></li>
 </ul>
 </li>

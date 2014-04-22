@@ -27,8 +27,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     {
         if (IsPostBack == false)
         {
-            Session["MaNPP"] = "2976313";
-            Session["MaCD"] = 0;
+            //Session["MaNPP"] = "2976313";
+            //Session["MaCD"] = 0;
             griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
             griNhaPhanPhoi.DataBind();
             droCapDo.DataSource = cd.DS();

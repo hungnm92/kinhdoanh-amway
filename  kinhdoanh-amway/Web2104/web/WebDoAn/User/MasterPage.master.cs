@@ -17,4 +17,14 @@ public partial class User_MasterPage : System.Web.UI.MasterPage
         //lblUser.Text = "Xin chào " + Session["HoTenNPP"].ToString() + ".";
     }
 
+    protected void ChuyenTrang(object sender, EventArgs e)
+    {
+        Session["MaCD"] = 0;
+        Response.Redirect("~/User/NhaPhanPhoi.aspx");
+    }
+    protected void ChuyenTrang1(object sender, EventArgs e)
+    {
+        Session["MaCD"] = 1;
+        Response.Redirect("~/User/NhaPhanPhoi.aspx");
+    }
 }
