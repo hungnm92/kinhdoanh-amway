@@ -206,7 +206,7 @@ public partial class User_SanPham : System.Web.UI.Page
             nppsd.MaNPP = Session["MaNPP"].ToString();
             nppsd.SoLuong = int.Parse(txtSoLuong.Text);
             if (chkMinhHoa.Checked == true)
-                nppsd.MinhHoa = true;
+                nppsd.MinhHoa = true;//thiếu thời gian sử dụng
             else
                 nppsd.MinhHoa = false;
             nppsd.Them();
@@ -222,7 +222,7 @@ public partial class User_SanPham : System.Web.UI.Page
             if (chkMinhHoa.Checked == true)
                 khsd.MinhHoa = true;
             else
-                khsd.MinhHoa = false;
+                khsd.MinhHoa = false;//thiếu thời gian sử dụng
             khsd.Them();
             lblTB.Visible = true;
             lblTB.Text = khsd.ThongBao;
