@@ -36,13 +36,23 @@
 <div class='section' id='top_nav'><div class='widget PageList' id='PageList1'>
 <div class='widget-content'>
 <ul>
-<li class='selected'><a href='#'>Trang chủ</a></li>
-    <li>
-        <asp:Label ID="lblTB" runat="server" Font-Italic="True" ForeColor="Red" Text="Thông báo." Visible="False"></asp:Label>
-    </li>
-<li><a href='#'>Xin chào: </a></li>
 
+<li class='selected'>
+    <asp:HyperLink ID="lnkThoat" runat="server" NavigateUrl="~/User/DangNhap.aspx">Thoát</asp:HyperLink></li>
+    <li>
+        <asp:HyperLink ID="lnkDoiMatKhau" runat="server" NavigateUrl="~/User/DoiMatKhau.aspx">Đổi mật khẩu</asp:HyperLink>
+    </li>
+<li><asp:Label ID="lblNPP" runat="server" Font-Italic="True" ForeColor="Red" Visible="False"></asp:Label></li>
+
+    <!-- <li><div id='search_engine'>
+<div class='field'><input name='q' onblur='if (this.value == "") {this.value = "Search...";}' onfocus='if (this.value == "Search...") {this.value = "";}' type='text' value='Search...'/></div>
+<input class='button' type='submit' value=''/>
+</div></li> -->
 </ul>
+    <div id='search_engine'>
+<div class='field'><input name='q' onblur='if (this.value == "") {this.value = "Search...";}' onfocus='if (this.value == "Search...") {this.value = "";}' type='text' value='Search...'/></div>
+<input class='button' type='submit' value=''/>
+</div>
 </div>
 </div></div>
 <div id='heading'>
@@ -63,35 +73,38 @@ Test Template Đồ Án
 <div id='navigation'>
 <ul>
 <li><a href='#'><img alt='' src='../images/amway_logo.png' /></a></li>
-<li><a href='NhaPhanPhoi.aspx'>Nhà Phân Phối<span>Meet your Distributor</span></a>
+<li><a href='NhaPhanPhoi.aspx'>Nhà Phân Phối<span>Bạn là chủ.</span></a>
 <ul class='sub_menu'>
 <li><a href='#'><span>Nomal</span></a></li>
 <li><a href='#'><span>Silver</span></a></li>
 <li><a href='#'><span>Gold</span></a></li>
 </ul>
 </li>
-<li><a href='KhachHang.aspx'>Khách Hàng<span>Khách hàng tiềm năng</span></a>
+<li><a href='KhachHang.aspx'>Khách Hàng<span>Hãy đến với chúng tôi.</span></a>
 <ul class='sub_menu'>
 <li><a href='KhachHang.aspx'><span>Khách Hàng Sử Dụng</span></a></li>
 <li><a href='#'><span>Khách Hàng Tiềm Năng</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Sản Phẩm<span>Chất lượng là số 1...</span></a>
+<li><a href='#'>Sản Phẩm<span>Chất lượng là số 1.</span></a>
 <ul class='sub_menu'>
 <li><a href='SamPham.aspx'><span>Sản Phẩm</span></a></li>
 <li><a href='SanPham_GoiY.aspx'><span>Sản Phẩm Gợi Ý</span></a></li>
 <li><a href='SanPham_DaDung.aspx'><span>Sản Phẩm Đã Dùng</span></a></li>
 </ul>
 </li>
-<li><a href='#' id='signin_show'>Chương trình<span>Nâng cao kỹ năng</span></a></li>
+<li><a href='#'>Chương Trình<span>Sát cánh bên bạn.</span></a>
+<ul class='sub_menu'>
+<li><a href='SamPham.aspx'><span>Sắp diễn ra</span></a></li>
+<li><a href='SanPham_GoiY.aspx'><span>Đào tạo</span></a></li>
+<li><a href='SanPham_DaDung.aspx'><span>Chăm sóc</span></a></li>
+</ul>
+</li>
 <li><a href='#'>Doanh Thu<span>Theo dõi doanh thu</span></a></li>
 <li><a href='#'>Trợ giúp<span>Xem thêm thông tin</span></a></li>
 </ul>
 </div>
-<div id='search_engine'>
-<div class='field'><input name='q' onblur='if (this.value == "") {this.value = "Search...";}' onfocus='if (this.value == "Search...") {this.value = "";}' type='text' value='Search...'/></div>
-<input class='button' type='submit' value=''/>
-</div>
+
 <div class='content'>
 
 <div id='main-wrapper'>
