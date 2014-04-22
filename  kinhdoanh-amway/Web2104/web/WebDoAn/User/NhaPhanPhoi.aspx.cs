@@ -71,7 +71,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtMaNPP.Enabled = false;
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
-        txtNgaySinh.Text = npp.NgaySinh.ToString();
+        txtNgaySinh.Text = npp.NgaySinh;
         txtNgaySinh.Enabled = false;
         if (npp.GioiTinh == true)
             rdoNam.Checked = true;
@@ -82,7 +82,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtCMND.Enabled = false;
         txtSoDT.Text = npp.SoDT;
         txtEmail.Text = npp.Email;
-        txtNgayKyThe.Text = npp.NgayKyThe.ToString();
+        txtNgayKyThe.Text = npp.NgayKyThe;
         txtNgayKyThe.Enabled = false;
         txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
         txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
@@ -156,7 +156,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.MaNPP = txtMaNPP.Text;
             npp.HoNPP = txtHoNPP.Text;
             npp.TenNPP = txtTenNPP.Text;
-            npp.NgaySinh = txtNgaySinh.ToString();//ngày sinh nên làm theo calendar.
+            npp.NgaySinh = txtNgaySinh.Text;//ngày sinh nên làm theo calendar.
             if (rdoNam.Checked == true)
                 npp.GioiTinh = true;
             else
@@ -169,7 +169,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.CMND = txtCMND.Text;
             npp.SoDT = txtSoDT.Text;
             npp.Email = txtEmail.Text;
-            npp.NgayKyThe = txtNgayKyThe.ToString();
+            npp.NgayKyThe = txtNgayKyThe.Text;
             npp.SoNhaNPPTT = txtSoNhaNPPTT.Text;
             npp.SoNhaNPPLL = txtSoNhaNPPLL.Text;     
             npp.MaCD = int.Parse(droCapDo.SelectedValue);
@@ -188,7 +188,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             griNhaPhanPhoi.DataBind();
             pnlChiTietNPP.Visible = false;
             lbtThemMoi.Visible = true;
-            Page_Load(sender,e);
+            //Response.Redirect("~/User/NhaPhanPhoi.aspx");
         }
         else
         {

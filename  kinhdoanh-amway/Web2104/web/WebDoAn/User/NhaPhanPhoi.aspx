@@ -135,6 +135,7 @@
                 </td>
                 <td class="auto-style8">Ngày ký thẻ: 
                     <asp:TextBox ID="txtNgayKyThe" runat="server"></asp:TextBox>
+                    <asp:CalendarExtender ID="CalendarExtender2" TargetControlID="txtNgayKyThe" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
             </tr>
             <tr>
