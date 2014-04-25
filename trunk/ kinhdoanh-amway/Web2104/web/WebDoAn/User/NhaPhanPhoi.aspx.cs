@@ -29,7 +29,14 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         {
             //Session["MaNPP"] = "2976313";
             //Session["MaCD"] = 0;
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
+            if (Request.QueryString["MaADA"] != null)
+                Session["MaNPPClick"] = Request.QueryString["MaADA"];
+            if (Session["MaNPPClick"] == null)
+            {
+                griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
+            }
+            else
+            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPPClick"].ToString(), int.Parse(Session["MaCD"].ToString()));
             griNhaPhanPhoi.DataBind();
             droCapDo.DataSource = cd.DS();
             droCapDo.DataBind();
@@ -108,7 +115,14 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     protected void griNhaPhanPhoi_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griNhaPhanPhoi.PageIndex = e.NewPageIndex;
-        griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));// sửa có tham số truyền vào???.
+        if (Request.QueryString["MaADA"] != null)
+            Session["MaNPPClick"] = Request.QueryString["MaADA"];
+        if (Session["MaNPPClick"] == null)
+        {
+            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
+        }
+        else
+            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPPClick"].ToString(), int.Parse(Session["MaCD"].ToString()));
         griNhaPhanPhoi.DataBind();
     }
     protected void lbtThemMoi_Click(object sender, EventArgs e)
