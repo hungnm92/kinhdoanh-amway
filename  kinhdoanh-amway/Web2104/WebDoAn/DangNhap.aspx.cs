@@ -16,7 +16,6 @@ public partial class User_DangNhap : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            Session["MaNPPClick"] = null;//Khi quay lại trang đăng nhập thì xóa biến session click
             DataTable dt = this.GetData("select * from Locations");
             rptMarkers.DataSource = dt;
             rptMarkers.DataBind();
