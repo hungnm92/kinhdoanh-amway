@@ -27,16 +27,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     {
         if (IsPostBack == false)
         {
-            //Session["MaNPP"] = "2976313";
-            //Session["MaCD"] = 0;
-            if (Request.QueryString["MaADA"] != null)
-                Session["MaNPPClick"] = Request.QueryString["MaADA"];
-            if (Session["MaNPPClick"] == null)
-            {
-                griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
-            }
-            else
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPPClick"].ToString(), int.Parse(Session["MaCD"].ToString()));
+            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
             griNhaPhanPhoi.DataBind();
             droCapDo.DataSource = cd.DS();
             droCapDo.DataBind();
@@ -80,10 +71,19 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtTenNPP.Text = npp.TenNPP;
         txtNgaySinh.Text = npp.NgaySinh;
         txtNgaySinh.Enabled = false;
-        if (npp.GioiTinh == true)
+        /*if (npp.GioiTinh == true)
+            rdoNam.Checked = npp.GioiTinh;
+        else
+            rdoNu.Checked = npp.GioiTinh;*/
+        /*if (griNhaPhanPhoi.Rows[griNhaPhanPhoi.SelectedIndex].Cells[4]. == true)
             rdoNam.Checked = true;
         else
-            rdoNu.Checked = true;
+            rdoNu.Checked = true;*/
+        if (npp.GioiTinh == null)
+        {rdoNu.Checked = true ;
+            rdoNam.Checked = false;}
+        else
+            rdoNam.Checked = npp.GioiTinh;
         imgAnhNPP.ImageUrl = "~/src/emp/" + npp.AnhNPP;
         txtCMND.Text = npp.CMND;
         txtCMND.Enabled = false;
@@ -115,14 +115,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     protected void griNhaPhanPhoi_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griNhaPhanPhoi.PageIndex = e.NewPageIndex;
-        if (Request.QueryString["MaADA"] != null)
-            Session["MaNPPClick"] = Request.QueryString["MaADA"];
-        if (Session["MaNPPClick"] == null)
-        {
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
-        }
-        else
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPPClick"].ToString(), int.Parse(Session["MaCD"].ToString()));
+        griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
         griNhaPhanPhoi.DataBind();
     }
     protected void lbtThemMoi_Click(object sender, EventArgs e)
@@ -170,7 +163,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.MaNPP = txtMaNPP.Text;
             npp.HoNPP = txtHoNPP.Text;
             npp.TenNPP = txtTenNPP.Text;
-            npp.NgaySinh = txtNgaySinh.Text;//ngày sinh nên làm theo calendar.
+            npp.NgaySinh = txtNgaySinh.Text;
             if (rdoNam.Checked == true)
                 npp.GioiTinh = true;
             else
@@ -191,15 +184,12 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.MaDuongNPPLL = droDuongNPPLL.SelectedValue;
             npp.MaXaNPPTT = droXaNPPTT.SelectedValue;
             npp.MaXaNPPLL = droXaNPPLL.SelectedValue;
-            //npp.MaNBT = Session["MaNPP"].ToString();//mã người đang login hoặc click
-            npp.MaNBT = "2976313";
+            npp.MaNBT = Session["MaNPP"].ToString();//mã người đang login hoặc click
+            //npp.MaNBT = Session["MaNPPClick"].ToString();
             npp.Them();
             lblTB.Visible = true;
             lblTB.Text = npp.ThongBao;
-            Session["MaNPP"] = "2976313";
-            Session["MaCD"] = 0;
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));// sửa có tham số truyền vào???.
-            griNhaPhanPhoi.DataBind();
+            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
             pnlChiTietNPP.Visible = false;
             lbtThemMoi.Visible = true;
             //Response.Redirect("~/User/NhaPhanPhoi.aspx");
@@ -236,9 +226,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             cs.MaNPPMoi = npp.MaNBT;
             cs.Sua_NPP();
             npp.Xoa();
-            Session["MaNPP"] = "2976313";
-            Session["MaCD"] = 0;
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));// sửa có tham số truyền vào???.
+            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
             griNhaPhanPhoi.DataBind();
             lblTB.Visible = true;
             lblTB.Text = npp.ThongBao;// không thực hiện được tại vì nó đã response.
@@ -255,7 +243,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             txtSoNhaNPPLL.Text = "";
             pnlChiTietNPP.Visible = false;
             lbtThemMoi.Visible = true;
-            Response.Redirect("~/User/NhaPhanPhoi.aspx");
+            //Response.Redirect("~/User/NhaPhanPhoi.aspx");
         }
         else
         {
@@ -303,12 +291,11 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
             npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
             npp.MaCD = int.Parse(droCapDo.SelectedValue);
-            npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
-            Session["MaNPP"] = "2976313";
-            Session["MaCD"] = 0;
+            npp.MaNBT = Session["MaNPP"].ToString();
+            npp.Sua();
             lblTB.Visible = true;
             lblTB.Text = npp.ThongBao;
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));// sửa có tham số truyền vào???.;
+            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
             griNhaPhanPhoi.DataBind();
             pnlChiTietNPP.Visible = false;
             lbtThemMoi.Visible = true;
@@ -339,12 +326,11 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
                 npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
                 npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
                 npp.MaCD = int.Parse(droCapDo.SelectedValue);
-                npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
-                Session["MaNPP"] = "2976313";
-                Session["MaCD"] = 0;
+                npp.MaNBT = Session["MaNPP"].ToString();
+                npp.Sua();
                 lblTB.Visible = true;
                 lblTB.Text = npp.ThongBao;
-                griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));// sửa có tham số truyền vào???.;
+                griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
                 griNhaPhanPhoi.DataBind();
                 pnlChiTietNPP.Visible = false;
                 lbtThemMoi.Visible = true;
