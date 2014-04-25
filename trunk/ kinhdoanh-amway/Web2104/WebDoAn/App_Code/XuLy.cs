@@ -1730,15 +1730,13 @@ namespace webdoan
         public string MaNPP;
         public string HoTenNPP;
         public string MaNBT;
-        public string ngoac;// Trả về dấu " vì trong code không để dấu " được.
         public int MaCD;
-        public string [] temp = new string[3]{"0","0",""};//giá trị 1 khởi tạo, giá trị 2 biến gán cho temp[0], giá trị 3 gán cho NPP của vòng lặp
         public string AnhCD;
         public string LoadMenu(string MaNBT, int level)
         {
             string KetQua = string.Empty;
             SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;Max Pool Size =1000; Min Pool Size =5");
-            SqlCommand Lenh = new SqlCommand("Menu_Lay", BaoVe);
+            SqlCommand Lenh = new SqlCommand("MENU_DS", BaoVe);
             Lenh.CommandType = CommandType.StoredProcedure;
             SqlParameter ThamSo = new SqlParameter();
             ThamSo = Lenh.Parameters.AddWithValue("@MaNBT", MaNBT);
@@ -1757,10 +1755,10 @@ namespace webdoan
                 }
                 else
                     KetQua += "<ul>";
-                while (DocDL.Read())//Đọc từng đối tượng NPP để thực hiện lệnh dưới.
+                while (DocDL.Read())
                 {
-                    KetQua += "<li><a class = 'button' onclick =" + DocDL["ngoac"].ToString() + "javascript:setSession('" + DocDL["MaNPP"].ToString() + "');" + DocDL["ngoac"].ToString() + "><img src='" + "../images/emp/" + DocDL["AnhCD"] + "'><span>" + DocDL["HoTenNPP"] + "</span>";//Hiển thị họ tên, lấy MaNPP và chạy hàm Js khi click.
-                    KetQua += LoadMenu(DocDL["MaNPP"].ToString(), level + 1);//Thực hiện vòng lặp với NPP có tuyến dưới.
+                    KetQua += "<li><img src='" + DocDL["AnhCD"] + "'><span>" + DocDL["HoTenNPP"] + "</span></a>";
+                    KetQua += LoadMenu(DocDL["MaNPP"].ToString(), level + 1);
                     KetQua += "</li>";
                 }
                 KetQua += "</ul>";

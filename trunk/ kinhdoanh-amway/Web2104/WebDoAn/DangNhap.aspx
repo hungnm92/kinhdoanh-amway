@@ -46,7 +46,7 @@ b[f] && b[f].csi && (a = Math.floor(b[f].csi().pageT), e && 0 < c && (e[k]("_tbn
 <li class='selected'></li>
 <li>       <asp:Button ID="btnDangNhap" runat="server" ForeColor="Red" OnClick="btnDangNhap_Click" Text="Login" />
     </li>
-<li>       <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "Mật khẩu";}' onfocus='if (this.value == "Mật khẩu") {this.value = "";}; TextMode="Password"' value ='Mật khẩu' ></asp:TextBox>
+<li>       <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "Mật khẩu";}' onfocus='if (this.value == "Mật khẩu") {this.value = "";}; TextMode="Password"' value ='Mật khẩu' TextMode="Password" ></asp:TextBox>
 </li>
 <li>       <asp:TextBox ID="txtMaNPP" runat="server" onblur='if (this.value == "") {this.value = "Mã ADA";}' onfocus='if (this.value == "Mã ADA") {this.value = "";}' value ='Mã ADA'></asp:TextBox>
 </li>

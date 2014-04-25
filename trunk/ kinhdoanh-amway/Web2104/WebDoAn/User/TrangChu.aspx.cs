@@ -41,14 +41,8 @@ public partial class User_Default : System.Web.UI.Page
             droTinhNPPTT.DataBind();
             droNBT.DataSource = npp.DS();
             droNBT.DataBind();
-            if (Request.QueryString["MaADA"] != null)
-            Session["MaNPPClick"] = Request.QueryString["MaADA"];
-            if (Session["MaNPPClick"] == null)
-            {
-                npp.MaNPP = Session["MaNPP"].ToString();
-            }
-            else
-            npp.MaNPP = Session["MaNPPClick"].ToString();
+            npp.MaNPP = Session["MaNPP"].ToString();
+            //npp.MaNPP = Session["MaNPPClick"].ToString();
             npp.CT();
             txtMaNPP.Text = npp.MaNPP;
             txtHoNPP.Text = npp.HoNPP;
