@@ -15,14 +15,12 @@ public partial class User_SanPham : System.Web.UI.Page
     {
         if (IsPostBack == false)
         {
-            Session["MaLMH"] = 1;
-            griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));//có tham số truyền vào
+            griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));
             griMatHang.DataBind();
             droLoaiMH.DataSource = lmh.DS();
             droLoaiMH.DataBind();
         }
     }
-
     protected void griMatHang_SelectedIndexChanged(object sender, EventArgs e)
     {
         pnlChiTietMH.Visible = true;
@@ -42,6 +40,7 @@ public partial class User_SanPham : System.Web.UI.Page
         txtMaMH.Enabled = false;
         txtTenMH.Text = mh.TenMH;
         txtGia.Text = mh.Gia.ToString();
+        imgAnhMH.ImageUrl = "~/src/product/" + mh.AnhMH;
         txtChiTiet.Text = mh.ChiTiet;
         //fckChiTiet.Text = mh.ChiTiet;
         txtCachSuDung.Text = mh.CachSuDung.ToString();
@@ -51,7 +50,7 @@ public partial class User_SanPham : System.Web.UI.Page
     protected void griMatHang_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griMatHang.PageIndex = e.NewPageIndex;
-        griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));// sửa có tham số truyền vào???.
+        griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));
         griMatHang.DataBind();
     }
     protected void lbtThemMoi_Click(object sender, EventArgs e)
@@ -95,7 +94,7 @@ public partial class User_SanPham : System.Web.UI.Page
             //mh.ChiTiet = fckChiTiet.Text;
             mh.CachSuDung = txtCachSuDung.Text;
             mh.Gia = float.Parse(txtGia.Text);
-            mh.MaLMH = int.Parse(Session["MaLMHClick"].ToString()); ;//lấy mã loại mặt hàng đang được click.
+            mh.MaLMH = int.Parse(Session["MaLMH"].ToString());
             mh.Them();
             lblTB.Visible = true;
             lblTB.Text = mh.ThongBao;
@@ -155,7 +154,7 @@ public partial class User_SanPham : System.Web.UI.Page
             mh.ChiTiet = txtChiTiet.Text;
             //mh.ChiTiet = fckChiTiet.Text;
             mh.MaLMH = int.Parse(droLoaiMH.SelectedValue);
-            mh.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
+            mh.Sua();
             lblTB.Visible = true;
             lblTB.Text = mh.ThongBao;
             griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));
@@ -179,7 +178,7 @@ public partial class User_SanPham : System.Web.UI.Page
                 mh.Sua();
                 lblTB.Visible = true;
                 lblTB.Text = mh.ThongBao;
-                griMatHang.DataSource = mh.DS();
+                griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));
                 griMatHang.DataBind();
                 pnlChiTietMH.Visible = false;
                 lbtThemMoi.Visible = true;
@@ -204,9 +203,10 @@ public partial class User_SanPham : System.Web.UI.Page
         {
             nppsd.MaMH = griMatHang.SelectedValue.ToString();
             nppsd.MaNPP = Session["MaNPP"].ToString();
+            nppsd.ThoiGian = txtThoiGian.Text;
             nppsd.SoLuong = int.Parse(txtSoLuong.Text);
             if (chkMinhHoa.Checked == true)
-                nppsd.MinhHoa = true;//thiếu thời gian sử dụng
+                nppsd.MinhHoa = true;
             else
                 nppsd.MinhHoa = false;
             nppsd.Them();
@@ -218,6 +218,7 @@ public partial class User_SanPham : System.Web.UI.Page
             khsd.MaMH = griMatHang.SelectedValue.ToString();
             khsd.MaKH = Session["MaKH"].ToString();
             khsd.MaNPP = Session["MaNPP"].ToString();
+            khsd.ThoiGian = txtThoiGian.Text;
             khsd.SoLuong = int.Parse(txtSoLuong.Text);
             if (chkMinhHoa.Checked == true)
                 khsd.MinhHoa = true;

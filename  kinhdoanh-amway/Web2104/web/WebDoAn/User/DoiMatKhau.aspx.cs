@@ -12,7 +12,6 @@ public partial class User_DoiMatKhau : System.Web.UI.Page
     {
         if (IsPostBack == false)
         {
-            Session["MaNPP"] = "2976313";
             txtMaNPP.Text = Session["MaNPP"].ToString();
             txtMaNPP.Enabled = false;
         }

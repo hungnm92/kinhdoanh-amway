@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/MasterPage.master" AutoEventWireup="true" CodeFile="ChuongTrinh_ChamSoc.aspx.cs" Inherits="User_ChuongTrinh_ChamSoc" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
 
@@ -22,6 +22,7 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
     <asp:GridView ID="griChuongTrinhChamSoc" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaCS" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griChuongTrinhChamSoc_PageIndexChanging" OnSelectedIndexChanged="griChuongTrinhChamSoc_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -66,6 +67,7 @@
                 </td>
                 <td class="auto-style13">Thời gian:
                     <asp:TextBox ID="txtThoiGian" runat="server"></asp:TextBox>
+                    <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtThoiGian" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
             </tr>
             <tr>

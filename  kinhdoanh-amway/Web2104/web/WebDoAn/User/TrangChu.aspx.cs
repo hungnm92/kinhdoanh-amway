@@ -125,7 +125,7 @@ public partial class User_Default : System.Web.UI.Page
             npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
             npp.MaCD = int.Parse(droCapDo.SelectedValue);
             npp.MaNBT = droNBT.SelectedValue;
-            npp.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
+            npp.Sua();
             lblTB.Visible = true;
             lblTB.Text = npp.ThongBao;
         }

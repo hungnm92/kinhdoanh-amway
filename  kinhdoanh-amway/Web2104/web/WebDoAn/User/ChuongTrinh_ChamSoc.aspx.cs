@@ -62,7 +62,7 @@ public partial class User_ChuongTrinh_ChamSoc : System.Web.UI.Page
                 cs.ThamDu = true;
             else
                 cs.ThamDu = false;
-            cs.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
+            cs.Sua();
             lblTB.Visible = true;
             lblTB.Text = cs.ThongBao;
             griChuongTrinhChamSoc.DataSource = cs.DS(Session["MaNPP"].ToString(), Session["MaKH"].ToString());

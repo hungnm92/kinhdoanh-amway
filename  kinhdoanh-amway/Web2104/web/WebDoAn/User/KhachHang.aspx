@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/MasterPage.master" AutoEventWireup="true" CodeFile="KhachHang.aspx.cs" Inherits="User_KhachHang" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
 
@@ -19,9 +21,13 @@
             width: 401px;
             height: 23px;
         }
+        .auto-style12 {
+            height: 48px;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
     <asp:GridView ID="griKhachHang" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaKH" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griKhachHang_PageIndexChanging" OnSelectedIndexChanged="griKhachHang_SelectedIndexChanged" PageSize="5">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -40,6 +46,7 @@
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
+            <asp:CheckBoxField DataField="Loai" HeaderText="Khách hàng tiềm năng" />
             <asp:BoundField DataField="DiaChiKHLL" HeaderText="Địa chỉ liên lạc">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
@@ -90,14 +97,13 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style7">&nbsp;Loại:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblCapDo" runat="server" Text="Cấp độ: "></asp:Label>
-                    <asp:DropDownList ID="droCapDo" runat="server" DataTextField="TenCD" DataValueField="MaCD">
-                    </asp:DropDownList>
+                <td class="auto-style12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:CheckBox ID="chkLoai" runat="server" Text="Khách hàng tiềm năng" />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style9">Ngày sinh: 
                     <asp:TextBox ID="txtNgaySinh" runat="server"></asp:TextBox>
+                    <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtNgaySinh" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
                 <td class="auto-style10">Giới tính: 
                     <asp:RadioButton ID="rdoNam" runat="server" Checked="True" GroupName="GioiTinh" Text="Nam" />
@@ -118,6 +124,7 @@
                 </td>
                 <td class="auto-style8">Ngày ký thẻ:
                     <asp:TextBox ID="txtNgayKyThe" runat="server" Visible="False"></asp:TextBox>
+                    <asp:CalendarExtender ID="CalendarExtender2" TargetControlID="txtNgayKyThe" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
             </tr>
             <tr>

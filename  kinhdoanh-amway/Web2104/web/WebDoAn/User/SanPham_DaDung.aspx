@@ -115,8 +115,11 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style12" colspan="2">Chi tiết:
+                <td class="auto-style12">Chi tiết:
                     <asp:TextBox ID="txtChiTiet" runat="server" Enabled="False"></asp:TextBox>
+                </td>
+                <td class="auto-style12">Ngày sử&nbsp; dụng:
+                    <asp:TextBox ID="txtThoiGian" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>

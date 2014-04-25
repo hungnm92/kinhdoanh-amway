@@ -12,7 +12,7 @@ public partial class User_DoanhThu : System.Web.UI.Page
     {
         if (IsPostBack == false)
         {
-            griDoanhThu.DataSource = dt.DS(Session["MaNPP"].ToString());//có tham số truyền vào.
+            griDoanhThu.DataSource = dt.DS(Session["MaNPP"].ToString());
             griDoanhThu.DataBind();
         }
     }
@@ -36,7 +36,7 @@ public partial class User_DoanhThu : System.Web.UI.Page
     protected void griDoanhThu_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griDoanhThu.PageIndex = e.NewPageIndex;
-        griDoanhThu.DataSource = dt.DS(Session["MaNPP"].ToString());// sửa có tham số truyền vào???.
+        griDoanhThu.DataSource = dt.DS(Session["MaNPP"].ToString());
         griDoanhThu.DataBind();
     }
     protected void lbtThemMoi_Click(object sender, EventArgs e)

@@ -465,7 +465,7 @@ namespace webdoan
         }
         public DataTable KhachHang_DS_TheoTheLoai(string MaNPP, bool Loai)
         {
-            string SelectSQL = "SELECT DISTINCT KH.MaKH,HoKH +' '+ TenKH AS HoTenKH, KH.NgaySinh, KH.GioiTinh, KH.CMND, KH.SoDT, KH.Email, SoNhaKHTT+' '+DTT.TenDuong+' '+XTT.TenXa+' '+ HTT.TenHuyen+' '+ TTT.TenTinh AS DiaChiKHTT, SoNhaKHLL+' '+DLL.TenDuong+' '+XLL.TenXa+' '+ HLL.TenHuyen+' '+ TLL.TenTinh AS DiaChiKHLL, MaDuongKHLL, MaDuongKHTT, MaXaKHLL, MaXaKHTT, XTT.MaHuyen AS MaHuyenKHTT, HTT.MaTinh AS MaTinhKHTT,XLL.MaHuyen AS MaHuyenKHLL, HLL.MaTinh AS MaTinhKHLL	FROM KhachHang KH, XaPhuong XLL, XaPhuong XTT, Duong DLL, Duong DTT, Huyen HLL, Huyen HTT, Tinh TLL, Tinh TTT, NhaPhanPhoi NPP, KHSuDung, ChamSoc WHERE KH.MaXaKHLL = XLL.MaXa AND KH.MaXaKHTT = XTT.MaXa AND KH.MaDuongKHLL = DLL.MaDuong AND KH.MaDuongKHTT = DTT.MaDuong AND XLL.MaHuyen = HLL.MaHuyen AND XTT.MaHuyen = HTT.MaHuyen AND HLL.MaTinh = TLL.MaTinh AND HTT.MaTinh = TTT.MaTinh AND Loai = @Loai AND ((KHSuDung.MaKH = KH.MaKH AND KHSuDung.MaNPP = NPP.MaNPP AND KHSuDung.MaNPP = @MaNPP) OR (ChamSoc.MaKH = KH.MaKH AND ChamSoc.MaNPP = NPP.MaNPP AND ChamSoc.MaNPP = @MaNPP))";
+            string SelectSQL = "SELECT DISTINCT KH.MaKH,HoKH +' '+ TenKH AS HoTenKH, KH.NgaySinh, KH.GioiTinh, KH.CMND, KH.SoDT, KH.Email, Loai,SoNhaKHTT+' '+DTT.TenDuong+' '+XTT.TenXa+' '+ HTT.TenHuyen+' '+ TTT.TenTinh AS DiaChiKHTT, SoNhaKHLL+' '+DLL.TenDuong+' '+XLL.TenXa+' '+ HLL.TenHuyen+' '+ TLL.TenTinh AS DiaChiKHLL, MaDuongKHLL, MaDuongKHTT, MaXaKHLL, MaXaKHTT, XTT.MaHuyen AS MaHuyenKHTT, HTT.MaTinh AS MaTinhKHTT,XLL.MaHuyen AS MaHuyenKHLL, HLL.MaTinh AS MaTinhKHLL	FROM KhachHang KH, XaPhuong XLL, XaPhuong XTT, Duong DLL, Duong DTT, Huyen HLL, Huyen HTT, Tinh TLL, Tinh TTT, NhaPhanPhoi NPP, KHSuDung, ChamSoc WHERE KH.MaXaKHLL = XLL.MaXa AND KH.MaXaKHTT = XTT.MaXa AND KH.MaDuongKHLL = DLL.MaDuong AND KH.MaDuongKHTT = DTT.MaDuong AND XLL.MaHuyen = HLL.MaHuyen AND XTT.MaHuyen = HTT.MaHuyen AND HLL.MaTinh = TLL.MaTinh AND HTT.MaTinh = TTT.MaTinh AND Loai = @Loai AND ((KHSuDung.MaKH = KH.MaKH AND KHSuDung.MaNPP = NPP.MaNPP AND KHSuDung.MaNPP = @MaNPP) OR (ChamSoc.MaKH = KH.MaKH AND ChamSoc.MaNPP = NPP.MaNPP AND ChamSoc.MaNPP = @MaNPP))";
             SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -479,7 +479,35 @@ namespace webdoan
                 BaoVe.Close();
             }
             return ThungChua;
-        }            
+        }
+        public void Tim_MaKH()
+        {
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlCommand Lenh = new SqlCommand("KhachHang_Tim_MaKH", BaoVe);
+            Lenh.CommandType = CommandType.StoredProcedure;
+            SqlParameter ThamSo = new SqlParameter();
+            ThamSo = Lenh.Parameters.AddWithValue("@HoKH", HoKH);
+            ThamSo = Lenh.Parameters.AddWithValue("@TenKH", TenKH);
+            ThamSo = Lenh.Parameters.AddWithValue("@NgaySinh", NgaySinh);
+            ThamSo = Lenh.Parameters.AddWithValue("@GioiTinh", GioiTinh);
+            ThamSo = Lenh.Parameters.AddWithValue("@CMND", CMND);
+            ThamSo = Lenh.Parameters.AddWithValue("@SoDT", SoDT);
+            ThamSo = Lenh.Parameters.AddWithValue("@Email", Email);
+            ThamSo = Lenh.Parameters.AddWithValue("@SoNhaKHLL", SoNhaKHLL);
+            ThamSo = Lenh.Parameters.AddWithValue("@SoNhaKHTT", SoNhaKHTT);
+            ThamSo = Lenh.Parameters.AddWithValue("@MaDuongKHLL", MaDuongKHLL);
+            ThamSo = Lenh.Parameters.AddWithValue("@MaDuongKHTT", MaDuongKHTT);
+            ThamSo = Lenh.Parameters.AddWithValue("@MaXaKHLL", MaXaKHLL);
+            ThamSo = Lenh.Parameters.AddWithValue("@MaXaKHTT", MaXaKHTT);
+            SqlDataReader DocDL;
+            BaoVe.Open();
+            DocDL = Lenh.ExecuteReader();
+            if (DocDL.Read() == true)
+            {
+                MaKH = DocDL["MaKH"].ToString();
+            }
+            BaoVe.Close();
+        }
      }
     public class NhaPhanPhoi
         {
@@ -939,6 +967,7 @@ namespace webdoan
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
                 ThamSo = Lenh.Parameters.AddWithValue("@ThamDu", ThamDu);
+                ThamSo = Lenh.Parameters.AddWithValue("@ThoiGian", ThoiGian);
                 ThamSo = Lenh.Parameters.AddWithValue("@MaCT", MaCT);
                 ThamSo = Lenh.Parameters.AddWithValue("@MaKH", MaKH);
                 ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
@@ -1352,12 +1381,13 @@ namespace webdoan
                 MaLMH = int.Parse(DocDL["MaLMH"].ToString());
                 TenLMH = DocDL["TenLMH"].ToString();
                 AnhMH = DocDL["AnhMH"].ToString();
+                ThoiGian = DocDL["ThoiGian"].ToString();
             }
             BaoVe.Close();
         }
         public DataTable MatHang_DaDung(string MaNPP)
         {
-            string SelectSQL = "SELECT MH.MaMH, MH.MaLMH, TenMH, TenLMH, ChiTiet, CachSuDung, AnhMH, Gia, SoLuong, Minhhoa, NPPSuDung.MaNPPSD FROM MatHang MH, LoaiMH LMH, NPPSuDung WHERE MH.MaLMH = LMH.MaLMH AND NPPSuDung.MaMH = MH.MaMH AND NPPSuDung.MaNPP = @MaNPP";
+            string SelectSQL = "SELECT MH.MaMH, MH.MaLMH, TenMH, TenLMH, ChiTiet, CachSuDung, AnhMH, Gia, SoLuong, Minhhoa, NPPSuDung.MaNPPSD, ThoiGian FROM MatHang MH, LoaiMH LMH, NPPSuDung WHERE MH.MaLMH = LMH.MaLMH AND NPPSuDung.MaMH = MH.MaMH AND NPPSuDung.MaNPP = @MaNPP";
             SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -1515,13 +1545,14 @@ namespace webdoan
                 MaLMH = int.Parse(DocDL["MaLMH"].ToString());
                 TenLMH = DocDL["TenLMH"].ToString();
                 AnhMH = DocDL["AnhMH"].ToString();
+                ThoiGian = DocDL["ThoiGian"].ToString();
             }
             BaoVe.Close();
         }
         public DataTable DS(string MaNPP, string MaKH)
         {
-            string SelectSQL = "SELECT MaKHSD, ThoiGian, SoLuong, MinhHoa, KHSuDung.MaMH, TenMH FROM KHSuDung ,MatHang MH WHERE MaNPP = @MaNPP AND MaKH = @MaKH AND KHSuDung.MaMH = MH.MaMH";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn   ");
+            string SelectSQL = "SELECT MaKHSD, ThoiGian, SoLuong, MinhHoa, KHSuDung.MaMH, TenMH, ThoiGian FROM KHSuDung ,MatHang MH WHERE MaNPP = @MaNPP AND MaKH = @MaKH AND KHSuDung.MaMH = MH.MaMH";
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -1554,8 +1585,8 @@ namespace webdoan
         }
         public DataTable MatHang_DaDung(string MaNPP, string MaKH)
         {
-            string SelectSQL = "SELECT MH.MaMH, MH.MaLMH, TenMH, TenLMH, ChiTiet, CachSuDung, AnhMH, Gia, SoLuong, MinhHoa,KHSuDung.MaKHSD FROM MatHang MH, LoaiMH LMH, KHSuDung WHERE MH.MaLMH = LMH.MaLMH AND KHSuDung.MaMH = MH.MaMH AND KHSuDung.MaKH = @MaKH AND KHSuDung.MaNPP = @MaNPP";
-            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn   ");
+            string SelectSQL = "SELECT MH.MaMH, MH.MaLMH, TenMH, TenLMH, ChiTiet, CachSuDung, AnhMH, Gia, SoLuong, MinhHoa,KHSuDung.MaKHSD, ThoiGian FROM MatHang MH, LoaiMH LMH, KHSuDung WHERE MH.MaLMH = LMH.MaLMH AND KHSuDung.MaMH = MH.MaMH AND KHSuDung.MaKH = @MaKH AND KHSuDung.MaNPP = @MaNPP";
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
             if (BaoVe.State == ConnectionState.Open)
@@ -1627,7 +1658,7 @@ namespace webdoan
         }
         public DataTable DS_KH(string MaKH)
         {
-            string SelectSQL = "SELECT MaKHSD, ThoiGian, SoLuong, MinhHoa, MaMH	FROM KHSuDung WHERE KHSuDung.MaKH = @MaKH";
+            string SelectSQL = "SELECT MaKHSD, ThoiGian, SoLuong, MinhHoa, MaMH FROM KHSuDung WHERE KHSuDung.MaKH = @MaKH";
             SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
             DataTable ThungChua = new DataTable();
             BaoVe.Open();
@@ -1642,7 +1673,6 @@ namespace webdoan
             }
             return ThungChua;
         }
-
     }
     public class WebMsgBox
         {

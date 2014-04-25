@@ -24,7 +24,7 @@ body{margin:0;color:#222;font-family:Helvetica,Arial,sans-serif;font-size:12px;b
 #header a{color:#fff}
 #header img{margin:0 auto;max-width:600px;max-height:131px}
 p.description{font-family:'Roboto';font-weight:bold;font-size:22px;color:#006b03;text-transform:uppercase;text-shadow:0 1px 0 #18c718}
-#search_engine{display:block;position:absolute;top: 1px;margin-left:400px;width:175px;height:40px;background:url(../images/search_field.png) no-repeat left top;padding:0}
+#search_engine{display:block;position:absolute;top: 1px;margin-left:300px;width:175px;height:40px;background:url(../images/search_field.png) no-repeat left top;padding:0}
 #search_engine .field{float:left;display:inline;height:40px;width:135px}
 #search_engine .field input{color:#ccc;border:0;background:transparent;font-size:11px;margin:3px 0 0 10px;padding:4px;width:110px}
 #search_engine .button{float:left;display:inline;height:40px;width:39px;cursor:pointer;border:0;background:url(../images/search_button.png) no-repeat 0 0}

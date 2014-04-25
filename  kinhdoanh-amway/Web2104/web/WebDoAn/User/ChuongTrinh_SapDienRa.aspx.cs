@@ -94,7 +94,7 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
         {
             ct.MaCT = griChuongTrinhSapDienRa.SelectedValue.ToString();
             ct.TenCT = txtTenCT.Text;           
-            ct.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
+            ct.Sua();
             lblTB.Visible = true;
             lblTB.Text = ct.ThongBao;
         }
@@ -116,6 +116,7 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
             cs.MaCT = griChuongTrinhSapDienRa.SelectedValue.ToString();
             cs.MaKH = Session["MaKH"].ToString();
             cs.MaNPP = Session["MaNPP"].ToString();
+            cs.ThoiGian = txtThoiGian.Text;
             if (chkThamDu.Checked == true)
                 cs.ThamDu = true;
             else
@@ -132,6 +133,7 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
     {
         dt.MaCT = griChuongTrinhSapDienRa.SelectedValue.ToString();
         dt.MaNPP = Session["MaNPP"].ToString();
+        dt.NgayThamDu = txtThoiGian.Text;
         dt.Them();
         lblTB.Visible = true;
         lblTB.Text = ct.ThongBao;
