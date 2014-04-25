@@ -83,8 +83,8 @@ a.jump-link{color:#fff}
 #sidebar-wrapper li a{color:#666}
 #sidebar-wrapper li a:hover{color:#60b61c}
 #social_counters{display:block;margin-bottom:10px;float:left}
-#social_counters .twitter_count{background:url(../images/twitter_32.png) no-repeat left 50%;display:block;float:left;width:74px;height:32px;padding:0 0 0 40px}
-#social_counters .rss_count{background:url(../images/rss_32.png) no-repeat left 50%;display:block;float:left;width:74px;height:32px;padding:0 0 0 40px}
+/*#social_counters .twitter_count{background:url(../images/twitter_32.png) no-repeat left 50%;display:block;float:left;width:74px;height:32px;padding:0 0 0 40px}
+#social_counters .rss_count{background:url(../images/rss_32.png) no-repeat left 50%;display:block;float:left;width:74px;height:32px;padding:0 0 0 40px}*/
 #social_counters .number{display:block;clear:both;color:#222;font-size:18px;height:16px;padding:0;margin:0}
 #footer{font-size:11px;background:url(../images/footer_bg.jpg) repeat-x}
 .footer-wrap{width:960px;height:340px;margin:0 auto;padding:49px 0 0 0;background:url(../images/footer_content.jpg) repeat-x left top}
