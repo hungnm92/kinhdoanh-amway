@@ -22,6 +22,7 @@
 <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js' type='text/javascript'></script>
 <link type='text/css' rel='stylesheet' href='../style/widget_css_bundle.css' />
 <link href='../style/page-skin.css' rel='stylesheet' type='text/css'/>
+<link href="../style/sidebar.css" rel="stylesheet" type='text/css'/>
 <script type='text/javascript'>//<![CDATA[
     eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('h i(b,a){u b.j(/<.*?>/v,"").k(/\\s+/).w(0,a-1).y(" ")}h z(b){b=A.B(b);C a="",a=b.D("l");m(1<=a.E){f="F-p";9=a[0].n;8=9.k("/");c=8[2];m(-1!=c.d("G")||-1!=c.d("H")||-1!=c.d("I"))g=8[7],9=-1==g.d(".")?9.j(g,f):8[0]+"//"+8[2]+"/"+8[3]+"/"+8[4]+"/"+8[5]+"/"+8[6]+"/"+f+"/"+8[7];a=\'<e o="q"><a r="\'+x+\'"><l n="\'+9+\'" /></a></e>\'}J a=\'<a r="\'+x+\'"><e o="K-q"></e></a>\';b.t=a+i(b.t,L)+"..."};', 48, 48, '||||||||imgurl_split|imgurl|||imgurl_localhost|indexOf|div|scale_size|imgurl_scale|function|stripTags|replace|split|img|if|src|class||thumb|href||innerHTML|return|ig|slice||join|rm|document|getElementById|var|getElementsByTagName|length|s180|blogspot|googleusercontent|ggpht|else|no|32'.split('|'), 0, {}))
     //]]></script>
@@ -123,11 +124,13 @@ Test Template Đồ Án
 <div class='sidebar section' id='sidebar'>
 <h2>Cây phân phối</h2>
 <div class='widget-content list-label-widget-content'>
-<ul>
-<li>
+<script type="text/javascript">// Lưu Session khi click vào menu.
+    function setSession(value) {
+        document.location.href = "TrangChu.aspx?MaADA=" + value//Điều hướng tới TrangChu và gán Id = giá trị vào
+    }
+    </script> 
     <asp:Label ID="lblMenu" runat="server" Text="Label"></asp:Label>
-</li>
-</ul>
+
 <div class='clear'></div>
 <span class='widget-item-control'>
 <span class='item-control blog-admin'>
