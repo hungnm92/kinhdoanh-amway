@@ -132,13 +132,14 @@ Test Template Đồ Án
     <asp:Label ID="lblMenu" runat="server" Text="Label"></asp:Label>
 
 <div class='clear'></div>
+    <!-- Cái đoạn này để chạy cái hiệu ứng lên đầu trang. -->
 <span class='widget-item-control'>
 <span class='item-control blog-admin'>
 <a class='quickedit'  onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target='configLabel1' title='Chỉnh sửa'>
-<img alt='' height='18' src='../images/icon18_wrench_allbkg.png' width='18'/>
 </a>
 </span>
 </span>
+    <!-- End lên đầu trang. -->
 <div class='clear'></div>
 </div>
 </div></div>
