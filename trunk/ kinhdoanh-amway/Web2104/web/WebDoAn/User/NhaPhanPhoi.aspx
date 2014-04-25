@@ -48,6 +48,7 @@
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
+            <asp:CheckBoxField DataField="GioiTinh" HeaderText="Nam" />
             <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
@@ -117,7 +118,7 @@
                         <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtNgaySinh" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
                 <td class="auto-style10">Giới tính: 
-                    <asp:RadioButton ID="rdoNam" runat="server" Checked="True" GroupName="GioiTinh" Text="Nam" />
+                    <asp:RadioButton ID="rdoNam" runat="server" GroupName="GioiTinh" Text="Nam" />
                     &nbsp;<asp:RadioButton ID="rdoNu" runat="server" GroupName="GioiTinh" Text="Nữ" />
                 </td>
             </tr>

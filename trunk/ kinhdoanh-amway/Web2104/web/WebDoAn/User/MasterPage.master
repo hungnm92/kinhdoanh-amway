@@ -39,7 +39,7 @@
 <ul>
 
 <li class='selected'>
-    <asp:HyperLink ID="lnkThoat" runat="server" NavigateUrl="~/User/DangNhap.aspx">Thoát</asp:HyperLink></li>
+    <asp:HyperLink ID="lnkThoat" runat="server" NavigateUrl="~/DangNhap.aspx">Thoát</asp:HyperLink></li>
     <li>
         <asp:HyperLink ID="lnkDoiMatKhau" runat="server" NavigateUrl="~/User/DoiMatKhau.aspx">Đổi mật khẩu</asp:HyperLink>
     </li>
@@ -74,36 +74,39 @@ Test Template Đồ Án
 <div id='navigation'>
 <ul>
 <li><a href='TrangChu.aspx'><img alt='' src='../images/amway_logo.png' /></a></li>
-<li><a href='NhaPhanPhoi.aspx'>Nhà Phân Phối<span>Bạn là chủ.</span></a>
+<li><a href='#'>Nhà Phân Phối<span>Bạn là chủ.</span></a>
 <ul class='sub_menu'>
-<li>
-    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="ChuyenTrang"><span>Nomal</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton1" runat="server" OnClick="ChuyenTrang"><span>Nomal</span></asp:LinkButton></li>
 <li><asp:LinkButton ID="LinkButton2" runat="server" OnClick="ChuyenTrang1" ><span>Silver</span></asp:LinkButton></li>
-<li><a href='#'><span>Gold</span></a></li>
+<li><asp:LinkButton ID="LinkButton3" runat="server" OnClick="ChuyenTrang2" ><span>Gold</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton4" runat="server" OnClick="ChuyenTrang3" ><span>Platinum</span></asp:LinkButton></li>
 </ul>
 </li>
-<li><a href='KhachHang.aspx'>Khách Hàng<span>Hãy đến với chúng tôi.</span></a>
+<li><a href='#'>Khách Hàng<span>Hãy đến với chúng tôi.</span></a>
 <ul class='sub_menu'>
-<li><a href='KhachHang.aspx'><span>Khách Hàng Sử Dụng</span></a></li>
-<li><a href='#'><span>Khách Hàng Tiềm Năng</span></a></li>
+<li><asp:LinkButton ID="LinkButton5" runat="server" OnClick="KHChuyenTrang1"><span>Khách Hàng Sử Dụng</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton6" runat="server" OnClick="KHChuyenTrang2"><span>Khách Hàng Tiềm Năng</span></asp:LinkButton></li>
 </ul>
 </li>
 <li><a href='#'>Sản Phẩm<span>Chất lượng là số 1.</span></a>
 <ul class='sub_menu'>
-<li><a href='SamPham.aspx'><span>Sản Phẩm</span></a></li>
+<li><asp:LinkButton ID="LinkButton7" runat="server" OnClick="SPChuyenTrang"><span> SP Bổ sung dinh dưỡng Nutrilite</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton8" runat="server" OnClick="SPChuyenTrang1" ><span>SP Chăm sóc da & mỹ phẩm Artistry</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton9" runat="server" OnClick="SPChuyenTrang2" ><span>SP Chăm sóc cơ thể</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton10" runat="server" OnClick="SPChuyenTrang3" ><span>SP Chăm sóc đồ da dụng</span></asp:LinkButton></li>
 <li><a href='SanPham_GoiY.aspx'><span>Sản Phẩm Gợi Ý</span></a></li>
 <li><a href='SanPham_DaDung.aspx'><span>Sản Phẩm Đã Dùng</span></a></li>
 </ul>
 </li>
 <li><a href='#'>Chương Trình<span>Sát cánh bên bạn.</span></a>
 <ul class='sub_menu'>
-<li><a href='SamPham.aspx'><span>Sắp diễn ra</span></a></li>
-<li><a href='SanPham_GoiY.aspx'><span>Đào tạo</span></a></li>
-<li><a href='SanPham_DaDung.aspx'><span>Chăm sóc</span></a></li>
+<li><a href='ChuongTrinh_SapDienRa.aspx'><span>Sắp diễn ra</span></a></li>
+<li><a href='ChuongTrinh_DaoTao.aspx'><span>Đào tạo</span></a></li>
+<li><a href='ChuongTrinh_ChamSoc.aspx'><span>Chăm sóc</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Doanh Thu<span>Theo dõi doanh thu</span></a></li>
-<li><a href='#'>Trợ giúp<span>Xem thêm thông tin</span></a></li>
+<li><a href='DoanhThu.aspx'>Doanh Thu<span>Theo dõi doanh thu</span></a></li>
+<li><a href='TroGiup.aspx'>Trợ giúp<span>Xem thêm thông tin</span></a></li>
 </ul>
 </div>
 

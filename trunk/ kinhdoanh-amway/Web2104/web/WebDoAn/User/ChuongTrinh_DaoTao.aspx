@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/MasterPage.master" AutoEventWireup="true" CodeFile="ChuongTrinh_DaoTao.aspx.cs" Inherits="User_ChuongTrinh_DaoTao" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
 
@@ -16,20 +18,21 @@
         .auto-style13 {
             width: 751px;
         }
-        .auto-style16 {
-            width: 751px;
+        .auto-style17 {
+            width: 302px;
             height: 30px;
         }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
     <asp:GridView ID="griChuongTrinhDaoTao" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaDaoTao" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griChuongTrinhDaoTao_PageIndexChanging" OnSelectedIndexChanged="griChuongTrinhDaoTao_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaCS" HeaderText="Mã số">
+            <asp:BoundField DataField="MaDaoTao" HeaderText="Mã số">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -61,16 +64,17 @@
         </table>
         <table class="auto-style5">
             <tr>
-                <td class="auto-style15">Mã đào tạo:
-                    <asp:TextBox ID="txtMaDaoTao" runat="server" Enabled="False" Visible="False"></asp:TextBox>
+                <td class="auto-style17">Mã đào tạo:
+                    <asp:TextBox ID="txtMaDaoTao" runat="server" Enabled="False" Width="10%"></asp:TextBox>
                 </td>
                 <td class="auto-style13">Thời gian:
-                    <asp:TextBox ID="txtNgayThamDu" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtNgayThamDu" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtNgayThamDu" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style15">Số lần:
-                    <asp:TextBox ID="txtSoLan" runat="server"></asp:TextBox>
+                <td class="auto-style17">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Số lần:
+                    <asp:TextBox ID="txtSoLan" runat="server" Enabled="False" Width="10%"></asp:TextBox>
                 </td>
                 <td class="auto-style15">Tên chương trình:
                     <asp:DropDownList ID="droChuongTrinh" runat="server" DataTextField="TenCT" DataValueField="MaCT">
@@ -78,7 +82,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btnXoa" runat="server" Text="Xóa" Visible="False" Width="7%" OnClick="btnXoa_Click" />
                     <asp:Button ID="btnSua" runat="server" Text="Sửa" Visible="False" Width="7%" OnClick="btnSua_Click" />
                     <asp:Button ID="btnIn" runat="server" Text="In" Width="6%" />

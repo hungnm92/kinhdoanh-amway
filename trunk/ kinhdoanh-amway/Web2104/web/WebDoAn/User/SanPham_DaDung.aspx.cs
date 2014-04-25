@@ -14,7 +14,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
     {
         if (Session["MaKH"].ToString() == null)//một gri nhưng 2 danh sách. không biết đúng không
         {
-            griMatHangDaDung.DataSource = nppsd.MatHang_DaDung(Session["MaNPP"].ToString());// sửa có tham số truyền vào???.
+            griMatHangDaDung.DataSource = nppsd.MatHang_DaDung(Session["MaNPP"].ToString());
             griMatHangDaDung.DataBind();
         }
         else
@@ -49,9 +49,10 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
                 nppsd.MinhHoa = true;
             else
                 nppsd.MinhHoa = false;
-            //fileAnhMH.HasFile = npp.AnhMH;
+            imgAnhMH.ImageUrl = "~/src/product/" + nppsd.AnhMH;
             lmh.MaLMH = nppsd.MaLMH;
             droLoaiMH.SelectedValue = lmh.MaLMH.ToString();
+            txtThoiGian.Text = nppsd.ThoiGian;
         }
         else
         {
@@ -69,9 +70,10 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
                 khsd.MinhHoa = true;
             else
                 khsd.MinhHoa = false;
-            //fileAnhMH.HasFile = npp.AnhMH;
+            imgAnhMH.ImageUrl = "~/src/product/" + nppsd.AnhMH;
             lmh.MaLMH = khsd.MaLMH;
             droLoaiMH.SelectedValue = lmh.MaLMH.ToString();
+            txtThoiGian.Text = khsd.ThoiGian;
         }       
     }
     protected void btnXoa_Click(object sender, EventArgs e)
@@ -82,7 +84,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
             nppsd.Xoa();
             lblTB.Visible = true;
             lblTB.Text = nppsd.ThongBao;
-            griMatHangDaDung.DataSource = nppsd.MatHang_DaDung(Session["MaNPP"].ToString());// sửa có tham số truyền vào???.
+            griMatHangDaDung.DataSource = nppsd.MatHang_DaDung(Session["MaNPP"].ToString());
             griMatHangDaDung.DataBind();
             txtMaMH.Text = "";
             txtTenMH.Text = "";
@@ -91,6 +93,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
             //fckChiTiet.Text = "";
             txtCachSuDung.Text = "";
             pnlChiTietMH.Visible = false;
+            txtThoiGian.Text = "";
         }
         else
         {
@@ -107,6 +110,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
             //fckChiTiet.Text = "";
             txtCachSuDung.Text = "";
             pnlChiTietMH.Visible = false;
+            txtThoiGian.Text = "";
         }
     }
     protected void btnSua_Click(object sender, EventArgs e)
@@ -123,7 +127,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
                     nppsd.MinhHoa = false;
                 nppsd.MaNPPSD = griMatHangDaDung.SelectedValue.ToString();
                 nppsd.Sua();
-                griMatHangDaDung.DataSource = nppsd.MatHang_DaDung(Session["MaNPP"].ToString());// sửa có tham số truyền vào???.
+                griMatHangDaDung.DataSource = nppsd.MatHang_DaDung(Session["MaNPP"].ToString());
                 griMatHangDaDung.DataBind();
                 lblTB.Visible = true;
                 lblTB.Text = nppsd.ThongBao;
@@ -160,7 +164,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
         griMatHangDaDung.PageIndex = e.NewPageIndex;
         if (Session["MaKH"].ToString() == null)//một gri nhưng 2 danh sách. không biết đúng không
         {
-            griMatHangDaDung.DataSource = nppsd.MatHang_DaDung(Session["MaNPP"].ToString());// sửa có tham số truyền vào???.
+            griMatHangDaDung.DataSource = nppsd.MatHang_DaDung(Session["MaNPP"].ToString());
             griMatHangDaDung.DataBind();
         }
         else

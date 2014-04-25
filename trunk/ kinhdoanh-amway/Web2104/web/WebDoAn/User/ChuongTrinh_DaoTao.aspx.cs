@@ -48,12 +48,14 @@ public partial class User_ChuongTrinh_DaoTao : System.Web.UI.Page
         txtNgayThamDu.Text = "";
         txtSoLan.Text = "";
         pnlChiTietCT.Visible = false;
+        griChuongTrinhDaoTao.DataSource = dt.DS(Session["MaNPP"].ToString());
+        griChuongTrinhDaoTao.DataBind();
     }
     protected void btnSua_Click(object sender, EventArgs e)
     {
         dt.MaDaoTao = griChuongTrinhDaoTao.SelectedValue.ToString();
         dt.MaCT = droChuongTrinh.SelectedValue;
-        dt.Sua();//bên sql m khai báo bnhiu tham số thì bên này khai báo lại hếết ???
+        dt.Sua();
         lblTB.Visible = true;
         lblTB.Text = dt.ThongBao;
         griChuongTrinhDaoTao.DataSource = dt.DS(Session["MaNPP"].ToString());

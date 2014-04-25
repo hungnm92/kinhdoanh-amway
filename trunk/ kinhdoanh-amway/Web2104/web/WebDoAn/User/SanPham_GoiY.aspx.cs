@@ -15,7 +15,7 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
     {
         if (Session["MaKH"].ToString() == null)//một gri nhưng 2 danh sách. không biết đúng không
         {
-            griMatHangChuaDung.DataSource = nppsd.MatHang_ChuaDung(Session["MaNPP"].ToString());// sửa có tham số truyền vào???.
+            griMatHangChuaDung.DataSource = nppsd.MatHang_ChuaDung(Session["MaNPP"].ToString());
             griMatHangChuaDung.DataBind();
         }
         else
@@ -44,7 +44,7 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
             txtChiTiet.Text = nppsd.ChiTiet;
             //fckChiTiet.Text = mh.ChiTiet;
             txtCachSuDung.Text = nppsd.CachSuDung.ToString();
-            //fileAnhMH.HasFile = npp.AnhMH;
+            imgAnhMH.ImageUrl = "~/src/product/" + nppsd.AnhMH;
             lmh.MaLMH = nppsd.MaLMH;
             droLoaiMH.SelectedValue = lmh.MaLMH.ToString();
         }
@@ -59,7 +59,7 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
             txtChiTiet.Text = khsd.ChiTiet;
             //fckChiTiet.Text = mh.ChiTiet;
             txtCachSuDung.Text = khsd.CachSuDung.ToString();
-            //fileAnhMH.HasFile = npp.AnhMH;
+            imgAnhMH.ImageUrl = "~/src/product/" + khsd.AnhMH;
             lmh.MaLMH = khsd.MaLMH;
             droLoaiMH.SelectedValue = lmh.MaLMH.ToString();
         }
@@ -69,7 +69,7 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
         griMatHangChuaDung.PageIndex = e.NewPageIndex;
         if (Session["MaKH"].ToString() == null)//một gri nhưng 2 danh sách. không biết đúng không
         {
-            griMatHangChuaDung.DataSource = nppsd.MatHang_ChuaDung(Session["MaNPP"].ToString());// sửa có tham số truyền vào???.
+            griMatHangChuaDung.DataSource = nppsd.MatHang_ChuaDung(Session["MaNPP"].ToString());
             griMatHangChuaDung.DataBind();
         }
         else
@@ -91,6 +91,7 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
         {
             nppsd.MaMH = griMatHangChuaDung.SelectedValue.ToString();
             nppsd.MaNPP = Session["MaNPP"].ToString();
+            nppsd.ThoiGian = txtThoiGian.Text;
             nppsd.SoLuong = int.Parse(txtSoLuong.Text);
             if (chkMinhHoa.Checked == true)
                 nppsd.MinhHoa = true;
@@ -105,6 +106,7 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
             khsd.MaMH = griMatHangChuaDung.SelectedValue.ToString();
             khsd.MaKH = Session["MaKH"].ToString();
             khsd.MaNPP = Session["MaNPP"].ToString();
+            khsd.ThoiGian = txtThoiGian.Text;
             khsd.SoLuong = int.Parse(txtSoLuong.Text);
             if (chkMinhHoa.Checked == true)
                 khsd.MinhHoa = true;

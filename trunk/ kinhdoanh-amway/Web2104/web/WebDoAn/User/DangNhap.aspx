@@ -73,7 +73,7 @@ Test Template Đồ Án
 </div>
 <div id='navigation'>
 <ul>
-<li><a href='TrangChu.aspx'><img alt='' src='../images/amway_logo.png' /></a></li>
+<li><a href='#'><img alt='' src='../images/amway_logo.png' /></a></li>
 <li><a href='#'>Nhà Phân Phối<span>Bạn là chủ.</span></a>
 <ul class='sub_menu'>
 <li><a href='#'><span>Nomal</span></a></li>
