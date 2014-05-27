@@ -30,6 +30,7 @@ public partial class User_Default : System.Web.UI.Page
         }
         if (IsPostBack == false)
         {
+            string temp3;
             droDuongNPPLL.DataSource = dll.DS();
             droDuongNPPLL.DataBind();
             droDuongNPPTT.DataSource = dtt.DS();
@@ -55,11 +56,19 @@ public partial class User_Default : System.Web.UI.Page
                 droCapDo.DataSource = cd.DS();
                 droCapDo.DataBind();
                 btnSua.Visible = true;
+                temp3 = npp.NgayHetHan.ToString();
+                temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
+                npp.NgayHetHan = temp3;
+                if (npp.SL_CanhBao() != 0)
+                    btnGHT.Visible = true;
             }
             else
             {
                 npp.MaNPP = Session["MaNPPClick"].ToString();
                 npp.CT();
+                temp3 = npp.NgayHetHan.ToString();
+                temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
+                npp.NgayHetHan = temp3;
                 cd.MaCD = npp.MaCD;
                 droCapDo.DataSource = cd.DS();
                 droCapDo.DataBind();
@@ -70,24 +79,31 @@ public partial class User_Default : System.Web.UI.Page
             txtHoNPP.Text = npp.HoNPP;
             txtTenNPP.Text = npp.TenNPP;
             //txtNgaySinh.Text = npp.NgaySinh;
-            string temp1 = npp.NgaySinh.ToString().Replace("12:00:00 AM", "");
+            string temp1 = npp.NgaySinh.ToString().Replace(" 12:00:00 AM", "");
+            temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
             txtNgaySinh.Text = temp1;
             txtNgaySinh.Enabled = false;
             if (npp.GioiTinh == true)
+            {
+                rdoNu.Checked = false;
                 rdoNam.Checked = true;
+            }
             else
+            {
+                rdoNam.Checked = false;
                 rdoNu.Checked = true;
+            }
             imgAnhNPP.ImageUrl = "~/src/emp/" + npp.AnhNPP;
             txtCMND.Text = npp.CMND;
             txtSoDT.Text = npp.SoDT;
             txtEmail.Text = npp.Email;
             //txtNgayKyThe.Text = npp.NgayKyThe;
-            string temp2 = npp.NgayKyThe.ToString().Replace("12:00:00 AM", "");
+            string temp2 = npp.NgayKyThe.ToString().Replace(" 12:00:00 AM", "");
+            temp2 = temp2.Substring(8, 2) + "/" + temp2.Substring(5, 2) + "/" + temp2.Substring(0, 4);
             txtNgayKyThe.Text = temp2;
             txtNgayKyThe.Enabled = false;
             //txtNgayHetHan.Text = npp.NgayHetHan;
-            string temp3 = npp.NgayHetHan.ToString().Replace("12:00:00 AM", "");
-            txtNgayHetHan.Text = temp3;
+            txtNgayHetHan.Text = npp.NgayHetHan;
             txtNgayHetHan.Enabled = false;
             txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
             txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
@@ -257,5 +273,11 @@ public partial class User_Default : System.Web.UI.Page
         droXaNPPLL.Items.Clear();
         droXaNPPLL.DataSource = xpll.DS(npp.MaHuyenNPPLL);
         droXaNPPLL.DataBind();
+    }
+    protected void btnGHT_Click(object sender, EventArgs e)
+    {
+        npp.MaNPP = Session["MaNPP"].ToString();
+        npp.CT();
+        npp.Sua_NgayHetHan();
     }
 }

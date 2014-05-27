@@ -16,6 +16,8 @@ public partial class User_DangNhap : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
+            lblTB.Visible = true;
+            lblTB.Text = DateTime.Today.ToShortDateString();
             Session["MaNPPClick"] = null;//Khi quay lại trang đăng nhập thì xóa biến session click
             Session["MaNPP"] = null;
             Session["MaKH"] = null;
@@ -28,8 +30,8 @@ public partial class User_DangNhap : System.Web.UI.Page
     
     protected void btnShowMap_Click(object sender, EventArgs e)
         {
-            string fulladdress = string.Format("{0}.{1}.{2}", txtStreet.Text, txtCity.Text, txtCountry.Text);
-            string skey = ConfigurationManager.AppSettings["AIzaSyDtm1ZEb3am5hBseCQxi3gcyyOcYCso7Zc"];
+            string fulladdress = string.Format("{0}, {1}, {2}", txtStreet.Text, txtCity.Text, txtCountry.Text);
+            string skey = ConfigurationManager.AppSettings["AIzaSyAtXBSFK5ZJmk8dDm3-Sfvo1_ulXjsWmyk"];
             GeoCode geocode;
             geocode = GMap1.getGeoCodeRequest(fulladdress);
             var glatlng = new Subgurim.Controles.GLatLng(geocode.Placemark.coordinates.lat, geocode.Placemark.coordinates.lng);

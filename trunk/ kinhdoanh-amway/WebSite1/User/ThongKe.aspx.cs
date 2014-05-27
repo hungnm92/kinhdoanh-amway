@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
+using Subgurim.Controles;
 
 public partial class User_NhaPhanPhoi : System.Web.UI.Page
 {
@@ -59,6 +63,28 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             griNPP_ThanhTichMoi.Visible = false;
             griNPP_SapHetHan.Visible = false;
             pnlChiTietNPP.Visible = false;
+            DataTable dt1 = this.GetData("select MaNPP,  ViDo, KinhDo, HoNPP +' '+ TenNPP as HoTen from NhaPhanPhoi where ViDo >0 and KinhDo > 0");
+            rptMarkers.DataSource = dt1;
+            rptMarkers.DataBind();
+        }
+    }
+    private DataTable GetData(string query)
+    {
+        string conString = "server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;";
+        SqlCommand cmd = new SqlCommand(query);
+        using (SqlConnection con = new SqlConnection(conString))
+        {
+            using (SqlDataAdapter sda = new SqlDataAdapter())
+            {
+                cmd.Connection = con;
+
+                sda.SelectCommand = cmd;
+                using (DataTable dt1 = new DataTable())
+                {
+                    sda.Fill(dt1);
+                    return dt1;
+                }
+            }
         }
     }
     protected void griNPP_Moi_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -159,12 +185,12 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         if (Session["MaNPPClick"] == null)
         {
             npp.MaNPP = Session["MaNPP"].ToString();
-            griNPP_SapHetHan.DataSource = npp.DS_CanhBao();
+            griNPP_SapHetHan.DataSource = npp.DS_SapHetHan();
         }
         else
         {
             npp.MaNPP = Session["MaNPPClick"].ToString();
-            griNPP_ThanhTichMoi.DataSource = npp.DS_CanhBao();
+            griNPP_ThanhTichMoi.DataSource = npp.DS_SapHetHan();
         }
         griNPP_SapHetHan.DataBind();
         griNPP_ThanhTichMoi.Visible = false;
@@ -187,7 +213,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
         //txtNgaySinh.Text = npp.NgaySinh;
-        string temp1 = npp.NgaySinh.ToString().Replace("12:00:00 AM", "");
+        string temp1 = npp.NgaySinh.ToString().Replace(" 12:00:00 AM", "");
+        temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
         txtNgaySinh.Text = temp1;
         txtNgaySinh.Enabled = false;
         if (npp.GioiTinh == true)
@@ -209,12 +236,15 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtSoDT.Text = npp.SoDT;
         txtEmail.Text = npp.Email;
         //txtNgayKyThe.Text = npp.NgayKyThe;
-        string temp2 = npp.NgayKyThe.ToString().Replace("12:00:00 AM", "");
+        string temp2 = npp.NgayKyThe.ToString().Replace(" 12:00:00 AM", "");
+        temp2 = temp2.Substring(8, 2) + "/" + temp2.Substring(5, 2) + "/" + temp2.Substring(0, 4);
         txtNgayKyThe.Text = temp2;
         txtNgayKyThe.Enabled = false;
         //txtNgayHetHan.Text = npp.NgayHetHan;
-        string temp3 = npp.NgayHetHan.ToString().Replace("12:00:00 AM", "");
+        string temp3 = npp.NgayHetHan.ToString().Replace(" 12:00:00 AM", "");
+        temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
         txtNgayHetHan.Text = temp3;
+        npp.NgayHetHan = temp3;
         txtNgayHetHan.Enabled = false;
         txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
         txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
@@ -267,7 +297,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
         //txtNgaySinh.Text = npp.NgaySinh;
-        string temp1 = npp.NgaySinh.ToString().Replace("12:00:00 AM", "");
+        string temp1 = npp.NgaySinh.ToString().Replace(" 12:00:00 AM", "");
+        temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
         txtNgaySinh.Text = temp1;
         txtNgaySinh.Enabled = false;
         if (npp.GioiTinh == true)
@@ -289,12 +320,15 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtSoDT.Text = npp.SoDT;
         txtEmail.Text = npp.Email;
         //txtNgayKyThe.Text = npp.NgayKyThe;
-        string temp2 = npp.NgayKyThe.ToString().Replace("12:00:00 AM", "");
+        string temp2 = npp.NgayKyThe.ToString().Replace(" 12:00:00 AM", "");
+        temp2 = temp2.Substring(8, 2) + "/" + temp2.Substring(5, 2) + "/" + temp2.Substring(0, 4);
         txtNgayKyThe.Text = temp2;
         txtNgayKyThe.Enabled = false;
         //txtNgayHetHan.Text = npp.NgayHetHan;
-        string temp3 = npp.NgayHetHan.ToString().Replace("12:00:00 AM", "");
+        string temp3 = npp.NgayHetHan.ToString().Replace(" 12:00:00 AM", "");
+        temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
         txtNgayHetHan.Text = temp3;
+        npp.NgayHetHan = temp3;
         txtNgayHetHan.Enabled = false;
         txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
         txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
@@ -347,7 +381,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
         //txtNgaySinh.Text = npp.NgaySinh;
-        string temp1 = npp.NgaySinh.ToString().Replace("12:00:00 AM", "");
+        string temp1 = npp.NgaySinh.ToString().Replace(" 12:00:00 AM", "");
+        temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
         txtNgaySinh.Text = temp1;
         txtNgaySinh.Enabled = false;
         if (npp.GioiTinh == true)
@@ -369,12 +404,15 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtSoDT.Text = npp.SoDT;
         txtEmail.Text = npp.Email;
         //txtNgayKyThe.Text = npp.NgayKyThe;
-        string temp2 = npp.NgayKyThe.ToString().Replace("12:00:00 AM", "");
+        string temp2 = npp.NgayKyThe.ToString().Replace(" 12:00:00 AM", "");
+        temp2 = temp2.Substring(8, 2) + "/" + temp2.Substring(5, 2) + "/" + temp2.Substring(0, 4);
         txtNgayKyThe.Text = temp2;
         txtNgayKyThe.Enabled = false;
         //txtNgayHetHan.Text = npp.NgayHetHan;
-        string temp3 = npp.NgayHetHan.ToString().Replace("12:00:00 AM", "");
+        string temp3 = npp.NgayHetHan.ToString().Replace(" 12:00:00 AM", "");
+        temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
         txtNgayHetHan.Text = temp3;
+        npp.NgayHetHan = temp3;
         txtNgayHetHan.Enabled = false;
         txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
         txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;

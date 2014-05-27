@@ -75,14 +75,22 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
         if (Session["MaNPPClick"] == null)
         {
             if (Session["MaKH"] == null)
+            {
                 btnDaoTao.Visible = true;
+                btnShowPopup.Visible = true;
+            }
             else
+            {
                 btnChamSoc.Visible = true;
+                btnShowPopup0.Visible = true;
+            }
         }
         else
         {
             btnDaoTao.Visible = false;
             btnChamSoc.Visible = false;
+            btnShowPopup0.Visible = false;
+            btnShowPopup.Visible = false;
         }
         lblTB.Visible = false;
         ct.MaCT = griChuongTrinhSapDienRa.SelectedValue.ToString();
@@ -104,7 +112,9 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
         btnXoa.Visible = false;
         btnSua.Visible = false;
         btnChamSoc.Visible = false;
+        btnShowPopup0.Visible = false;
         btnDaoTao.Visible = false;
+        btnShowPopup.Visible = false;
         btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
@@ -231,4 +241,5 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
             }
         }
     }
+
 }

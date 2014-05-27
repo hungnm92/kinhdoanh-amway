@@ -46,6 +46,7 @@
         <asp:HyperLink ID="lnkDoiMatKhau" runat="server" NavigateUrl="~/User/DoiMatKhau.aspx">Đổi mật khẩu</asp:HyperLink>
     </li>
 <li><asp:Label ID="lblNPP" runat="server" Font-Italic="True" ForeColor="Red"></asp:Label></li>
+    <li><a href='TroGiup.aspx'><span>Xem thêm thông tin</span></a></li>
 
     <!-- <li><div id='search_engine'>
 <div class='field'><input name='q' onblur='if (this.value == "") {this.value = "Search...";}' onfocus='if (this.value == "Search...") {this.value = "";}' type='text' value='Search...'/></div>
@@ -112,7 +113,6 @@ Test Template Đồ Án
 </li>
 <li><a href='DoanhThu.aspx'>Doanh Thu<span>Theo dõi doanh thu</span></a></li>
 <li><a href='ThongKe.aspx'>Thống kê<span>Thống kê theo yêu cầu</span></a></li>
-<li><a href='TroGiup.aspx'>Trợ giúp<span>Xem thêm thông tin</span></a></li>
 </ul>
 </div>
 

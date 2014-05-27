@@ -73,7 +73,7 @@
                     <asp:TextBox ID="txtMaDT" runat="server" Enabled="False" Width="10%"></asp:TextBox>
                 </td>
                 <td class="auto-style13">Thời gian:
-                    <asp:TextBox ID="txtNgayDT" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtNgayDT" runat="server" style="height: 22px"></asp:TextBox>
                     <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtNgayDT" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
             </tr>

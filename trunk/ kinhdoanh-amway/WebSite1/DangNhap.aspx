@@ -39,7 +39,7 @@
 <li class='selected'></li>
 <li>       <asp:Button ID="btnDangNhap" runat="server" ForeColor="Red" OnClick="btnDangNhap_Click" Text="Login" />
     </li>
-<li>       <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "maile@gmail.com";}' onfocus='if (this.value == "maile@gmail.com") {this.value = "";}; TextMode="maile@gmail.com"' value ='maile@gmail.com' ></asp:TextBox>
+<li>       <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "trangdhnt@gmail.com";}' onfocus='if (this.value == "trangdhnt@gmail.com") {this.value = "";}; TextMode="trangdhnt@gmail.com"' value ='trangdhnt@gmail.com' ></asp:TextBox>
 </li>
 <li>       <asp:TextBox ID="txtMaNPP" runat="server" onblur='if (this.value == "") {this.value = "2976313";}' onfocus='if (this.value == "2976313") {this.value = "";}' value ='2976313'></asp:TextBox>
 </li>
@@ -122,7 +122,7 @@ Test Template Đồ Án
 <div class='post'>
 <div class='inside'>
 
-   <cc1:GMap ID="GMap1" runat="server" Height="500px" Width="600px" enableGoogleBar="true" enableContinuousZoom="true" />
+   <cc1:GMap ID="GMap1" runat="server" Height="500px" Width="550px" mapType="Satellite" />
 
 </div>
 <div class='post-footer-line-3'></div>
@@ -144,21 +144,21 @@ Test Template Đồ Án
     </tr>
     <tr>
         <td>
-            Street</td>
+            Đường:</td>
         <td class="style3">
             <asp:TextBox ID="txtStreet" runat="server" />
         </td>
     </tr>
     <tr>
         <td>
-            City</td>
+            Thành Phố:</td>
         <td>
             <asp:TextBox ID="txtCity" runat="server" />
         </td>
     </tr>
     <tr>
         <td>
-            Country</td>
+            Quốc Gia:</td>
         <td>
             <asp:TextBox ID="txtCountry" runat="server" />
         </td>
@@ -166,7 +166,7 @@ Test Template Đồ Án
     <tr>
         <td colspan="2">
             <asp:Button ID="btnShowMap" runat="server" onclick="btnShowMap_Click" 
-                Text="ShowMap" />
+                Text="Tìm kiếm" />
         </td>
     </tr>
 </table>
@@ -192,7 +192,7 @@ Test Template Đồ Án
 </div>
 <div class='go-top'><a href='#'></a></div>
 
-<div class='copyright'>Copyright 2013 &#169; <a href='#' id='copyright'>DoAn 52TH</a> and <a href='#'>doan.somee.com</a></div>
+<div class='copyright'>Copyright 2014 &#169; <a href='#' id='copyright'>DoAn 52TH</a> and <a href='#'>doan.somee.com</a></div>
 <div class='clear'></div>
 <div class='column section' id='leftcolumn'>
 </div>

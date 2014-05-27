@@ -1,58 +1,96 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Web;
 using System.Web.Security;
-using System.Web.UI.HtmlControls;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Net.Mail;
-using System.ComponentModel;// for backgroundworker class
-using System.Net;
-using System.Threading;
 
 public partial class User_TroGiup : System.Web.UI.Page
 {
-    BackgroundWorker bw;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        bw = new BackgroundWorker();
-        bw.DoWork += new DoWorkEventHandler(bw_DoWork);
-        bw.WorkerSupportsCancellation = true;
-        bw.WorkerReportsProgress = false;
+
     }
-    public void SendMail()
+
+    protected void btnSend_Click(object sender, EventArgs e)
     {
-        MailMessage msg = new MailMessage();
-        msg.From = new MailAddress("hunghuynh.it@gmail.com");
-        msg.To.Add("manhhung.boy9x@gmail.com");
-        msg.Body = "Testing the automatic mail";
-        msg.IsBodyHtml = true;
-        msg.Subject = "Movie Data";
-        SmtpClient smt = new SmtpClient("smtp.gmail.com");
-        smt.Port = 587;
-        smt.Credentials = new NetworkCredential("hunghuynh.it@gmail.com", "hungcokute123");
-        smt.EnableSsl = true;
-        smt.Send(msg);
-        string script = "<script>alert('Mail Sent Successfully');self.close();</script>";
-        this.ClientScript.RegisterClientScriptBlock(this.GetType(), "sendMail", script);
+        SmtpClient SmtpServer = new SmtpClient();
+        SmtpServer.Credentials = new System.Net.NetworkCredential("hunghuynh.it@gmail.com", "hungcokute123");
+        SmtpServer.Port = 587;
+        SmtpServer.Host = "smtp.gmail.com";
+        SmtpServer.EnableSsl = true;
+        MailMessage mail = new MailMessage();
+
+
+        try
+        {
+            mail.From = new MailAddress(txtEmail.Text, txtHoTen.Text + " gửi từ form liên hệ", System.Text.Encoding.UTF8);
+            mail.To.Add("hunghuynh.it@gmail.com");
+            mail.Subject = "Mail từ Form liên";
+            mail.Body = MailBody();
+            mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+            //mail.ReplyTo = new MailAddress("yourmail@mail.com");
+            mail.Priority = MailPriority.High;
+            mail.IsBodyHtml = true;
+            SmtpServer.Send(mail);
+            Label1.Text = "Cảm ơn bạn đã gửi thông điệp đến website";
+            ResetFrom();
+        }
+        catch (Exception ex) { Label1.Text = ex.Message.ToString(); }
     }
-    public void bw_DoWork(object sender, DoWorkEventArgs e)
+    private void ResetFrom()
     {
-        SendMail();
+        txtHoTen.Text = "";
+        txtDiaChi.Text = "";
+        txtDienThoai.Text = "";
+        txtEmail.Text = "";
+        txtNoiDung.Text = "";
+    }
+
+
+    private string MailBody()
+    {
+        string strHTML = "";
+        strHTML += "Họ và tên: " + txtHoTen.Text + "<br>";
+        strHTML += "Địa chỉ: " + txtDiaChi.Text + "<br>";
+        strHTML += "Điện thoại: " + txtDienThoai.Text + "<br>";
+        strHTML += "Email: " + txtEmail.Text + "<br>";
+        strHTML += "Đã gửi qua Form liên hệ với thông điệp:<br><b>";
+        strHTML += txtNoiDung.Text + "</b>";
+        return strHTML;
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        DateTime current_time = DateTime.Now;
-        current_time = current_time.AddSeconds(10);
-        Thread.Sleep(20);
-        if (current_time == DateTime.Now)
+        SmtpClient SmtpServer = new SmtpClient();
+        SmtpServer.Credentials = new System.Net.NetworkCredential("hunghuynh.it@gmail.com", "hungcokute123");
+        SmtpServer.Port = 587;
+        SmtpServer.Host = "smtp.gmail.com";
+        SmtpServer.EnableSsl = true;
+        MailMessage mail = new MailMessage();
+        String[] addr = txtTo.Text.Split(',');
+        try
         {
-            bw.RunWorkerAsync();
+            mail.From = new MailAddress("hunghuynh.it@gmail.com", "Cảnh báo sắp hết hạn NPP", System.Text.Encoding.UTF8);
+            Byte i;
+            for (i = 0; i < addr.Length; i++)
+                mail.To.Add(addr[i]);
+            //mail.To.Add(txtTo.Text);
+            mail.Subject = txtSubject.Text;
+            mail.Body = txtConTent.Text;
+            mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+            //mail.ReplyTo = new MailAddress("yourmail@mail.com");
+            mail.Priority = MailPriority.High;
+            mail.IsBodyHtml = true;
+            SmtpServer.Send(mail);
+            Label1.Text = "Cảm ơn bạn đã gửi thông điệp đến website";
+            //ResetFrom();
         }
+        catch (Exception ex) { Label1.Text = ex.Message.ToString(); }
     }
 }
 

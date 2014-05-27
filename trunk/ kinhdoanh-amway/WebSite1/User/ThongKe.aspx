@@ -95,9 +95,11 @@ div#popup-content {
                     Từ ngày:</td>
                 <td class="auto-style16">
                     <asp:TextBox ID="txtTuNgay" runat="server" style="width: 128px"></asp:TextBox>
+                     <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtTuNgay" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
                 <td class="auto-style16">Đến ngày:&nbsp;
                     <asp:TextBox ID="txtDenNgay" runat="server"></asp:TextBox>
+                     <asp:CalendarExtender ID="CalendarExtender2" TargetControlID="txtDenNgay" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
             </tr>
             <tr>
@@ -278,19 +280,19 @@ div#popup-content {
                 <td >Họ và đệm: &nbsp;
                 </td>
                 <td>
-                    <asp:TextBox ID="txtHoNPP" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:TextBox ID="txtHoNPP" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style17" >Tên:</td>
                 <td class="auto-style17">
-                    <asp:TextBox ID="txtTenNPP" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:TextBox ID="txtTenNPP" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td >Ngày sinh: </td>
                 <td>
-                    <asp:TextBox ID="txtNgaySinh" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
+                    <asp:TextBox ID="txtNgaySinh" runat="server" Enabled="False" ReadOnly="True" style="height: 20px"></asp:TextBox>
                 </td>
                 <td >Giới tính:
                     <asp:RadioButton ID="rdoNam" runat="server" Checked="True" GroupName="GioiTinh" Text="Nam" Enabled="False" />
@@ -307,7 +309,7 @@ div#popup-content {
                     </asp:FilteredTextBoxExtender>
                 </td>
                 <td >Số điện thoại:
-                    <asp:TextBox ID="txtSoDT" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:TextBox ID="txtSoDT" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                     <asp:FilteredTextBoxExtender ID="ftbSoDT" runat="server" Enabled="True" FilterType="Numbers" 
 
 TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
@@ -317,7 +319,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                 <td >Email:
                     </td>
                 <td>
-                    <asp:TextBox ID="txtEmail" runat="server" style="width: 128px; height: 20px;" Enabled="False"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" style="width: 128px; height: 20px;" Enabled="False" ReadOnly="True"></asp:TextBox>
                 </td>
                 <td >Ngày ký thẻ:
                     <asp:TextBox ID="txtNgayKyThe" runat="server" ReadOnly="True" Enabled="False"></asp:TextBox>
@@ -334,7 +336,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
             <tr>
                 <td style="white-space: nowrap">Địa chỉ thường trú:</td>
                 <td colspan="2">
-                    <asp:TextBox ID="txtSoNhaNPPTT" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:TextBox ID="txtSoNhaNPPTT" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                     &nbsp;<asp:DropDownList ID="droDuongNPPTT" runat="server" DataTextField="TenDuong" DataValueField="MaDuong" Enabled="False">
                     </asp:DropDownList>
                     &nbsp;</td>
@@ -479,9 +481,54 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
 
     <br />
 
-    <div>
-        Bản đồ ở đây</div>
+         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+    var markers = [
+    <asp:Repeater ID="rptMarkers" runat="server">
+    <ItemTemplate>
+                {
+                    "title": '<%# Eval("MaNPP") %>',
+                    "lat": '<%# Eval("ViDo") %>',
+                    "lng": '<%# Eval("KinhDo") %>',
+                    "description": '<%# Eval("HoTen") %>'
+                }
+</ItemTemplate>
+<SeparatorTemplate>
+    ,
+</SeparatorTemplate>
+</asp:Repeater>
+    ];
+</script>
+<script type="text/javascript">
+    window.onload = function () {
+        var mapOptions = {
+            center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var infoWindow = new google.maps.InfoWindow();
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+        for (i = 0; i < markers.length; i++) {
+            var data = markers[i]
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title
+            });
+            (function (marker, data) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    infoWindow.setContent(data.description);
+                    infoWindow.open(map, marker);
+                });
+            })(marker, data);
+        }
+    }
+</script>
+<div id="dvMap" style="width: 545px; height: 500px">
+
     <p>
         &nbsp;</p>
+    </div>
 </asp:Content>
 

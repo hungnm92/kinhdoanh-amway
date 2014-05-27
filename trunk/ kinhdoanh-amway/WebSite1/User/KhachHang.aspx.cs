@@ -80,6 +80,7 @@ public partial class User_KhachHang : System.Web.UI.Page
         txtNgayKyThe.Visible = true;
         if (Session["MaNPPClick"] == null)
         {
+            btnThem.Visible = false;
             btnXoa.Visible = true;
             btnSua.Visible = true;
             btnTroThanhNPP.Visible = true;
@@ -94,15 +95,19 @@ public partial class User_KhachHang : System.Web.UI.Page
         txtHoKH.Text = kh.HoKH;
         txtTenKH.Text = kh.TenKH;
         //txtNgaySinh.Text = kh.NgaySinh;
-        string temp1 = kh.NgaySinh.ToString().Replace("12:00:00 AM", "");
-        txtNgaySinh.Text = temp1;
+        string temp1 = kh.NgaySinh.ToString().Replace(" 12:00:00 AM", "");
+        temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
         txtNgaySinh.Enabled = false;
         if (kh.GioiTinh == true)
         {
+            rdoNu.Checked = false;
             rdoNam.Checked = true;
         }
         else
+        {
             rdoNu.Checked = true;
+            rdoNam.Checked = false;
+        }
         txtCMND.Text = kh.CMND;
         txtSoDT.Text = kh.SoDT;
         txtEmail.Text = kh.Email;
@@ -161,6 +166,7 @@ public partial class User_KhachHang : System.Web.UI.Page
         txtNgayKyThe.Visible = false;
         txtHoKH.Text = "";
         txtTenKH.Text = "";
+        txtNgaySinh.Enabled = true;
         txtNgaySinh.Text = "";
         txtCMND.Text = "";
         txtSoDT.Text = "";
@@ -296,6 +302,8 @@ public partial class User_KhachHang : System.Web.UI.Page
         else
             lbtThemMoi.Visible = false;
         lblTB.Visible = false;
+        rdoNam.Checked = false;
+        rdoNu.Checked = false;
     }
     protected void btnTroThanhNPP_Click(object sender, EventArgs e)
     {
