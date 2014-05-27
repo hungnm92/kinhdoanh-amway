@@ -947,10 +947,10 @@ namespace webdoan
                 BaoVe.Close();
                 return SoLuongCB;
             }
-            public DataTable DS_CanhBao()//su dung ky thuat lay danh sach co tham so truyen vao
+            public DataTable DS_SapHetHan()//su dung ky thuat lay danh sach co tham so truyen vao
             {
                 SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
-                SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_BaoTro_SapHetHan", BaoVe);
+                SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_DS_SapHetHan", BaoVe);
                 Lenh.CommandType = CommandType.StoredProcedure;
                 SqlParameter ThamSo = new SqlParameter();
                 ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);

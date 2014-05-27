@@ -6,23 +6,14 @@
 
 
         .auto-style5 {
-            width: 803px;
         }
         .auto-style13 {
-            width: 751px;
         }
         .auto-style14 {
-            width: 751px;
-            height: 9px;
         }
         .auto-style15 {
-            height: 30px;
         }
-        .auto-style16 {
-            height: 30px;
-            width: 751px;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id='XinChao'>
@@ -142,61 +133,99 @@
         <table class="auto-style5">
             <tr>
                 <td class="auto-style13">Mã sản phẩm:
+                    </td>
+                <td class="auto-style13">
                     <asp:TextBox ID="txtMaMH" runat="server" Enabled="False"></asp:TextBox>
                 </td>
-                <td class="auto-style13" rowspan="3">
+                <td class="auto-style13" rowspan="5">
                     <asp:Image ID="imgAnhMH" runat="server" />
                 </td>
             </tr>
             <tr>
-                <td class="auto-style14">Tên sản phẩm:
-                    <asp:TextBox ID="txtTenMH" runat="server" Enabled="False"></asp:TextBox>
-                    &nbsp;</td>
+                <td class="auto-style14" style="white-space: nowrap; width: 1%">Tên sản phẩm: &nbsp;</td>
+                <td class="auto-style14">
+                    <asp:TextBox ID="txtTenMH" runat="server" Enabled="False" Width="100%"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style12">Giá:
-                    <asp:TextBox ID="txtGia" runat="server" Enabled="False"></asp:TextBox>
-                    <asp:FilteredTextBoxExtender ID="ftbGia" runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtGia" ></asp:FilteredTextBoxExtender>
+                    </td>
+                <td class="auto-style12" rowspan="3">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td> <asp:TextBox ID="txtGia" AutoPostBack="true" runat="server" Enabled="False" OnTextChanged="txtGia_TextChanged"></asp:TextBox>
+                    <asp:FilteredTextBoxExtender ID="ftbGia" runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtGia">
+                    </asp:FilteredTextBoxExtender>&nbsp;vnđ</td>
+                                </tr>
+                                <tr>
+                                    <td>                    <asp:TextBox ID="txtSoLuong" AutoPostBack="true" runat="server" OnTextChanged="txtSoLuong_TextChanged"></asp:TextBox>
+                                        <asp:FilteredTextBoxExtender ID="ftbSoLuong" runat="server" Enabled="True" FilterType="Numbers"  TargetControlID="txtSoLuong">
+                    </asp:FilteredTextBoxExtender>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>                    <asp:TextBox ID="txtTongTien" AutoPostBack="false" runat="server"></asp:TextBox>
+                    &nbsp;vnđ</td>
+                                </tr>
+                            </table>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </td>
             </tr>
             <tr>
+                <td class="auto-style15">Số lượng: </td>
+            </tr>
+            <tr>
+                <td class="auto-style15">Tổng tiền:</td>
+            </tr>
+            <tr>
                 <td class="auto-style12">Cách sử dụng:
-                    <asp:TextBox ID="txtCachSuDung" runat="server" Width="359px" Enabled="False" TextMode="MultiLine"></asp:TextBox>
+                    </td>
+                <td class="auto-style12" colspan="2">
+                    <asp:TextBox ID="txtCachSuDung" runat="server" Enabled="False" TextMode="MultiLine" Width="100%" Height="53px"></asp:TextBox>
                 </td>
-                <td class="auto-style13">&nbsp;Loại mặt hàng:
+            </tr>
+            <tr>
+                <td class="auto-style15">
+                    <asp:CheckBox ID="chkMinhHoa" runat="server" Text="Minh họa" />
+                    </td>
+                <td class="auto-style15" colspan="2">
+                    &nbsp;Loại mặt hàng:
                     <asp:DropDownList ID="droLoaiMH" runat="server" DataTextField="TenLMH" DataValueField="MaLMH" Enabled="False">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style15">Số lượng:
-                    <asp:TextBox ID="txtSoLuong" runat="server"></asp:TextBox>
-                </td>
-                <td class="auto-style16">
-                    <asp:CheckBox ID="chkMinhHoa" runat="server" Text="Minh họa" />
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style12">Chi tiết:
+                <td class="auto-style12" colspan="3">Chi tiết:<br />
                     <CKEditor:CKEditorControl ID="fckChiTiet" runat="server" Enabled="False"></CKEditor:CKEditorControl>
                 </td>
-                <td class="auto-style12">Ngày sử dụng:
-                    <asp:TextBox ID="txtThoiGian" runat="server"></asp:TextBox>
+            </tr>
+            <tr>
+                <td class="auto-style12" colspan="2">Ngày sử dụng:
+                    <asp:TextBox ID="txtThoiGian" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:CalendarExtender ID="CalendarExtender2" runat="server" Format="dd/MM/yyyy" TargetControlID="txtThoiGian">
+                    </asp:CalendarExtender>
+                </td>
+                <td class="auto-style12">Ngày hết hạn:
+                    <asp:TextBox ID="txtNgayHH" runat="server"></asp:TextBox>
+                    <asp:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd/MM/yyyy" TargetControlID="txtNgayHH">
+                    </asp:CalendarExtender>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style12">Ghi chú:
+                <td class="auto-style12" colspan="3">Ghi chú:<br />
                     <asp:TextBox ID="txtGhiChu" runat="server" TextMode="MultiLine" Width="387px"></asp:TextBox>
                 </td>
-                <td class="auto-style12">Ngày hết hạn: 
-                    <asp:TextBox ID="txtNgayHH" runat="server"></asp:TextBox>
-                </td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Width="6%" Visible="False" />
-                    <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Width="6%" Visible="False" />
-                    <asp:Button ID="btnIn" runat="server" Text="In" Width="6%" />
-                    <asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" Width="6%" />
+                <td colspan="3" style="text-align: right"><asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Cập nhật" Visible="False" />
+                    &nbsp;<asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="False" Width="6%" />
+&nbsp;<asp:Button ID="btnIn" runat="server" Text="In" Width="6%" />
+                    &nbsp;<asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
             </tr>

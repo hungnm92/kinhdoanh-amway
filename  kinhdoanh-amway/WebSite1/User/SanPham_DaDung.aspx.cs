@@ -84,6 +84,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
             fckChiTiet.Text = nppsd.ChiTiet;
             txtCachSuDung.Text = nppsd.CachSuDung.ToString();
             txtSoLuong.Text = nppsd.SoLuong.ToString();
+            txtTongTien.Text = (float.Parse(txtGia.Text) * int.Parse(txtSoLuong.Text)).ToString();
             if (chkMinhHoa.Checked == true)
                 nppsd.MinhHoa = true;
             else
@@ -92,14 +93,16 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
             lmh.MaLMH = nppsd.MaLMH;
             droLoaiMH.SelectedValue = lmh.MaLMH.ToString();
             //txtThoiGian.Text = nppsd.NgayNPPSD;
-            string temp1 = nppsd.NgayNPPSD.ToString().Replace("12:00:00 AM", "");
+            string temp1 = nppsd.NgayNPPSD.ToString().Replace(" 12:00:00 AM", "");
+            temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
             txtThoiGian.Text = temp1;
             if (nppsd.NgayNPPSDHH.ToString() == "1/1/1900 12:00:00 AM")
                 txtNgayHH.Text = "";
             else
             {
                 //txtNgayHH.Text = nppsd.NgayNPPSDHH;
-                string temp2 = nppsd.NgayNPPSDHH.ToString().Replace("12:00:00 AM", "");
+                string temp2 = nppsd.NgayNPPSDHH.ToString().Replace(" 12:00:00 AM", "");
+                temp2 = temp2.Substring(8, 2) + "/" + temp2.Substring(5, 2) + "/" + temp2.Substring(0, 4);
                 txtNgayHH.Text = temp2;
                 txtGhiChu.Text = nppsd.GhiChu;
             }
@@ -115,6 +118,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
             fckChiTiet.Text = khsd.ChiTiet;
             txtCachSuDung.Text = khsd.CachSuDung.ToString();
             txtSoLuong.Text = khsd.SoLuong.ToString();
+            txtTongTien.Text = ((0.15 * float.Parse(txtGia.Text) + float.Parse(txtGia.Text)) * int.Parse(txtSoLuong.Text)).ToString();
             if (chkMinhHoa.Checked == true)
                 khsd.MinhHoa = true;
             else
@@ -123,14 +127,16 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
             lmh.MaLMH = khsd.MaLMH;
             droLoaiMH.SelectedValue = lmh.MaLMH.ToString();
             //txtThoiGian.Text = khsd.NgayKHSD;
-            string temp3 = khsd.NgayKHSD.ToString().Replace("12:00:00 AM", "");
+            string temp3 = khsd.NgayKHSD.ToString().Replace(" 12:00:00 AM", "");
+            temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
             txtThoiGian.Text = temp3;
             if (khsd.NgayKHSDHH.ToString() == "1/1/1900 12:00:00 AM")
                 txtNgayHH.Text = "";
             else
             {
                 //txtNgayHH.Text = khsd.NgayKHSDHH;
-                string temp4 = khsd.NgayKHSDHH.ToString().Replace("12:00:00 AM", "");
+                string temp4 = khsd.NgayKHSDHH.ToString().Replace(" 12:00:00 AM", "");
+                temp4 = temp4.Substring(8, 2) + "/" + temp4.Substring(5, 2) + "/" + temp4.Substring(0, 4);
                 txtNgayHH.Text = temp4;
                 txtGhiChu.Text = khsd.GhiChu;
             }
@@ -278,5 +284,19 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
                     Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=" + Session["MaCD"]);
             }
         }
+    }
+    protected void txtGia_TextChanged(object sender, EventArgs e)
+    {
+        if(Session["MaKH"] == null)
+            txtTongTien.Text = (float.Parse(txtGia.Text) * int.Parse(txtSoLuong.Text)).ToString();
+        else
+            txtTongTien.Text = ((0.15 * float.Parse(txtGia.Text) + float.Parse(txtGia.Text)) * int.Parse(txtSoLuong.Text)).ToString();
+    }
+    protected void txtSoLuong_TextChanged(object sender, EventArgs e)
+    {
+        if (Session["MaKH"] == null)
+            txtTongTien.Text = (float.Parse(txtGia.Text) * int.Parse(txtSoLuong.Text)).ToString();
+        else
+            txtTongTien.Text = ((0.15 * float.Parse(txtGia.Text) + float.Parse(txtGia.Text)) * int.Parse(txtSoLuong.Text)).ToString();
     }
 }

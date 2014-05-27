@@ -75,9 +75,11 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     protected void griNhaPhanPhoi_SelectedIndexChanged(object sender, EventArgs e)
     {
         pnlChiTietNPP.Visible = true;
+        txtNgayKyThe0_CalendarExtender.SelectedDate = DateTime.Today;
         if (Session["MaNPPClick"] == null)
         {
             btnXoa.Visible = true;
+            //show-popup: cho nút xóa ẩn
             btnSua.Visible = true;
             lbtSP.Visible = true;
             lbtCTSDR.Visible = true;
@@ -94,13 +96,20 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
         //txtNgaySinh.Text = npp.NgaySinh;
-        string temp1 = npp.NgaySinh.ToString().Replace("12:00:00 AM", "");
+        string temp1 = npp.NgaySinh.ToString().Replace(" 12:00:00 AM", "");
+        temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
         txtNgaySinh.Text = temp1;
         txtNgaySinh.Enabled = false;
         if (npp.GioiTinh == true)
+        {
+            rdoNu.Checked = false;
             rdoNam.Checked = true;
+        }
         else
+        {
+            rdoNam.Checked = false;
             rdoNu.Checked = true;
+        }
         /*if (griNhaPhanPhoi.Rows[griNhaPhanPhoi.SelectedIndex].Cells[4]. == true)
             rdoNam.Checked = true;
         else
@@ -116,11 +125,13 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtSoDT.Text = npp.SoDT;
         txtEmail.Text = npp.Email;
         //txtNgayKyThe.Text = npp.NgayKyThe;
-        string temp2 = npp.NgayKyThe.ToString().Replace("12:00:00 AM", "");
+        string temp2 = npp.NgayKyThe.ToString().Replace(" 12:00:00 AM", "");
+        temp2 = temp2.Substring(8, 2) + "/" + temp2.Substring(5, 2) + "/" + temp2.Substring(0, 4);
         txtNgayKyThe.Text = temp2;
         txtNgayKyThe.Enabled = false;
         //txtNgayHetHan.Text = npp.NgayHetHan;
-        string temp3 = npp.NgayHetHan.ToString().Replace("12:00:00 AM", "");
+        string temp3 = npp.NgayHetHan.ToString().Replace(" 12:00:00 AM", "");
+        temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
         txtNgayHetHan.Text = temp3;
         txtNgayHetHan.Enabled = false;
         txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
@@ -129,6 +140,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         droNBT.SelectedValue = npp.MaNPP.ToString();
         cd.MaCD = npp.MaCD;
         droCapDo.SelectedValue = cd.MaCD.ToString();
+        npp.NgayHetHan = temp3;
         npp.CanhBao();
         lblCanhBao.Text = npp.ThongBao; // cảnh báo gia hạn thẻ.
         if (Session["MaNPPClick"] == null || npp.MaNBT == Session["MaNPP"])
@@ -188,6 +200,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
        // Session["URL"] = "SP_" + sp.TempID + "file";
         txtNgaySinh.Enabled = true;
         txtNgaySinh.ReadOnly = false;
+        txtCMND.Enabled = true;
         txtCMND.ReadOnly = false;
         txtNgayKyThe.ReadOnly = false;
         txtNgayKyThe.Enabled = true;
@@ -199,6 +212,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         lblCanhBao.Visible = false;
         btnThem.Visible = true;
         btnXoa.Visible = false;
+        //show-popup: cho nút xóa ẩn.
         btnSua.Visible = false;
         btnIn.Visible = true;
         btnThoat.Visible = true;
@@ -222,6 +236,9 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtNgayHetHan.Text = "";
         txtSoNhaNPPTT.Text = "";
         txtSoNhaNPPLL.Text = "";
+        droCapDo.Enabled = false;
+        droNBT.SelectedValue = Session["MaNPP"].ToString();
+        droNBT.Enabled = false;
     }
     protected void btnThem_Click(object sender, EventArgs e)
     {
@@ -353,6 +370,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         else
             lbtThemMoi.Visible = false;
         lblTB.Visible = false;
+        rdoNam.Checked = false;
+        rdoNu.Checked = false;
     }
     protected void btnSua_Click(object sender, EventArgs e)
     {
@@ -391,7 +410,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.Sua();
             qtcd.MaCD = int.Parse(droCapDo.SelectedValue);
             qtcd.MaNPP = npp.MaNPP;
-            qtcd.ThoiGian = System.DateTime.Now.ToShortDateString();//lấy ngày hệ thống
+            txtNgayKyThe0_CalendarExtender.SelectedDate = DateTime.Today;
+            qtcd.ThoiGian = txtNgayKyThe0.Text;//lấy ngày hệ thống
             qtcd.Them();
             lblTBQTCD.Visible = true;
             lblTBQTCD.Text = qtcd.ThongBao;
@@ -612,5 +632,4 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         droXaNPPTT.DataSource = xptt.DS(npp.MaHuyenNPPTT);
         droXaNPPTT.DataBind();
     }
-
 }

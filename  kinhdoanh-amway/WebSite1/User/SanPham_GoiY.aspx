@@ -92,9 +92,11 @@
                 <td colspan="2" style="text-align: center; font-size: large; font-style: inherit; color: #0000FF; font-weight: bold; background-color: #00FFFF;">CHI TIẾT THÔNG TIN SẢN PHẨM</td>
             </tr>
         </table>
-        <table class="auto-style5">
+        <table class="auto-style5" width="100%">
             <tr>
                 <td class="auto-style15">Mã sản phẩm:
+                    </td>
+                <td class="auto-style15">
                     <asp:TextBox ID="txtMaMH" runat="server" Enabled="False"></asp:TextBox>
                 </td>
                 <td rowspan="3">
@@ -102,36 +104,40 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style14">Tên sản phẩm:
+                <td class="auto-style14" style="white-space: nowrap; width: 1%;">Tên sản phẩm: &nbsp;</td>
+                <td class="auto-style14">
                     <asp:TextBox ID="txtTenMH" runat="server" Enabled="False"></asp:TextBox>
-                    &nbsp;</td>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style12">Giá:
+                    </td>
+                <td class="auto-style12">
                     <asp:TextBox ID="txtGia" runat="server" Enabled="False"></asp:TextBox>
-                    <asp:FilteredTextBoxExtender ID="ftbGia" runat="server" Enabled="True" FilterType="Numbers" 
-
-TargetControlID="txtGia" ></asp:FilteredTextBoxExtender>
+                    <asp:FilteredTextBoxExtender ID="ftbGia" runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtGia">
+                    </asp:FilteredTextBoxExtender>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style12">Cách sử dụng:
-                    <asp:TextBox ID="txtCachSuDung" runat="server" Width="303px" TextMode="MultiLine" Enabled="False"></asp:TextBox>
+                <td class="auto-style12" colspan="2">Cách sử dụng:
+                    <br />
+                    <asp:TextBox ID="txtCachSuDung" runat="server" Width="100%" TextMode="MultiLine" Enabled="False" Height="40px"></asp:TextBox>
                 </td>
-                <td>&nbsp;Loại mặt hàng:
+                <td style="vertical-align: top">&nbsp;Loại mặt hàng:
+                    <br />
                     <asp:DropDownList ID="droLoaiMH" runat="server" DataTextField="TenLMH" DataValueField="MaLMH" Enabled="False">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style12" colspan="2">Chi tiết:
+                <td class="auto-style12" colspan="3">Chi tiết:
                     <CKEditor:CKEditorControl ID="fckChiTiet" runat="server" Enabled="False" Width=""></CKEditor:CKEditorControl>
                 </td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;&nbsp;
+                <td colspan="3">&nbsp;&nbsp;
                     <a id="show-popup" href="#">Sử dụng</a>
-                    &nbsp;<asp:Button ID="btnIn" runat="server" CssClass="auto-style13" OnClick="btnIn_Click" Text="In" />
+                    <asp:Button ID="btnIn" runat="server" CssClass="auto-style13" OnClick="btnIn_Click" Text="In" />
                     &nbsp;<asp:Button ID="btnThoat" runat="server" CssClass="auto-style13" OnClick="btnThoat_Click" Text="Thoát" />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd/MM/yyyy" TargetControlID="txtNgaySD">

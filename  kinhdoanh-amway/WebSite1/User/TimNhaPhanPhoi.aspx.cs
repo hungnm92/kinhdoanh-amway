@@ -71,6 +71,7 @@ public partial class User_Default : System.Web.UI.Page
         if (npp.MaNBT == Session["MaNPP"])
         {
                 btnXoa.Visible = true;
+                //show-popup: cho nút xóa ẩn
                 btnSua.Visible = true;
                 lbtSP.Visible = true;
                 lbtCTSDR.Visible = true;
@@ -81,7 +82,8 @@ public partial class User_Default : System.Web.UI.Page
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
         //txtNgaySinh.Text = npp.NgaySinh;
-        string temp1 = npp.NgaySinh.ToString().Replace("12:00:00 AM", "");
+        string temp1 = npp.NgaySinh.ToString().Replace(" 12:00:00 AM", "");
+        temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
         txtNgaySinh.Text = temp1;
         txtNgaySinh.Enabled = false;
         /*if (npp.GioiTinh == true)
@@ -105,10 +107,12 @@ public partial class User_Default : System.Web.UI.Page
         txtSoDT.Text = npp.SoDT;
         txtEmail.Text = npp.Email;
         //txtNgayKyThe.Text = npp.NgayKyThe;
-        string temp2 = npp.NgayKyThe.ToString().Replace("12:00:00 AM", "");
+        string temp2 = npp.NgayKyThe.ToString().Replace(" 12:00:00 AM", "");
+        temp2 = temp2.Substring(8, 2) + "/" + temp2.Substring(5, 2) + "/" + temp2.Substring(0, 4);
         txtNgayKyThe.Text = temp2;
         //txtNgayHetHan.Text = npp.NgayHetHan;
-        string temp3 = npp.NgayHetHan.ToString().Replace("12:00:00 AM", "");
+        string temp3 = npp.NgayHetHan.ToString().Replace(" 12:00:00 AM", "");
+        temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
         txtNgayHetHan.Text = temp3;
         txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
         txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
@@ -116,6 +120,7 @@ public partial class User_Default : System.Web.UI.Page
         droNhaBaoTro.SelectedValue = npp.MaNPP.ToString();
         cd.MaCD = npp.MaCD;
         droCapDo.SelectedValue = cd.MaCD.ToString();
+        npp.NgayHetHan = temp3;
         npp.CanhBao();
         lblCanhBao.Text = npp.ThongBao;
         //Tinh

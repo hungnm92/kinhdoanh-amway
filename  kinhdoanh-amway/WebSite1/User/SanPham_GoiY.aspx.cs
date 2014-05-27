@@ -129,7 +129,10 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
             nppsd.MaMH = griMatHangChuaDung.SelectedValue.ToString();
             nppsd.MaNPP = Session["MaNPP"].ToString();
             nppsd.NgayNPPSD = txtNgaySD.Text;
-            nppsd.NgayNPPSDHH = txtNgayHH.Text;
+            if (txtNgayHH.Text == null)
+                nppsd.NgayNPPSDHH = "01/01/1990";
+            else
+                nppsd.NgayNPPSDHH = txtNgayHH.Text;
             nppsd.GhiChu = txtGhiChu.Text;
             nppsd.SoLuong = int.Parse(txtSoLuong.Text);
             if (chkMinhHoa.Checked == true)
@@ -148,7 +151,10 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
             khsd.MaKH = Session["MaKH"].ToString();
             khsd.MaNPP = Session["MaNPP"].ToString();
             khsd.NgayKHSD = txtNgaySD.Text;
-            khsd.NgayKHSDHH = txtNgayHH.Text;
+            if (txtNgayHH.Text == null)
+                khsd.NgayKHSDHH = "01/01/1990";
+            else
+                khsd.NgayKHSDHH = txtNgayHH.Text;
             khsd.GhiChu = txtGhiChu.Text;
             khsd.SoLuong = int.Parse(txtSoLuong.Text);
             if (chkMinhHoa.Checked == true)

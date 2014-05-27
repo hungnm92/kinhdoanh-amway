@@ -81,14 +81,17 @@
                     <asp:Button ID="btnThem" runat="server" Text="Thêm" Visible="False" OnClick="btnThem_Click" />
                     <asp:Button ID="btnXoa" runat="server" Text="Xóa" Visible="False" OnClick="btnXoa_Click" />
                     <asp:Button ID="btnSua" runat="server" Text="Sửa" Visible="False" OnClick="btnSua_Click" />
-                    <asp:Button ID="btnChamSoc" runat="server" Text="Chăm sóc" Visible="False" OnClick="btnChamSoc_Click" />
                     
-                        <asp:Button ID="btnShowPopup" runat="server" Text="Đào tạo" />
-                  <asp:PopupControlExtender ID="PopAtt" runat="server" TargetControlID="btnShowPopup" PopupControlID="pnlThemDT" > </asp:PopupControlExtender>
+                        <asp:Button ID="btnShowPopup0" runat="server" Text="Chăm sóc" Visible="False" />
+                  <asp:PopupControlExtender ID="btnShowPopup0_PopupControlExtender" runat="server" TargetControlID="btnShowPopup0" PopupControlID="pnlThemDT" > </asp:PopupControlExtender>
+                    <asp:Button ID="btnShowPopup" runat="server" Text="Đào tạo" Visible="False" />
+                    <asp:PopupControlExtender ID="PopAtt" runat="server" PopupControlID="pnlThemDT" TargetControlID="btnShowPopup">
+                    </asp:PopupControlExtender>
                     <asp:Button ID="btnIn" runat="server" Text="In" />
                     <asp:Button ID="btnThoat" runat="server" Text="Thoát" OnClick="btnThoat_Click" />
                     <br />
                     <asp:Panel ID="pnlThemDT" CssClass="popupControl" runat="server">
+                        <br />
                         <table style="width: 100%;">
                             <tr>
                                 <td>Thời gian:&nbsp;&nbsp;<asp:TextBox ID="txtThoiGian" runat="server"></asp:TextBox>
@@ -102,6 +105,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2" style="text-align: center">
+                                    <asp:Button ID="btnChamSoc" runat="server" OnClick="btnChamSoc_Click" Text="Thêm vào chăm sóc" Visible="False" />
                                     <asp:Button ID="btnDaoTao" runat="server" OnClick="btnDaoTao_Click" Text="Xong" Visible="False" />
                                 </td>
                                

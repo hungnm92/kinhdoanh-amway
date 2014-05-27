@@ -101,7 +101,8 @@ public partial class User_ChuongTrinh_ChamSoc : System.Web.UI.Page
         cs.CT();
         txtMaCS.Text = cs.MaCS;
         //txtNgayCS.Text = cs.NgayCS;
-        string temp1 = cs.NgayCS.ToString().Replace("12:00:00 AM", "");
+        string temp1 = cs.NgayCS.ToString().Replace(" 12:00:00 AM", "");
+        temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
         txtNgayCS.Text = temp1;
         txtSoLan.Text = cs.SoLan.ToString();
         if (chkThamDu.Checked == true)

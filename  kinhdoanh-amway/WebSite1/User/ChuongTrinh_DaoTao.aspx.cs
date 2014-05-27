@@ -46,7 +46,8 @@ public partial class User_ChuongTrinh_DaoTao : System.Web.UI.Page
         dt.CT();
         txtMaDT.Text = dt.MaDT;
         //txtNgayDT.Text = dt.NgayDT;
-        string temp1 = dt.NgayDT.ToString().Replace("12:00:00 AM", "");
+        string temp1 = dt.NgayDT.ToString().Replace(" 12:00:00 AM", "");
+        temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
         txtNgayDT.Text = temp1;
         txtSoLan.Text = dt.SoLan.ToString();
         ct.MaCT = dt.MaCT;
