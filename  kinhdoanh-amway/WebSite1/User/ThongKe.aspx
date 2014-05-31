@@ -103,6 +103,14 @@ div#popup-content {
                 </td>
             </tr>
             <tr>
+                <td class="auto-style16" colspan="2">&nbsp;
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtTuNgay" Display="Dynamic" ErrorMessage="Vui lòng chọn ngày bắt đầu" ForeColor="Red" />
+                </td>
+                <td class="auto-style16">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDenNgay" Display="Dynamic" ErrorMessage="Vui lòng chọn ngày kết thúc" ForeColor="Red" />
+                </td>
+            </tr>
+            <tr>
                 <td colspan="3" style="white-space: nowrap" >
                     <asp:Button ID="btnNPP_Moi" runat="server" Text="Thống kê NNP mới" Width="22%" OnClick="btnNPP_Moi_Click" />
                     <asp:Button ID="btnNPP_ThanhTichMoi" runat="server" Text="Thống kê NPP đạt thành tích mới" Width="38%" OnClick="btnNPP_ThanhTichMoi_Click" />

@@ -25,7 +25,7 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-   <div id='XinChao'>
+    <div id='XinChao'>
           <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
             </div>
     <div id='TroVe'>
@@ -99,7 +99,7 @@
                                     </asp:CalendarExtender>
                                 </td>
                                 <td>
-                                    <asp:CheckBox ID="chkThamDu" runat="server" Enabled="False" Text="Tham dự" />
+                                    <asp:CheckBox ID="chkThamDu" runat="server" Text="Tham dự" />
                                 </td>
                                
                             </tr>

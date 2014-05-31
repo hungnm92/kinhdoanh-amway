@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html;
+using iTextSharp.text.html.simpleparser;
+using System.Text;
 
 public partial class User_NhaPhanPhoi : System.Web.UI.Page
 {
@@ -317,6 +322,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             Session["CMND"] = txtCMND.Text;
             nppsd.MaNPP = npp.MaNPP;
             nppsd.Xoa_DS();
+            npp.CT();
             khsd.MaNPP = npp.MaNPP;
             khsd.MaNPPMoi = npp.MaNBT;
             khsd.Sua_NPP();
@@ -632,4 +638,30 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         droXaNPPTT.DataSource = xptt.DS(npp.MaHuyenNPPTT);
         droXaNPPTT.DataBind();
     }
+    protected void btnIn_Click(object sender, EventArgs e)
+    {
+        XuatDuLieuGridRaPDF(griNhaPhanPhoi);
+    }
+    /// Hàm xuất dữ liệu từ gridview ra pdf
+    private void XuatDuLieuGridRaPDF(GridView MyGridview)
+    {
+        Response.ContentType = "application/pdf";
+        Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.pdf");
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+        MyGridview.AllowPaging = false;
+        MyGridview.DataBind();
+        MyGridview.RenderControl(hw);
+        StringReader sr = new StringReader(sw.ToString());
+        Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+        HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+        PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+        pdfDoc.Open();
+        htmlparser.Parse(sr);
+        pdfDoc.Close();
+        Response.Write(pdfDoc);
+        Response.End();
+    }
+
 }
