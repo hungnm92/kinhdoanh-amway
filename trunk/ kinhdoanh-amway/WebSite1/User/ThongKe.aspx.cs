@@ -63,12 +63,16 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             griNPP_ThanhTichMoi.Visible = false;
             griNPP_SapHetHan.Visible = false;
             pnlChiTietNPP.Visible = false;
-            DataTable dt1 = this.GetData("select MaNPP,  ViDo, KinhDo, HoNPP +' '+ TenNPP as HoTen from NhaPhanPhoi where ViDo >0 and KinhDo > 0");
-            rptMarkers.DataSource = dt1;
+            //DataTable dt1 = this.GetData("select MaNPP,  ViDo, KinhDo, HoNPP +' '+ TenNPP as HoTen from NhaPhanPhoi where ViDo >0 and KinhDo > 0");
+            if (Session["MaNPPClick"] == null)
+                npp.MaNPP = Session["MaNPP"].ToString();
+            else
+                npp.MaNPP = Session["MaNPPClick"].ToString();
+            rptMarkers.DataSource = npp.DS_GoogleMap();
             rptMarkers.DataBind();
         }
     }
-    private DataTable GetData(string query)
+    /*private DataTable GetData(string query)
     {
         string conString = "server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;";
         SqlCommand cmd = new SqlCommand(query);
@@ -86,7 +90,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
                 }
             }
         }
-    }
+    }*/
     protected void griNPP_Moi_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griNPP_Moi.PageIndex = e.NewPageIndex;
@@ -218,9 +222,15 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtNgaySinh.Text = temp1;
         txtNgaySinh.Enabled = false;
         if (npp.GioiTinh == true)
+        {
+            rdoNu.Checked = false;
             rdoNam.Checked = true;
+        }
         else
+        {
+            rdoNam.Checked = false;
             rdoNu.Checked = true;
+        }
         /*if (griNhaPhanPhoi.Rows[griNhaPhanPhoi.SelectedIndex].Cells[4]. == true)
             rdoNam.Checked = true;
         else
@@ -302,9 +312,15 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtNgaySinh.Text = temp1;
         txtNgaySinh.Enabled = false;
         if (npp.GioiTinh == true)
+        {
+            rdoNu.Checked = false;
             rdoNam.Checked = true;
+        }
         else
+        {
+            rdoNam.Checked = false;
             rdoNu.Checked = true;
+        }
         /*if (griNhaPhanPhoi.Rows[griNhaPhanPhoi.SelectedIndex].Cells[4]. == true)
             rdoNam.Checked = true;
         else
@@ -386,9 +402,15 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtNgaySinh.Text = temp1;
         txtNgaySinh.Enabled = false;
         if (npp.GioiTinh == true)
+        {
+            rdoNu.Checked = false;
             rdoNam.Checked = true;
+        }
         else
+        {
+            rdoNam.Checked = false;
             rdoNu.Checked = true;
+        }
         /*if (griNhaPhanPhoi.Rows[griNhaPhanPhoi.SelectedIndex].Cells[4]. == true)
             rdoNam.Checked = true;
         else

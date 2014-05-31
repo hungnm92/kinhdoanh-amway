@@ -94,13 +94,16 @@ public partial class User_Default : System.Web.UI.Page
             rdoNam.Checked = true;
         else
             rdoNu.Checked = true;*/
-        if (npp.GioiTinh == null)
+        if (npp.GioiTinh == true)
         {
-            rdoNu.Checked = true;
-            rdoNam.Checked = false;
+            rdoNu.Checked = false;
+            rdoNam.Checked = true;
         }
         else
-            rdoNam.Checked = npp.GioiTinh;
+        {
+            rdoNam.Checked = false;
+            rdoNu.Checked = true;
+        }
         imgAnhNPP.ImageUrl = "~/src/emp/" + npp.AnhNPP;
         txtCMND.Text = npp.CMND;
         txtCMND.Enabled = false;
@@ -172,6 +175,7 @@ public partial class User_Default : System.Web.UI.Page
             Session["CMND"] = txtCMND.Text;
             nppsd.MaNPP = npp.MaNPP;
             nppsd.Xoa_DS();
+            npp.CT();
             khsd.MaNPP = npp.MaNPP;
             khsd.MaNPPMoi = npp.MaNBT;
             khsd.Sua_NPP();

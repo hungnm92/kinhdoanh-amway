@@ -312,7 +312,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                     &nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" CssClass="style-button" />
 &nbsp;<a id="show-popup" href="#">Xóa</a>
                     <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="8%" CssClass="style-button" />
-                    &nbsp;<asp:Button ID="btnIn" runat="server" Text="In" Width="8%" CssClass="style-button" />
+                    &nbsp;<asp:Button ID="btnIn" runat="server" Text="In" Width="8%" CssClass="style-button" OnClick="btnIn_Click" />
                     &nbsp;<asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" CssClass="style-button" />
                    
                     <br />

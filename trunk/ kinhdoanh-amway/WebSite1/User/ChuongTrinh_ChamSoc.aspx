@@ -102,7 +102,7 @@
                     <asp:TextBox ID="txtMaCS" runat="server" Enabled="False"></asp:TextBox>
                 </td>
                 <td class="auto-style13">Thời gian:
-                    <asp:TextBox ID="txtNgayCS" runat="server" OnTextChanged="txtNgayCS_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="txtNgayCS" runat="server"></asp:TextBox>
                     <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtNgayCS" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
             </tr>

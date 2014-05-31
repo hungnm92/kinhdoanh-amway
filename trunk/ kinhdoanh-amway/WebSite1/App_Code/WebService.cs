@@ -25,6 +25,7 @@ public class WebService : System.Web.Services.WebService {
         Lenh.CommandType = CommandType.StoredProcedure;
         SqlParameter ThamSo = new SqlParameter();
         ThamSo = Lenh.Parameters.AddWithValue("@HoTenNPP", prefixText);
+        ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", Session["MaNPP"].ToString());
         DataTable ThungChua = new DataTable();
         SqlDataReader DocDL;
         BaoVe.Open();//mở kết nối đến CSDL
