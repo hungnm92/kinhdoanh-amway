@@ -64,33 +64,5 @@ public partial class User_TroGiup : System.Web.UI.Page
         strHTML += txtNoiDung.Text + "</b>";
         return strHTML;
     }
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        SmtpClient SmtpServer = new SmtpClient();
-        SmtpServer.Credentials = new System.Net.NetworkCredential("hunghuynh.it@gmail.com", "hungcokute123");
-        SmtpServer.Port = 587;
-        SmtpServer.Host = "smtp.gmail.com";
-        SmtpServer.EnableSsl = true;
-        MailMessage mail = new MailMessage();
-        String[] addr = txtTo.Text.Split(',');
-        try
-        {
-            mail.From = new MailAddress("hunghuynh.it@gmail.com", "Cảnh báo sắp hết hạn NPP", System.Text.Encoding.UTF8);
-            Byte i;
-            for (i = 0; i < addr.Length; i++)
-                mail.To.Add(addr[i]);
-            //mail.To.Add(txtTo.Text);
-            mail.Subject = txtSubject.Text;
-            mail.Body = txtConTent.Text;
-            mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-            //mail.ReplyTo = new MailAddress("yourmail@mail.com");
-            mail.Priority = MailPriority.High;
-            mail.IsBodyHtml = true;
-            SmtpServer.Send(mail);
-            Label1.Text = "Cảm ơn bạn đã gửi thông điệp đến website";
-            //ResetFrom();
-        }
-        catch (Exception ex) { Label1.Text = ex.Message.ToString(); }
-    }
 }
 

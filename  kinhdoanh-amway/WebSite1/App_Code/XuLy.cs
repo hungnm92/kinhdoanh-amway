@@ -558,6 +558,7 @@ namespace webdoan
             public int SoLuongNPP;
             int SoLuongCB;
             int SoLuongCatThe;
+            int SoLuongNEW;
             public string TuNgay;
             public string DenNgay;
             public bool DangNhap()
@@ -816,7 +817,7 @@ namespace webdoan
                 BaoVe.Close();
                 return MaNPP;
             }
-            public int NPP_SL_GuiMail_SapHetHan()
+            public int NPP_SL_GuiMail_SapHetHan()// Sử dụng biến SoLuongNPP của thủ thục SL_NPP
             {
                 SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
                 SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_SL_GuiMail_SapHetHan", BaoVe);
@@ -1009,7 +1010,7 @@ namespace webdoan
                 {
                     ThongBao = ex.Message;
                 }
-            }
+            }//Cảnh báo NPP Sắp hết hạn
             public int SL_CanhBao()
             {
                 SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
@@ -1026,6 +1027,37 @@ namespace webdoan
                 SoLuongCB = int.Parse(ThungChua.Rows[0][0].ToString());
                 BaoVe.Close();
                 return SoLuongCB;
+            }
+            public int BaoTro_SL_NEW()//Lấy số lượng NPP mới, thành tích mới
+            {
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_BaoTro_SL_NEW", BaoVe);
+                Lenh.CommandType = CommandType.StoredProcedure;
+                SqlParameter ThamSo = new SqlParameter();
+                ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
+                DataTable ThungChua = new DataTable();
+                SqlDataReader DocDL;
+                BaoVe.Open();//mở kết nối đến CSDL
+                DocDL = Lenh.ExecuteReader(CommandBehavior.CloseConnection);
+                ThungChua.Load(DocDL);
+                SoLuongNEW = int.Parse(ThungChua.Rows[0][0].ToString());
+                BaoVe.Close();
+                return SoLuongNEW;
+            }
+            public DataTable DS_BaoTro_NEW()//Danh sách NPP thuộc nhánh con có thành tích mới, NPP mới.
+            {
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_DS_BaoTro_NEW", BaoVe);
+                Lenh.CommandType = CommandType.StoredProcedure;
+                SqlParameter ThamSo = new SqlParameter();
+                ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
+                DataTable ThungChua = new DataTable();
+                SqlDataReader DocDL;
+                BaoVe.Open();//mở kết nối đến CSDL
+                DocDL = Lenh.ExecuteReader(CommandBehavior.CloseConnection);
+                ThungChua.Load(DocDL);
+                BaoVe.Close();
+                return ThungChua;
             }
             public DataTable DS_SapHetHan()//su dung ky thuat lay danh sach co tham so truyen vao
             {
@@ -2144,7 +2176,7 @@ namespace webdoan
                     KetQua += "<ul>";
                 while (DocDL.Read())//Đọc từng đối tượng NPP để thực hiện lệnh dưới.
                 {
-                    KetQua += "<li><a class = 'button' onclick =" + DocDL["ngoac"].ToString() + "javascript:setSession('" + DocDL["MaNPP"].ToString() + "');" + DocDL["ngoac"].ToString() + "><img src='" + "../src/emp/" + DocDL["AnhCD"] + "'><span>" + DocDL["HoTenNPP"] + "</span>";//Hiển thị họ tên, lấy MaNPP và chạy hàm Js khi click.
+                    KetQua += "<li><a class = 'button' onclick =" + DocDL["ngoac"].ToString() + "javascript:setSession('" + DocDL["MaNPP"].ToString() + "');" + DocDL["ngoac"].ToString() + "><img src='" + "../src/emp/" + DocDL["AnhCD"] + "'/><span>" + DocDL["HoTenNPP"] + "</span></a>";//Hiển thị họ tên, lấy MaNPP và chạy hàm Js khi click.
                     KetQua += LoadMenu(DocDL["MaNPP"].ToString(), level + 1);//Thực hiện vòng lặp với NPP có tuyến dưới.
                     KetQua += "</li>";
                 }

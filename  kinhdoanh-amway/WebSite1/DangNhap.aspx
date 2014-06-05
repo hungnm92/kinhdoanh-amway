@@ -21,6 +21,7 @@
 <meta content='' name='keywords'/>
 <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js' type='text/javascript'></script>
     <link type='text/css' rel='stylesheet' href='/widget_css_bundle.css' />
+    <link href="style/Show-popup.css" rel="stylesheet" />
 <link href='../style/page-skin-1.css' rel='stylesheet' type='text/css'/>
 <script type='text/javascript'>//<![CDATA[
     eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('h i(b,a){u b.j(/<.*?>/v,"").k(/\\s+/).w(0,a-1).y(" ")}h z(b){b=A.B(b);C a="",a=b.D("l");m(1<=a.E){f="F-p";9=a[0].n;8=9.k("/");c=8[2];m(-1!=c.d("G")||-1!=c.d("H")||-1!=c.d("I"))g=8[7],9=-1==g.d(".")?9.j(g,f):8[0]+"//"+8[2]+"/"+8[3]+"/"+8[4]+"/"+8[5]+"/"+8[6]+"/"+f+"/"+8[7];a=\'<e o="q"><a r="\'+x+\'"><l n="\'+9+\'" /></a></e>\'}J a=\'<a r="\'+x+\'"><e o="K-q"></e></a>\';b.t=a+i(b.t,L)+"..."};', 48, 48, '||||||||imgurl_split|imgurl|||imgurl_localhost|indexOf|div|scale_size|imgurl_scale|function|stripTags|replace|split|img|if|src|class||thumb|href||innerHTML|return|ig|slice||join|rm|document|getElementById|var|getElementsByTagName|length|s180|blogspot|googleusercontent|ggpht|else|no|32'.split('|'), 0, {}))
@@ -30,7 +31,94 @@
              if (window.jstiming) window.jstiming.load.tick('headEnd');
 </script></head>
 <body>
+         <script  type='text/javascript'  src="../js/jquery-min-1-8-0.js"></script>
+<script type='text/javascript' src="../js/jquery-ui-1-8-23.js"></script>
+    <script src="../js/Show-popupDN.js"  type='text/javascript'></script>
+    <script  type="text/javascript" src="js/analyticstracking.js"></script>
     <form id="form1" runat="server">
+           
+    <div id="popup-bg"></div>
+<div id="popup">
+	<div id="popup-header">Header<span id="popup-close" title="Close">x</span></div>
+    <div id="popup-content">
+<table cellpadding="10" cellspacing="10" id="FormLienKe" align="center">
+    <tr>
+        <td colspan="2" align="center">
+            <h1>Trợ Giúp</h1>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 30%" colspan="2">
+            Nếu bạn có bất cứ thắc mắc, ý kiến đóng góp hoặc câu hỏi gì liên quan đến website, 
+hãy liên lạc với tôi bằng form dưới đây. Tôi sẽ hồi âm bạn sớm nhất có thể. 
+Tôi luôn cố gắng trả lời tất cả những email gửi tới.
+            </td>
+    </tr>
+    <tr>
+        <td style="width: 30%">
+            Họ và tên:<span class="style1"> *</span></td>
+        <td style="width: 70%">
+            <asp:TextBox ID="txtHoTen" runat="server" Width="300px"  />&nbsp;
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                ControlToValidate="txtHoTen" ErrorMessage="Vui lòng điền tên bạn" 
+                Display="Dynamic" />
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 30%">
+            Địa chỉ&nbsp;</td>
+        <td style="width: 70%">
+            <asp:TextBox ID="txtDiaChi" runat="server" Width="300px"   />
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 30%">
+            Điện Thoại:</td>
+        <td style="width: 70%">
+            <asp:TextBox ID="txtDienThoai" runat="server" Width="300px"   />
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 30%">
+            Email:<span class="style1"> *</span></td>
+        <td style="width: 70%">
+            <asp:TextBox ID="txtEmail" runat="server" Width="300px"   />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                ControlToValidate="txtEmail" ErrorMessage="Vui lòng nhập Email" 
+                Display="Dynamic" />
+                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" 
+                ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"  runat="server" 
+                ErrorMessage="Email không hợp lệ" ControlToValidate="txtEmail" 
+                Display="Dynamic"></asp:RegularExpressionValidator>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 30%" valign="top">
+            Thông điệp:<span class="style1"> *</span></td>
+        <td >
+            <asp:TextBox ID="txtNoiDung" style="background-color:#FAFAFA; padding:5px;" 
+            TextMode="MultiLine" Rows="6" runat="server" Width="420px" />
+            <br />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                ControlToValidate="txtNoiDung" ErrorMessage="*" 
+                Display="Dynamic" />
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" colspan="2" align="center" id="LinkOfList">
+            <asp:Button ID="btnSend" runat="server" Text="Gửi liên hệ" 
+                onclick="btnSend_Click" />
+            </td>
+    </tr>
+    <tr>
+        <td valign="top" colspan="2" align="center" id="Td1">
+            <asp:Label ID="Label1" runat="server"></asp:Label>
+            </td>
+    </tr>
+</table>
+
+         </div>
+</div>
 <div id='wrapper'>
 <div id='outside'>
 <div class='section' id='top_nav'><div class='widget PageList' id='PageList1'>
@@ -54,7 +142,7 @@
 <div id='header-inner'>
 <div class='titlewrapper'>
 <h3 class='title'>
-Test Template Đồ Án
+Đồ Án Tốt Nghiệp
 </h3>
 </div>
 <div class='descriptionwrapper'>
@@ -87,15 +175,15 @@ Test Template Đồ Án
 <li><a href='#'><span>Sản Phẩm Đã Dùng</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Chương Trình<span>Sát cánh bên bạn.</span></a>
+<li><a href='#'>Trung Tâm<span>Địa điểm các cửa hàng.</span></a>
 <ul class='sub_menu'>
 <li><a href='#'><span>Sắp diễn ra</span></a></li>
 <li><a href='#'><span>Đào tạo</span></a></li>
 <li><a href='#'><span>Chăm sóc</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Doanh Thu<span>Theo dõi doanh thu</span></a></li>
-<li><a href='#'>Trợ giúp<span>Xem thêm thông tin</span></a></li>
+<li><a href='video.aspx'>Video<span>Giới thiệu về Amway</span></a></li>
+<li><a id="show-popupDN" href='#'>Trợ giúp<span>yêu cầu giúp đỡ</span></a></li>
 </ul>
 </div>
 <div class='content'>
@@ -121,8 +209,8 @@ Test Template Đồ Án
    <div class='main section' id='main'><div class='widget Blog' id='Blog1'>
 <div class='post'>
 <div class='inside'>
-
-   <cc1:GMap ID="GMap1" runat="server" Height="500px" Width="550px" mapType="Satellite" />
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+   <cc1:GMap ID="GMap1" runat="server" Height="500px" Width="550px" mapType ="Normal" />
 
 </div>
 <div class='post-footer-line-3'></div>
@@ -134,7 +222,7 @@ Test Template Đồ Án
 <div class='inside'>
 <div class='clear'></div>
 <div class='sidebar section' id='sidebar'>
-<h2>Cây phân phối</h2>
+<h2>Google Map</h2>
 <div class='widget-content list-label-widget-content'>
     <table width="100%">
     <tr>
@@ -164,7 +252,7 @@ Test Template Đồ Án
         </td>
     </tr>
     <tr>
-        <td colspan="2">
+        <td colspan="2" style="text-align: right">
             <asp:Button ID="btnShowMap" runat="server" onclick="btnShowMap_Click" 
                 Text="Tìm kiếm" />
         </td>

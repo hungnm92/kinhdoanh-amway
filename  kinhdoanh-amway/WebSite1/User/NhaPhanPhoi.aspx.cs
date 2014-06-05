@@ -619,6 +619,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
         droHuyenNPPLL.DataSource = hll.DS_TheoTinh(npp.MaTinhNPPLL);
         droHuyenNPPLL.DataBind();
+        droXaNPPLL.DataSource = xpll.DS(droHuyenNPPLL.SelectedValue);
+        droXaNPPLL.DataBind();
     }
     protected void droHuyenNPPLL_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -631,6 +633,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
         droHuyenNPPTT.DataSource = htt.DS_TheoTinh(npp.MaTinhNPPTT);
         droHuyenNPPTT.DataBind();
+        droXaNPPTT.DataSource = xptt.DS(droHuyenNPPTT.SelectedValue);
+        droXaNPPTT.DataBind();
     }
     protected void droHuyenNPPTT_SelectedIndexChanged(object sender, EventArgs e)
     {

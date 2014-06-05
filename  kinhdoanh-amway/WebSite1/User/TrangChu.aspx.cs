@@ -28,6 +28,9 @@ public partial class User_Default : System.Web.UI.Page
             else
                 Session["MaNPPClick"] = Request.QueryString["MaADA"];
         }
+        npp.MaNPP = Session["MaNPP"].ToString();
+        if (npp.BaoTro_SL_NEW() > 0)
+            imgNew.Visible = true;
         if (IsPostBack == false)
         {
             string temp3;
@@ -145,7 +148,13 @@ public partial class User_Default : System.Web.UI.Page
             droDuongNPPLL.SelectedValue = dll.MaDuong.ToString();
             dtt.MaDuong = npp.MaDuongNPPTT;
             droDuongNPPTT.SelectedValue = dtt.MaDuong.ToString();
-           // btnShowMap_Click(sender, e);
+            if (npp.MaDuongNPPLL == "0000" && (npp.SoNhaNPPLL == "..." || npp.SoNhaNPPLL == ""))
+                btnShowMapfull_Click(sender, e);
+            else
+                if (npp.SoNhaNPPLL == "..." || npp.SoNhaNPPLL == "")
+                    btnShowMapNull_SN_Click(sender, e);
+                else
+                    btnShowMap_Click(sender, e);
         }
     }
     protected void btnSua_Click(object sender, EventArgs e)
@@ -235,7 +244,37 @@ public partial class User_Default : System.Web.UI.Page
     {
         //string fulladdress;
         //if(txtSoNhaNPPLL.Text == null && droDuongNPPLL.SelectedValue == "0000")
-        string fulladdress = string.Format("{0}, {1}, {2}, {3}, {4}", txtSoNhaNPPLL.Text, droDuongNPPLL.SelectedItem, droHuyenNPPLL.SelectedItem, droTinhNPPLL.SelectedItem, "Việt Nam");
+        string fulladdress = string.Format("{0}, {1}, {2}, {3}, {4}", txtSoNhaNPPLL.Text, droDuongNPPLL.SelectedItem, droXaNPPLL.SelectedItem, droHuyenNPPLL.SelectedItem, "Việt Nam");
+        //fulladdress = string.Format("{0}.{1}.{2}", droHuyenNPPLL.SelectedItem , droTinhNPPLL.SelectedItem, "Việt Nam");
+        string skey = ConfigurationManager.AppSettings["http://googlemaps.subgurim.net"];
+        GeoCode geocode;
+        geocode = GMap1.getGeoCodeRequest(fulladdress);
+        var glatlng = new Subgurim.Controles.GLatLng(geocode.Placemark.coordinates.lat, geocode.Placemark.coordinates.lng);
+        GMap1.setCenter(glatlng, 16, Subgurim.Controles.GMapType.GTypes.Normal);
+        var oMarker = new Subgurim.Controles.GMarker(glatlng);
+        //GMap1.addGMarker(oMarker);
+        GMap1.Add(oMarker);
+    }
+    protected void btnShowMapfull_Click(object sender, EventArgs e)
+    {
+        //string fulladdress;
+        //if(txtSoNhaNPPLL.Text == null && droDuongNPPLL.SelectedValue == "0000")
+        string fulladdress = string.Format("{0}, {1}, {2}, {3}", droXaNPPLL.SelectedItem, droHuyenNPPLL.SelectedItem, droTinhNPPLL.SelectedItem, "Việt Nam");
+        //fulladdress = string.Format("{0}.{1}.{2}", droHuyenNPPLL.SelectedItem , droTinhNPPLL.SelectedItem, "Việt Nam");
+        string skey = ConfigurationManager.AppSettings["http://googlemaps.subgurim.net"];
+        GeoCode geocode;
+        geocode = GMap1.getGeoCodeRequest(fulladdress);
+        var glatlng = new Subgurim.Controles.GLatLng(geocode.Placemark.coordinates.lat, geocode.Placemark.coordinates.lng);
+        GMap1.setCenter(glatlng, 16, Subgurim.Controles.GMapType.GTypes.Normal);
+        var oMarker = new Subgurim.Controles.GMarker(glatlng);
+        //GMap1.addGMarker(oMarker);
+        GMap1.Add(oMarker);
+    }
+    protected void btnShowMapNull_SN_Click(object sender, EventArgs e)
+    {
+        //string fulladdress;
+        //if(txtSoNhaNPPLL.Text == null && droDuongNPPLL.SelectedValue == "0000")
+        string fulladdress = string.Format("{0}, {1}, {2}, {3}", droDuongNPPLL.SelectedItem, droXaNPPLL.SelectedItem, droHuyenNPPLL.SelectedItem, "Việt Nam");
         //fulladdress = string.Format("{0}.{1}.{2}", droHuyenNPPLL.SelectedItem , droTinhNPPLL.SelectedItem, "Việt Nam");
         string skey = ConfigurationManager.AppSettings["http://googlemaps.subgurim.net"];
         GeoCode geocode;
@@ -252,6 +291,8 @@ public partial class User_Default : System.Web.UI.Page
         droHuyenNPPTT.Items.Clear();
         droHuyenNPPTT.DataSource = htt.DS_TheoTinh(npp.MaTinhNPPTT);
         droHuyenNPPTT.DataBind();
+        droXaNPPTT.DataSource = xptt.DS(droHuyenNPPTT.SelectedValue);
+        droXaNPPTT.DataBind();
     }
     protected void droHuyenNPPTT_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -266,6 +307,8 @@ public partial class User_Default : System.Web.UI.Page
         droHuyenNPPLL.Items.Clear();
         droHuyenNPPLL.DataSource = hll.DS_TheoTinh(npp.MaTinhNPPLL);
         droHuyenNPPLL.DataBind();
+        droXaNPPLL.DataSource = xpll.DS(droHuyenNPPLL.SelectedValue);
+        droXaNPPLL.DataBind();
     }
     protected void droHuyenNPPLL_SelectedIndexChanged(object sender, EventArgs e)
     {

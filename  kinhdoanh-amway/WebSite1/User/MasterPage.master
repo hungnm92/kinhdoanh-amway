@@ -46,7 +46,7 @@
         <asp:HyperLink ID="lnkDoiMatKhau" runat="server" NavigateUrl="~/User/DoiMatKhau.aspx">Đổi mật khẩu</asp:HyperLink>
     </li>
 <li><asp:Label ID="lblNPP" runat="server" Font-Italic="True" ForeColor="Red"></asp:Label></li>
-    <li><a href='TroGiup.aspx'><span>Xem thêm thông tin</span></a></li>
+    <li><a href='TroGiup.aspx'><span>TRỢ GIÚP</span></a></li>
 
     <!-- <li><div id='search_engine'>
 <div class='field'><input name='q' onblur='if (this.value == "") {this.value = "Search...";}' onfocus='if (this.value == "Search...") {this.value = "";}' type='text' value='Search...'/></div>
@@ -67,7 +67,7 @@
 <div id='header-inner'>
 <div class='titlewrapper'>
 <h3 class='title'>
-Test Template Đồ Án
+Đồ Án Tốt Nghiệp
 </h3>
 </div>
 <div class='descriptionwrapper'>
@@ -136,7 +136,7 @@ Test Template Đồ Án
 <div class='inside'>
 <div class='clear'></div>
 <div class='sidebar section' id='sidebar'>
-<h2>Cây phân phối</h2>
+<h2>Hệ thống nhánh con</h2>
 <div class='widget-content list-label-widget-content'>
 <script type="text/javascript">// Lưu Session khi click vào menu.
     function setSession(value) {
