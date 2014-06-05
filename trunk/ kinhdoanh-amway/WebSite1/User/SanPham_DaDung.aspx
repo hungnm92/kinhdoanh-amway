@@ -25,13 +25,9 @@
     <asp:GridView ID="griMatHangNPPDaDung" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPPSD" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griMatHangDaDung_PageIndexChanging" OnSelectedIndexChanged="griMatHangDaDung_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
+            <asp:CommandField SelectText="Xem" ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaMH" HeaderText="Mã số">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
-            </asp:BoundField>
             <asp:BoundField DataField="TenMH" HeaderText="Tên sản phẩm">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
@@ -75,13 +71,9 @@
     <asp:GridView ID="griMatHangKHDaDung" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaKHSD" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griMatHangDaDung_PageIndexChanging" OnSelectedIndexChanged="griMatHangDaDung_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
+            <asp:CommandField SelectText="Xem" ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaMH" HeaderText="Mã số">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
-            </asp:BoundField>
             <asp:BoundField DataField="TenMH" HeaderText="Tên sản phẩm">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />

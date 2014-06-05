@@ -86,18 +86,5 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
     </tr>
 </table>
 
-    <div>
-    Gửi tới:&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="txtTo" runat="server" Width="280px"></asp:TextBox>
-    <br />
-    Subject:&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="txtSubject" runat="server" Width="280px"></asp:TextBox>
-    <br />
-    Nội dung:&nbsp;
-    <asp:TextBox ID="txtConTent" runat="server" Rows="4" TextMode="MultiLine" 
-        Width="278px"></asp:TextBox>
-    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
-        Text="Gửi mail" />
-</div>
 </asp:Content>
 

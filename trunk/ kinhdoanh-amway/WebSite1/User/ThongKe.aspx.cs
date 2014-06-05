@@ -63,7 +63,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             griNPP_ThanhTichMoi.Visible = false;
             griNPP_SapHetHan.Visible = false;
             pnlChiTietNPP.Visible = false;
-            //DataTable dt1 = this.GetData("select MaNPP,  ViDo, KinhDo, HoNPP +' '+ TenNPP as HoTen from NhaPhanPhoi where ViDo >0 and KinhDo > 0");
+            DataTable dt1 = this.GetData("select MaNPP,  ViDo, KinhDo, HoNPP +' '+ TenNPP as HoTen from NhaPhanPhoi where ViDo >0 and KinhDo > 0");
             if (Session["MaNPPClick"] == null)
                 npp.MaNPP = Session["MaNPP"].ToString();
             else
@@ -72,7 +72,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             rptMarkers.DataBind();
         }
     }
-    /*private DataTable GetData(string query)
+    private DataTable GetData(string query)
     {
         string conString = "server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;";
         SqlCommand cmd = new SqlCommand(query);
@@ -90,7 +90,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
                 }
             }
         }
-    }*/
+    }
     protected void griNPP_Moi_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griNPP_Moi.PageIndex = e.NewPageIndex;
@@ -213,6 +213,9 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         npp.MaNPP = griNPP_Moi.SelectedValue.ToString();
         npp.CT();
         txtMaNPP.Text = npp.MaNPP;
+        //Xem quá trình cấp độ
+        griQTCD.DataSource = qtcd.DS(npp.MaNPP);
+        griQTCD.DataBind();
         txtMaNPP.Enabled = false;
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
@@ -303,6 +306,9 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         npp.MaNPP = griNPP_ThanhTichMoi.SelectedValue.ToString();
         npp.CT();
         txtMaNPP.Text = npp.MaNPP;
+        //Xem quá trình cấp độ
+        griQTCD.DataSource = qtcd.DS(npp.MaNPP);
+        griQTCD.DataBind();
         txtMaNPP.Enabled = false;
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
@@ -393,6 +399,9 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         npp.MaNPP = griNPP_SapHetHan.SelectedValue.ToString();
         npp.CT();
         txtMaNPP.Text = npp.MaNPP;
+        //Xem quá trình cấp độ
+        griQTCD.DataSource = qtcd.DS(npp.MaNPP);
+        griQTCD.DataBind();
         txtMaNPP.Enabled = false;
         txtHoNPP.Text = npp.HoNPP;
         txtTenNPP.Text = npp.TenNPP;
@@ -475,4 +484,5 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         dtt.MaDuong = npp.MaDuongNPPTT;
         droDuongNPPTT.SelectedValue = dtt.MaDuong.ToString();
     }
+
 }

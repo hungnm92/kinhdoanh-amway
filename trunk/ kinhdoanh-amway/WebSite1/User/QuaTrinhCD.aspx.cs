@@ -31,7 +31,7 @@ public partial class User_DoanhThu : System.Web.UI.Page
             griQTCD.DataBind();
         }
     }
-    protected void griDoanhThu_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    protected void griQTCD_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griQTCD.PageIndex = e.NewPageIndex;
         if (Request.QueryString["MaADA"] != null)

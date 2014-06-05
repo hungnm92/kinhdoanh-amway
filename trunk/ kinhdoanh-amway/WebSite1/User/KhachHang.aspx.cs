@@ -466,6 +466,8 @@ public partial class User_KhachHang : System.Web.UI.Page
         kh.MaTinhKHLL = droTinhKHLL.SelectedValue;
         droHuyenKHLL.DataSource = hll.DS_TheoTinh(kh.MaTinhKHLL);
         droHuyenKHLL.DataBind();
+        droXaKHLL.DataSource = xptt.DS(droHuyenKHLL.SelectedValue);
+        droXaKHLL.DataBind();
     }
     protected void droHuyenKHLL_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -478,6 +480,8 @@ public partial class User_KhachHang : System.Web.UI.Page
         kh.MaTinhKHTT = droTinhKHTT.SelectedValue;
         droHuyenKHTT.DataSource = htt.DS_TheoTinh(kh.MaTinhKHTT);
         droHuyenKHTT.DataBind();
+        droXaKHTT.DataSource = xptt.DS(droHuyenKHTT.SelectedValue);
+        droXaKHTT.DataBind();
     }
     protected void droHuyenKHTT_SelectedIndexChanged(object sender, EventArgs e)
     {
