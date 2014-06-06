@@ -212,6 +212,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
             </tr>
         </table>
     </asp:Panel>
+
     <p>
         &nbsp;</p>
     <p>
@@ -219,26 +220,17 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
     <p>
         &nbsp;</p>
     <p>
-        &nbsp;</p>
+        
+    </p>
+    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+        <ContentTemplate>
+             <asp:LinkButton ID="lbtViewMap" AutoPostBack="true" runat="server" OnClick="lbtViewMap_Click">Xem địa chỉ trên Google Map</asp:LinkButton>
+            <br />
+            <cc1:GMap ID="GMap1" runat="server" AutoPostBack="false" Height="500px" Width="560px" enableContinuousZoom="true" enableDoubleClickZoom="true" enableGoogleBar="true"    enableRotation="true" enableGKeyboardHandler="true" enableHookMouseWheelToZoom="true"      ClientIDMode="Static"/>
+        </ContentTemplate>
+    </asp:UpdatePanel>
     <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <p>
-        &nbsp;</p>
-    <cc1:GMap ID="GMap1" runat="server" Height="500px" Width="560px" enableContinuousZoom="true" enableDoubleClickZoom="true" enableGoogleBar="true"    enableRotation="true" enableGKeyboardHandler="true" enableHookMouseWheelToZoom="true"      ClientIDMode="Static"/>
-    <p>
-        Bản đồ.<br />
+        <br />
     </p>
 </asp:Content>
 

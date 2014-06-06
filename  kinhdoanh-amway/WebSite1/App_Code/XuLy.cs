@@ -434,7 +434,6 @@ namespace webdoan
                 ThamSo = Lenh.Parameters.AddWithValue("@MaKH", MaKH);
                 ThamSo = Lenh.Parameters.AddWithValue("@HoKH", HoKH);
                 ThamSo = Lenh.Parameters.AddWithValue("@TenKH", TenKH);
-                ThamSo = Lenh.Parameters.AddWithValue("@NgaySinh", NgaySinh);
                 ThamSo = Lenh.Parameters.AddWithValue("@GioiTinh", GioiTinh);
                 ThamSo = Lenh.Parameters.AddWithValue("@CMND", CMND);
                 ThamSo = Lenh.Parameters.AddWithValue("@SoDT", SoDT);
@@ -2176,7 +2175,7 @@ namespace webdoan
                     KetQua += "<ul>";
                 while (DocDL.Read())//Đọc từng đối tượng NPP để thực hiện lệnh dưới.
                 {
-                    KetQua += "<li><a class = 'button' onclick =" + DocDL["ngoac"].ToString() + "javascript:setSession('" + DocDL["MaNPP"].ToString() + "');" + DocDL["ngoac"].ToString() + "><img src='" + "../src/emp/" + DocDL["AnhCD"] + "'/><span>" + DocDL["HoTenNPP"] + "</span></a>";//Hiển thị họ tên, lấy MaNPP và chạy hàm Js khi click.
+                    KetQua += "<li><a onclick =" + DocDL["ngoac"].ToString() + "javascript:setSession('" + DocDL["MaNPP"].ToString() + "');" + DocDL["ngoac"].ToString() + "><img src='" + "../src/emp/" + DocDL["AnhCD"] + "'/><span>" + DocDL["HoTenNPP"] + "</span></a>";//Hiển thị họ tên, lấy MaNPP và chạy hàm Js khi click.
                     KetQua += LoadMenu(DocDL["MaNPP"].ToString(), level + 1);//Thực hiện vòng lặp với NPP có tuyến dưới.
                     KetQua += "</li>";
                 }

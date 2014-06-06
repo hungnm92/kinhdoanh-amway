@@ -96,7 +96,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
             string temp1 = nppsd.NgayNPPSD.ToString().Replace(" 12:00:00 AM", "");
             temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
             txtThoiGian.Text = temp1;
-            if (nppsd.NgayNPPSDHH.ToString() == "1/1/1900 12:00:00 AM")
+            if (nppsd.NgayNPPSDHH.ToString() == DBNull.Value.ToString())
                 txtNgayHH.Text = "";
             else
             {
@@ -130,7 +130,7 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
             string temp3 = khsd.NgayKHSD.ToString().Replace(" 12:00:00 AM", "");
             temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
             txtThoiGian.Text = temp3;
-            if (khsd.NgayKHSDHH.ToString() == "1/1/1900 12:00:00 AM")
+            if (khsd.NgayKHSDHH.ToString() == DBNull.Value.ToString())
                 txtNgayHH.Text = "";
             else
             {

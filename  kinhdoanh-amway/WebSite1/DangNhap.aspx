@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DangNhap.aspx.cs" Inherits="User_DangNhap" %>
 <%@ Register assembly="GMaps" namespace="Subgurim.Controles" tagprefix="cc1" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
@@ -59,9 +60,6 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
             Họ và tên:<span class="style1"> *</span></td>
         <td style="width: 70%">
             <asp:TextBox ID="txtHoTen" runat="server" Width="300px"  />&nbsp;
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                ControlToValidate="txtHoTen" ErrorMessage="Vui lòng điền tên bạn" 
-                Display="Dynamic" />
         </td>
     </tr>
     <tr>
@@ -83,9 +81,6 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
             Email:<span class="style1"> *</span></td>
         <td style="width: 70%">
             <asp:TextBox ID="txtEmail" runat="server" Width="300px"   />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                ControlToValidate="txtEmail" ErrorMessage="Vui lòng nhập Email" 
-                Display="Dynamic" />
                  <asp:RegularExpressionValidator ID="RegularExpressionValidator1" 
                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"  runat="server" 
                 ErrorMessage="Email không hợp lệ" ControlToValidate="txtEmail" 
@@ -99,9 +94,6 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
             <asp:TextBox ID="txtNoiDung" style="background-color:#FAFAFA; padding:5px;" 
             TextMode="MultiLine" Rows="6" runat="server" Width="420px" />
             <br />
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                ControlToValidate="txtNoiDung" ErrorMessage="*" 
-                Display="Dynamic" />
         </td>
     </tr>
     <tr>
@@ -125,7 +117,7 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 <div class='widget-content'>
 <ul>
 <li class='selected'></li>
-<li>       <asp:Button ID="btnDangNhap" runat="server" ForeColor="Red" OnClick="btnDangNhap_Click" Text="Login" />
+<li>       <asp:Button ID="btnDangNhap" runat="server" OnClick="btnDangNhap_Click" Text="Đăng nhập" />
     </li>
 <li>       <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "trangdhnt@gmail.com";}' onfocus='if (this.value == "trangdhnt@gmail.com") {this.value = "";}; TextMode="trangdhnt@gmail.com"' value ='trangdhnt@gmail.com' ></asp:TextBox>
 </li>
@@ -212,6 +204,55 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
    <cc1:GMap ID="GMap1" runat="server" Height="500px" Width="550px" mapType ="Normal" />
 
+<script type="text/javascript">
+    var markers = [
+<asp:Repeater ID="rptMarkers" runat="server">
+<ItemTemplate>
+            {
+                "title": '<%# Eval("Ten") %>',
+                "lat": '<%# Eval("ViDo") %>',
+                "lng": '<%# Eval("KinhDo") %>',
+                "description": '<%# Eval("MieuTa") %>'
+            }
+</ItemTemplate>
+<SeparatorTemplate>
+    ,
+</SeparatorTemplate>
+</asp:Repeater>
+    ];
+</script>
+<script type="text/javascript">
+    window.onload = function () {
+        var mapOptions = {
+            center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var infoWindow = new google.maps.InfoWindow();
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+        for (i = 0; i < markers.length; i++) {
+            var data = markers[i]
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title
+            });
+            (function (marker, data) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    infoWindow.setContent(data.description);
+                    infoWindow.open(map, marker);
+                });
+            })(marker, data);
+        }
+    }
+</script>
+<div id="dvMap" style="width: 545px; height: 500px">
+
+    <p>
+        &nbsp;</p>
+    </div>
+
 </div>
 <div class='post-footer-line-3'></div>
 </div>
@@ -280,7 +321,7 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 </div>
 <div class='go-top'><a href='#'></a></div>
 
-<div class='copyright'>Copyright 2014 &#169; <a href='#' id='copyright'>DoAn 52TH</a> and <a href='#'>doan.somee.com</a></div>
+<div class='copyright'>DoAn 52TH &#169; <a href='#' id='copyright'> 2014</a> and <a href='#'>doan.somee.com</a></div>
 <div class='clear'></div>
 <div class='column section' id='leftcolumn'>
 </div>

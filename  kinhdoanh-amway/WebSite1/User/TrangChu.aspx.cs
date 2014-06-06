@@ -33,6 +33,7 @@ public partial class User_Default : System.Web.UI.Page
             imgNew.Visible = true;
         if (IsPostBack == false)
         {
+            Session["MaKH"] = null;
             string temp3;
             droDuongNPPLL.DataSource = dll.DS();
             droDuongNPPLL.DataBind();
@@ -148,13 +149,8 @@ public partial class User_Default : System.Web.UI.Page
             droDuongNPPLL.SelectedValue = dll.MaDuong.ToString();
             dtt.MaDuong = npp.MaDuongNPPTT;
             droDuongNPPTT.SelectedValue = dtt.MaDuong.ToString();
-            if (npp.MaDuongNPPLL == "0000" && (npp.SoNhaNPPLL == "..." || npp.SoNhaNPPLL == ""))
-                btnShowMapfull_Click(sender, e);
-            else
-                if (npp.SoNhaNPPLL == "..." || npp.SoNhaNPPLL == "")
-                    btnShowMapNull_SN_Click(sender, e);
-                else
-                    btnShowMap_Click(sender, e);
+ //           lbtViewMap.Visible = true;
+            GMap1.Visible = false;
         }
     }
     protected void btnSua_Click(object sender, EventArgs e)
@@ -322,5 +318,28 @@ public partial class User_Default : System.Web.UI.Page
         npp.MaNPP = Session["MaNPP"].ToString();
         npp.CT();
         npp.Sua_NgayHetHan();
+    }
+    protected void lbtViewMap_Click(object sender, EventArgs e)
+    {
+        if (Session["MaNPPClick"] == null)
+        {
+            npp.MaNPP = Session["MaNPP"].ToString();
+            npp.CT();
+        }
+        else
+        {
+            npp.MaNPP = Session["MaNPPClick"].ToString();
+            npp.CT();
+        }
+        //Code hiển thị bản đồ từ địa chỉ trên text box
+        if (npp.MaDuongNPPLL == "0000" && (npp.SoNhaNPPLL == "..." || npp.SoNhaNPPLL == ""))
+            btnShowMapfull_Click(sender, e);
+        else
+            if (npp.SoNhaNPPLL == "..." || npp.SoNhaNPPLL == "")
+                btnShowMapNull_SN_Click(sender, e);
+            else
+                btnShowMap_Click(sender, e);
+        lbtViewMap.Visible = false;
+        GMap1.Visible = true;
     }
 }

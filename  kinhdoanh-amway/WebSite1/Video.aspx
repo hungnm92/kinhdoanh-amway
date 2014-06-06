@@ -23,6 +23,7 @@
 <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js' type='text/javascript'></script>
     <link type='text/css' rel='stylesheet' href='/widget_css_bundle.css' />
      <link href="style/Video.css" rel="stylesheet" />
+    <link href="style/Video-SP.css" rel="stylesheet" />
 <link href='../style/page-skin-2.css' rel='stylesheet' type='text/css'/>
     <link href="page-skin-2.css" rel="stylesheet" />
 <script type='text/javascript'>//<![CDATA[
@@ -41,7 +42,7 @@
 <div class='widget-content'>
 <ul>
 <li class='selected'></li>
-<li>       <asp:Button ID="btnDangNhap" runat="server" ForeColor="Red" OnClick="btnDangNhap_Click" Text="Login" />
+<li>       <asp:Button ID="btnDangNhap" runat="server" OnClick="btnDangNhap_Click" Text="Đăng nhập" />
     </li>
 <li>       <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "trangdhnt@gmail.com";}' onfocus='if (this.value == "trangdhnt@gmail.com") {this.value = "";}; TextMode="trangdhnt@gmail.com"' value ='trangdhnt@gmail.com' ></asp:TextBox>
 </li>
@@ -110,7 +111,19 @@
     <div id="top-content">
 	<div class="container">
 		<div id="livestream">
-			<iframe width="100%" height="100%" frameborder="0" allowfullscreen="1" src="http://www.youtube.com/embed/X7hAOIuK63M"></iframe>
+			<iframe width="100%" height="100%" frameborder="0" allowfullscreen="1" src="http://www.youtube.com/embed/YJGZNPZ99Ww"></iframe>
+			<img src="src/web/shadow-video1.png" class="img-responsive" alt="" />		</div>
+	</div>
+</div>
+    <div class="clear"></div>
+    <br />
+    <br />
+    <br />
+    <br />
+        <div id="top-content1">
+	<div class="container1">
+		<div id="livestream1">
+			<iframe width="100%" height="100%" frameborder="0" allowfullscreen="1" src="http://www.youtube.com/embed/uw4GSX-CbVg"></iframe>
 			<img src="src/web/shadow-video1.png" class="img-responsive" alt="" />		</div>
 	</div>
 </div>
@@ -197,7 +210,7 @@
 </div>
 <div class='go-top'><a href='#'></a></div>
 
-<div class='copyright'>Copyright 2014 &#169; <a href='#' id='copyright'>DoAn 52TH</a> and <a href='#'>doan.somee.com</a></div>
+<div class='copyright'>DoAn 52TH &#169; <a href='#' id='copyright'> 2014</a> and <a href='#'>doan.somee.com</a></div>
 <div class='clear'></div>
 <div class='column section' id='leftcolumn'>
 </div>

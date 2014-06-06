@@ -23,8 +23,6 @@ public partial class Video : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            lblTB.Visible = true;
-            lblTB.Text = DateTime.Today.ToShortDateString();
             Session["MaNPPClick"] = null;//Khi quay lại trang đăng nhập thì xóa biến session click
             Session["MaNPP"] = null;
             Session["MaKH"] = null;
