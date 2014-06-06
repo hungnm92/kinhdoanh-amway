@@ -23,14 +23,34 @@ public partial class User_DangNhap : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            lblTB.Visible = true;
-            lblTB.Text = DateTime.Today.ToShortDateString();
             Session["MaNPPClick"] = null;//Khi quay lại trang đăng nhập thì xóa biến session click
             Session["MaNPP"] = null;
             Session["MaKH"] = null;
             Session["MaCD"] = null;
             Session["MaLMH"] = null;
             Session["Loai"] = null;
+            DataTable dt = this.GetData("select Ten,  ViDo, KinhDo, MieuTa from TrungTamPP where ViDo >0 and KinhDo > 0");
+            rptMarkers.DataSource = dt;
+            rptMarkers.DataBind();
+        }
+    }
+    private DataTable GetData(string query)
+    {
+        string conString = "server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;";
+        SqlCommand cmd = new SqlCommand(query);
+        using (SqlConnection con = new SqlConnection(conString))
+        {
+            using (SqlDataAdapter sda = new SqlDataAdapter())
+            {
+                cmd.Connection = con;
+
+                sda.SelectCommand = cmd;
+                using (DataTable dt = new DataTable())
+                {
+                    sda.Fill(dt);
+                    return dt;
+                }
+            }
         }
     }
     //GooleMap tìm kiếm

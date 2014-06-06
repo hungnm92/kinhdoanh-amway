@@ -111,10 +111,12 @@ div#popup-content {
             </tr>
             <tr>
                 <td class="auto-style16" colspan="2">&nbsp;
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" TargetControlID="btnNPP_Moi" ControlToValidate="txtTuNgay" Display="Dynamic" ErrorMessage="Vui lòng chọn ngày bắt đầu" ForeColor="Red" />
+                    
+                    <asp:Label ID="lblTB" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
+                    
                 </td>
                 <td class="auto-style16">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" TargetControlID="btnNPP_Moi" ControlToValidate="txtDenNgay" Display="Dynamic" ErrorMessage="Vui lòng chọn ngày kết thúc" ForeColor="Red" />
+                    
                 </td>
             </tr>
             <tr>

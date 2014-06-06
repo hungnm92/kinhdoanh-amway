@@ -97,6 +97,7 @@ public partial class User_KhachHang : System.Web.UI.Page
         //txtNgaySinh.Text = kh.NgaySinh;
         string temp1 = kh.NgaySinh.ToString().Replace(" 12:00:00 AM", "");
         temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
+        txtNgaySinh.Text = temp1;
         txtNgaySinh.Enabled = false;
         if (kh.GioiTinh == true)
         {
@@ -111,7 +112,11 @@ public partial class User_KhachHang : System.Web.UI.Page
         txtCMND.Text = kh.CMND;
         txtSoDT.Text = kh.SoDT;
         txtEmail.Text = kh.Email;
-        chkLoai.Checked = kh.Loai;
+        if (bool.Parse(Session["Loai"].ToString()) == false)
+            chkLoai.Visible = true;
+        else
+            chkLoai.Visible = false;
+        chkLoai.Checked = false;
         txtSoNhaKHTT.Text = kh.SoNhaKHTT;
         txtSoNhaKHLL.Text = kh.SoNhaKHLL;
         //Tinh
@@ -258,7 +263,6 @@ public partial class User_KhachHang : System.Web.UI.Page
             kh.MaKH = griKhachHang.SelectedValue.ToString();
             kh.HoKH = txtHoKH.Text;
             kh.TenKH = txtTenKH.Text;
-            kh.NgaySinh = txtNgaySinh.Text;
             if(rdoNam.Checked == true)
                 kh.GioiTinh = true;
             else

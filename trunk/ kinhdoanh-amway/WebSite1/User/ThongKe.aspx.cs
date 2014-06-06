@@ -63,16 +63,17 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             griNPP_ThanhTichMoi.Visible = false;
             griNPP_SapHetHan.Visible = false;
             pnlChiTietNPP.Visible = false;
-            DataTable dt1 = this.GetData("select MaNPP,  ViDo, KinhDo, HoNPP +' '+ TenNPP as HoTen from NhaPhanPhoi where ViDo >0 and KinhDo > 0");
+            //DataTable dt1 = this.GetData("select MaNPP,  ViDo, KinhDo, HoNPP +' '+ TenNPP as HoTen from NhaPhanPhoi where ViDo >0 and KinhDo > 0");
             if (Session["MaNPPClick"] == null)
                 npp.MaNPP = Session["MaNPP"].ToString();
             else
                 npp.MaNPP = Session["MaNPPClick"].ToString();
             rptMarkers.DataSource = npp.DS_GoogleMap();
             rptMarkers.DataBind();
+            lblTB.Visible = false;
         }
     }
-    private DataTable GetData(string query)
+    /*private DataTable GetData(string query)
     {
         string conString = "server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;";
         SqlCommand cmd = new SqlCommand(query);
@@ -90,7 +91,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
                 }
             }
         }
-    }
+    }*/
     protected void griNPP_Moi_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griNPP_Moi.PageIndex = e.NewPageIndex;
@@ -135,54 +136,77 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     }
     protected void btnNPP_Moi_Click(object sender, EventArgs e)
     {
-        griNPP_Moi.Visible = true;
-        if (Request.QueryString["MaADA"] != null)
-            Session["MaNPPClick"] = Request.QueryString["MaADA"];
-        if (Session["MaNPPClick"] == null)
+        bool bTuNgay = string.IsNullOrWhiteSpace(txtTuNgay.Text);
+        bool bDenNgay = string.IsNullOrWhiteSpace(txtDenNgay.Text);
+        if (bTuNgay == false && bDenNgay == false)
         {
-            npp.MaNPP = Session["MaNPP"].ToString();
-            npp.TuNgay = txtTuNgay.Text;
-            npp.DenNgay = txtDenNgay.Text;
-            griNPP_Moi.DataSource = npp.DS_Moi();
+            lblTB.Visible = false;
+            griNPP_Moi.Visible = true;
+            if (Request.QueryString["MaADA"] != null)
+                Session["MaNPPClick"] = Request.QueryString["MaADA"];
+            if (Session["MaNPPClick"] == null)
+            {
+                npp.MaNPP = Session["MaNPP"].ToString();
+                npp.TuNgay = txtTuNgay.Text;
+                npp.DenNgay = txtDenNgay.Text;
+                griNPP_Moi.DataSource = npp.DS_Moi();
+            }
+            else
+            {
+                npp.MaNPP = Session["MaNPPClick"].ToString();
+                npp.TuNgay = txtTuNgay.Text;
+                npp.DenNgay = txtDenNgay.Text;
+                griNPP_Moi.DataSource = npp.DS_Moi();
+            }
+            griNPP_Moi.DataBind();
+            griNPP_ThanhTichMoi.Visible = false;
+            griNPP_SapHetHan.Visible = false;
+            pnlChiTietNPP.Visible = false;
         }
         else
         {
-            npp.MaNPP = Session["MaNPPClick"].ToString();
-            npp.TuNgay = txtTuNgay.Text;
-            npp.DenNgay = txtDenNgay.Text;
-            griNPP_Moi.DataSource = npp.DS_Moi();
+            lblTB.Visible = true;
+            lblTB.Text = "Vui lòng nhập ngày bắt đầu, ngày kết thúc.";
         }
-        griNPP_Moi.DataBind();
-        griNPP_ThanhTichMoi.Visible = false;
-        griNPP_SapHetHan.Visible = false;
-        pnlChiTietNPP.Visible = false;
     }
     protected void btnNPP_ThanhTichMoi_Click(object sender, EventArgs e)
     {
-        griNPP_ThanhTichMoi.Visible = true;
-        if (Request.QueryString["MaADA"] != null)
-            Session["MaNPPClick"] = Request.QueryString["MaADA"];
-        if (Session["MaNPPClick"] == null)
+        bool bTuNgay = string.IsNullOrWhiteSpace(txtTuNgay.Text);
+        bool bDenNgay = string.IsNullOrWhiteSpace(txtDenNgay.Text);
+        if (bTuNgay == false && bDenNgay == false)
         {
-            npp.MaNPP = Session["MaNPP"].ToString();
-            npp.TuNgay = txtTuNgay.Text;
-            npp.DenNgay = txtDenNgay.Text;
-            griNPP_ThanhTichMoi.DataSource = npp.DS_ThanhTichMoi();
+            lblTB.Visible = false;
+            griNPP_ThanhTichMoi.Visible = true;
+            if (Request.QueryString["MaADA"] != null)
+                Session["MaNPPClick"] = Request.QueryString["MaADA"];
+            if (Session["MaNPPClick"] == null)
+            {
+                npp.MaNPP = Session["MaNPP"].ToString();
+                npp.TuNgay = txtTuNgay.Text;
+                npp.DenNgay = txtDenNgay.Text;
+                griNPP_ThanhTichMoi.DataSource = npp.DS_ThanhTichMoi();
+            }
+            else
+            {
+                npp.MaNPP = Session["MaNPPClick"].ToString();
+                npp.TuNgay = txtTuNgay.Text;
+                npp.DenNgay = txtDenNgay.Text;
+                griNPP_ThanhTichMoi.DataSource = npp.DS_ThanhTichMoi();
+            }
+            griNPP_ThanhTichMoi.DataBind();
+            griNPP_Moi.Visible = false;
+            griNPP_SapHetHan.Visible = false;
+            pnlChiTietNPP.Visible = false;
         }
         else
         {
-            npp.MaNPP = Session["MaNPPClick"].ToString();
-            npp.TuNgay = txtTuNgay.Text;
-            npp.DenNgay = txtDenNgay.Text;
-            griNPP_ThanhTichMoi.DataSource = npp.DS_ThanhTichMoi();
+            lblTB.Visible = true;
+            lblTB.Text = "Vui lòng nhập ngày bắt đầu, ngày kết thúc.";
         }
-        griNPP_ThanhTichMoi.DataBind();
-        griNPP_Moi.Visible = false;
-        griNPP_SapHetHan.Visible = false;
-        pnlChiTietNPP.Visible = false;
     }
     protected void btnNPP_SapHetHan_Click(object sender, EventArgs e)
     {
+        lblTB.Visible = false;
         griNPP_SapHetHan.Visible = true;
         if (Request.QueryString["MaADA"] != null)
             Session["MaNPPClick"] = Request.QueryString["MaADA"];

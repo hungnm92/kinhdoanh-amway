@@ -30,7 +30,9 @@
 <script type="text/javascript" src="../js/if_notChrome_ie.js"></script>
     <script type="text/javascript">
              if (window.jstiming) window.jstiming.load.tick('headEnd');
-</script></head>
+</script>
+        <script  type='text/javascript' src="../js/TreeMenu.js"></script>
+</head>
 <body>
     <form id="form1" runat="server">
         <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
@@ -136,14 +138,19 @@
 <div class='inside'>
 <div class='clear'></div>
 <div class='sidebar section' id='sidebar'>
-<h2>Hệ thống nhánh con</h2>
+<h2>Nhánh phân phối</h2>
 <div class='widget-content list-label-widget-content'>
 <script type="text/javascript">// Lưu Session khi click vào menu.
     function setSession(value) {
         document.location.href = "TrangChu.aspx?MaADA=" + value//Điều hướng tới TrangChu và gán Id = giá trị vào
     }
     </script> 
-    <asp:Label ID="lblMenu" runat="server" Text="Label"></asp:Label>
+    <div class ="menu" >
+        <asp:Label ID="lblMenu" runat="server" Text="Label"></asp:Label>
+        <script type="text/javascript">make_tree_menu('nav');</script>
+    </div>
+    <br />
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/User/SoDoPhanPhoi.aspx">Xem sơ đồ phân phối</asp:HyperLink>
 
 <div class='clear'></div>
     <!-- Cái đoạn này để chạy cái hiệu ứng lên đầu trang. -->
@@ -167,7 +174,7 @@
 </div>
 <div class='go-top'><a href='#'></a></div>
 
-<div class='copyright'>Copyright 2013 &#169; <a href='#' id='copyright'>DoAn 52TH</a> and <a href='#'>doan.somee.com</a></div>
+<div class='copyright'>DoAn 52TH &#169; <a href='#' id='copyright'> 2014</a> and <a href='#'>doan.somee.com</a></div>
 <div class='clear'></div>
 <div class='column section' id='leftcolumn'>
 </div>
