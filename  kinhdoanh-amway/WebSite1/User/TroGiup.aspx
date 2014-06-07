@@ -4,10 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
-        Mọi thông tin chi tiết xin liên hệ: group Myfamily.</p>
-    <p>
-        Địa chỉ: <a href="https://www.facebook.com/groups/193356717517376/">https://www.facebook.com/groups/193356717517376/</a></p>
-    <p>
         &nbsp;</p>
     
     <table cellpadding="10" cellspacing="10" id="FormLienKe" align="center">
@@ -19,8 +15,8 @@
     <tr>
         <td style="width: 30%" colspan="2">
             Nếu bạn có bất cứ thắc mắc, ý kiến đóng góp hoặc câu hỏi gì liên quan đến website, 
-hãy liên lạc với tôi bằng form dưới đây. Tôi sẽ hồi âm bạn sớm nhất có thể. 
-Tôi luôn cố gắng trả lời tất cả những email gửi tới.
+hãy liên lạc với chúng tôi bằng form dưới đây. Chúng tôi sẽ hồi âm bạn sớm nhất có thể. 
+            Chúng tôi luôn cố gắng trả lời tất cả những email gửi tới.
             </td>
     </tr>
     <tr>
@@ -75,7 +71,7 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
     </tr>
     <tr>
         <td valign="top" colspan="2" align="center" id="LinkOfList">
-            <asp:Button ID="btnSend" runat="server" Text="Gửi liên hệ" 
+            <asp:Button ID="btnSend" runat="server" Text="Gửi yêu cầu giúp đỡ" 
                 onclick="btnSend_Click" />
             </td>
     </tr>

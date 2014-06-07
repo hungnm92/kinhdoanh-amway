@@ -28,9 +28,14 @@ public partial class User_Default : System.Web.UI.Page
             else
                 Session["MaNPPClick"] = Request.QueryString["MaADA"];
         }
-        npp.MaNPP = Session["MaNPP"].ToString();
-        if (npp.BaoTro_SL_NEW() > 0)
-            imgNew.Visible = true;
+        if (Session["MaNPP"] == null)
+            Response.Redirect("~/DangNhap.aspx");
+        if (Session["MaNPPClick"] == null)//Gán MaNPP vào để hiển thị GoogleMap khi của NPP tuyến dưới hoặc chính NPP Login
+            npp.MaNPP = Session["MaNPP"].ToString();
+        else
+            npp.MaNPP = Session["MaNPPClick"].ToString();
+            if (npp.BaoTro_SL_NEW() > 0)
+                imgNew.Visible = true;
         if (IsPostBack == false)
         {
             Session["MaKH"] = null;

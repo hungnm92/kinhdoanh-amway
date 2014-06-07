@@ -48,7 +48,7 @@
           <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
             </div>
     <div id='NPP_New'><!-- Ảnh NEW khi có NPP đạt thành tích mới -->
-         <a href='ThongKe.aspx'><asp:Image ID="imgNew" runat="server" ImageUrl="~/src/web/new.gif" Visible="False" /></a>
+         <a href='ThongKe.aspx?ThanhTichMoi=Dung'><asp:Image ID="imgNew" runat="server" ImageUrl="~/src/web/new.gif" Visible="False" /></a>
 </div>
     <asp:Panel ID="pnlChiTiet" runat="server" BorderStyle="Solid" style="margin-left: 5px; margin-right: 0px" Width="553px">
         <table style="width:100%;">

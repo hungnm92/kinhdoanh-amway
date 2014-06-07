@@ -203,7 +203,10 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
     protected void btnDaoTao_Click(object sender, EventArgs e)
     {
         dt.MaCT = griChuongTrinhSapDienRa.SelectedValue.ToString();
-        dt.MaNPP = Session["MaNPP"].ToString();
+        if (Session["MaNPPClick"] == null)
+            dt.MaNPP = Session["MaNPP"].ToString();
+        else
+            dt.MaNPP = Session["MaNPPClick"].ToString();
         dt.NgayDT = txtThoiGian.Text;
         dt.Them();
         lblTB.Visible = true;

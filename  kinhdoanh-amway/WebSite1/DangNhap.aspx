@@ -21,8 +21,8 @@
 <meta content='' name='description'/>
 <meta content='' name='keywords'/>
 <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js' type='text/javascript'></script>
+        <link href="style/Show-popup.css" rel="stylesheet" />
     <link type='text/css' rel='stylesheet' href='/widget_css_bundle.css' />
-    <link href="style/Show-popup.css" rel="stylesheet" />
 <link href='../style/page-skin-1.css' rel='stylesheet' type='text/css'/>
 <script type='text/javascript'>//<![CDATA[
     eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('h i(b,a){u b.j(/<.*?>/v,"").k(/\\s+/).w(0,a-1).y(" ")}h z(b){b=A.B(b);C a="",a=b.D("l");m(1<=a.E){f="F-p";9=a[0].n;8=9.k("/");c=8[2];m(-1!=c.d("G")||-1!=c.d("H")||-1!=c.d("I"))g=8[7],9=-1==g.d(".")?9.j(g,f):8[0]+"//"+8[2]+"/"+8[3]+"/"+8[4]+"/"+8[5]+"/"+8[6]+"/"+f+"/"+8[7];a=\'<e o="q"><a r="\'+x+\'"><l n="\'+9+\'" /></a></e>\'}J a=\'<a r="\'+x+\'"><e o="K-q"></e></a>\';b.t=a+i(b.t,L)+"..."};', 48, 48, '||||||||imgurl_split|imgurl|||imgurl_localhost|indexOf|div|scale_size|imgurl_scale|function|stripTags|replace|split|img|if|src|class||thumb|href||innerHTML|return|ig|slice||join|rm|document|getElementById|var|getElementsByTagName|length|s180|blogspot|googleusercontent|ggpht|else|no|32'.split('|'), 0, {}))
@@ -30,17 +30,18 @@
 <script type="text/javascript">var a = "indexOf", b = "&m=1", e = "(^|&)m=", f = "?", g = "?m=1"; function h() { var c = window.location.href, d = c.split(f); switch (d.length) { case 1: return c + g; case 2: return 0 <= d[1].search(e) ? null : c + b; default: return null } } var k = navigator.userAgent; if (-1 != k[a]("Mobile") && -1 != k[a]("WebKit") && -1 == k[a]("iPad") || -1 != k[a]("Opera Mini") || -1 != k[a]("IEMobile")) { var l = h(); l && window.location.replace(l) };
 </script><script type="text/javascript">
              if (window.jstiming) window.jstiming.load.tick('headEnd');
-</script></head>
-<body>
-         <script  type='text/javascript'  src="../js/jquery-min-1-8-0.js"></script>
+</script>
+             <script  type='text/javascript'  src="../js/jquery-min-1-8-0.js"></script>
 <script type='text/javascript' src="../js/jquery-ui-1-8-23.js"></script>
-    <script src="../js/Show-popupDN.js"  type='text/javascript'></script>
+        <script src="../js/Show-popupDN.js"  type='text/javascript'></script>
+</head>
+<body>
     <script  type="text/javascript" src="js/analyticstracking.js"></script>
     <form id="form1" runat="server">
            
     <div id="popup-bg"></div>
 <div id="popup">
-	<div id="popup-header">Header<span id="popup-close" title="Close">x</span></div>
+	<div id="popup-header">Ấn phím ESC hoặc click vào X để thoát<span id="popup-close" title="Close">X</span></div>
     <div id="popup-content">
 <table cellpadding="10" cellspacing="10" id="FormLienKe" align="center">
     <tr>
@@ -147,27 +148,27 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 <div id='navigation'>
 <ul>
 <li><a href='#'><img alt='' src='../src/web/amway_logo.png' /></a></li>
-<li><a href='#'>Nhà Phân Phối<span>Bạn là chủ.</span></a>
+<li><a href='#'>Nhà Phân Phối<span>đăng nhập để xem.</span></a>
 <ul class='sub_menu'>
 <li><a href='#'><span>Nomal</span></a></li>
 <li><a href='#'><span>Silver</span></a></li>
 <li><a href='#'><span>Gold</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Khách Hàng<span>Hãy đến với chúng tôi.</span></a>
+<li><a href='#'>Khách Hàng<span>đăng nhập để xem.</span></a>
 <ul class='sub_menu'>
 <li><a href='#'><span>Khách Hàng Sử Dụng</span></a></li>
 <li><a href='#'><span>Khách Hàng Tiềm Năng</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Sản Phẩm<span>Chất lượng là số 1.</span></a>
+<li><a href='#'>Sản Phẩm<span>đăng nhập để xem.</span></a>
 <ul class='sub_menu'>
 <li><a href='#'><span>Sản Phẩm</span></a></li>
 <li><a href='#'><span>Sản Phẩm Gợi Ý</span></a></li>
 <li><a href='#'><span>Sản Phẩm Đã Dùng</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Trung Tâm<span>Địa điểm các cửa hàng.</span></a>
+<li><a href='#'>Chương Trình<span>đăng nhập để xem.</span></a>
 <ul class='sub_menu'>
 <li><a href='#'><span>Sắp diễn ra</span></a></li>
 <li><a href='#'><span>Đào tạo</span></a></li>
@@ -201,19 +202,20 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
    <div class='main section' id='main'><div class='widget Blog' id='Blog1'>
 <div class='post'>
 <div class='inside'>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-   <cc1:GMap ID="GMap1" runat="server" Height="500px" Width="550px" mapType ="Normal" />
 
+   <cc1:GMap ID="GMap1" runat="server" AutoPostBack="false" Height="500px" Width="550px" enableContinuousZoom="true" enableDoubleClickZoom="true" enableGoogleBar="true"    enableRotation="true" enableGKeyboardHandler="False" enableHookMouseWheelToZoom="true"      ClientIDMode="Static" GZoom="8" enablePostBackPersistence="True" enableGetGMapElementById="False" enableTransitOverlay="False" mapType="Normal" />
+    <br />
+         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
     var markers = [
-<asp:Repeater ID="rptMarkers" runat="server">
-<ItemTemplate>
-            {
-                "title": '<%# Eval("Ten") %>',
-                "lat": '<%# Eval("ViDo") %>',
-                "lng": '<%# Eval("KinhDo") %>',
-                "description": '<%# Eval("MieuTa") %>'
-            }
+    <asp:Repeater ID="rptMarkers" runat="server">
+    <ItemTemplate>
+                {
+                    "title": '<%# Eval("Ten") %>',
+                    "lat": '<%# Eval("ViDo") %>',
+                    "lng": '<%# Eval("KinhDo") %>',
+                    "description": '<%# Eval("GhiChu") %>'
+                }
 </ItemTemplate>
 <SeparatorTemplate>
     ,
@@ -247,10 +249,7 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
         }
     }
 </script>
-<div id="dvMap" style="width: 545px; height: 500px">
-
-    <p>
-        &nbsp;</p>
+<div id="dvMap" style="width: 550px; height: 500px">
     </div>
 
 </div>

@@ -21,6 +21,7 @@ public partial class User_KhachHang : System.Web.UI.Page
     webdoan.NPPSuDung nppsd = new webdoan.NPPSuDung();
     webdoan.ChamSoc cs = new webdoan.ChamSoc();
     webdoan.DaoTao dt = new webdoan.DaoTao();
+    webdoan.QuaTrinhCD qtcd = new webdoan.QuaTrinhCD();
     webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -354,14 +355,20 @@ public partial class User_KhachHang : System.Web.UI.Page
             npp.Tim_MaNPP();
             if (npp.MaNPP == txtMaNPP.Text)
             {
+                qtcd.MaNPP = npp.MaNPP;
+                qtcd.MaCD = 0;
+                qtcd.ThoiGian = txtNgayKyThe.Text;
+                qtcd.Them();
                 kh.MaKH = griKhachHang.SelectedValue.ToString();
                 while (cs.SL_ChamSoc(kh.MaKH) > 0)
                 {
                     cs.DS_KH(kh.MaKH);
                     cs.CT();
                     dt.MaCT = cs.MaCT;
-                    dt.NgayDT = cs.NgayCS;
-                    dt.MaNPP = txtMaNPP.ToString();
+                    string temp1 = cs.NgayCS.ToString().Replace(" 12:00:00 AM", "");
+                    temp1 = temp1.Substring(8, 2) + "/" + temp1.Substring(5, 2) + "/" + temp1.Substring(0, 4);
+                    dt.NgayDT = temp1;
+                    dt.MaNPP = txtMaNPP.Text;
                     dt.Them();
                     cs.Xoa();
                 };
@@ -370,13 +377,27 @@ public partial class User_KhachHang : System.Web.UI.Page
                     khsd.DS_KH(kh.MaKH);
                     khsd.CT();
                     nppsd.MaMH = khsd.MaMH;
-                    nppsd.MaNPP = txtMaNPP.ToString();
-                    nppsd.NgayNPPSD = khsd.NgayKHSD;
+                    nppsd.MaNPP = txtMaNPP.Text;
+                    string temp2 = khsd.NgayKHSD.ToString().Replace(" 12:00:00 AM", "");
+                    temp2 = temp2.Substring(8, 2) + "/" + temp2.Substring(5, 2) + "/" + temp2.Substring(0, 4);
+                    nppsd.NgayNPPSD = temp2;
                     nppsd.SoLuong = khsd.SoLuong;
-                    nppsd.MinhHoa = khsd.MinhHoa;
-                    nppsd.NgayNPPSDHH = khsd.NgayKHSDHH;
+                    if (khsd.MinhHoa == true)
+                        nppsd.MinhHoa = true;
+                    else
+                        nppsd.MinhHoa = false;
                     nppsd.GhiChu = khsd.GhiChu;
-                    nppsd.Them();
+                    if (khsd.NgayKHSDHH == DBNull.Value.ToString())
+                        nppsd.Them1();
+                    else
+                    {
+                        string temp3 = khsd.NgayKHSDHH.ToString().Replace(" 12:00:00 AM", "");
+                        temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
+                        nppsd.NgayNPPSDHH = temp3;
+                        nppsd.Them();
+                    }
+                    lblTB.Visible = true;
+                    lblTB.Text = nppsd.ThongBao;
                     khsd.Xoa();
                 };
                 kh.MaKH = griKhachHang.SelectedValue.ToString();
