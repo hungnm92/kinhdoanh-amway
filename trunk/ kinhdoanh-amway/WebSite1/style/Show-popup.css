@@ -44,7 +44,7 @@ div#popup-bg {
 	left:0;
 	right:0;
 	z-index:99;
-	background:#000;
+	background:#EDEDED;
 	display:none;
 }
 div#popup {
@@ -78,4 +78,5 @@ div#popup-content {
 	width:670px;
 	float:left;
 	padding:5px;
+    background:#FFF;
 }

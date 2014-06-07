@@ -64,11 +64,17 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             griNPP_SapHetHan.Visible = false;
             pnlChiTietNPP.Visible = false;
             //DataTable dt1 = this.GetData("select MaNPP,  ViDo, KinhDo, HoNPP +' '+ TenNPP as HoTen from NhaPhanPhoi where ViDo >0 and KinhDo > 0");
-            if (Session["MaNPPClick"] == null)
+            if (Session["MaNPPClick"] == null)//Gán MaNPP vào để hiển thị GoogleMap khi của NPP tuyến dưới hoặc chính NPP Login
                 npp.MaNPP = Session["MaNPP"].ToString();
             else
                 npp.MaNPP = Session["MaNPPClick"].ToString();
-            rptMarkers.DataSource = npp.DS_GoogleMap();
+            if (Request.QueryString["ThanhTichMoi"] == "Dung")//Kiểm tra session thanhtichmoi = dung thì hiện gri thành tích mới.
+            {
+                griNPP_ThanhTichMoi.Visible = true;
+                griNPP_ThanhTichMoi.DataSource = npp.DS_BaoTro_NEW();//Sử dụng npp.MaNPP ở trên
+                griNPP_ThanhTichMoi.DataBind();
+            }
+            rptMarkers.DataSource = npp.DS_GoogleMap();//Sử dụng npp.MaNPP ở trên
             rptMarkers.DataBind();
             lblTB.Visible = false;
         }

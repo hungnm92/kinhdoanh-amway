@@ -263,17 +263,22 @@ public partial class User_SanPham : System.Web.UI.Page
             nppsd.MaMH = griMatHang.SelectedValue.ToString();
             nppsd.MaNPP = Session["MaNPP"].ToString();
             nppsd.NgayNPPSD = txtNgaySD.Text;
-            if (txtNgayHH.Text == null)
-                nppsd.NgayNPPSDHH = "01/01/1990";
+            if (txtGhiChu.Text == "Ghi chú")
+                nppsd.GhiChu = "";
             else
-                nppsd.NgayNPPSDHH = txtNgayHH.Text;
-            nppsd.GhiChu = txtGhiChu.Text;
+                nppsd.GhiChu = txtGhiChu.Text;
             nppsd.SoLuong = int.Parse(txtSoLuong.Text);
             if (chkMinhHoa.Checked == true)
                 nppsd.MinhHoa = true;
             else
                 nppsd.MinhHoa = false;
-            nppsd.Them();
+            if (txtNgayHH.Text == "Ngày hết hạn")
+                nppsd.Them1();
+            else
+            {
+                nppsd.NgayNPPSDHH = txtNgayHH.Text;
+                nppsd.Them();
+            }
             lblTB.Visible = true;
             lblTB.Text = nppsd.ThongBao;
         }
@@ -283,22 +288,26 @@ public partial class User_SanPham : System.Web.UI.Page
             khsd.MaKH = Session["MaKH"].ToString();
             khsd.MaNPP = Session["MaNPP"].ToString();
             khsd.NgayKHSD = txtNgaySD.Text;
-            if (txtNgayHH.Text == null)
-                khsd.NgayKHSDHH = "01/01/1990";
+            if (txtGhiChu.Text == "Ghi chú")
+                khsd.GhiChu = "";
             else
-                khsd.NgayKHSDHH = txtNgayHH.Text;
-            khsd.GhiChu = txtGhiChu.Text;
+                khsd.GhiChu = txtGhiChu.Text;
             khsd.SoLuong = int.Parse(txtSoLuong.Text);
             if (chkMinhHoa.Checked == true)
                 khsd.MinhHoa = true;
             else
                 khsd.MinhHoa = false;
-            khsd.Them();
+            if (txtNgayHH.Text == "Ngày hết hạn")
+                khsd.Them1();
+            else
+            {
+                khsd.NgayKHSDHH = txtNgayHH.Text;
+                khsd.Them();
+            }
             lblTB.Visible = true;
             lblTB.Text = khsd.ThongBao;
         }
-        txtSoLuong.Visible = false;
-        chkMinhHoa.Visible = false;
+        pnlChiTietMH.Visible = false;
     }
     protected void lbtTroVe_Click(object sender, EventArgs e)
     {

@@ -151,7 +151,7 @@
                     
 <div id="popup-bg"></div>
 <div id="popup">
-	<div id="popup-header">Header<span id="popup-close" title="Close">x</span></div>
+	<div id="popup-header">Ấn phím ESC hoặc click vào X để thoát<span id="popup-close" title="Close">x</span></div>
     <div id="popup-content">
                            <table style="width: 100%;">
                         <tr>

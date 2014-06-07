@@ -33,6 +33,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     {
         if (IsPostBack == false)
         {
+            Session["MaKH"] = null;
             if (Session["MaCD"] == null)
                 Response.Redirect("~/DangNhap.aspx");
             if (Request.QueryString["MaADA"] != null)

@@ -29,34 +29,23 @@ public partial class User_DangNhap : System.Web.UI.Page
             Session["MaCD"] = null;
             Session["MaLMH"] = null;
             Session["Loai"] = null;
-            DataTable dt = this.GetData("select Ten,  ViDo, KinhDo, MieuTa from TrungTamPP where ViDo >0 and KinhDo > 0");
-            rptMarkers.DataSource = dt;
+            rptMarkers.DataSource = npp.TrungTamPP_DS_GoogleMap();
             rptMarkers.DataBind();
-        }
-    }
-    private DataTable GetData(string query)
-    {
-        string conString = "server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;";
-        SqlCommand cmd = new SqlCommand(query);
-        using (SqlConnection con = new SqlConnection(conString))
-        {
-            using (SqlDataAdapter sda = new SqlDataAdapter())
-            {
-                cmd.Connection = con;
+            GMap1.Visible = false;
+            GMap1.Add(new GControl(GControl.preBuilt.GOverviewMapControl));
+            GMap1.Add(new GControl(GControl.preBuilt.LargeMapControl));
 
-                sda.SelectCommand = cmd;
-                using (DataTable dt = new DataTable())
-                {
-                    sda.Fill(dt);
-                    return dt;
-                }
-            }
+            //GMarker marker = new GMarker(new GLatLng(39.5, -3.2));
+            //GInfoWindow window = new GInfoWindow(marker, "<center><b>GoogleMaps.Subgurim.NET</b></center>", true);
+
+            //GMap1.Add(window);
         }
     }
     //GooleMap tìm kiếm
     
     protected void btnShowMap_Click(object sender, EventArgs e)
         {
+            GMap1.Visible = true;
             string fulladdress = string.Format("{0}, {1}, {2}", txtStreet.Text, txtCity.Text, txtCountry.Text);
             string skey = ConfigurationManager.AppSettings["AIzaSyAtXBSFK5ZJmk8dDm3-Sfvo1_ulXjsWmyk"];
             GeoCode geocode;
@@ -282,7 +271,7 @@ public partial class User_DangNhap : System.Web.UI.Page
             mail.Priority = MailPriority.High;
             mail.IsBodyHtml = true;
             SmtpServer.Send(mail);
-            Label1.Text = "Cảm ơn bạn đã gửi thông điệp đến website";
+            lblTB.Text = "Cảm ơn bạn đã gửi thông điệp đến website";
             ResetFrom();
         }
         catch (Exception ex) { Label1.Text = ex.Message.ToString(); }

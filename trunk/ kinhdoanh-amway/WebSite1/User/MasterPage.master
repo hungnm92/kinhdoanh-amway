@@ -6,14 +6,19 @@
 <head runat="server">
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
 <script type='text/javascript' src="../js/ifChrome.js"></script>
-<meta content='blogger' name='generator'/>
+    <script type ="text/javascript">
+        function heartBeat() {
+            $.get("KeepAlive.ashx?", function (data) { });
+        }
+        $(function () {
+            setInterval("heartBeat()", 1000 * 30); // 30s gửi request một lần
+        });
+    </script>
 <link href='../src/web/amway_logo.png' rel='icon' type='../src/web/x-icon'/>
 <link href='#' rel='canonical'/>
 <link rel="alternate" type="application/atom+xml" title="Test Template Amway - Atom" href="#" />
 <link rel="alternate" type="application/rss+xml" title="Test Template Amway - RSS" href="#" />
 <link rel="service.post" type="application/atom+xml" title="Test Template Amway - Atom" href="#" />
-<link rel="openid.server" href="#" />
-<link rel="openid.delegate" href="#" />
     <script type='text/javascript' src="../js/ifIE.js"></script>
 <title>Test Template Amway</title>
     <asp:ContentPlaceHolder id="head" runat="server">

@@ -38,7 +38,7 @@ p.description{font-family:'Roboto';font-weight:bold;font-size:22px;color:#006b03
 #signin_panel .submitter{float:left;display:block;width:30px;margin:0 0 0 10px}
 #signin_panel .submitter input{border:none;background:url(../src/web/icon_readmore.png) no-repeat right 50%;margin:23px 0 0 0;width:30px;height:30px;cursor:pointer}
 #navigation{background:url(../src/web/navigation_bg.png);display:block;height:63px;z-index:8000 !important}
-#navigation li{background:url(../src/web/menu_separator.png) no-repeat right top;display:block;float:left;line-height:15px;width:137px;height:63px;position:relative;z-index:8000 !important}
+#navigation li{background:url(../src/web/menu_separator.png) no-repeat right top;display:block;float:left;line-height:15px;width:137px;height:63px;position:relative;}
 #navigation li a{font-size:13px;color:#ccc;display:block;padding:15px 0 0 20px;text-transform:uppercase}
 #navigation li a:hover{color:#60b61c}
 #navigation li a:hover span{color:#fff}
