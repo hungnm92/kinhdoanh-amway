@@ -7,20 +7,19 @@
 
 
         .auto-style5 {
-            width: 803px;
+
         }
         .auto-style15 {
-            width: 665px;
-            height: 30px;
+
         }
         .auto-style13 {
-            width: 751px;
+
         }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id='XinChao'>
-          <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
+    <div id='XinChao' style="width: 600px">
+          <MARQUEE BEHAVIOR=alternate scrollamount="2" scrolldelay="40"  loop="-1"><asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label></MARQUEE>
             </div>
     <div id='TroVe'>
           <asp:LinkButton ID="lbtTroVe" runat="server" Visible="False" OnClick="lbtTroVe_Click">Trở về</asp:LinkButton>
@@ -28,10 +27,10 @@
     <asp:GridView ID="griDoanhThu" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ThangNam" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="griDoanhThu_SelectedIndexChanged" PageSize="5" OnPageIndexChanging="griDoanhThu_PageIndexChanging">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
+            <asp:CommandField HeaderText="Xem     " SelectText="Xem     " ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="ThangNam" HeaderText="Tháng năm">
+            <asp:BoundField DataField="ThangNam" HeaderText="Tháng năm     ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -61,7 +60,7 @@
                 <td colspan="2" style="text-align: center; font-size: large; font-style: inherit; color: #0000FF; font-weight: bold; background-color: #00FFFF;">CHI TIẾT THÔNG TIN DOANH THU</td>
             </tr>
         </table>
-        <table class="auto-style5">
+        <table class="auto-style5" width="100%">
             <tr>
                 <td class="auto-style15">Tháng năm:
                     <asp:TextBox ID="txtThangNam" runat="server"></asp:TextBox>
@@ -73,21 +72,33 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnThem" runat="server" Text="Thêm" Visible="False" Width="6%" OnClick="btnThem_Click" />
-                    <asp:Button ID="btnXoa" runat="server" Text="Xóa" Width="6%" OnClick="btnXoa_Click" Visible="False" />
-                    <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Width="6%" Visible="False" />
-                    <asp:Button ID="btnIn" runat="server" Text="In" Width="6%" />
-                    <asp:Button ID="btnThoat" runat="server" Text="Thoát" Width="6%" OnClick="btnThoat_Click" />
+                <td colspan="2" style="text-align: center">
+                    <asp:Button ID="btnTraDoanhThu" runat="server" OnClick="btnTraDoanhThu_Click" Text="Tra doanh thu" />
+                    &nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" />
+                    &nbsp;<asp:Button ID="btnXoa" runat="server" Text="Xóa" OnClick="btnXoa_Click" Visible="False" />
+                    &nbsp;<asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" />
+                    &nbsp;<asp:Button ID="btnIn" runat="server" Text="In" />
+                    &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" OnClick="btnThoat_Click" />
                     <br />
                 </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left">Tổng số tiền mua hàng trang tháng:
+                    <asp:TextBox ID="txtDoanhThu_NPP" runat="server"></asp:TextBox>
+                    &nbsp;vnđ</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left">Tổng số tiền bán hành trong tháng:&nbsp;&nbsp;
+                    <asp:TextBox ID="txtDoanhThu_KH" runat="server"></asp:TextBox>
+                    vnđ</td>
             </tr>
         </table>
     </asp:Panel>
     <br />
     <br />
-    <div>
-        Bản đồ ở đây</div>
     <p>
         &nbsp;</p>
 </asp:Content>

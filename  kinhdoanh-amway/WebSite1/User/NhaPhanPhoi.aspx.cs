@@ -89,7 +89,6 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             btnSua.Visible = true;
             lbtSP.Visible = true;
             lbtCTSDR.Visible = true;
-            btnGHT.Visible = true;
         }
         lbtThemMoi.Visible = false;
         btnIn.Visible = true;
@@ -142,8 +141,6 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtNgayHetHan.Enabled = false;
         txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
         txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
-        npp.MaNPP = npp.MaNBT;
-        droNBT.SelectedValue = npp.MaNPP.ToString();
         cd.MaCD = npp.MaCD;
         droCapDo.SelectedValue = cd.MaCD.ToString();
         npp.NgayHetHan = temp3;
@@ -186,6 +183,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         droDuongNPPLL.SelectedValue = dll.MaDuong.ToString();
         dtt.MaDuong = npp.MaDuongNPPTT;
         droDuongNPPTT.SelectedValue = dtt.MaDuong.ToString();
+        npp.MaNPP = npp.MaNBT;
+        droNBT.SelectedValue = npp.MaNPP.ToString();
     }
     protected void griNhaPhanPhoi_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -669,4 +668,9 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         Response.End();
     }
 
+    protected void LinkButton13_Click(object sender, EventArgs e)
+    {
+        Session["MaNPPClick"] = griNhaPhanPhoi.SelectedValue.ToString();
+        Response.Redirect("~/User/TrangChu.aspx?MaADA=" + Session["MaNPPClick"]);
+    }
 }

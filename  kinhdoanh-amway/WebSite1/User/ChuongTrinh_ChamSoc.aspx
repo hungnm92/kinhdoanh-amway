@@ -6,24 +6,20 @@
 
 
         .auto-style5 {
-            width: 803px;
+
         }
         .auto-style15 {
-            width: 684px;
-            height: 30px;
+
         }
         .auto-style13 {
-            width: 751px;
         }
         .auto-style16 {
-            width: 751px;
-            height: 30px;
         }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id='XinChao'>
-          <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
+    <div id='XinChao' style="width: 600px">
+          <MARQUEE BEHAVIOR=alternate scrollamount="2" scrolldelay="40"  loop="-1"><asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label></MARQUEE>
             </div>
     <div id='TroVe'>
           <asp:LinkButton ID="lbtTroVe" runat="server" Visible="False" OnClick="lbtTroVe_Click">Trở về</asp:LinkButton>
@@ -31,19 +27,19 @@
     <asp:GridView ID="griChuongTrinhChamSoc" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaCS" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griChuongTrinhChamSoc_PageIndexChanging" OnSelectedIndexChanged="griChuongTrinhChamSoc_SelectedIndexChanged" Visible="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
+            <asp:CommandField HeaderText="Xem     " SelectText="Xem     " ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaCS" HeaderText="Mã số">
+            <asp:BoundField DataField="MaCS" HeaderText="Mã số      ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgayCS" HeaderText="Thời gian" DataFormatString="{0:dd/MM/yyyy}">
+            <asp:BoundField DataField="NgayCS" HeaderText="Thời gian      " DataFormatString="{0:dd/MM/yyyy}">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="SoLan" HeaderText="Số lần" />
-            <asp:CheckBoxField DataField="ThamDu" HeaderText="Tham dự" />
+            <asp:BoundField DataField="SoLan" HeaderText="Số lần       " />
+            <asp:CheckBoxField DataField="ThamDu" HeaderText="Tham dự      " />
             <asp:BoundField DataField="TenCT" HeaderText="Tên chương trình" />
         </Columns>
         <EditRowStyle BackColor="#7C6F57" />
@@ -61,14 +57,14 @@
     <asp:GridView ID="griChuongTrinhChamSocNPP" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaCS" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griChuongTrinhChamSoc_PageIndexChanging" OnSelectedIndexChanged="griChuongTrinhChamSoc_SelectedIndexChanged" Visible="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
+            <asp:CommandField HeaderText="Xem    " SelectText="Xem     " ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaCS" HeaderText="Mã số">
+            <asp:BoundField DataField="MaCS" HeaderText="Mã số   ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgayCS" HeaderText="Thời gian" DataFormatString="{0:dd/MM/yyyy}">
+            <asp:BoundField DataField="NgayCS" HeaderText="Thời gian     " DataFormatString="{0:dd/MM/yyyy}">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -96,7 +92,7 @@
                 <td colspan="2" style="text-align: center; font-size: large; font-style: inherit; color: #0000FF; font-weight: bold; background-color: #00FFFF;">CHI TIẾT THÔNG TIN CHƯƠNG TRÌNH</td>
             </tr>
         </table>
-        <table class="auto-style5">
+        <table class="auto-style5" width="100%" >
             <tr>
                 <td class="auto-style15">Mã chăm sóc:
                     <asp:TextBox ID="txtMaCS" runat="server" Enabled="False"></asp:TextBox>
@@ -107,7 +103,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style15">Số lần:
+                <td class="auto-style15">Số lần:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtSoLan" runat="server" Enabled="False"></asp:TextBox>
                 </td>
                 <td class="auto-style13">
@@ -115,27 +111,24 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style15">Tên chương trình:
+                <td class="auto-style15" colspan="2">Tên chương trình:
                     <asp:DropDownList ID="droChuongTrinh" runat="server" DataTextField="TenCT" DataValueField="MaCT" Enabled="False">
                     </asp:DropDownList>
                 </td>
-                <td class="auto-style16"></td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnXoa" runat="server" Text="Xóa" Visible="False" Width="7%" OnClick="btnXoa_Click" />
-                    <asp:Button ID="btnSua" runat="server" Text="Sửa" Visible="False" Width="7%" OnClick="btnSua_Click" />
-                    <asp:Button ID="btnIn" runat="server" Text="In" Width="6%" />
-                    <asp:Button ID="btnThoat" runat="server" Text="Thoát" Width="6%" OnClick="btnThoat_Click" />
+                <td colspan="2" style="text-align: center">
+                    &nbsp;<asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="False" Width="7%" />
+                    &nbsp;<asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="7%" />
+                    &nbsp;<asp:Button ID="btnIn" runat="server" Text="In" Width="6%" />
+                    &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" Width="6%" OnClick="btnThoat_Click" />
                     <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                    </td>
             </tr>
         </table>
     </asp:Panel>
     <br />
     <br />
-    <div>
-        Bản đồ ở đây</div>
     <p>
         &nbsp;</p>
 </asp:Content>

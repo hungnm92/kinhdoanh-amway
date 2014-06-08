@@ -86,8 +86,8 @@ div#popup-content {
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-    <div id='XinChao'>
-          <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
+    <div id='XinChao' style="width: 600px">
+          <MARQUEE BEHAVIOR=alternate scrollamount="2" scrolldelay="40"  loop="-1"><asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label></MARQUEE>
             </div>
     <asp:Panel ID="pnlThongKe" runat="server" BorderStyle="Solid">
         <table style="width:100%;">
@@ -129,31 +129,29 @@ div#popup-content {
         </table>
     </asp:Panel>
     <br />
-    <asp:GridView ID="griNPP_Moi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="griNPP_Moi_PageIndexChanging" OnSelectedIndexChanged="griNPP_Moi_SelectedIndexChanged" PageSize="5" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
+    <asp:GridView ID="griNPP_Moi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_Moi_PageIndexChanging" OnSelectedIndexChanged="griNPP_Moi_SelectedIndexChanged" PageSize="5">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem" ShowSelectButton="True">
+            <asp:CommandField SelectText="Xem     " ShowSelectButton="True" HeaderText="Xem     ">
             <ControlStyle Font-Underline="True" ForeColor="#009900" />
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA">
+            <asp:BoundField DataField="MaNPP" HeaderText="    Mã ADA       ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="HoTenNPP" HeaderText="Họ tên">
+            <asp:BoundField DataField="HoTenNPP" HeaderText="   Họ tên   ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgaySinh" HeaderText="Ngày sinh" DataFormatString=" {0:dd/MM/yyyy}">
-            </asp:BoundField>
-            <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại">
+            <asp:BoundField DataField="SoDT" HeaderText="   Số điện thoại     ">
+            <HeaderStyle Wrap="False" />
+            <ItemStyle Wrap="False" />
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgayKyThe" HeaderText="Ngày ký thẻ" DataFormatString=" {0:dd/MM/yyyy}">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
+            <asp:BoundField DataField="NgayKyThe" HeaderText="  Ngày ký thẻ       " DataFormatString=" {0:dd/MM/yyyy}">
             </asp:BoundField>
             <asp:TemplateField HeaderText="Địa chỉ liên lạc">
                             <ItemTemplate>
@@ -174,61 +172,50 @@ div#popup-content {
         <SortedDescendingHeaderStyle BackColor="#575357" />
     </asp:GridView>
     <br />
-    <asp:GridView ID="griNPP_ThanhTichMoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="MaNPP" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="griNPP_ThanhTichMoi_PageIndexChanging" OnSelectedIndexChanged="griNPP_ThanhTichMoi_SelectedIndexChanged" PageSize="5" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px">
-        <AlternatingRowStyle BackColor="#CCCCCC" />
+    <asp:GridView ID="griNPP_ThanhTichMoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_ThanhTichMoi_PageIndexChanging" OnSelectedIndexChanged="griNPP_ThanhTichMoi_SelectedIndexChanged" PageSize="5" >
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem" ShowSelectButton="True">
+            <asp:CommandField SelectText="Xem    " ShowSelectButton="True" HeaderText="Xem     ">
             <ControlStyle Font-Underline="True" ForeColor="#009900" />
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA">
+            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA     ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="HoTenNPP" HeaderText="Họ tên">
+            <asp:BoundField DataField="HoTenNPP" HeaderText="   Họ tên   ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgaySinh" HeaderText="Ngày sinh" DataFormatString=" {0:dd/MM/yyyy}">
-            </asp:BoundField>
-            <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại">
+            <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại     ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgayKyThe" HeaderText="Ngày ký thẻ" DataFormatString=" {0:dd/MM/yyyy}">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
-            </asp:BoundField>
-            <asp:TemplateField HeaderText="Địa chỉ liên lạc">
-                            <ItemTemplate>
-                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("DiaChiLL").ToString().Length > 20 ? Eval("DiaChiLL").ToString().Substring(0,20) +"..." : Eval("DiaChiLL") %>'></asp:Label>
-                            </ItemTemplate>
-                            <HeaderStyle Wrap="False" />
-                            <ItemStyle Wrap="False" />
-                        </asp:TemplateField>
             <asp:BoundField DataField="TenCD" HeaderText="Cấp độ" />
             <asp:BoundField DataField="ThoiGian" DataFormatString=" {0:dd/MM/yyyy}" HeaderText="Thời gian" />
         </Columns>
-        <FooterStyle BackColor="#CCCCCC" />
-        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-        <SortedAscendingCellStyle BackColor="#F1F1F1" />
-        <SortedAscendingHeaderStyle BackColor="#808080" />
-        <SortedDescendingCellStyle BackColor="#CAC9C9" />
-        <SortedDescendingHeaderStyle BackColor="#383838" />
+        <EditRowStyle BackColor="#7C6F57" />
+        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#E3EAEB" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F8FAFA" />
+        <SortedAscendingHeaderStyle BackColor="#246B61" />
+        <SortedDescendingCellStyle BackColor="#D4DFE1" />
+        <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <br />
-    <asp:GridView ID="griNPP_SapHetHan" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="MaNPP" ForeColor="Black" GridLines="Vertical" OnPageIndexChanging="griNPP_ThanhTichMoi_PageIndexChanging" OnSelectedIndexChanged="griNPP_SapHetHan_SelectedIndexChanged" PageSize="5" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px">
-        <AlternatingRowStyle BackColor="#CCCCCC" />
+    <asp:GridView ID="griNPP_SapHetHan" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_ThanhTichMoi_PageIndexChanging" OnSelectedIndexChanged="griNPP_SapHetHan_SelectedIndexChanged" PageSize="5">
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem" ShowSelectButton="True">
+            <asp:CommandField SelectText="Xem    " ShowSelectButton="True" HeaderText="Xem     ">
             <ControlStyle Font-Underline="True" ForeColor="#009900" />
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA">
+            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA     ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -236,34 +223,23 @@ div#popup-content {
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgaySinh" HeaderText="Ngày sinh" DataFormatString=" {0:dd/MM/yyyy}">
-            </asp:BoundField>
-            <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại">
+            <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại     ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgayKyThe" HeaderText="Ngày ký thẻ" DataFormatString=" {0:dd/MM/yyyy}">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
-            </asp:BoundField>
-            <asp:TemplateField HeaderText="Địa chỉ liên lạc">
-                            <ItemTemplate>
-                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("DiaChiLL").ToString().Length > 20 ? Eval("DiaChiLL").ToString().Substring(0,20) +"..." : Eval("DiaChiLL") %>'></asp:Label>
-                            </ItemTemplate>
-                            <HeaderStyle Wrap="False" />
-                            <ItemStyle Wrap="False" />
-                        </asp:TemplateField>
             <asp:BoundField DataField="TenCD" HeaderText="Cấp độ" />
             <asp:BoundField DataField="ThoiGian" DataFormatString=" {0:dd/MM/yyyy}" HeaderText="Thời gian" />
         </Columns>
-        <FooterStyle BackColor="#CCCCCC" />
-        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-        <SortedAscendingCellStyle BackColor="#F1F1F1" />
-        <SortedAscendingHeaderStyle BackColor="#808080" />
-        <SortedDescendingCellStyle BackColor="#CAC9C9" />
-        <SortedDescendingHeaderStyle BackColor="#383838" />
+        <EditRowStyle BackColor="#7C6F57" />
+        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#E3EAEB" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F8FAFA" />
+        <SortedAscendingHeaderStyle BackColor="#246B61" />
+        <SortedDescendingCellStyle BackColor="#D4DFE1" />
+        <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <br />
     <asp:Panel ID="pnlChiTietNPP" runat="server" BorderStyle="Solid" Visible="False">
@@ -333,9 +309,9 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                 <td >Email:
                     </td>
                 <td>
-                    <asp:TextBox ID="txtEmail" runat="server" style="width: 128px; height: 20px;" Enabled="False" ReadOnly="True"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                 </td>
-                <td >Ngày ký thẻ:
+                <td >Ngày ký thẻ:&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtNgayKyThe" runat="server" ReadOnly="True" Enabled="False"></asp:TextBox>
                 </td>
             </tr>
@@ -409,24 +385,26 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                     <asp:PopupControlExtender ID="PopAtt" runat="server" PopupControlID="pnlXemQuaTrinh" TargetControlID="btnXemQuaTrinh">
                     </asp:PopupControlExtender>
                     <asp:Panel ID="pnlXemQuaTrinh" CssClass="popupControl" runat="server">
-                        <asp:GridView ID="griQTCD" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaCD" PageSize="5" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px">
+                        <asp:GridView ID="griQTCD" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaCD" PageSize="5" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="TenCD" HeaderText="Cấp độ">
+            <asp:BoundField DataField="TenCD" HeaderText="      Cấp độ             ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="ThoiGian" HeaderText="Thời gian" DataFormatString=" {0:dd/MM/yyyy}">
+            <asp:BoundField DataField="ThoiGian" HeaderText="        Thời gian    " DataFormatString=" {0:dd/MM/yyyy}">
             </asp:BoundField>
         </Columns>
-        <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
-        <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
-        <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
-        <RowStyle BackColor="White" ForeColor="#003399" />
-        <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
-        <SortedAscendingCellStyle BackColor="#EDF6F6" />
-        <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
-        <SortedDescendingCellStyle BackColor="#D6DFDF" />
-        <SortedDescendingHeaderStyle BackColor="#002876" />
+                            <EditRowStyle BackColor="#7C6F57" />
+        <FooterStyle BackColor="#1C5E55" ForeColor="White" Font-Bold="True" />
+        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#E3EAEB" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F8FAFA" />
+        <SortedAscendingHeaderStyle BackColor="#246B61" />
+        <SortedDescendingCellStyle BackColor="#D4DFE1" />
+        <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
                     </asp:Panel>
                 </td>

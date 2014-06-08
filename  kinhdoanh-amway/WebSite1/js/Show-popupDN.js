@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿//Su dung de tranh bi loi the a ngoai form dang nhap
+$(document).ready(function () {
     (function ($) {
         //Căn giữa phần tử thuộc tính là absolute so với phần hiển thị của trình duyệt, chỉ dùng cho phần tử absolute đối với body
         $.fn.absoluteCenter = function () {

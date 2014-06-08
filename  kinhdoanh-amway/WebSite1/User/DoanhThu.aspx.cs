@@ -9,6 +9,7 @@ public partial class User_DoanhThu : System.Web.UI.Page
 {
     webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
     webdoan.DoanhThu dt = new webdoan.DoanhThu();
+    webdoan.MatHang mh = new webdoan.MatHang();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
@@ -57,6 +58,8 @@ public partial class User_DoanhThu : System.Web.UI.Page
         txtThangNam.Text = dt.ThangNam;
         txtThangNam.Enabled = true;
         txtDiem.Text = dt.Diem.ToString();
+        txtDoanhThu_NPP.Text = mh.DoanhThu_NPP(dt.MaNPP, dt.ThangNam).ToString();
+        txtDoanhThu_KH.Text = mh.DoanhThu_KH(dt.MaNPP, dt.ThangNam).ToString();
     }
     protected void griDoanhThu_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -158,5 +161,22 @@ public partial class User_DoanhThu : System.Web.UI.Page
             else
                 Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=" + Session["MaCD"]);
         }
+    }
+    protected void btnTraDoanhThu_Click(object sender, EventArgs e)
+    {
+        if (Request.QueryString["MaADA"] != null)
+            Session["MaNPPClick"] = Request.QueryString["MaADA"];
+        if (Session["MaNPPClick"] == null)
+        {
+            dt.MaNPP = Session["MaNPP"].ToString();
+            btnXoa.Visible = true;
+            btnSua.Visible = true;
+        }
+        else
+            dt.MaNPP = Session["MaNPPClick"].ToString();
+        dt.ThangNam = txtThangNam.Text;
+        txtDoanhThu_NPP.Text = mh.DoanhThu_NPP(dt.MaNPP, dt.ThangNam).ToString();
+        txtDoanhThu_KH.Text = mh.DoanhThu_KH(dt.MaNPP, dt.ThangNam).ToString();
+
     }
 }

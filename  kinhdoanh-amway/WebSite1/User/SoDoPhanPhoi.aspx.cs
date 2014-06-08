@@ -12,6 +12,9 @@ public partial class User_SoDoPhanPhoi : System.Web.UI.Page
     {
         if (Session["MaNPP"] == null)
             Response.Redirect("~/DangNhap.aspx");
-        lblmenu.Text = mn.LoadMenu(Session["MaNPP"].ToString(), 0);
+        if (Session["MaNPPClick"] == null)//Gán MaNPP vào để hiển thị GoogleMap khi của NPP tuyến dưới hoặc chính NPP Login
+            lblmenu.Text = mn.LoadSoDo(Session["MaNPP"].ToString(), 0);
+        else
+            lblmenu.Text = mn.LoadSoDo(Session["MaNPPClick"].ToString(), 0);
     }
 }

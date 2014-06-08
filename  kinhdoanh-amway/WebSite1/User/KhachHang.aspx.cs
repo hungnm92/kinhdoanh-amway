@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Subgurim.Controles;
 
 public partial class User_KhachHang : System.Web.UI.Page
 {
@@ -61,6 +63,7 @@ public partial class User_KhachHang : System.Web.UI.Page
             droTinhKHLL.DataBind();
             droTinhKHTT.DataSource = ttt.DS();
             droTinhKHTT.DataBind();
+            GMap1.Visible = false;
         }
     }
     protected void griKhachHang_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -513,5 +516,65 @@ public partial class User_KhachHang : System.Web.UI.Page
         kh.MaHuyenKHTT = droHuyenKHTT.SelectedValue;
         droXaKHTT.DataSource = xptt.DS(kh.MaHuyenKHTT);
         droXaKHTT.DataBind();
+    }
+    protected void btnShowMap_Click(object sender, EventArgs e)
+    {
+        //string fulladdress;
+        //if(txtSoNhaNPPLL.Text == null && droDuongNPPLL.SelectedValue == "0000")
+        string fulladdress = string.Format("{0}, {1}, {2}, {3}, {4}", txtSoNhaKHLL.Text, droDuongKHLL.SelectedItem, droXaKHLL.SelectedItem, droHuyenKHLL.SelectedItem, "Việt Nam");
+        //fulladdress = string.Format("{0}.{1}.{2}", droHuyenNPPLL.SelectedItem , droTinhNPPLL.SelectedItem, "Việt Nam");
+        string skey = ConfigurationManager.AppSettings["http://googlemaps.subgurim.net"];
+        GeoCode geocode;
+        geocode = GMap1.getGeoCodeRequest(fulladdress);
+        var glatlng = new Subgurim.Controles.GLatLng(geocode.Placemark.coordinates.lat, geocode.Placemark.coordinates.lng);
+        GMap1.setCenter(glatlng, 16, Subgurim.Controles.GMapType.GTypes.Normal);
+        var oMarker = new Subgurim.Controles.GMarker(glatlng);
+        //GMap1.addGMarker(oMarker);
+        GMap1.Add(oMarker);
+    }
+    protected void btnShowMapfull_Click(object sender, EventArgs e)
+    {
+        //string fulladdress;
+        //if(txtSoNhaNPPLL.Text == null && droDuongNPPLL.SelectedValue == "0000")
+        string fulladdress = string.Format("{0}, {1}, {2}, {3}", droXaKHLL.SelectedItem, droHuyenKHLL.SelectedItem, droTinhKHLL.SelectedItem, "Việt Nam");
+        //fulladdress = string.Format("{0}.{1}.{2}", droHuyenNPPLL.SelectedItem , droTinhNPPLL.SelectedItem, "Việt Nam");
+        string skey = ConfigurationManager.AppSettings["http://googlemaps.subgurim.net"];
+        GeoCode geocode;
+        geocode = GMap1.getGeoCodeRequest(fulladdress);
+        var glatlng = new Subgurim.Controles.GLatLng(geocode.Placemark.coordinates.lat, geocode.Placemark.coordinates.lng);
+        GMap1.setCenter(glatlng, 16, Subgurim.Controles.GMapType.GTypes.Normal);
+        var oMarker = new Subgurim.Controles.GMarker(glatlng);
+        //GMap1.addGMarker(oMarker);
+        GMap1.Add(oMarker);
+    }
+    protected void btnShowMapNull_SN_Click(object sender, EventArgs e)
+    {
+        //string fulladdress;
+        //if(txtSoNhaNPPLL.Text == null && droDuongNPPLL.SelectedValue == "0000")
+        string fulladdress = string.Format("{0}, {1}, {2}, {3}", droDuongKHLL.SelectedItem, droXaKHLL.SelectedItem, droHuyenKHLL.SelectedItem, "Việt Nam");
+        //fulladdress = string.Format("{0}.{1}.{2}", droHuyenNPPLL.SelectedItem , droTinhNPPLL.SelectedItem, "Việt Nam");
+        string skey = ConfigurationManager.AppSettings["http://googlemaps.subgurim.net"];
+        GeoCode geocode;
+        geocode = GMap1.getGeoCodeRequest(fulladdress);
+        var glatlng = new Subgurim.Controles.GLatLng(geocode.Placemark.coordinates.lat, geocode.Placemark.coordinates.lng);
+        GMap1.setCenter(glatlng, 16, Subgurim.Controles.GMapType.GTypes.Normal);
+        var oMarker = new Subgurim.Controles.GMarker(glatlng);
+        //GMap1.addGMarker(oMarker);
+        GMap1.Add(oMarker);
+    }
+    protected void lbtViewMap_Click(object sender, EventArgs e)
+    {
+        kh.MaKH = griKhachHang.SelectedValue.ToString();
+        kh.CT();
+        //Code hiển thị bản đồ từ địa chỉ trên text box
+        if (kh.MaDuongKHLL == "0000" && (kh.SoNhaKHLL == "..." || kh.SoNhaKHLL == ""))
+            btnShowMapfull_Click(sender, e);
+        else
+            if (kh.SoNhaKHLL == "..." || kh.SoNhaKHLL == "")
+                btnShowMapNull_SN_Click(sender, e);
+            else
+                btnShowMap_Click(sender, e);
+        lbtViewMap.Visible = false;
+        GMap1.Visible = true;
     }
 }

@@ -23,9 +23,6 @@
     background-image: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1);
     cursor: pointer;
         }
-        .auto-style5 {
-          
-        }
         .auto-style12 {
         }
         .auto-style13 {
@@ -37,11 +34,14 @@
         .auto-style15 {
           
         }
+        .auto-style16 {
+            height: 24px;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id='XinChao'>
-          <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
+    <div id='XinChao' style="width: 600px">
+          <MARQUEE BEHAVIOR=alternate scrollamount="2" scrolldelay="40"  loop="-1"><asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label></MARQUEE>
             </div>
     <div id='TroVe'>
           <asp:LinkButton ID="lbtTroVe" runat="server" Visible="False" OnClick="lbtTroVe_Click">Trở về</asp:LinkButton>
@@ -49,18 +49,18 @@
     <asp:GridView ID="griMatHang" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaMH" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griMatHang_PageIndexChanging" OnSelectedIndexChanged="griMatHang_SelectedIndexChanged" PageSize="5">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
+            <asp:CommandField HeaderText="Xem        " SelectText="Xem" ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaMH" HeaderText="Mã số">
+            <asp:BoundField DataField="MaMH" HeaderText="Mã số         ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="TenMH" HeaderText="Tên sản phẩm">
+            <asp:BoundField DataField="TenMH" HeaderText="  Tên sản phẩm     ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:TemplateField HeaderText="Ảnh">
+            <asp:TemplateField HeaderText="Ảnh      ">
                     <EditItemTemplate>
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("AnhMH") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -96,15 +96,15 @@
                 <td colspan="2" style="text-align: center; font-size: large; font-style: inherit; color: #0000FF; font-weight: bold; background-color: #00FFFF;">CHI TIẾT THÔNG TIN SẢN PHẨM</td>
             </tr>
         </table>
-        <table class="auto-style5">
+        <table width="100%" >
             <tr>
-                <td class="auto-style15">Mã sản phẩm:
-                    <asp:TextBox ID="txtMaMH" runat="server"></asp:TextBox>
-                </td>
-                <td class="auto-style13" rowspan="3">
+                <td class="auto-style15" style="text-align: left">Mã sản phẩm:
+                    </td>
+                <td class="auto-style13" rowspan="7" style="width: 250px">
                     <asp:Image ID="imgAnhMH" runat="server" />
                     <br />
                     <asp:FileUpload ID="fileAnhMH" runat="server" />
+                    <br />
                     <asp:RegularExpressionValidator 
 	ID="RegularExpressionValidator1" 
 	runat="server" 
@@ -116,23 +116,50 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style14">Tên sản phẩm:
-                    <asp:TextBox ID="txtTenMH" runat="server"></asp:TextBox>
-                    &nbsp;</td>
+                <td class="auto-style15" style="text-align: left">
+                    <asp:TextBox ID="txtMaMH" runat="server"></asp:TextBox>
+                </td>
             </tr>
             <tr>
-                <td class="auto-style12">Giá:
+                <td class="auto-style15" style="text-align: left">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style15" style="text-align: left">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style15" style="text-align: left">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style14" style="text-align: left">Tên sản phẩm:
+                    </td>
+            </tr>
+            <tr>
+                <td class="auto-style16" style="text-align: left">
+                    <asp:TextBox ID="txtTenMH" runat="server" Height="41px" Width="100%"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style12" style="text-align: left">&nbsp;</td>
+                <td class="auto-style13">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style12" style="text-align: left">Giá:&nbsp; </td>
+                <td class="auto-style13">&nbsp;Loại mặt hàng: </td>
+            </tr>
+            <tr>
+                <td class="auto-style12" style="text-align: left">
                     <asp:TextBox ID="txtGia" runat="server"></asp:TextBox>
-                    <asp:FilteredTextBoxExtender ID="ftbGia" runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtGia" ></asp:FilteredTextBoxExtender>
+                    <asp:FilteredTextBoxExtender ID="ftbGia" runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtGia">
+                    </asp:FilteredTextBoxExtender>
                 </td>
-            </tr>
-            <tr>
-                <td class="auto-style12">Cách sử dụng:
-                    <asp:TextBox ID="txtCachSuDung" runat="server" Width="127px" TextMode="MultiLine"></asp:TextBox>
-                </td>
-                <td class="auto-style13">&nbsp;Loại mặt hàng:
+                <td class="auto-style13">
                     <asp:DropDownList ID="droLoaiMH" runat="server" DataTextField="TenLMH" DataValueField="MaLMH">
                     </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style12" colspan="2">Cách sử dụng:
+                    <asp:TextBox ID="txtCachSuDung" runat="server" TextMode="MultiLine" Width="100%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -199,8 +226,6 @@
     </asp:Panel>
     <br />
     <br />
-    <div>
-        Bản đồ ở đây</div>
     <p>
         </p>
 </asp:Content>

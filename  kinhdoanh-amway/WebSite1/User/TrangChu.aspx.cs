@@ -116,8 +116,6 @@ public partial class User_Default : System.Web.UI.Page
             txtNgayHetHan.Enabled = false;
             txtSoNhaNPPLL.Text = npp.SoNhaNPPLL;
             txtSoNhaNPPTT.Text = npp.SoNhaNPPTT;
-            npp.MaNPP = npp.MaNBT;
-            droNBT.SelectedValue = npp.MaNPP.ToString();
             cd.MaCD = npp.MaCD;
             droCapDo.SelectedValue = cd.MaCD.ToString();
             npp.CanhBao();
@@ -154,6 +152,9 @@ public partial class User_Default : System.Web.UI.Page
             droDuongNPPLL.SelectedValue = dll.MaDuong.ToString();
             dtt.MaDuong = npp.MaDuongNPPTT;
             droDuongNPPTT.SelectedValue = dtt.MaDuong.ToString();
+            //Hien dro Nha Bao Tro
+            npp.MaNPP = npp.MaNBT;
+            droNBT.SelectedValue = npp.MaNPP.ToString();
  //           lbtViewMap.Visible = true;
             GMap1.Visible = false;
         }

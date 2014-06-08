@@ -11,13 +11,13 @@
 <meta content='blogger' name='generator'/>
 <link href='../src/web/amway_logo.png' rel='icon' type='../src/web/x-icon'/>
 <link href='#' rel='canonical'/>
-<link rel="alternate" type="application/atom+xml" title="Test Template Amway - Atom" href="#" />
-<link rel="alternate" type="application/rss+xml" title="Test Template Amway - RSS" href="#" />
-<link rel="service.post" type="application/atom+xml" title="Test Template Amway - Atom" href="#" />
+<link rel="alternate" type="application/atom+xml" title="Đồ án tốt nghiệp - Atom" href="#" />
+<link rel="alternate" type="application/rss+xml" title="Đồ án tốt nghiệp - RSS" href="#" />
+<link rel="service.post" type="application/atom+xml" title="Đồ án tốt nghiệp - Atom" href="#" />
 <link rel="openid.server" href="#" />
 <link rel="openid.delegate" href="#" />
     <script type='text/javascript' src="../js/ifIE.js"></script>
-<title>Test Template Amway</title>
+<title>Đồ án tốt nghiệp</title>
 <meta content='' name='description'/>
 <meta content='' name='keywords'/>
 <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js' type='text/javascript'></script>
@@ -194,16 +194,7 @@ Chúng tôi luôn cố gắng trả lời tất cả những email gửi tới.
 </div>
     <div class="clear"></div>
     <br />
-    <br />
-    <br />
-    <br />
-        <div id="top-content1">
-	<div class="container1">
-		<div id="livestream1">
-			<iframe width="100%" height="100%" frameborder="0" allowfullscreen="1" src="http://www.youtube.com/embed/uw4GSX-CbVg"></iframe>
-			<img src="src/web/shadow-video1.png" class="img-responsive" alt="" />		</div>
-	</div>
-</div>
+       
 <div id='myController'>
 <span class='jFlowControl'></span>
 <span class='jFlowControl'></span>
