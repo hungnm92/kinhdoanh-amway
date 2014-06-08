@@ -37,8 +37,8 @@
        <link href="../style/Show-popup.css" rel="stylesheet" />  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id='XinChao'>
-          <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
+    <div id='XinChao' style="width: 600px">
+          <MARQUEE BEHAVIOR=alternate scrollamount="2" scrolldelay="40"  loop="-1"><asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label></MARQUEE>
             </div>
     <div id='TroVe'>
           <asp:LinkButton ID="lbtTroVe" runat="server" Visible="False" OnClick="lbtTroVe_Click">Trở về</asp:LinkButton>
@@ -46,18 +46,18 @@
     <asp:GridView ID="griMatHangChuaDung" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaMH" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="griMatHangChuaDung_SelectedIndexChanged" PageSize="5" OnPageIndexChanging="griMatHangChuaDung_PageIndexChanging">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
+            <asp:CommandField HeaderText=" Xem        " SelectText="Xem   " ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaMH" HeaderText="Mã số">
+            <asp:BoundField DataField="MaMH" HeaderText="  Mã số         ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="TenMH" HeaderText="Tên sản phẩm">
+            <asp:BoundField DataField="TenMH" HeaderText="    Tên sản phẩm  ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:TemplateField HeaderText="Ảnh minh họa">
+            <asp:TemplateField HeaderText="  Ảnh minh họa     ">
                     <EditItemTemplate>
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("AnhMH") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -97,37 +97,61 @@
                 <td class="auto-style15">Mã sản phẩm:
                     </td>
                 <td class="auto-style15">
-                    <asp:TextBox ID="txtMaMH" runat="server" Enabled="False"></asp:TextBox>
-                </td>
-                <td rowspan="3">
+                    &nbsp;</td>
+                <td rowspan="7">
                     <asp:Image ID="imgAnhMH" runat="server" />
                 </td>
             </tr>
             <tr>
+                <td class="auto-style14" style="white-space: nowrap; " colspan="2">
+                    <asp:TextBox ID="txtMaMH" runat="server" Enabled="False" Width="160px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style14" style="white-space: nowrap; width: 1%;">&nbsp;</td>
+                <td class="auto-style14">&nbsp;</td>
+            </tr>
+            <tr>
                 <td class="auto-style14" style="white-space: nowrap; width: 1%;">Tên sản phẩm: &nbsp;</td>
                 <td class="auto-style14">
-                    <asp:TextBox ID="txtTenMH" runat="server" Enabled="False"></asp:TextBox>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style14" style="white-space: nowrap; " colspan="2">
+                    <asp:TextBox ID="txtTenMH" runat="server" Enabled="False" Width="100%"></asp:TextBox>
                 </td>
+            </tr>
+            <tr>
+                <td class="auto-style14" style="white-space: nowrap; width: 1%;">&nbsp;</td>
+                <td class="auto-style14">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style12">Giá:
                     </td>
                 <td class="auto-style12">
-                    <asp:TextBox ID="txtGia" runat="server" Enabled="False"></asp:TextBox>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style12" colspan="2">
+                    <asp:TextBox ID="txtGia" runat="server" Enabled="False" Width="160px"></asp:TextBox>
                     <asp:FilteredTextBoxExtender ID="ftbGia" runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtGia">
                     </asp:FilteredTextBoxExtender>
                 </td>
+                <td style="vertical-align: top">Loại mặt hàng:
+                </td>
             </tr>
             <tr>
-                <td class="auto-style12" colspan="2">Cách sử dụng:
-                    <br />
-                    <asp:TextBox ID="txtCachSuDung" runat="server" Width="100%" TextMode="MultiLine" Enabled="False" Height="40px"></asp:TextBox>
-                </td>
-                <td style="vertical-align: top">&nbsp;Loại mặt hàng:
-                    <br />
+                <td class="auto-style12" colspan="2">Cách sử dụng: </td>
+                <td style="vertical-align: top">
                     <asp:DropDownList ID="droLoaiMH" runat="server" DataTextField="TenLMH" DataValueField="MaLMH" Enabled="False">
                     </asp:DropDownList>
                 </td>
+            </tr>
+            <tr>
+                <td class="auto-style12" colspan="3">
+                    <br />
+                    <asp:TextBox ID="txtCachSuDung" runat="server" Enabled="False" Height="40px" TextMode="MultiLine" Width="100%"></asp:TextBox>
+                    &nbsp;<br /> </td>
             </tr>
             <tr>
                 <td class="auto-style12" colspan="3">Chi tiết:
@@ -153,6 +177,7 @@
 <div id="popup">
 	<div id="popup-header">Ấn phím ESC hoặc click vào X để thoát<span id="popup-close" title="Close">x</span></div>
     <div id="popup-content">
+        <br />
 
                             <table style="width:100%;">
                         <tr>
@@ -191,9 +216,5 @@
     </asp:Panel>
     <br />
     <br />
-    <div>
-        Bản đồ ở đây
-        &nbsp;
-    </div>
-</asp:Content>
+    </asp:Content>
 

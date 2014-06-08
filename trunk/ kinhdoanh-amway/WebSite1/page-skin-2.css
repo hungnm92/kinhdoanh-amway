@@ -48,7 +48,7 @@ p.description{font-family:'Roboto';font-weight:bold;font-size:22px;color:#006b03
 #navigation .sub_menu li a{display:block;margin:0;padding:5px;border-bottom:1px dotted #252525;text-transform:lowercase}
 #outside{margin:0 auto;width:960px}
 .content{padding:30px;background:#fff url(../src/web/gradient.png) repeat-x left top}
-#home_slider{background:url(../src/web/shadow-video1.png) no-repeat 50% bottom;margin:0 0 18px 0;padding:0 0 12px 0;position:relative;width:900px;height:1260px;z-index:1 !important}
+#home_slider{background:url(../src/web/shadow-video1.png) no-repeat 50% bottom;margin:0 0 18px 0;padding:0 0 12px 0;position:relative;width:900px;height:560px;z-index:1 !important}/* 560 do cao de phu hop voi video*/
 .featured_banner{background:url(../src/web/featured_banner.png) no-repeat left top;position:absolute;top:-3px;right:-3px;z-index:500;width:121px;height:122px}
 #slider{position:relative;width:900px;height:360px;display:block;clear:both;z-index:2 !important}
 #slider #slider_img{width:930px;display:block;float:left;overflow:hidden;height:360px}

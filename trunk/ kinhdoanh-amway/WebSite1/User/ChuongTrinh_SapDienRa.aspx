@@ -19,14 +19,13 @@
         .auto-style15 {
 
         }
-        .auto-style13 {
-
+        .auto-style13 {            width: 228px;
         }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id='XinChao'>
-          <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
+    <div id='XinChao' style="width: 600px">
+          <MARQUEE BEHAVIOR=alternate scrollamount="2" scrolldelay="40"  loop="-1"><asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label></MARQUEE>
             </div>
     <div id='TroVe'>
           <asp:LinkButton ID="lbtTroVe" runat="server" Visible="False" OnClick="lbtTroVe_Click">Trở về</asp:LinkButton>
@@ -67,7 +66,7 @@
                 <td colspan="2" style="text-align: center; font-size: large; font-style: inherit; color: #0000FF; font-weight: bold; background-color: #00FFFF;">CHI TIẾT THÔNG TIN CHƯƠNG TRÌNH</td>
             </tr>
         </table>
-        <table class="auto-style5">
+        <table class="auto-style5" width="100%">
             <tr>
                 <td class="auto-style15">Mã chương trình:
                     <asp:TextBox ID="txtMaCT" runat="server" Enabled="False"></asp:TextBox>
@@ -77,18 +76,18 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;&nbsp;
+                <td colspan="2" style="text-align: center">&nbsp;&nbsp;
                     <asp:Button ID="btnThem" runat="server" Text="Thêm" Visible="False" OnClick="btnThem_Click" />
-                    <asp:Button ID="btnXoa" runat="server" Text="Xóa" Visible="False" OnClick="btnXoa_Click" />
-                    <asp:Button ID="btnSua" runat="server" Text="Sửa" Visible="False" OnClick="btnSua_Click" />
+                    &nbsp;<asp:Button ID="btnXoa" runat="server" Text="Xóa" Visible="False" OnClick="btnXoa_Click" />
+                    &nbsp;<asp:Button ID="btnSua" runat="server" Text="Sửa" Visible="False" OnClick="btnSua_Click" />
                     
-                        <asp:Button ID="btnShowPopup0" runat="server" Text="Chăm sóc" Visible="False" />
-                  <asp:PopupControlExtender ID="btnShowPopup0_PopupControlExtender" runat="server" TargetControlID="btnShowPopup0" PopupControlID="pnlThemDT" > </asp:PopupControlExtender>
+                        &nbsp;<asp:Button ID="btnShowPopup0" runat="server" Text="Chăm sóc" Visible="False" />
+                    &nbsp;<asp:PopupControlExtender ID="btnShowPopup0_PopupControlExtender" runat="server" TargetControlID="btnShowPopup0" PopupControlID="pnlThemDT" > </asp:PopupControlExtender>
                     <asp:Button ID="btnShowPopup" runat="server" Text="Đào tạo" Visible="False" />
-                    <asp:PopupControlExtender ID="PopAtt" runat="server" PopupControlID="pnlThemDT" TargetControlID="btnShowPopup">
+                    &nbsp;<asp:PopupControlExtender ID="PopAtt" runat="server" PopupControlID="pnlThemDT" TargetControlID="btnShowPopup">
                     </asp:PopupControlExtender>
                     <asp:Button ID="btnIn" runat="server" Text="In" />
-                    <asp:Button ID="btnThoat" runat="server" Text="Thoát" OnClick="btnThoat_Click" />
+                    &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" OnClick="btnThoat_Click" />
                     <br />
                     <asp:Panel ID="pnlThemDT" CssClass="popupControl" runat="server">
                         <br />
@@ -120,8 +119,6 @@
     </asp:Panel>
     <br />
     <br />
-    <div>
-        Bản đồ ở đây</div>
     <p>
         &nbsp;</p>
 </asp:Content>

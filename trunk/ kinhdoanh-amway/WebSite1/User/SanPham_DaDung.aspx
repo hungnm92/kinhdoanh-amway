@@ -16,8 +16,8 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id='XinChao'>
-          <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
+    <div id='XinChao' style="width: 600px">
+          <MARQUEE BEHAVIOR=alternate scrollamount="2" scrolldelay="40"  loop="-1"><asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label></MARQUEE>
             </div>
     <div id='TroVe'>
           <asp:LinkButton ID="lbtTroVe" runat="server" Visible="False" OnClick="lbtTroVe_Click">Trở về</asp:LinkButton>
@@ -25,17 +25,17 @@
     <asp:GridView ID="griMatHangNPPDaDung" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPPSD" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griMatHangDaDung_PageIndexChanging" OnSelectedIndexChanged="griMatHangDaDung_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem" ShowSelectButton="True">
+            <asp:CommandField SelectText="Xem" ShowSelectButton="True" HeaderText="Xem">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="TenMH" HeaderText="Tên sản phẩm">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
-            </asp:BoundField>
+             <asp:TemplateField HeaderText="   Tên sản phẩm">
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("TenMH").ToString().Length > 30 ? Eval("TenMH").ToString().Substring(0,30) +"..." : Eval("TenMH") %>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle Wrap="False" />
+                            <ItemStyle Wrap="False" />
+                        </asp:TemplateField>
             <asp:BoundField DataField="SoLuong" HeaderText="Số lượng" />
-            <asp:CheckBoxField DataField="MinhHoa" HeaderText="Minh họa" >
-            <HeaderStyle Wrap="False" />
-            </asp:CheckBoxField>
             <asp:TemplateField HeaderText="Ảnh minh họa">
                     <EditItemTemplate>
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("AnhMH") %>'></asp:TextBox>
@@ -46,14 +46,7 @@
                     <HeaderStyle HorizontalAlign="Center" Width="1%" Wrap="False" />
                     <ItemStyle HorizontalAlign="Center" Width="1%" Wrap="False" />
                 </asp:TemplateField>
-            <asp:BoundField DataField="Gia" HeaderText="Giá" DataFormatString="{0:0,0.vnd}">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
-            </asp:BoundField>
             <asp:BoundField DataField="NgayNPPSD" HeaderText="Ngày sử dụng" DataFormatString=" {0:dd/MM/yyyy}">
-            <HeaderStyle Wrap="False" />
-            </asp:BoundField>
-            <asp:BoundField DataField="NgayNPPSDHH" HeaderText="Ngày hết hạn" DataFormatString=" {0:dd/MM/yyyy}" >
             <HeaderStyle Wrap="False" />
             </asp:BoundField>
         </Columns>
@@ -71,35 +64,21 @@
     <asp:GridView ID="griMatHangKHDaDung" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaKHSD" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griMatHangDaDung_PageIndexChanging" OnSelectedIndexChanged="griMatHangDaDung_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem" ShowSelectButton="True">
+            <asp:CommandField SelectText="Xem" ShowSelectButton="True" HeaderText="Xem">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="TenMH" HeaderText="Tên sản phẩm">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
-            </asp:BoundField>
+            <asp:TemplateField HeaderText="   Tên sản phẩm">
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("TenMH").ToString().Length > 30 ? Eval("TenMH").ToString().Substring(0,30) +"..." : Eval("TenMH") %>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle Wrap="False" />
+                            <ItemStyle Wrap="False" />
+                        </asp:TemplateField>
             <asp:BoundField DataField="SoLuong" HeaderText="Số lượng" />
             <asp:CheckBoxField DataField="MinhHoa" HeaderText="Minh họa" >
             <HeaderStyle Wrap="False" />
             </asp:CheckBoxField>
-            <asp:TemplateField HeaderText="Ảnh minh họa">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("AnhMH") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Image ID="Image1" runat="server" Height="35px" ImageUrl='<%# Eval("AnhMH", "~/src/product/{0}") %>' />
-                    </ItemTemplate>
-                    <HeaderStyle HorizontalAlign="Center" Width="1%" Wrap="False" />
-                    <ItemStyle HorizontalAlign="Center" Width="1%" Wrap="False" />
-                </asp:TemplateField>
-            <asp:BoundField DataField="Gia" HeaderText="Giá" DataFormatString="{0:0,0.vnd}">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
-            </asp:BoundField>
             <asp:BoundField DataField="NgayKHSD" HeaderText="Ngày sử dụng" DataFormatString="{0:dd/MM/yyyy}">
-            <HeaderStyle Wrap="False" />
-            </asp:BoundField>
-            <asp:BoundField DataField="NgayKHSDHH" HeaderText="Ngày hết hạn" DataFormatString="{0:dd/MM/yyyy}">
             <HeaderStyle Wrap="False" />
             </asp:BoundField>
         </Columns>
@@ -129,13 +108,17 @@
                 <td class="auto-style13">
                     <asp:TextBox ID="txtMaMH" runat="server" Enabled="False"></asp:TextBox>
                 </td>
-                <td class="auto-style13" rowspan="5">
+                <td class="auto-style13" rowspan="6">
                     <asp:Image ID="imgAnhMH" runat="server" />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style14" style="white-space: nowrap; width: 1%">Tên sản phẩm: &nbsp;</td>
                 <td class="auto-style14">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style14" colspan="2" style="white-space: nowrap; ">
                     <asp:TextBox ID="txtTenMH" runat="server" Enabled="False" Width="100%"></asp:TextBox>
                 </td>
             </tr>
@@ -153,14 +136,23 @@
                     </asp:FilteredTextBoxExtender>&nbsp;vnđ</td>
                                 </tr>
                                 <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
                                     <td>                    <asp:TextBox ID="txtSoLuong" AutoPostBack="true" runat="server" OnTextChanged="txtSoLuong_TextChanged"></asp:TextBox>
                                         <asp:FilteredTextBoxExtender ID="ftbSoLuong" runat="server" Enabled="True" FilterType="Numbers"  TargetControlID="txtSoLuong">
                     </asp:FilteredTextBoxExtender>
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
                                     <td>                    <asp:TextBox ID="txtTongTien" AutoPostBack="false" runat="server"></asp:TextBox>
                     &nbsp;vnđ</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
                                 </tr>
                             </table>
                         </ContentTemplate>
@@ -177,7 +169,7 @@
                 <td class="auto-style12">Cách sử dụng:
                     </td>
                 <td class="auto-style12" colspan="2">
-                    <asp:TextBox ID="txtCachSuDung" runat="server" Enabled="False" TextMode="MultiLine" Width="100%" Height="53px"></asp:TextBox>
+                    <asp:TextBox ID="txtCachSuDung" runat="server" Enabled="False" TextMode="MultiLine" Width="99%" Height="53px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -209,7 +201,7 @@
             </tr>
             <tr>
                 <td class="auto-style12" colspan="3">Ghi chú:<br />
-                    <asp:TextBox ID="txtGhiChu" runat="server" TextMode="MultiLine" Width="387px"></asp:TextBox>
+                    <asp:TextBox ID="txtGhiChu" runat="server" TextMode="MultiLine" Width="99%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -225,8 +217,6 @@
     </asp:Panel>
     <br />
     <br />
-    <div>
-        Bản đồ ở đây</div>
     <p>
         &nbsp;</p>
 </asp:Content>

@@ -11,17 +11,17 @@
 <meta content='blogger' name='generator'/>
 <link href='../src/web/amway_logo.png' rel='icon' type='../src/web/x-icon'/>
 <link href='#' rel='canonical'/>
-<link rel="alternate" type="application/atom+xml" title="Test Template Amway - Atom" href="#" />
-<link rel="alternate" type="application/rss+xml" title="Test Template Amway - RSS" href="#" />
-<link rel="service.post" type="application/atom+xml" title="Test Template Amway - Atom" href="#" />
+<link rel="alternate" type="application/atom+xml" title="Đồ án tốt nghiệp - Atom" href="#" />
+<link rel="alternate" type="application/rss+xml" title="Đồ án tốt nghiệp - RSS" href="#" />
+<link rel="service.post" type="application/atom+xml" title="Đồ án tốt nghiệp - Atom" href="#" />
 <link rel="openid.server" href="#" />
 <link rel="openid.delegate" href="#" />
     <script type='text/javascript' src="../js/ifIE.js"></script>
-<title>Test Template Amway</title>
+<title>Đồ án tốt nghiệp</title>
 <meta content='' name='description'/>
 <meta content='' name='keywords'/>
 <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js' type='text/javascript'></script>
-        <link href="style/Show-popup.css" rel="stylesheet" />
+        <link href="style/Show-popupDN.css" rel="stylesheet" />
     <link type='text/css' rel='stylesheet' href='/widget_css_bundle.css' />
 <link href='../style/page-skin-1.css' rel='stylesheet' type='text/css'/>
 <script type='text/javascript'>//<![CDATA[
@@ -38,12 +38,14 @@
 <body>
     <script  type="text/javascript" src="js/analyticstracking.js"></script>
     <form id="form1" runat="server">
-           
+              <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>  
     <div id="popup-bg"></div>
 <div id="popup">
 	<div id="popup-header">Ấn phím ESC hoặc click vào X để thoát<span id="popup-close" title="Close">X</span></div>
     <div id="popup-content">
-<table cellpadding="10" cellspacing="10" id="FormLienKe" align="center">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <table cellpadding="10" cellspacing="10" id="FormLienKe" align="center">
     <tr>
         <td colspan="2" align="center">
             <h1>Trợ Giúp</h1>
@@ -99,16 +101,18 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
     </tr>
     <tr>
         <td valign="top" colspan="2" align="center" id="LinkOfList">
-            <asp:Button ID="btnSend" runat="server" Text="Gửi liên hệ" 
+            <asp:Button ID="btnSend" AutoPostBack="true" runat="server" Text="Gửi liên hệ" 
                 onclick="btnSend_Click" />
             </td>
     </tr>
     <tr>
         <td valign="top" colspan="2" align="center" id="Td1">
-            <asp:Label ID="Label1" runat="server"></asp:Label>
+            <asp:Label ID="Label1" AutoPostBack="false" runat="server"></asp:Label>
             </td>
     </tr>
 </table>
+            </ContentTemplate>
+        </asp:UpdatePanel>
 
          </div>
 </div>
@@ -155,10 +159,11 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 <li><a href='#'><span>Gold</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Khách Hàng<span>đăng nhập để xem.</span></a>
+<li><a href='#'>Chương Trình<span>đăng nhập để xem.</span></a>
 <ul class='sub_menu'>
-<li><a href='#'><span>Khách Hàng Sử Dụng</span></a></li>
-<li><a href='#'><span>Khách Hàng Tiềm Năng</span></a></li>
+<li><a href='#'><span>Sắp diễn ra</span></a></li>
+<li><a href='#'><span>Đào tạo</span></a></li>
+<li><a href='#'><span>Chăm sóc</span></a></li>
 </ul>
 </li>
 <li><a href='#'>Sản Phẩm<span>đăng nhập để xem.</span></a>
@@ -168,14 +173,18 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 <li><a href='#'><span>Sản Phẩm Đã Dùng</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Chương Trình<span>đăng nhập để xem.</span></a>
+<li><a href='#'>Về Amway<span>giới thiệu về amway.</span></a>
 <ul class='sub_menu'>
-<li><a href='#'><span>Sắp diễn ra</span></a></li>
-<li><a href='#'><span>Đào tạo</span></a></li>
-<li><a href='#'><span>Chăm sóc</span></a></li>
+<li><a href='MinhHoaSanPham.aspx'><span>Minh họa sản phẩm</span></a></li>
+<li><a href='#'><span>Các chứng nhận</span></a></li>
 </ul>
 </li>
-<li><a href='video.aspx'>Video<span>Giới thiệu về Amway</span></a></li>
+<li><a href='PhanTichMLM.aspx'>Về MLM<span>phân tích chuyên sâu.</span></a>
+<ul class='sub_menu'>
+<li><a href='PhanTichMLM.aspx'><span>Video phân tích</span></a></li>
+<li><a href='#'><span>Các chứng nhận</span></a></li>
+</ul>
+</li>
 <li><a id="show-popupDN" href='#'>Trợ giúp<span>yêu cầu giúp đỡ</span></a></li>
 </ul>
 </div>
@@ -251,7 +260,19 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 </script>
 <div id="dvMap" style="width: 550px; height: 500px">
     </div>
-
+        <br />
+    <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span style="font-size: 12px; line-height: 22px; font-family: Helvetica, Arial, sans-serif;">- Amway Việt Nam: <font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;"><a href="http://www.amway2u.com/c1/main.jsp?prectrfnbr=VN&locale=vi_VN" style="color: rgb(17, 85, 204);" target="_blank">http://www.amway2u.com/c1/main.jsp?prectrfnbr=VN&locale=vi_VN</a></span></font></span></div>
+    <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;">- Face Amway VN: <a href="https://www.facebook.com/OfficialAmwayVietnam" style="color: rgb(17, 85, 204);" target="_blank">https://www.facebook.com/<wbr />OfficialAmwayVietnam</a></span></font></div>
+    <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;">- Amway toàn cầu:&nbsp;<a href="http://www.amway.com/" style="color: rgb(17, 85, 204);" target="_blank">http://www.amway.com/</a></span></font></div>
+    <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;">- Amway Malaysia:&nbsp;<a href="http://www.amway.my/about-amway/our-company/amway-malaysia" style="color: rgb(17, 85, 204);" target="_blank">http://www.amway.my/<wbr />about-amway/our-company/amway-<wbr />malaysia</a></span></font></div>
+    <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; line-height: 22px;">- Amway Thái Lan:&nbsp;<font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;"><a href="https://www.amwayshopping.com/amwayshopping-frontend/shopping/Firstpage" style="color: rgb(17, 85, 204);" target="_blank">https://www.amwayshopping.com/amwayshopping-frontend/shopping/Firstpage</a></span></font></span><font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;"><br />
+        - Amway nhật bản:&nbsp;<a href="http://www.amway.co.jp/" style="color: rgb(17, 85, 204);" target="_blank">http://www.amway.co.jp/</a></span></font></div>
+    <br />
 </div>
 <div class='post-footer-line-3'></div>
 </div>

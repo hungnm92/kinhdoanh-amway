@@ -2,6 +2,8 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
+<%@ Register Assembly="GMaps" Namespace="Subgurim.Controles" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
 
@@ -29,16 +31,16 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id='XinChao'>
-          <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
+    <div id='XinChao' style="width: 600px">
+          <MARQUEE BEHAVIOR=alternate scrollamount="2" scrolldelay="40"  loop="-1"><asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label></MARQUEE>
             </div>
     <asp:GridView ID="griKhachHang" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaKH" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griKhachHang_PageIndexChanging" OnSelectedIndexChanged="griKhachHang_SelectedIndexChanged" PageSize="5">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
+            <asp:CommandField HeaderText="Xem   " SelectText="Xem" ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaKH" HeaderText="Mã số">
+            <asp:BoundField DataField="MaKH" HeaderText="   Mã số  ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -46,19 +48,13 @@
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại">
+            <asp:BoundField DataField="SoDT" HeaderText="  Số điện thoại      ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:TemplateField HeaderText="Địa chỉ thường trú">
-                            <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("DiaChiKHTT").ToString().Length > 20 ? Eval("DiaChiKHTT").ToString().Substring(0,20) +"..." : Eval("DiaChiKHTT") %>'></asp:Label>
-                            </ItemTemplate>
-                            <ItemStyle Wrap="False" />
-                        </asp:TemplateField>
             <asp:TemplateField HeaderText="Địa chỉ liên lạc">
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("DiaChiKHLL").ToString().Length > 20 ? Eval("DiaChiKHLL").ToString().Substring(0,20) +"..." : Eval("DiaChiKHLL") %>'></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("DiaChiKHLL").ToString().Length > 35 ? Eval("DiaChiKHLL").ToString().Substring(0,35) +"..." : Eval("DiaChiKHLL") %>'></asp:Label>
                             </ItemTemplate>
                             <ItemStyle Wrap="False" />
                         </asp:TemplateField>           
@@ -239,18 +235,33 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" Width="8%" />
                     <asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="False" Width="8%" />
                     <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="8%" />
-                    <asp:Button ID="btnTroThanhNPP" runat="server" OnClick="btnTroThanhNPP_Click" Text="Trở thành NPP" Visible="False" Width="11%" />
+                    <asp:Button ID="btnTroThanhNPP" runat="server" OnClick="btnTroThanhNPP_Click" Text="Trở thành NPP" Visible="False" />
                     <asp:Button ID="btnIn" runat="server" Text="In" Width="8%" />
                     <asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" Width="8%" />
                     <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                    </td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                        <ContentTemplate>
+                            <asp:LinkButton ID="lbtViewMap" runat="server" AutoPostBack="true" OnClick="lbtViewMap_Click">Xem địa chỉ trên Google Map</asp:LinkButton>
+                            <br />
+                            <cc1:GMap ID="GMap1" runat="server" AutoPostBack="false" ClientIDMode="Static" enableContinuousZoom="true" enableDoubleClickZoom="true" enableGKeyboardHandler="true" enableGoogleBar="true" enableHookMouseWheelToZoom="true" enableRotation="true" Height="500px" Width="530px" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </td>
             </tr>
         </table>
     </asp:Panel>
-    <br />
-    <br />
-    <div>
-        Bản đồ ở đây</div>
+
+        
     <p>
         &nbsp;</p>
 </asp:Content>

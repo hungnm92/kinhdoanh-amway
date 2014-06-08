@@ -3,32 +3,45 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mã ADA:
+
+    <br />
+    <table style="width: 100%;">
+        <tr>
+            <td>Mã ADA:</td>
+            <td>
         <asp:TextBox ID="txtMaNPP" runat="server"></asp:TextBox>
-    </p>
-    <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mật khẩu cũ:
-        <asp:TextBox ID="txtMatKhauCu" runat="server"></asp:TextBox>
-    </p>
-    <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mật khẩu mới:
-        <asp:TextBox ID="txtMatKhauMoi" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>Mật khẩu cũ: </td>
+            <td>
+        <asp:TextBox ID="txtMatKhauCu" runat="server" TextMode="Password"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>Mật khẩu mới: </td>
+            <td>
+        <asp:TextBox ID="txtMatKhauMoi" runat="server" TextMode="Password"></asp:TextBox>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
 			runat="server" 
 			ErrorMessage="Độ dài phải từ 6 đến 50 kí tự"
 			ControlToValidate="txtMatKhauMoi" 
 			ValidationExpression=".{6,50}"></asp:RegularExpressionValidator>
-    </p>
-    <p>
-&nbsp;&nbsp; Mật khẩu xác nhận:
-        <asp:TextBox ID="txtMatKhauXN" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td style="white-space: nowrap">Mật khẩu xác nhận: </td>
+            <td>
+        <asp:TextBox ID="txtMatKhauXN" runat="server" TextMode="Password"></asp:TextBox>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
 			runat="server" 
 			ErrorMessage="Độ dài phải từ 6 đến 50 kí tự"
 			ControlToValidate="txtMatKhauXN" 
 			ValidationExpression=".{6,50}"></asp:RegularExpressionValidator>
-    </p>
+            </td>
+        </tr>
+    </table>
+    <br />
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="btnVeTrangChu" runat="server" Font-Bold="True" PostBackUrl="~/User/TrangChu.aspx" Text="Về trang chủ" />
 &nbsp;&nbsp;&nbsp;

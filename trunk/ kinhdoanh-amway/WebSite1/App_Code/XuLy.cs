@@ -134,6 +134,7 @@ namespace webdoan
     {
         public string MaMH;
         public int MaLMH;
+        float DoanhThu = 0;
         public string TenMH;
         public string TenLMH;
         public string ChiTiet;
@@ -258,6 +259,56 @@ namespace webdoan
                 BaoVe.Close();
                 return ThungChua;
         }
+        public float DoanhThu_NPP(string MaNPP, string ThangNam)
+        {
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;Max Pool Size =1000; Min Pool Size =5");
+            SqlCommand Lenh = new SqlCommand("DoanhThu_NPP_DaDung", BaoVe);
+            Lenh.CommandType = CommandType.StoredProcedure;
+            SqlParameter ThamSo = new SqlParameter();
+            ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
+            ThamSo = Lenh.Parameters.AddWithValue("@ThangNam", ThangNam);
+            SqlDataReader DocDL;
+            BaoVe.Open();
+            DocDL = Lenh.ExecuteReader();
+            if (!DocDL.HasRows)
+            {
+                return DoanhThu;
+            }
+            else
+            {
+                while (DocDL.Read())//Đọc từng đối tượng NPP để thực hiện lệnh dưới.
+                {
+                    DoanhThu += float.Parse(DocDL["DoanhThu"].ToString());
+                }
+                BaoVe.Close();
+            }
+            return DoanhThu;
+        }//Đọc dữ liệu trả về từ thủ tục đến hết thì return KQ
+        public float DoanhThu_KH(string MaNPP, string ThangNam)
+        {
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;Max Pool Size =1000; Min Pool Size =5");
+            SqlCommand Lenh = new SqlCommand("DoanhThu_KhachHang_DaDung", BaoVe);
+            Lenh.CommandType = CommandType.StoredProcedure;
+            SqlParameter ThamSo = new SqlParameter();
+            ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
+            ThamSo = Lenh.Parameters.AddWithValue("@ThangNam", ThangNam);
+            SqlDataReader DocDL;
+            BaoVe.Open();
+            DocDL = Lenh.ExecuteReader();
+            if (!DocDL.HasRows)
+            {
+                return DoanhThu;
+            }
+            else
+            {
+                while (DocDL.Read())//Đọc từng đối tượng NPP để thực hiện lệnh dưới.
+                {
+                    DoanhThu += float.Parse(DocDL["DoanhThu"].ToString());
+                }
+                BaoVe.Close();
+            }
+            return DoanhThu;
+        }//Đọc dữ liệu trả về từ thủ tục đến hết thì return KQ
     }
     public class ChuongTrinh
     {
@@ -2256,5 +2307,59 @@ namespace webdoan
             }
             return KetQua;
         }
+        private string LoadSoDoCha(string MaNBT)
+        {
+            string KetQua = string.Empty;
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;Max Pool Size =1000; Min Pool Size =5");
+            SqlCommand Lenh = new SqlCommand("Menu_LaySoDo", BaoVe);
+            Lenh.CommandType = CommandType.StoredProcedure;
+            SqlParameter ThamSo = new SqlParameter();
+            ThamSo = Lenh.Parameters.AddWithValue("@MaNBT", MaNBT);
+            SqlDataReader DocDL;
+            BaoVe.Open();
+            DocDL = Lenh.ExecuteReader();
+                while (DocDL.Read())//Đọc từng đối tượng NPP để thực hiện lệnh dưới.
+                {
+                    KetQua = "<li>";
+                    KetQua += "<a onclick =" + DocDL["ngoac"].ToString() + "javascript:setSession('" + DocDL["MaNPP"].ToString() + "');" + DocDL["ngoac"].ToString() + "><img src='" + "../src/emp/" + DocDL["AnhCD"] + "'/><span>" + DocDL["HoTenNPP"] + "</span></a><ul>";//Hiển thị họ tên, lấy MaNPP và chạy hàm Js khi click.
+                }
+                BaoVe.Close();
+            return KetQua;
+        }
+        public string LoadSoDo(string MaNBT, int level)
+        {
+            string KetQua = string.Empty;
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;Max Pool Size =1000; Min Pool Size =5");
+            SqlCommand Lenh = new SqlCommand("Menu_Lay", BaoVe);
+            Lenh.CommandType = CommandType.StoredProcedure;
+            SqlParameter ThamSo = new SqlParameter();
+            ThamSo = Lenh.Parameters.AddWithValue("@MaNBT", MaNBT);
+            SqlDataReader DocDL;
+            BaoVe.Open();
+            DocDL = Lenh.ExecuteReader();
+            if (!DocDL.HasRows)
+            {
+                return KetQua;
+            }
+            else
+            {
+                if (level == 0)
+                {
+                    KetQua = "<ul id='nav'>";
+                    KetQua += LoadSoDoCha(MaNBT);
+                }
+                else
+                    KetQua += "<ul>";
+                while (DocDL.Read())//Đọc từng đối tượng NPP để thực hiện lệnh dưới.
+                {
+                    KetQua += "<li><a onclick =" + DocDL["ngoac"].ToString() + "javascript:setSession('" + DocDL["MaNPP"].ToString() + "');" + DocDL["ngoac"].ToString() + "><img src='" + "../src/emp/" + DocDL["AnhCD"] + "'/><span>" + DocDL["HoTenNPP"] + "</span></a>";//Hiển thị họ tên, lấy MaNPP và chạy hàm Js khi click.
+                    KetQua += LoadMenu(DocDL["MaNPP"].ToString(), level + 1);//Thực hiện vòng lặp với NPP có tuyến dưới.
+                    KetQua += "</li>";
+                }
+                KetQua += "</ul></li></ul>";
+                BaoVe.Close();
+            }
+            return KetQua;
+        }//Giống hệt loadmenu nhưng thêm dữ liệu <li> ở loadsodoCha
     }
     }

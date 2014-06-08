@@ -252,6 +252,7 @@ public partial class User_DangNhap : System.Web.UI.Page
     //Dưới đây là code trợ giúp
     protected void btnSend_Click(object sender, EventArgs e)
     {
+        Label1.Text = "Yêu cầu đang được gửi...";
         SmtpClient SmtpServer = new SmtpClient();
         SmtpServer.Credentials = new System.Net.NetworkCredential("hunghuynh.it@gmail.com", "hungcokute123");
         SmtpServer.Port = 587;
@@ -271,7 +272,7 @@ public partial class User_DangNhap : System.Web.UI.Page
             mail.Priority = MailPriority.High;
             mail.IsBodyHtml = true;
             SmtpServer.Send(mail);
-            lblTB.Text = "Cảm ơn bạn đã gửi thông điệp đến website";
+            Label1.Text = "Cảm ơn bạn đã gửi thông điệp đến website";
             ResetFrom();
         }
         catch (Exception ex) { Label1.Text = ex.Message.ToString(); }

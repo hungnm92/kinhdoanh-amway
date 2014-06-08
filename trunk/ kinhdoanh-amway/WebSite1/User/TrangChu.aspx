@@ -9,11 +9,9 @@
             width: 239px;
         }
         .auto-style10 {
-            height: 30px;
             width: 239px;
         }
         .auto-style11 {
-            height: 23px;
             width: 239px;
         }
          .style-button {
@@ -44,20 +42,25 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id='XinChao'>
-          <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
+    <div id='XinChao' style="width: 600px">
+          <MARQUEE BEHAVIOR=alternate scrollamount="2" scrolldelay="40"  loop="-1"><asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label></MARQUEE>
             </div>
     <div id='NPP_New'><!-- Ảnh NEW khi có NPP đạt thành tích mới -->
-         <a href='ThongKe.aspx?ThanhTichMoi=Dung'><asp:Image ID="imgNew" runat="server" ImageUrl="~/src/web/new.gif" Visible="False" /></a>
+         <a href='ThongKe.aspx?ThanhTichMoi=Dung'><asp:Image ID="imgNew" runat="server" ImageUrl="~/src/web/npp_new.gif" Visible="False" /></a>
 </div>
     <asp:Panel ID="pnlChiTiet" runat="server" BorderStyle="Solid" style="margin-left: 5px; margin-right: 0px" Width="553px">
         <table style="width:100%;">
             <tr>
-                <td class="auto-style27" colspan="3">
+                <td colspan="4">
                     <asp:Label ID="lblCanhBao" runat="server" ForeColor="Red"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style27" colspan="3">
+                    
                     </td>
-                <td class="auto-style9" rowspan="4" style="vertical-align: bottom">
-                    <asp:Image ID="imgAnhNPP" runat="server" Width="85px" Height="30px" />
+                <td class="auto-style9" rowspan="5" style="vertical-align: bottom">
+                    <asp:Image ID="imgAnhNPP" runat="server" Height="80px" />
                     <br />
                     <asp:FileUpload ID="fileAnhNPP" runat="server" />
                     <asp:RegularExpressionValidator 
@@ -96,11 +99,6 @@
                 <td colspan="2">
                     <asp:TextBox ID="txtNgaySinh" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                 </td>
-                <td class="auto-style10">Giới tính:
-                    <asp:RadioButton ID="rdoNam" runat="server" Checked="True" GroupName="GioiTinh" Text="Nam" />
-                    &nbsp;
-                    <asp:RadioButton ID="rdoNu" runat="server" GroupName="GioiTinh" Text="Nữ" />
-                </td>
             </tr>
             <tr>
                 <td class="auto-style27">Số CMND:
@@ -110,21 +108,22 @@
                     <asp:FilteredTextBoxExtender ID="ftbCMND" runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtCMND">
                     </asp:FilteredTextBoxExtender>
                 </td>
-                <td class="auto-style11">Số điện thoại:
-                    <asp:TextBox ID="txtSoDT" runat="server"></asp:TextBox>
-                    <asp:FilteredTextBoxExtender ID="ftbSoDT" runat="server" Enabled="True" FilterType="Numbers" 
-
-TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
+                <td class="auto-style11">Giới tính:
+                    <asp:RadioButton ID="rdoNam" runat="server" Checked="True" GroupName="GioiTinh" Text="Nam" />
+                    &nbsp;
+                    <asp:RadioButton ID="rdoNu" runat="server" GroupName="GioiTinh" Text="Nữ" />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style27">Email:
                     </td>
                 <td colspan="2">
-                    <asp:TextBox ID="txtEmail" runat="server" style="width: 128px"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" ></asp:TextBox>
                 </td>
-                <td class="auto-style10">Ngày ký thẻ:
-                    <asp:TextBox ID="txtNgayKyThe" runat="server" ReadOnly="True" Enabled="False"></asp:TextBox>
+                <td class="auto-style11">Số điện thoại:
+                    <asp:TextBox ID="txtSoDT" runat="server" Width="100px"></asp:TextBox>
+                    <asp:FilteredTextBoxExtender ID="txtSoDT_FilteredTextBoxExtender" runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtSoDT">
+                    </asp:FilteredTextBoxExtender>
                 </td>
             </tr>
             <tr>
@@ -133,7 +132,9 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                 <td colspan="2">
                     <asp:TextBox ID="txtNgayHetHan" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                 </td>
-                <td class="auto-style10">&nbsp;</td>
+                <td class="auto-style10">Ngày ký thẻ:&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtNgayKyThe" runat="server" Enabled="False" ReadOnly="True" Width="100px"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style27" style="white-space: nowrap">Địa chỉ thường trú:</td>
@@ -198,7 +199,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
             <tr>
                 <td colspan="1">Nhà bảo trợ:</td>
                 <td colspan="3">
-                    <asp:DropDownList ID="droNBT" runat="server" DataTextField="HoTenNPP" DataValueField="MaNPP">
+                    <asp:DropDownList ID="droNBT" runat="server" DataTextField="HoTenNPP" DataValueField="MaNPP" Width="200px">
                     </asp:DropDownList>
                     </td>
             </tr>

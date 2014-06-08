@@ -51,6 +51,46 @@ public partial class User_MasterPage : System.Web.UI.MasterPage
         else
             Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=3");
     }
+    protected void ChuyenTrang4(object sender, EventArgs e)
+    {
+        Session["MaCD"] = 4;
+        if (Session["MaNPPClick"] != null)
+            Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=4&MaADA=" + Session["MaNPPClick"]);
+        else
+            Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=4");
+    }
+    protected void ChuyenTrang5(object sender, EventArgs e)
+    {
+        Session["MaCD"] = 5;
+        if (Session["MaNPPClick"] != null)
+            Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=5&MaADA=" + Session["MaNPPClick"]);
+        else
+            Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=5");
+    }
+    protected void ChuyenTrang6(object sender, EventArgs e)
+    {
+        Session["MaCD"] = 6;
+        if (Session["MaNPPClick"] != null)
+            Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=6&MaADA=" + Session["MaNPPClick"]);
+        else
+            Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=6");
+    }
+    protected void ChuyenTrang7(object sender, EventArgs e)
+    {
+        Session["MaCD"] = 7;
+        if (Session["MaNPPClick"] != null)
+            Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=7&MaADA=" + Session["MaNPPClick"]);
+        else
+            Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=7");
+    }
+    protected void ChuyenTrang8(object sender, EventArgs e)
+    {
+        Session["MaCD"] = 8;
+        if (Session["MaNPPClick"] != null)
+            Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=8&MaADA=" + Session["MaNPPClick"]);
+        else
+            Response.Redirect("~/User/NhaPhanPhoi.aspx?MaCD=8");
+    }
     protected void KHChuyenTrang1(object sender, EventArgs e)
     {
         Session["Loai"] = false;
@@ -135,7 +175,7 @@ public partial class User_MasterPage : System.Web.UI.MasterPage
     }
     protected void find_Click(object sender, EventArgs e)
     {
-        Session["HoTenNPP"] = txtSearch.Text;
+        Session["HoTenNPPSearch"] = txtSearch.Text;
         Response.Redirect("~/User/TimNhaPhanPhoi.aspx?MaADA=" + Session["MaNPPClick"]);
     }
 }

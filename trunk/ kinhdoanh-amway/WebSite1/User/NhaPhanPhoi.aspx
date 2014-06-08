@@ -75,8 +75,8 @@
                 </asp:UpdatePanel> 
     </div>
 </div> 
-    <div id='XinChao'>
-          <asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label>
+    <div id='XinChao' style="width: 600px">
+          <MARQUEE BEHAVIOR=alternate scrollamount="2" scrolldelay="40"  loop="-1"><asp:Label ID="lblClick" class='label' runat="server" Text="Label" Visible="False"></asp:Label></MARQUEE>
             </div>
     <asp:GridView ID="griNhaPhanPhoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNhaPhanPhoi_PageIndexChanging" OnSelectedIndexChanged="griNhaPhanPhoi_SelectedIndexChanged" PageSize="5" Width="100%">
         <AlternatingRowStyle BackColor="White" />
@@ -86,25 +86,23 @@
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA">
+            <asp:BoundField DataField="MaNPP" HeaderText="       Mã ADA    ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="HoTenNPP" HeaderText="Họ tên">
+            <asp:BoundField DataField="HoTenNPP" HeaderText="     Họ tên">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgaySinh" HeaderText="Ngày sinh" DataFormatString=" {0:dd/MM/yyyy}">
-            </asp:BoundField>
-            <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại">
+            <asp:BoundField DataField="SoDT" HeaderText="   Số điện thoại     ">
+            <HeaderStyle Wrap="False" />
+            <ItemStyle Wrap="False" />
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgayKyThe" HeaderText="Ngày ký thẻ" DataFormatString=" {0:dd/MM/yyyy}">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
+            <asp:BoundField DataField="NgayKyThe" HeaderText="     Ngày ký thẻ      " DataFormatString=" {0:dd/MM/yyyy}">
             </asp:BoundField>
-            <asp:TemplateField HeaderText="Địa chỉ liên lạc">
+            <asp:TemplateField HeaderText="     Địa chỉ liên lạc">
                             <ItemTemplate>
                                 <asp:Label ID="Label2" runat="server" Text='<%# Eval("DiaChiLL").ToString().Length > 20 ? Eval("DiaChiLL").ToString().Substring(0,20) +"..." : Eval("DiaChiLL") %>'></asp:Label>
                             </ItemTemplate>
@@ -211,9 +209,9 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                 <td >Email:
                     </td>
                 <td>
-                    <asp:TextBox ID="txtEmail" runat="server" style="width: 128px"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" ></asp:TextBox>
                 </td>
-                <td >Ngày ký thẻ:
+                <td >Ngày ký thẻ:&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtNgayKyThe" runat="server" ReadOnly="True" Enabled="False"></asp:TextBox>
                      <asp:CalendarExtender ID="CalendarExtender2" TargetControlID="txtNgayKyThe" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
@@ -285,7 +283,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                 <td colspan="2">
                     <asp:DropDownList ID="droCapDo" runat="server" DataTextField="TenCD" DataValueField="MaCD">
                     </asp:DropDownList>
-                    &nbsp;<asp:TextBox ID="txtNgayKyThe0" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
+                    &nbsp;<asp:TextBox ID="txtNgayKyThe0" runat="server" Enabled="False" ReadOnly="True" Visible="False"></asp:TextBox>
                     <asp:CalendarExtender ID="txtNgayKyThe0_CalendarExtender" runat="server" Format="dd/MM/yyyy"  TargetControlID="txtNgayKyThe0">
                     </asp:CalendarExtender>
                 </td>
@@ -325,7 +323,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                     <br />
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;<br />
-                    
+                    <asp:LinkButton ID="LinkButton13" runat="server" OnClick="LinkButton13_Click">Đến trang xem địa chỉ trên google</asp:LinkButton>
                     <br />
                     
                 </td>
@@ -335,10 +333,5 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
     <br />
 
     <br />
-
-    <div>
-        Bản đồ ở đây</div>
-    <p>
-        &nbsp;</p>
 </asp:Content>
 

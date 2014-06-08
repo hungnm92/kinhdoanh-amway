@@ -16,11 +16,11 @@
     </script>
 <link href='../src/web/amway_logo.png' rel='icon' type='../src/web/x-icon'/>
 <link href='#' rel='canonical'/>
-<link rel="alternate" type="application/atom+xml" title="Test Template Amway - Atom" href="#" />
-<link rel="alternate" type="application/rss+xml" title="Test Template Amway - RSS" href="#" />
-<link rel="service.post" type="application/atom+xml" title="Test Template Amway - Atom" href="#" />
+<link rel="alternate" type="application/atom+xml" title="Đồ án tốt nghiệp - Atom" href="#" />
+<link rel="alternate" type="application/rss+xml" title="Đồ án tốt nghiệp - RSS" href="#" />
+<link rel="service.post" type="application/atom+xml" title="Đồ án tốt nghiệp - Atom" href="#" />
     <script type='text/javascript' src="../js/ifIE.js"></script>
-<title>Test Template Amway</title>
+<title>Đồ án tốt nghiệp</title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 <meta content='' name='description'/>
@@ -93,6 +93,11 @@
 <li><asp:LinkButton ID="LinkButton2" runat="server" OnClick="ChuyenTrang1" ><span>Silver</span></asp:LinkButton></li>
 <li><asp:LinkButton ID="LinkButton3" runat="server" OnClick="ChuyenTrang2" ><span>Gold</span></asp:LinkButton></li>
 <li><asp:LinkButton ID="LinkButton4" runat="server" OnClick="ChuyenTrang3" ><span>Platinum</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton14" runat="server" OnClick="ChuyenTrang4" ><span>Founders Platinum</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton13" runat="server" OnClick="ChuyenTrang5"><span>Ruby</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton15" runat="server" OnClick="ChuyenTrang6" ><span>Founders Ruby</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton16" runat="server" OnClick="ChuyenTrang7" ><span>Sapphire</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton17" runat="server" OnClick="ChuyenTrang8" ><span>Founders Sapphire</span></asp:LinkButton></li>
 </ul>
 </li>
 <li><a href='#'>Khách Hàng<span>Hãy đến với chúng tôi.</span></a>
