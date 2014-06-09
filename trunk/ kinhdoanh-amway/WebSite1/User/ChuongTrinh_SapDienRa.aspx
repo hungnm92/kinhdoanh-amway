@@ -33,10 +33,10 @@
     <asp:GridView ID="griChuongTrinhSapDienRa" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaCT" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griChuongTrinhSapDienRa_PageIndexChanging" OnSelectedIndexChanged="griChuongTrinhSapDienRa_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
+            <asp:CommandField HeaderText="Xem     " SelectText="Xem     " ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaCT" HeaderText="Mã số">
+            <asp:BoundField DataField="MaCT" HeaderText="Mã số     ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -77,17 +77,14 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center">&nbsp;&nbsp;
-                    <asp:Button ID="btnThem" runat="server" Text="Thêm" Visible="False" OnClick="btnThem_Click" />
-                    &nbsp;<asp:Button ID="btnXoa" runat="server" Text="Xóa" Visible="False" OnClick="btnXoa_Click" />
-                    &nbsp;<asp:Button ID="btnSua" runat="server" Text="Sửa" Visible="False" OnClick="btnSua_Click" />
+                    <asp:Button ID="btnThem" runat="server" Text="Thêm" Visible="False" OnClick="btnThem_Click" Width="50px" />
+                    &nbsp;<asp:Button ID="btnXoa" runat="server" Text="Xóa" Visible="False" OnClick="btnXoa_Click" Width="50px" />
+                    &nbsp;<asp:Button ID="btnSua" runat="server" Text="Sửa" Visible="False" OnClick="btnSua_Click" Width="50px" />
                     
-                        &nbsp;<asp:Button ID="btnShowPopup0" runat="server" Text="Chăm sóc" Visible="False" />
+                        &nbsp;<asp:Button ID="btnShowPopup0" runat="server" Text="Chăm sóc" Visible="False" Width="90px" />
                     &nbsp;<asp:PopupControlExtender ID="btnShowPopup0_PopupControlExtender" runat="server" TargetControlID="btnShowPopup0" PopupControlID="pnlThemDT" > </asp:PopupControlExtender>
-                    <asp:Button ID="btnShowPopup" runat="server" Text="Đào tạo" Visible="False" />
-                    &nbsp;<asp:PopupControlExtender ID="PopAtt" runat="server" PopupControlID="pnlThemDT" TargetControlID="btnShowPopup">
-                    </asp:PopupControlExtender>
-                    <asp:Button ID="btnIn" runat="server" Text="In" />
-                    &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" OnClick="btnThoat_Click" />
+                    <asp:Button ID="btnShowPopup" runat="server" Text="Đào tạo" Visible="False" Width="90px" />
+                    &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" OnClick="btnThoat_Click" Width="50px" />
                     <br />
                     <asp:Panel ID="pnlThemDT" CssClass="popupControl" runat="server">
                         <br />

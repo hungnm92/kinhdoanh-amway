@@ -168,12 +168,11 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;&nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" CssClass="style-button" />
+                <td colspan="2">&nbsp;&nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" CssClass="style-button" Width="66px" />
                     &nbsp;<a id="show-popup" href="#">Sử dụng</a>
-                    <asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="False" CssClass="style-button" />
-                    &nbsp;<asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" CssClass="style-button" />
-                    &nbsp;<asp:Button ID="btnIn" runat="server" Text="In" CssClass="style-button" />
-                    &nbsp;<asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" CssClass="style-button" />
+                    <asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="False" CssClass="style-button" Width="66px" />
+                    &nbsp;<asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" CssClass="style-button" Width="66px" />
+                    &nbsp;<asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" CssClass="style-button" Width="66px" />
                     <br />
                     
 <div id="popup-bg"></div>

@@ -68,7 +68,6 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
             btnXoa.Visible = true;
             btnSua.Visible = true;
         }
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         if (Request.QueryString["MaADA"] != null)
             Session["MaNPPClick"] = Request.QueryString["MaADA"];
@@ -115,7 +114,6 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
         btnShowPopup0.Visible = false;
         btnDaoTao.Visible = false;
         btnShowPopup.Visible = false;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         txtMaCT.Text = "";

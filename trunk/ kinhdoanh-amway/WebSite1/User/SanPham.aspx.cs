@@ -88,7 +88,6 @@ public partial class User_SanPham : System.Web.UI.Page
             txtNgayHH.Visible = true;
             txtGhiChu.Visible = true;
         }
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         mh.MaMH = griMatHang.SelectedValue.ToString();
@@ -122,7 +121,6 @@ public partial class User_SanPham : System.Web.UI.Page
         btnSuDung.Visible = false;
         btnXoa.Visible = false;
         btnSua.Visible = false;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         txtSoLuong.Visible = false;

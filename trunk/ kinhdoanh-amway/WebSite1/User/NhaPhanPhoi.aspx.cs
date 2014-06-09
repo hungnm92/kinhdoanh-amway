@@ -91,7 +91,6 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             lbtCTSDR.Visible = true;
         }
         lbtThemMoi.Visible = false;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         npp.MaNPP = griNhaPhanPhoi.SelectedValue.ToString();
@@ -219,7 +218,6 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         btnXoa.Visible = false;
         //show-popup: cho nút xóa ẩn.
         btnSua.Visible = false;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         btnChuyenMacDinh.Visible = false;
@@ -641,10 +639,6 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         npp.MaHuyenNPPTT = droHuyenNPPTT.SelectedValue;
         droXaNPPTT.DataSource = xptt.DS(npp.MaHuyenNPPTT);
         droXaNPPTT.DataBind();
-    }
-    protected void btnIn_Click(object sender, EventArgs e)
-    {
-        XuatDuLieuGridRaPDF(griNhaPhanPhoi);
     }
     /// Hàm xuất dữ liệu từ gridview ra pdf
     private void XuatDuLieuGridRaPDF(GridView MyGridview)

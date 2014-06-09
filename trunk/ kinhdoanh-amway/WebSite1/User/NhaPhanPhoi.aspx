@@ -211,7 +211,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                 <td>
                     <asp:TextBox ID="txtEmail" runat="server" ></asp:TextBox>
                 </td>
-                <td >Ngày ký thẻ:&nbsp;&nbsp;&nbsp;&nbsp;
+                <td >Ngày ký thẻ:&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtNgayKyThe" runat="server" ReadOnly="True" Enabled="False"></asp:TextBox>
                      <asp:CalendarExtender ID="CalendarExtender2" TargetControlID="txtNgayKyThe" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
                 </td>
@@ -309,9 +309,8 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /> &nbsp;<asp:Button ID="btnGHT" runat="server" OnClick="btnGHT_Click" Text="Gia hạn thẻ" CssClass="style-button" Visible="False" />
                     &nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" CssClass="style-button" />
 &nbsp;<a id="show-popup" href="#">Xóa</a>
-                    <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="8%" CssClass="style-button" />
-                    &nbsp;<asp:Button ID="btnIn" runat="server" Text="In" Width="8%" CssClass="style-button" OnClick="btnIn_Click" />
-                    &nbsp;<asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" CssClass="style-button" />
+                    <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="66px" CssClass="style-button" />
+                    &nbsp;<asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" CssClass="style-button" Width="66px" />
                    
                     <br />
                      

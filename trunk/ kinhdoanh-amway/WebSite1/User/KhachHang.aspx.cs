@@ -78,7 +78,6 @@ public partial class User_KhachHang : System.Web.UI.Page
     protected void griKhachHang_SelectedIndexChanged(object sender, EventArgs e)
     {
         pnlChiTietKH.Visible = true;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         txtNgayKyThe.Visible = true;
@@ -165,7 +164,6 @@ public partial class User_KhachHang : System.Web.UI.Page
         btnThem.Visible = true;
         btnXoa.Visible = false;
         btnSua.Visible = false;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         btnTroThanhNPP.Visible = false;
         lblTB.Visible = false;

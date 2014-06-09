@@ -40,7 +40,6 @@ public partial class User_DoanhThu : System.Web.UI.Page
     {
         pnlChiTietDoanhThu.Visible = true;
         lbtThemMoi.Visible = false;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         if (Request.QueryString["MaADA"] != null)
@@ -79,7 +78,6 @@ public partial class User_DoanhThu : System.Web.UI.Page
         btnThem.Visible = true;
         btnXoa.Visible = false;
         btnSua.Visible = false;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         txtThangNam.Text = "";

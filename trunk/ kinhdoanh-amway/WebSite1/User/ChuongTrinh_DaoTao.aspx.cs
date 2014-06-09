@@ -39,7 +39,6 @@ public partial class User_ChuongTrinh_DaoTao : System.Web.UI.Page
             btnXoa.Visible = true;
             btnSua.Visible = true;
         }
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         dt.MaDT = griChuongTrinhDaoTao.SelectedValue.ToString();
