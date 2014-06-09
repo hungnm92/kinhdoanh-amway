@@ -183,10 +183,11 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 <li><a href='http://hanoimoi.com.vn/Tin-tuc/Thuong-hieu-DN/580174/amway-viet-nam-duoc-vinh-danh-thuong-hieu-dang-tin-cay' target="_blank"><span>trên hanoimoi.com.vn</span></a></li>
 </ul>
 </li>
-<li><a href='PhanTichMLM.aspx'>Về MLM<span>phân tích chuyên sâu.</span></a>
+<li><a href='http://vi.wikipedia.org/wiki/Kinh_doanh_%C4%91a_c%E1%BA%A5p' target="_blank">Về MLM<span>phân tích chuyên sâu.</span></a>
 <ul class='sub_menu'>
 <li><a href='PhanTichMLM.aspx' target="_blank"><span>Video phân tích</span></a></li>
-<li><a href='#'><span>Các chứng nhận</span></a></li>
+<li><a href='http://phapluatkinhdoanh.edu.vn/news/detail/tinh-khong-lanh-manh-cua-hanh-vi-ban-hang-da-cap-bat-chinh-theo-luat-canh-tranh-nam-2004-236.html' target="_blank"><span>trên phapluatkinhdoanh.vn</span></a></li>
+<li><a href='http://vbpl.vn' target="_blank"><span>Văn bản pháp luật</span></a></li>
 </ul>
 </li>
 <li><a id="show-popupDN" href='#'>Trợ giúp<span>gửi yêu cầu giúp đỡ</span></a></li>
