@@ -31,14 +31,14 @@
     <asp:GridView ID="griChuongTrinhDaoTao" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaDT" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griChuongTrinhDaoTao_PageIndexChanging" OnSelectedIndexChanged="griChuongTrinhDaoTao_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ButtonType="Button" HeaderText="Tùy chọn" SelectText="Chọn" ShowSelectButton="True">
+            <asp:CommandField HeaderText="Xem     " SelectText="Xem     " ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaDT" HeaderText="Mã số">
+            <asp:BoundField DataField="MaDT" HeaderText="Mã số     ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgayDT" HeaderText="Thời gian" DataFormatString=" {0:dd/MM/yyyy}">
+            <asp:BoundField DataField="NgayDT" HeaderText="Thời gian     " DataFormatString=" {0:dd/MM/yyyy}">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
@@ -85,10 +85,9 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center">
-                    &nbsp;<asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="False" Width="7%" />
-                    &nbsp;<asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="7%" />
-                    &nbsp;<asp:Button ID="btnIn" runat="server" Text="In" Width="6%" />
-                    &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" Width="6%" OnClick="btnThoat_Click" />
+                    &nbsp;<asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="False" Width="50px" />
+                    &nbsp;<asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="50px" />
+                    &nbsp;&nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" Width="50px" OnClick="btnThoat_Click" />
                     <br />
                      </td>
             </tr>

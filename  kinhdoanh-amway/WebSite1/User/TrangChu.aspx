@@ -132,7 +132,7 @@
                 <td colspan="2">
                     <asp:TextBox ID="txtNgayHetHan" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                 </td>
-                <td class="auto-style10">Ngày ký thẻ:&nbsp;&nbsp;&nbsp;&nbsp;
+                <td class="auto-style10">Ngày ký thẻ:&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtNgayKyThe" runat="server" Enabled="False" ReadOnly="True" Width="100px"></asp:TextBox>
                 </td>
             </tr>

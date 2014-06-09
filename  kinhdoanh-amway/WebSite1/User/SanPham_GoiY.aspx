@@ -142,7 +142,7 @@
             </tr>
             <tr>
                 <td class="auto-style12" colspan="2">Cách sử dụng: </td>
-                <td style="vertical-align: top">
+                <td style="vertical-align: top; width: 1%; white-space: nowrap;">
                     <asp:DropDownList ID="droLoaiMH" runat="server" DataTextField="TenLMH" DataValueField="MaLMH" Enabled="False">
                     </asp:DropDownList>
                 </td>
@@ -161,8 +161,7 @@
             <tr>
                 <td colspan="3">&nbsp;&nbsp;
                     <a id="show-popup" href="#">Sử dụng</a>
-                    <asp:Button ID="btnIn" runat="server" CssClass="auto-style13" OnClick="btnIn_Click" Text="In" />
-                    &nbsp;<asp:Button ID="btnThoat" runat="server" CssClass="auto-style13" OnClick="btnThoat_Click" Text="Thoát" />
+                    <asp:Button ID="btnThoat" runat="server" CssClass="auto-style13" OnClick="btnThoat_Click" Text="Thoát" Width="80px" />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd/MM/yyyy" TargetControlID="txtNgaySD">
                     </asp:CalendarExtender>

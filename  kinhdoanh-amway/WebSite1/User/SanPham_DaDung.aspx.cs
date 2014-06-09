@@ -65,7 +65,6 @@ public partial class User_SanPham_DaDung : System.Web.UI.Page
     protected void griMatHangDaDung_SelectedIndexChanged(object sender, EventArgs e)
     {
         pnlChiTietMH.Visible = true;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         if (Session["MaNPPClick"] == null)

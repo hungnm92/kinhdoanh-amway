@@ -252,30 +252,38 @@ public partial class User_DangNhap : System.Web.UI.Page
     //Dưới đây là code trợ giúp
     protected void btnSend_Click(object sender, EventArgs e)
     {
-        Label1.Text = "Yêu cầu đang được gửi...";
-        SmtpClient SmtpServer = new SmtpClient();
-        SmtpServer.Credentials = new System.Net.NetworkCredential("hunghuynh.it@gmail.com", "hungcokute123");
-        SmtpServer.Port = 587;
-        SmtpServer.Host = "smtp.gmail.com";
-        SmtpServer.EnableSsl = true;
-        MailMessage mail = new MailMessage();
-
-
-        try
+        bool bHoTen = string.IsNullOrWhiteSpace(txtHoTen.Text);
+        bool bThongDiep = string.IsNullOrWhiteSpace(txtNoiDung.Text);
+        bool bEmail = string.IsNullOrWhiteSpace(txtEmail.Text);
+        if (bHoTen == false && bThongDiep == false && bEmail == false)
         {
-            mail.From = new MailAddress(txtEmail.Text, txtHoTen.Text + " gửi từ form liên hệ", System.Text.Encoding.UTF8);
-            mail.To.Add("hunghuynh.it@gmail.com");
-            mail.Subject = "Mail từ Form liên";
-            mail.Body = MailBody();
-            mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-            //mail.ReplyTo = new MailAddress("yourmail@mail.com");
-            mail.Priority = MailPriority.High;
-            mail.IsBodyHtml = true;
-            SmtpServer.Send(mail);
-            Label1.Text = "Cảm ơn bạn đã gửi thông điệp đến website";
-            ResetFrom();
+            Label1.Text = "Yêu cầu đang được gửi...";
+            SmtpClient SmtpServer = new SmtpClient();
+            SmtpServer.Credentials = new System.Net.NetworkCredential("hunghuynh.it@gmail.com", "hungcokute123");
+            SmtpServer.Port = 587;
+            SmtpServer.Host = "smtp.gmail.com";
+            SmtpServer.EnableSsl = true;
+            MailMessage mail = new MailMessage();
+
+
+            try
+            {
+                mail.From = new MailAddress(txtEmail.Text, txtHoTen.Text + " gửi từ form liên hệ", System.Text.Encoding.UTF8);
+                mail.To.Add("hunghuynh.it@gmail.com");
+                mail.Subject = "Mail từ Form liên";
+                mail.Body = MailBody();
+                mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                //mail.ReplyTo = new MailAddress("yourmail@mail.com");
+                mail.Priority = MailPriority.High;
+                mail.IsBodyHtml = true;
+                SmtpServer.Send(mail);
+                Label1.Text = "Cảm ơn bạn đã gửi thông điệp đến website";
+                ResetFrom();
+            }
+            catch (Exception ex) { Label1.Text = ex.Message.ToString(); }
         }
-        catch (Exception ex) { Label1.Text = ex.Message.ToString(); }
+        else
+            Label1.Text = "Vui lòng điền đầy đủ thông tin ở mục *";
     }
     private void ResetFrom()
     {

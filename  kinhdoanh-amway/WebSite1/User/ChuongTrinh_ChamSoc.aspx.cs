@@ -86,7 +86,6 @@ public partial class User_ChuongTrinh_ChamSoc : System.Web.UI.Page
     protected void griChuongTrinhChamSoc_SelectedIndexChanged(object sender, EventArgs e)
     {
         pnlChiTietCT.Visible = true;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         if (Session["MaNPPClick"] == null)

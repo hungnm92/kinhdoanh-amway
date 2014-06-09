@@ -74,11 +74,10 @@
             <tr>
                 <td colspan="2" style="text-align: center">
                     <asp:Button ID="btnTraDoanhThu" runat="server" OnClick="btnTraDoanhThu_Click" Text="Tra doanh thu" />
-                    &nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" />
-                    &nbsp;<asp:Button ID="btnXoa" runat="server" Text="Xóa" OnClick="btnXoa_Click" Visible="False" />
-                    &nbsp;<asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" />
-                    &nbsp;<asp:Button ID="btnIn" runat="server" Text="In" />
-                    &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" OnClick="btnThoat_Click" />
+                    &nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" Width="50px" />
+                    &nbsp;<asp:Button ID="btnXoa" runat="server" Text="Xóa" OnClick="btnXoa_Click" Visible="False" Width="50px" />
+                    &nbsp;<asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="50px" />
+                    &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" OnClick="btnThoat_Click" Width="50px" />
                     <br />
                 </td>
             </tr>
@@ -91,7 +90,7 @@
                     &nbsp;vnđ</td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align: left">Tổng số tiền bán hành trong tháng:&nbsp;&nbsp;
+                <td colspan="2" style="text-align: left">Tổng số tiền bán hàng trong tháng:&nbsp;&nbsp;
                     <asp:TextBox ID="txtDoanhThu_KH" runat="server"></asp:TextBox>
                     vnđ</td>
             </tr>

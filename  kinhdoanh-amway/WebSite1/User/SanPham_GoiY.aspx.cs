@@ -64,7 +64,6 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
     protected void griMatHangChuaDung_SelectedIndexChanged(object sender, EventArgs e)
     {
             pnlChiTietMH.Visible = true;
-            btnIn.Visible = true;
             btnThoat.Visible = true;
             lblTB.Visible = false;
             if (Session["MaNPPClick"] == null)
@@ -208,8 +207,5 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
             }
         }
     }
-    protected void btnIn_Click(object sender, EventArgs e)
-    {
 
-    }
 }

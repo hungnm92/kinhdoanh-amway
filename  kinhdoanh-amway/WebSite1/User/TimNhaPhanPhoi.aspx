@@ -305,10 +305,10 @@ TargetControlID="txtSoDT" >
                     &nbsp;<asp:LinkButton ID="lbtTTDThu" runat="server" OnClick="lbtTTDThu_Click">Thông tin doanh thu</asp:LinkButton>
                     &nbsp;<asp:LinkButton ID="lbtQTCD" runat="server" OnClick="lbtQTCD_Click">Quá trình cấp độ</asp:LinkButton>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /> &nbsp;<asp:Button ID="btnGHT" runat="server" OnClick="btnGHT_Click" Text="Gia hạn thẻ" CssClass="style-button" Visible="False" />
-                    &nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" CssClass="style-button" />
+                    &nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" CssClass="style-button" Width="66px" />
 &nbsp;<a id="show-popup" href="#">Xóa</a>
-                    <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="8%" CssClass="style-button" />
-                    &nbsp;<asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" CssClass="style-button" />
+                    <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="66px" CssClass="style-button" />
+                    &nbsp;<asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" CssClass="style-button" Width="66px" />
                     <br />
                     <!-- abc -->
                     <!-- abc -->

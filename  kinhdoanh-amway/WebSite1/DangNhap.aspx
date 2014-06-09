@@ -173,19 +173,23 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 <li><a href='#'><span>Sản Phẩm Đã Dùng</span></a></li>
 </ul>
 </li>
-<li><a href='#'>Về Amway<span>giới thiệu về amway.</span></a>
+<li><a href='TongQuanAmway.aspx'>Về Amway<span>giới thiệu về amway.</span></a>
 <ul class='sub_menu'>
-<li><a href='MinhHoaSanPham.aspx'><span>Minh họa sản phẩm</span></a></li>
-<li><a href='#'><span>Các chứng nhận</span></a></li>
+<li><a href='MinhHoaSanPham.aspx' target="_blank"><span>Minh họa sản phẩm</span></a></li>
+<li><a href='http://vietnamnet.vn/vn/kinh-te/167496/nha-may-25-trieu-usd-cua-amway-viet-nam.html' target="_blank"><span>trên vietnamnet.vn</span></a></li>
+<li><a href='http://www.baomoi.com/Viet-Nam-da-thanh-can-cu-dia-cua-Amway/45/13398626.epi' target="_blank"><span>trên baomoi.com</span></a></li>
+<li><a href='http://tinnhanhchungkhoan.vn/dau-tu/amway-viet-nam-tro-thanh-cong-ty-da-cap-dau-tien-duoc-nhan-iso-140012004-va-ohsas-180012007-22940.html' target="_blank"><span>tinnhanhchungkhoan.vn</span></a></li>
+<li><a href='http://dddn.com.vn/doc-nhanh/amway-vn-duoc-cap-chung-chi-quoc-te-ve-bao-ve-moi-truong-suc-khoe-va-an-toan-lao-dong-20121030093435763.htm' target="_blank"><span>trên dddn.com.vn</span></a></li>
+<li><a href='http://hanoimoi.com.vn/Tin-tuc/Thuong-hieu-DN/580174/amway-viet-nam-duoc-vinh-danh-thuong-hieu-dang-tin-cay' target="_blank"><span>trên hanoimoi.com.vn</span></a></li>
 </ul>
 </li>
 <li><a href='PhanTichMLM.aspx'>Về MLM<span>phân tích chuyên sâu.</span></a>
 <ul class='sub_menu'>
-<li><a href='PhanTichMLM.aspx'><span>Video phân tích</span></a></li>
+<li><a href='PhanTichMLM.aspx' target="_blank"><span>Video phân tích</span></a></li>
 <li><a href='#'><span>Các chứng nhận</span></a></li>
 </ul>
 </li>
-<li><a id="show-popupDN" href='#'>Trợ giúp<span>yêu cầu giúp đỡ</span></a></li>
+<li><a id="show-popupDN" href='#'>Trợ giúp<span>gửi yêu cầu giúp đỡ</span></a></li>
 </ul>
 </div>
 <div class='content'>
@@ -194,10 +198,9 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 <div id='slider'>
 <div class='jFlowPrev'><img alt='' height='194' src='../src/web/previous.png' width='35'/></div>
 <div id='slider_img'>
-<a href='#'><span>The best interview is here</span><img height='360' src='../src/web/1.png' width='900'/></a>
-<a href='#'><span>Don't you know Pompidop?</span><img height='360' src='../src/web/2.png' width='900'/></a>
-<a href='#'><span>Whos is behind the best template?</span><img height='360' src='https://lh3.googleusercontent.com/-Pae7kB09c3k/USy_XTOS0-I/AAAAAAAAFI0/hJgEHPr0W6s/s900/eminem.jpg' width='900'/></a>
-<a href='#'><span>Whos is behind the best template?</span><img height='360' src='https://lh3.googleusercontent.com/-bIhezOO-_IE/USy8D4f-2zI/AAAAAAAAFIc/-dkgwu_kuuA/s900/LKP.jpg' width='900'/></a>
+<a href='#'><span>Một số hình ảnh về Amway</span><img height='360' src='../src/web/2.jpg' width='900'/></a>
+<a href='#'><span>Việt Nam đã trở thành căn cứ địa của Amway</span><img height='360' src='../src/web/1.jpg' width='900'/></a>
+<a href='#'><span>Giám đốc Amway Việt Nam</span><img height='360' src='../src/web/1.jpg' width='900'/></a>
 </div>
 <div id='myController'>
 <span class='jFlowControl'></span>
@@ -264,14 +267,15 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
     <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
         <span style="font-size: 12px; line-height: 22px; font-family: Helvetica, Arial, sans-serif;">- Amway Việt Nam: <font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;"><a href="http://www.amway2u.com/c1/main.jsp?prectrfnbr=VN&locale=vi_VN" style="color: rgb(17, 85, 204);" target="_blank">http://www.amway2u.com/c1/main.jsp?prectrfnbr=VN&locale=vi_VN</a></span></font></span></div>
     <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
-        <font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;">- Face Amway VN: <a href="https://www.facebook.com/OfficialAmwayVietnam" style="color: rgb(17, 85, 204);" target="_blank">https://www.facebook.com/<wbr />OfficialAmwayVietnam</a></span></font></div>
-    <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
-        <font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;">- Amway toàn cầu:&nbsp;<a href="http://www.amway.com/" style="color: rgb(17, 85, 204);" target="_blank">http://www.amway.com/</a></span></font></div>
-    <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
         <font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;">- Amway Malaysia:&nbsp;<a href="http://www.amway.my/about-amway/our-company/amway-malaysia" style="color: rgb(17, 85, 204);" target="_blank">http://www.amway.my/<wbr />about-amway/our-company/amway-<wbr />malaysia</a></span></font></div>
     <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
         <span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; line-height: 22px;">- Amway Thái Lan:&nbsp;<font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;"><a href="https://www.amwayshopping.com/amwayshopping-frontend/shopping/Firstpage" style="color: rgb(17, 85, 204);" target="_blank">https://www.amwayshopping.com/amwayshopping-frontend/shopping/Firstpage</a></span></font></span><font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;"><br />
-        - Amway nhật bản:&nbsp;<a href="http://www.amway.co.jp/" style="color: rgb(17, 85, 204);" target="_blank">http://www.amway.co.jp/</a></span></font></div>
+        - Amway Nhật Bản:&nbsp;<a href="http://www.amway.co.jp/" style="color: rgb(17, 85, 204);" target="_blank">http://www.amway.co.jp/</a></span></font></div>
+    <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;">- Amway toàn cầu:&nbsp;<a href="http://www.amway.com/" style="color: rgb(17, 85, 204);" target="_blank">http://www.amway.com/</a></span></font></div>
+     <div style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+        <font face="Helvetica, Arial, sans-serif"><span style="font-size: 12px; line-height: 22px;">- Face Amway VN: <a href="https://www.facebook.com/OfficialAmwayVietnam" style="color: rgb(17, 85, 204);" target="_blank">https://www.facebook.com/<wbr />OfficialAmwayVietnam</a></span></font></div>
+    
     <br />
 </div>
 <div class='post-footer-line-3'></div>

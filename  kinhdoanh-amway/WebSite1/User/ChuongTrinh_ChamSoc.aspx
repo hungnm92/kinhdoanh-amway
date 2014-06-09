@@ -13,8 +13,6 @@
         }
         .auto-style13 {
         }
-        .auto-style16 {
-        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -118,10 +116,9 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center">
-                    &nbsp;<asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="False" Width="7%" />
-                    &nbsp;<asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="7%" />
-                    &nbsp;<asp:Button ID="btnIn" runat="server" Text="In" Width="6%" />
-                    &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" Width="6%" OnClick="btnThoat_Click" />
+                    &nbsp;<asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="False" Width="50px" />
+                    &nbsp;<asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="50px" />
+                    &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" Width="50px" OnClick="btnThoat_Click" />
                     <br />
                     </td>
             </tr>
