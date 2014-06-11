@@ -82,7 +82,7 @@
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField SelectText="Xem" ShowSelectButton="True">
-            <ControlStyle Font-Underline="True" ForeColor="#009900" />
+            <ControlStyle Font-Underline="false" ForeColor="#009900" />
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>

@@ -118,6 +118,8 @@ public partial class User_SanPham : System.Web.UI.Page
         pnlChiTietMH.Visible = true;
         lbtThemMoi.Visible = false;
         btnThem.Visible = true;
+        txtMaMH.Enabled = true;
+        txtMaMH.ReadOnly = false;
         btnSuDung.Visible = false;
         btnXoa.Visible = false;
         btnSua.Visible = false;
@@ -130,6 +132,7 @@ public partial class User_SanPham : System.Web.UI.Page
         txtGia.Text = "";
         fckChiTiet.Text = "";
         txtCachSuDung.Text = "";
+        imgAnhMH.ImageUrl = "~/src/product/";
     }
     protected void btnThem_Click(object sender, EventArgs e)
     {
@@ -256,56 +259,66 @@ public partial class User_SanPham : System.Web.UI.Page
         txtNgaySD.Visible = true;
         txtNgayHH.Visible = true;
         txtGhiChu.Visible = true;
-        if(Session["MaKH"] == null)//???nếu không chọn khách hàng thì sử dụng này là nhà phân phối sử dụng
+        bool bSoLuong = string.IsNullOrWhiteSpace(txtSoLuong.Text);
+        bool bNgaySD = string.IsNullOrWhiteSpace(txtNgaySD.Text);
+        if (bSoLuong == false && bNgaySD == false)
         {
-            nppsd.MaMH = griMatHang.SelectedValue.ToString();
-            nppsd.MaNPP = Session["MaNPP"].ToString();
-            nppsd.NgayNPPSD = txtNgaySD.Text;
-            if (txtGhiChu.Text == "Ghi chú")
-                nppsd.GhiChu = "";
-            else
-                nppsd.GhiChu = txtGhiChu.Text;
-            nppsd.SoLuong = int.Parse(txtSoLuong.Text);
-            if (chkMinhHoa.Checked == true)
-                nppsd.MinhHoa = true;
-            else
-                nppsd.MinhHoa = false;
-            if (txtNgayHH.Text == "Ngày hết hạn")
-                nppsd.Them1();
+            if (Session["MaKH"] == null)//???nếu không chọn khách hàng thì sử dụng này là nhà phân phối sử dụng
+            {
+                nppsd.MaMH = griMatHang.SelectedValue.ToString();
+                nppsd.MaNPP = Session["MaNPP"].ToString();
+                nppsd.NgayNPPSD = txtNgaySD.Text;
+                if (txtGhiChu.Text == "Ghi chú")
+                    nppsd.GhiChu = "";
+                else
+                    nppsd.GhiChu = txtGhiChu.Text;
+                nppsd.SoLuong = int.Parse(txtSoLuong.Text);
+                if (chkMinhHoa.Checked == true)
+                    nppsd.MinhHoa = true;
+                else
+                    nppsd.MinhHoa = false;
+                if (txtNgayHH.Text == "Ngày hết hạn")
+                    nppsd.Them1();
+                else
+                {
+                    nppsd.NgayNPPSDHH = txtNgayHH.Text;
+                    nppsd.Them();
+                }
+                lblTB.Visible = true;
+                lblTB.Text = nppsd.ThongBao;
+            }
             else
             {
-                nppsd.NgayNPPSDHH = txtNgayHH.Text;
-                nppsd.Them();
+                khsd.MaMH = griMatHang.SelectedValue.ToString();
+                khsd.MaKH = Session["MaKH"].ToString();
+                khsd.MaNPP = Session["MaNPP"].ToString();
+                khsd.NgayKHSD = txtNgaySD.Text;
+                if (txtGhiChu.Text == "Ghi chú")
+                    khsd.GhiChu = "";
+                else
+                    khsd.GhiChu = txtGhiChu.Text;
+                khsd.SoLuong = int.Parse(txtSoLuong.Text);
+                if (chkMinhHoa.Checked == true)
+                    khsd.MinhHoa = true;
+                else
+                    khsd.MinhHoa = false;
+                if (txtNgayHH.Text == "Ngày hết hạn")
+                    khsd.Them1();
+                else
+                {
+                    khsd.NgayKHSDHH = txtNgayHH.Text;
+                    khsd.Them();
+                }
+                lblTB.Visible = true;
+                lblTB.Text = khsd.ThongBao;
             }
-            lblTB.Visible = true;
-            lblTB.Text = nppsd.ThongBao;
+            pnlChiTietMH.Visible = false;
         }
         else
         {
-            khsd.MaMH = griMatHang.SelectedValue.ToString();
-            khsd.MaKH = Session["MaKH"].ToString();
-            khsd.MaNPP = Session["MaNPP"].ToString();
-            khsd.NgayKHSD = txtNgaySD.Text;
-            if (txtGhiChu.Text == "Ghi chú")
-                khsd.GhiChu = "";
-            else
-                khsd.GhiChu = txtGhiChu.Text;
-            khsd.SoLuong = int.Parse(txtSoLuong.Text);
-            if (chkMinhHoa.Checked == true)
-                khsd.MinhHoa = true;
-            else
-                khsd.MinhHoa = false;
-            if (txtNgayHH.Text == "Ngày hết hạn")
-                khsd.Them1();
-            else
-            {
-                khsd.NgayKHSDHH = txtNgayHH.Text;
-                khsd.Them();
-            }
             lblTB.Visible = true;
-            lblTB.Text = khsd.ThongBao;
+            lblTB.Text = "Vùi lòng điền thông tin số lượng hoặc ngày sử dụng.";
         }
-        pnlChiTietMH.Visible = false;
     }
     protected void lbtTroVe_Click(object sender, EventArgs e)
     {

@@ -184,6 +184,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         droDuongNPPTT.SelectedValue = dtt.MaDuong.ToString();
         npp.MaNPP = npp.MaNBT;
         droNBT.SelectedValue = npp.MaNPP.ToString();
+        btnThem.Visible = false;
     }
     protected void griNhaPhanPhoi_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {

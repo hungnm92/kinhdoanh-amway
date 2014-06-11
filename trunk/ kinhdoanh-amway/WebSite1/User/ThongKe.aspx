@@ -129,11 +129,11 @@ div#popup-content {
         </table>
     </asp:Panel>
     <br />
-    <asp:GridView ID="griNPP_Moi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_Moi_PageIndexChanging" OnSelectedIndexChanged="griNPP_Moi_SelectedIndexChanged" PageSize="5">
+    <asp:GridView ID="griNPP_Moi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_Moi_PageIndexChanging" OnSelectedIndexChanged="griNPP_Moi_SelectedIndexChanged" PageSize="5" Font-Underline="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem     " ShowSelectButton="True" HeaderText="Xem     ">
-            <ControlStyle Font-Underline="True" ForeColor="#009900" />
+            <asp:CommandField SelectText="Xem     " ControlStyle-Font-Underline="false" ShowSelectButton="True" HeaderText="Xem     ">
+            <ControlStyle Font-Underline="false" ForeColor="#009900" />
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
@@ -166,18 +166,18 @@ div#popup-content {
         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#E3EAEB" />
-        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" Font-Underline="False" />
         <SortedAscendingCellStyle BackColor="#F8FAFA" />
         <SortedAscendingHeaderStyle BackColor="#246B61" />
         <SortedDescendingCellStyle BackColor="#D4DFE1" />
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <br />
-    <asp:GridView ID="griNPP_ThanhTichMoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_ThanhTichMoi_PageIndexChanging" OnSelectedIndexChanged="griNPP_ThanhTichMoi_SelectedIndexChanged" PageSize="5" >
+    <asp:GridView ID="griNPP_ThanhTichMoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_ThanhTichMoi_PageIndexChanging" OnSelectedIndexChanged="griNPP_ThanhTichMoi_SelectedIndexChanged" PageSize="5" Font-Underline="False" >
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem    " ShowSelectButton="True" HeaderText="Xem     ">
-            <ControlStyle Font-Underline="True" ForeColor="#009900" />
+            <asp:CommandField SelectText="Xem    " ControlStyle-Font-Underline="false" ShowSelectButton="True" HeaderText="Xem     ">
+            <ControlStyle Font-Underline="false" ForeColor="#009900" />
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
@@ -201,18 +201,18 @@ div#popup-content {
         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#E3EAEB" />
-        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" Font-Underline="False" />
         <SortedAscendingCellStyle BackColor="#F8FAFA" />
         <SortedAscendingHeaderStyle BackColor="#246B61" />
         <SortedDescendingCellStyle BackColor="#D4DFE1" />
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <br />
-    <asp:GridView ID="griNPP_SapHetHan" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_ThanhTichMoi_PageIndexChanging" OnSelectedIndexChanged="griNPP_SapHetHan_SelectedIndexChanged" PageSize="5">
+    <asp:GridView ID="griNPP_SapHetHan" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_ThanhTichMoi_PageIndexChanging" OnSelectedIndexChanged="griNPP_SapHetHan_SelectedIndexChanged" PageSize="5" Font-Underline="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem    " ShowSelectButton="True" HeaderText="Xem     ">
-            <ControlStyle Font-Underline="True" ForeColor="#009900" />
+            <asp:CommandField SelectText="Xem    " ControlStyle-Font-Underline="false" ShowSelectButton="True" HeaderText="Xem     ">
+            <ControlStyle Font-Underline="false" ForeColor="#009900" />
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
@@ -236,7 +236,7 @@ div#popup-content {
         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#E3EAEB" />
-        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" Font-Underline="False" />
         <SortedAscendingCellStyle BackColor="#F8FAFA" />
         <SortedAscendingHeaderStyle BackColor="#246B61" />
         <SortedDescendingCellStyle BackColor="#D4DFE1" />
@@ -419,7 +419,6 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
             </tr>
             <tr>
                 <td colspan="3">                   
-                    <asp:Button ID="btnIn" runat="server" Text="In" Width="8%" />
                     <asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" Width="8%" />
                     <!-- <asp:LinkButton ID="show_popup" href ='#' runat="server" >Thông tin</asp:LinkButton>  -->
                     <br />

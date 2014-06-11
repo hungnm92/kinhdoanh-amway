@@ -238,7 +238,6 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     protected void griNPP_Moi_SelectedIndexChanged(object sender, EventArgs e)
     {
         pnlChiTietNPP.Visible = true;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         npp.MaNPP = griNPP_Moi.SelectedValue.ToString();
         npp.CT();
@@ -331,7 +330,6 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     protected void griNPP_ThanhTichMoi_SelectedIndexChanged(object sender, EventArgs e)
     {
         pnlChiTietNPP.Visible = true;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         npp.MaNPP = griNPP_ThanhTichMoi.SelectedValue.ToString();
         npp.CT();
@@ -424,7 +422,6 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     protected void griNPP_SapHetHan_SelectedIndexChanged(object sender, EventArgs e)
     {
         pnlChiTietNPP.Visible = true;
-        btnIn.Visible = true;
         btnThoat.Visible = true;
         npp.MaNPP = griNPP_SapHetHan.SelectedValue.ToString();
         npp.CT();

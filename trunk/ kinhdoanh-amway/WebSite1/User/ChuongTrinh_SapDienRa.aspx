@@ -84,6 +84,8 @@
                         &nbsp;<asp:Button ID="btnShowPopup0" runat="server" Text="Chăm sóc" Visible="False" Width="90px" />
                     &nbsp;<asp:PopupControlExtender ID="btnShowPopup0_PopupControlExtender" runat="server" TargetControlID="btnShowPopup0" PopupControlID="pnlThemDT" > </asp:PopupControlExtender>
                     <asp:Button ID="btnShowPopup" runat="server" Text="Đào tạo" Visible="False" Width="90px" />
+                     <asp:PopupControlExtender ID="PopAtt" runat="server" PopupControlID="pnlThemDT" TargetControlID="btnShowPopup">
+                    </asp:PopupControlExtender>
                     &nbsp;<asp:Button ID="btnThoat" runat="server" Text="Thoát" OnClick="btnThoat_Click" Width="50px" />
                     <br />
                     <asp:Panel ID="pnlThemDT" CssClass="popupControl" runat="server">
