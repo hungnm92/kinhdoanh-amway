@@ -1003,6 +1003,36 @@ namespace webdoan
                 BaoVe.Close();
                 return ThungChua;
             }
+            public DataTable TimTheoTenAuto()//su dung ky thuat lay danh sach co tham so truyen vao
+            {
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_TimTheoTenAuto", BaoVe);
+                Lenh.CommandType = CommandType.StoredProcedure;
+                SqlParameter ThamSo = new SqlParameter();
+                ThamSo = Lenh.Parameters.AddWithValue("@HoTenNPP", HoTenNPP);
+                DataTable ThungChua = new DataTable();
+                SqlDataReader DocDL;
+                BaoVe.Open();//mở kết nối đến CSDL
+                DocDL = Lenh.ExecuteReader(CommandBehavior.CloseConnection);
+                ThungChua.Load(DocDL);
+                BaoVe.Close();
+                return ThungChua;
+            }
+            public DataTable TimTheoMaNPPAuto()//sử dụng trong webservice tìm mã auto
+            {
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_TimTheoMaNPPAuto", BaoVe);
+                Lenh.CommandType = CommandType.StoredProcedure;
+                SqlParameter ThamSo = new SqlParameter();
+                ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
+                DataTable ThungChua = new DataTable();
+                SqlDataReader DocDL;
+                BaoVe.Open();//mở kết nối đến CSDL
+                DocDL = Lenh.ExecuteReader(CommandBehavior.CloseConnection);
+                ThungChua.Load(DocDL);
+                BaoVe.Close();
+                return ThungChua;
+            }
             public void Sua_NgayHetHan()
             {
                 try
@@ -2326,6 +2356,30 @@ namespace webdoan
                 BaoVe.Close();
             return KetQua;
         }
+        private string NPP_Check_NEW(string MaNPP)
+        {
+            string KetQua = string.Empty;
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn;Max Pool Size =1000; Min Pool Size =5");
+            SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_Check_NEW", BaoVe);
+            Lenh.CommandType = CommandType.StoredProcedure;
+            SqlParameter ThamSo = new SqlParameter();
+            ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
+            SqlDataReader DocDL;
+            BaoVe.Open();
+            DocDL = Lenh.ExecuteReader();
+            while (DocDL.Read())//Đọc từng đối tượng NPP để thực hiện lệnh dưới.
+            {
+                if (int.Parse(DocDL["New"].ToString()) == 1)
+                {
+                    KetQua = "";
+                    KetQua += "<img src='" + "../src/web/npp_new.gif" + "'/>";
+                }
+                else
+                    KetQua = "";
+            }
+            BaoVe.Close();
+            return KetQua;
+        }//Tạo thẻ img có ảnh new nếu NPP là New
         public string LoadSoDo(string MaNBT, int level)
         {
             string KetQua = string.Empty;
@@ -2352,7 +2406,7 @@ namespace webdoan
                     KetQua += "<ul>";
                 while (DocDL.Read())//Đọc từng đối tượng NPP để thực hiện lệnh dưới.
                 {
-                    KetQua += "<li><a onclick =" + DocDL["ngoac"].ToString() + "javascript:setSession('" + DocDL["MaNPP"].ToString() + "');" + DocDL["ngoac"].ToString() + "><img src='" + "../src/emp/" + DocDL["AnhCD"] + "'/><span>" + DocDL["HoTenNPP"] + "</span></a>";//Hiển thị họ tên, lấy MaNPP và chạy hàm Js khi click.
+                    KetQua += "<li><a onclick =" + DocDL["ngoac"].ToString() + "javascript:setSession('" + DocDL["MaNPP"].ToString() + "');" + DocDL["ngoac"].ToString() + "><img src='" + "../src/emp/" + DocDL["AnhCD"] + "'/><span>" + DocDL["HoTenNPP"] + NPP_Check_NEW(DocDL["MaNPP"].ToString()) + "</span></a>";//Hiển thị họ tên, lấy MaNPP và chạy hàm Js khi click.
                     KetQua += LoadMenu(DocDL["MaNPP"].ToString(), level + 1);//Thực hiện vòng lặp với NPP có tuyến dưới.
                     KetQua += "</li>";
                 }

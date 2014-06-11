@@ -21,11 +21,33 @@ public class WebService : System.Web.Services.WebService {
     public string[] GetTenNPP(string prefixText)
     {
         SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
-        SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_TimTheoTen", BaoVe);
+        SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_TimTheoTenAuto", BaoVe);
         Lenh.CommandType = CommandType.StoredProcedure;
         SqlParameter ThamSo = new SqlParameter();
         ThamSo = Lenh.Parameters.AddWithValue("@HoTenNPP", prefixText);
-        ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", Session["MaNPP"].ToString());
+        DataTable ThungChua = new DataTable();
+        SqlDataReader DocDL;
+        BaoVe.Open();//mở kết nối đến CSDL
+        DocDL = Lenh.ExecuteReader(CommandBehavior.CloseConnection);
+        ThungChua.Load(DocDL);
+        BaoVe.Close();
+        int i = 0;
+        string[] cntName = new string[ThungChua.Rows.Count];
+        foreach (DataRow row in ThungChua.Rows)
+        {
+            cntName.SetValue(row["HoTenNPP"].ToString(), i);
+            i++;
+        }
+        return cntName;
+    }
+    [WebMethod]
+    public string[] GetMaNPP(string prefixText)
+    {
+        SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+        SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_TimTheoMaNPPAuto", BaoVe);
+        Lenh.CommandType = CommandType.StoredProcedure;
+        SqlParameter ThamSo = new SqlParameter();
+        ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", prefixText);
         DataTable ThungChua = new DataTable();
         SqlDataReader DocDL;
         BaoVe.Open();//mở kết nối đến CSDL

@@ -63,7 +63,7 @@
     <div id='search_engine'>
 <div class='field'>
     <asp:TextBox ID="txtSearch" name='q' onblur='if (this.value == "") {this.value = "Search...";}' onfocus='if (this.value == "Search...") {this.value = "";}' type='text' value='Search...' runat="server" Width="175px" BorderStyle="Groove"></asp:TextBox>
-    <asp:AutoCompleteExtender ID="AutoCompleteExtender1" TargetControlID="txtSearch" ServicePath="~/WebService.asmx" ServiceMethod="GetTenNPP" EnableCaching="false" MinimumPrefixLength="1" runat="server"></asp:AutoCompleteExtender>
+    <asp:AutoCompleteExtender ID="AutoCompleteExtender1" TargetControlID="txtSearch" ServicePath="~/WebService.asmx" ServiceMethod="GetMaNPP" EnableCaching="false" MinimumPrefixLength="1" runat="server"></asp:AutoCompleteExtender>
 </div>
         <asp:Button class='button' value=" " ID="find" runat="server" OnClick="find_Click" />
 </div>
