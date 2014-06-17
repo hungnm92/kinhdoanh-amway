@@ -9,20 +9,20 @@ public partial class User_SanPham : System.Web.UI.Page
 {
     webdoan.KhachHang kh = new webdoan.KhachHang();
     webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
-    webdoan.MatHang mh = new webdoan.MatHang();
-    webdoan.LoaiMH lmh = new webdoan.LoaiMH();
+    webdoan.SanPham sp = new webdoan.SanPham();
+    webdoan.LoaiSP lsp = new webdoan.LoaiSP();
     webdoan.NPPSuDung nppsd = new webdoan.NPPSuDung();
     webdoan.KHSuDung khsd = new webdoan.KHSuDung();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
         {
-            if (Session["MaLMH"] == null)
+            if (Session["MaLSP"] == null)
                 Response.Redirect("~/DangNhap.aspx");
-            if(Session["MaLMH"] == "0")
-                griMatHang.DataSource = mh.DS();
+            if(Session["MaLSP"] == "0")
+                griMatHang.DataSource = sp.DS();
             else
-                griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));
+                griMatHang.DataSource = sp.SanPham_DS_TheoLoaiSP(int.Parse(Session["MaLSP"].ToString()));
             griMatHang.DataBind();
             if (Request.QueryString["MaADA"] != null)
                 Session["MaNPPClick"] = Request.QueryString["MaADA"];
@@ -65,8 +65,8 @@ public partial class User_SanPham : System.Web.UI.Page
                     lbtThemMoi.Visible = false;
                 }
             }
-            droLoaiMH.DataSource = lmh.DS();
-            droLoaiMH.DataBind();
+            droLoaiSP.DataSource = lsp.DS();
+            droLoaiSP.DataBind();
         }
     }
     protected void griMatHang_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,25 +90,25 @@ public partial class User_SanPham : System.Web.UI.Page
         }
         btnThoat.Visible = true;
         lblTB.Visible = false;
-        mh.MaMH = griMatHang.SelectedValue.ToString();
-        mh.CT();
-        txtMaMH.Text = mh.MaMH.ToString();
-        txtMaMH.Enabled = false;
-        txtTenMH.Text = mh.TenMH;
-        txtGia.Text = mh.Gia.ToString();
-        imgAnhMH.ImageUrl = "~/src/product/" + mh.AnhMH;
-        fckChiTiet.Text = mh.ChiTiet;
-        txtCachSuDung.Text = mh.CachSuDung.ToString();
-        lmh.MaLMH = mh.MaLMH;
-        droLoaiMH.SelectedValue = lmh.MaLMH.ToString();
+        sp.MaSP = griMatHang.SelectedValue.ToString();
+        sp.CT();
+        txtMaSP.Text = sp.MaSP.ToString();
+        txtMaSP.Enabled = false;
+        txtTenSP.Text = sp.TenSP;
+        txtGia.Text = sp.Gia.ToString();
+        imgAnhSP.ImageUrl = "~/src/product/" + sp.AnhSP;
+        fckChiTiet.Text = sp.ChiTiet;
+        txtCachSuDung.Text = sp.CachSuDung.ToString();
+        lsp.MaLSP = sp.MaLSP;
+        droLoaiSP.SelectedValue = lsp.MaLSP.ToString();
     }
     protected void griMatHang_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griMatHang.PageIndex = e.NewPageIndex;
-        if (Session["MaLMH"] == "0")
-            griMatHang.DataSource = mh.DS();
+        if (Session["MaLSP"] == "0")
+            griMatHang.DataSource = sp.DS();
         else
-            griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));
+            griMatHang.DataSource = sp.SanPham_DS_TheoLoaiSP(int.Parse(Session["MaLSP"].ToString()));
         griMatHang.DataBind();
     }
     protected void lbtThemMoi_Click(object sender, EventArgs e)
@@ -118,8 +118,8 @@ public partial class User_SanPham : System.Web.UI.Page
         pnlChiTietMH.Visible = true;
         lbtThemMoi.Visible = false;
         btnThem.Visible = true;
-        txtMaMH.Enabled = true;
-        txtMaMH.ReadOnly = false;
+        txtMaSP.Enabled = true;
+        txtMaSP.ReadOnly = false;
         btnSuDung.Visible = false;
         btnXoa.Visible = false;
         btnSua.Visible = false;
@@ -127,43 +127,43 @@ public partial class User_SanPham : System.Web.UI.Page
         lblTB.Visible = false;
         txtSoLuong.Visible = false;
         chkMinhHoa.Visible = false;
-        txtMaMH.Text = "";
-        txtTenMH.Text = "";
+        txtMaSP.Text = "";
+        txtTenSP.Text = "";
         txtGia.Text = "";
         fckChiTiet.Text = "";
         txtCachSuDung.Text = "";
-        imgAnhMH.ImageUrl = "~/src/product/";
+        imgAnhSP.ImageUrl = "~/src/product/";
     }
     protected void btnThem_Click(object sender, EventArgs e)
     {
-        bool bMaMH = string.IsNullOrWhiteSpace(txtMaMH.Text);
-        bool bTenMH = string.IsNullOrWhiteSpace(txtTenMH.Text);
+        bool bMaSP = string.IsNullOrWhiteSpace(txtMaSP.Text);
+        bool bTenSP = string.IsNullOrWhiteSpace(txtTenSP.Text);
         bool bGia = string.IsNullOrWhiteSpace(txtGia.Text);
-        if (bTenMH == false && bGia == false && fileAnhMH.HasFile == true)
+        if (bTenSP == false && bGia == false && fileAnhSP.HasFile == true)
         {
-            mh.MaMH = txtMaMH.Text;
-            mh.TenMH = txtTenMH.Text;
+            sp.MaSP = txtMaSP.Text;
+            sp.TenSP = txtTenSP.Text;
             string DuongDan = "";
-            string ReName = txtMaMH.Text;
+            string ReName = txtMaSP.Text;
             DuongDan = Server.MapPath("~/src/product/");
             DuongDan = DuongDan + ReName + ".jpg";
-            fileAnhMH.SaveAs(DuongDan);
-            mh.AnhMH = ReName + ".jpg";
-            mh.ChiTiet = fckChiTiet.Text;
-            mh.CachSuDung = txtCachSuDung.Text;
-            mh.Gia = float.Parse(txtGia.Text);
-            mh.MaLMH = int.Parse(Session["MaLMH"].ToString());
-            mh.Them();
+            fileAnhSP.SaveAs(DuongDan);
+            sp.AnhSP = ReName + ".jpg";
+            sp.ChiTiet = fckChiTiet.Text;
+            sp.CachSuDung = txtCachSuDung.Text;
+            sp.Gia = float.Parse(txtGia.Text);
+            sp.MaLSP = int.Parse(Session["MaLSP"].ToString());
+            sp.Them();
             lblTB.Visible = true;
-            lblTB.Text = mh.ThongBao;
-            griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));
+            lblTB.Text = sp.ThongBao;
+            griMatHang.DataSource = sp.SanPham_DS_TheoLoaiSP(int.Parse(Session["MaLSP"].ToString()));
             griMatHang.DataBind();
             pnlChiTietMH.Visible = false;
             lbtThemMoi.Visible = true;
         }
         else
         {
-            if (fileAnhMH.HasFile == false)
+            if (fileAnhSP.HasFile == false)
             {
                 lblTB.Visible = true;
                 lblTB.Text = "Bạn phải chọn ảnh sản phẩm.";
@@ -177,14 +177,14 @@ public partial class User_SanPham : System.Web.UI.Page
     }
     protected void btnXoa_Click(object sender, EventArgs e)
     {
-        mh.MaMH = griMatHang.SelectedValue.ToString();
-        mh.Xoa();
+        sp.MaSP = griMatHang.SelectedValue.ToString();
+        sp.Xoa();
         lblTB.Visible = true;
-        lblTB.Text = mh.ThongBao;
-        griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));
+        lblTB.Text = sp.ThongBao;
+        griMatHang.DataSource = sp.SanPham_DS_TheoLoaiSP(int.Parse(Session["MaLSP"].ToString()));
         griMatHang.DataBind();
-        txtMaMH.Text = "";
-        txtTenMH.Text = "";
+        txtMaSP.Text = "";
+        txtTenSP.Text = "";
         txtGia.Text = "";
         fckChiTiet.Text = "";
         txtCachSuDung.Text = "";      
@@ -193,48 +193,48 @@ public partial class User_SanPham : System.Web.UI.Page
     }
     protected void btnSua_Click(object sender, EventArgs e)
     {
-        bool bTenMH = string.IsNullOrWhiteSpace(txtTenMH.Text);
+        bool bTenSP = string.IsNullOrWhiteSpace(txtTenSP.Text);
         bool bGia = string.IsNullOrWhiteSpace(txtGia.Text);
         bool bCachSuDung = string.IsNullOrWhiteSpace(txtCachSuDung.Text);
         bool bChiTiet = string.IsNullOrWhiteSpace(fckChiTiet.Text);
-        if (bTenMH == false && bGia == false && bCachSuDung == false && bChiTiet == false && fileAnhMH.HasFile == true)
+        if (bTenSP == false && bGia == false && bCachSuDung == false && bChiTiet == false && fileAnhSP.HasFile == true)
         {
-            mh.MaMH = griMatHang.SelectedValue.ToString();
-            mh.TenMH = txtTenMH.Text;
+            sp.MaSP = griMatHang.SelectedValue.ToString();
+            sp.TenSP = txtTenSP.Text;
             string DuongDan = "";
-            string ReName = txtMaMH.Text;
+            string ReName = txtMaSP.Text;
             DuongDan = Server.MapPath("~/src/product/");
             DuongDan = DuongDan + ReName + ".jpg";
-            fileAnhMH.SaveAs(DuongDan);
-            mh.AnhMH = ReName + ".jpg";
-            mh.Gia = double.Parse(txtGia.Text);
-            mh.CachSuDung = txtCachSuDung.Text;
-            mh.ChiTiet = fckChiTiet.Text;
-            mh.MaLMH = int.Parse(droLoaiMH.SelectedValue);
-            mh.Sua();
+            fileAnhSP.SaveAs(DuongDan);
+            sp.AnhSP = ReName + ".jpg";
+            sp.Gia = double.Parse(txtGia.Text);
+            sp.CachSuDung = txtCachSuDung.Text;
+            sp.ChiTiet = fckChiTiet.Text;
+            sp.MaLSP = int.Parse(droLoaiSP.SelectedValue);
+            sp.Sua();
             lblTB.Visible = true;
-            lblTB.Text = mh.ThongBao;
-            griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));
+            lblTB.Text = sp.ThongBao;
+            griMatHang.DataSource = sp.SanPham_DS_TheoLoaiSP(int.Parse(Session["MaLSP"].ToString()));
             griMatHang.DataBind();
             pnlChiTietMH.Visible = false;
             lbtThemMoi.Visible = true;
         }
         else
-            if (bTenMH == false && bGia == false && bCachSuDung == false && bChiTiet == false && fileAnhMH.HasFile == false)
+            if (bTenSP == false && bGia == false && bCachSuDung == false && bChiTiet == false && fileAnhSP.HasFile == false)
             {
-                mh.MaMH = griMatHang.SelectedValue.ToString();
-                mh.CT();
-                string temp = mh.AnhMH.ToString();
-                mh.TenMH = txtTenMH.Text;
-                mh.AnhMH = temp;
-                mh.Gia = double.Parse(txtGia.Text);
-                mh.CachSuDung = txtCachSuDung.Text;
-                mh.ChiTiet = fckChiTiet.Text;
-                mh.MaLMH = int.Parse(droLoaiMH.SelectedValue);
-                mh.Sua();
+                sp.MaSP = griMatHang.SelectedValue.ToString();
+                sp.CT();
+                string temp = sp.AnhSP.ToString();
+                sp.TenSP = txtTenSP.Text;
+                sp.AnhSP = temp;
+                sp.Gia = double.Parse(txtGia.Text);
+                sp.CachSuDung = txtCachSuDung.Text;
+                sp.ChiTiet = fckChiTiet.Text;
+                sp.MaLSP = int.Parse(droLoaiSP.SelectedValue);
+                sp.Sua();
                 lblTB.Visible = true;
-                lblTB.Text = mh.ThongBao;
-                griMatHang.DataSource = mh.MatHang_DS_TheoLoaiMH(int.Parse(Session["MaLMH"].ToString()));
+                lblTB.Text = sp.ThongBao;
+                griMatHang.DataSource = sp.SanPham_DS_TheoLoaiSP(int.Parse(Session["MaLSP"].ToString()));
                 griMatHang.DataBind();
                 pnlChiTietMH.Visible = false;
                 lbtThemMoi.Visible = true;
@@ -265,7 +265,7 @@ public partial class User_SanPham : System.Web.UI.Page
         {
             if (Session["MaKH"] == null)//???nếu không chọn khách hàng thì sử dụng này là nhà phân phối sử dụng
             {
-                nppsd.MaMH = griMatHang.SelectedValue.ToString();
+                nppsd.MaSP = griMatHang.SelectedValue.ToString();
                 nppsd.MaNPP = Session["MaNPP"].ToString();
                 nppsd.NgayNPPSD = txtNgaySD.Text;
                 if (txtGhiChu.Text == "Ghi chú")
@@ -289,7 +289,7 @@ public partial class User_SanPham : System.Web.UI.Page
             }
             else
             {
-                khsd.MaMH = griMatHang.SelectedValue.ToString();
+                khsd.MaSP = griMatHang.SelectedValue.ToString();
                 khsd.MaKH = Session["MaKH"].ToString();
                 khsd.MaNPP = Session["MaNPP"].ToString();
                 khsd.NgayKHSD = txtNgaySD.Text;

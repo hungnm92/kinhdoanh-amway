@@ -511,5 +511,4 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         dtt.MaDuong = npp.MaDuongNPPTT;
         droDuongNPPTT.SelectedValue = dtt.MaDuong.ToString();
     }
-
 }

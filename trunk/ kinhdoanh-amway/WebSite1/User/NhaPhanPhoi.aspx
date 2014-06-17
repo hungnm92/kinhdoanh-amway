@@ -29,6 +29,13 @@
         .auto-style15 {
            
         }
+        .popupControl { 
+ background-color: #eeeeee; 
+ border: outset 1px #c0c0c0; 
+ color: #444444; 
+ position: absolute; 
+ visibility: visible; 
+}
              /*phần tử phủ toàn màn hình*/          
     </style>
               <link href="../style/Show-popup.css" rel="stylesheet" />              
@@ -40,7 +47,7 @@
 
     <div id="popup-bg"></div>
 <div id="popup">
-	<div id="popup-header">Header<span id="popup-close" title="Close">x</span></div>
+	<div id="popup-header">Ấn phím ESC hoặc click vào X để thoát<span id="popup-close" title="Close">x</span></div>
     <div id="popup-content">
         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>
@@ -52,7 +59,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center">
-                                <asp:Button ID="btnXoa" runat="server" CssClass="style-button" OnClick="btnXoa_Click" Text="Đồng ý" Visible="true" />
+                                <asp:Button ID="btnXoa" runat="server" CssClass="style-button" OnClick="btnXoa_Click" Text="Đồng ý" Visible="false" />
                             </td>
                         </tr>
                         <tr>
@@ -163,27 +170,27 @@
                     <asp:TextBox ID="txtMaNPP" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                     <asp:FilteredTextBoxExtender ID="ftbMaNPP" runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtMaNPP">
                     </asp:FilteredTextBoxExtender>
-                </td>
+                    *</td>
             </tr>
             <tr>
                 <td >Họ và đệm: &nbsp;
                 </td>
                 <td>
                     <asp:TextBox ID="txtHoNPP" runat="server"></asp:TextBox>
-                </td>
+                    *</td>
             </tr>
             <tr>
                 <td >Tên:</td>
                 <td>
                     <asp:TextBox ID="txtTenNPP" runat="server"></asp:TextBox>
-                </td>
+                    *</td>
             </tr>
             <tr>
                 <td >Ngày sinh: </td>
                 <td>
                     <asp:TextBox ID="txtNgaySinh" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                      <asp:CalendarExtender ID="CalendarExtender1" TargetControlID="txtNgaySinh" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
-                </td>
+                    *</td>
                 <td >Giới tính:
                     <asp:RadioButton ID="rdoNam" runat="server" Checked="True" GroupName="GioiTinh" Text="Nam" />
                     &nbsp;
@@ -197,24 +204,24 @@
                     <asp:TextBox ID="txtCMND" runat="server" ReadOnly="True"></asp:TextBox>
                     <asp:FilteredTextBoxExtender ID="ftbCMND" runat="server" Enabled="True" FilterType="Numbers" TargetControlID="txtCMND">
                     </asp:FilteredTextBoxExtender>
-                </td>
+                    *</td>
                 <td >Số điện thoại:
                     <asp:TextBox ID="txtSoDT" runat="server"></asp:TextBox>
                     <asp:FilteredTextBoxExtender ID="ftbSoDT" runat="server" Enabled="True" FilterType="Numbers" 
 
 TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
-                </td>
+                    *</td>
             </tr>
             <tr>
                 <td >Email:
                     </td>
                 <td>
                     <asp:TextBox ID="txtEmail" runat="server" ></asp:TextBox>
-                </td>
+                    *</td>
                 <td >Ngày ký thẻ:&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtNgayKyThe" runat="server" ReadOnly="True" Enabled="False"></asp:TextBox>
                      <asp:CalendarExtender ID="CalendarExtender2" TargetControlID="txtNgayKyThe" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
-                </td>
+                    *</td>
             </tr>
             <tr>
                 <td  style="white-space: nowrap">Ngày hết hạn:
@@ -222,7 +229,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                 <td>
                     <asp:TextBox ID="txtNgayHetHan" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
                      <asp:CalendarExtender ID="CalendarExtender3" TargetControlID="txtNgayHetHan" Format="dd/MM/yyyy" runat="server"></asp:CalendarExtender>
-                </td>
+                    *</td>
                 <td class="auto-style10">&nbsp;</td>
             </tr>
             <tr>
@@ -231,7 +238,10 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                     <asp:TextBox ID="txtSoNhaNPPTT" runat="server"></asp:TextBox>
                     &nbsp;<asp:DropDownList ID="droDuongNPPTT" runat="server" DataTextField="TenDuong" DataValueField="MaDuong">
                     </asp:DropDownList>
-                    &nbsp;</td>
+                    &nbsp;<asp:Button ID="btnThemDuong" runat="server" Text="+" />
+                    <asp:PopupControlExtender ID="PopAtt" runat="server" PopupControlID="pnlThemDiaChi" TargetControlID="btnThemDuong">
+                    </asp:PopupControlExtender>
+                </td>
             </tr>
             <tr>
                 <td  style="white-space: nowrap">&nbsp;</td>
@@ -239,8 +249,14 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                         <ContentTemplate>
                             <asp:DropDownList ID="droXaNPPTT" runat="server" AutoPostBack="false" DataTextField="TenXa" DataValueField="MaXa">
                     </asp:DropDownList>
+                            <asp:Button ID="btnThemXa" runat="server" Text="+" />
+                            <asp:PopupControlExtender ID="PopAtt2" runat="server" PopupControlID="PnlXaPhuong" TargetControlID="btnThemXa">
+                    </asp:PopupControlExtender>
                     <asp:DropDownList ID="droHuyenNPPTT" runat="server" AutoPostBack="true" DataValueField="MaHuyen" DataTextField="TenHuyen" OnSelectedIndexChanged="droHuyenNPPTT_SelectedIndexChanged">
                     </asp:DropDownList>
+                            <asp:Button ID="btnThemHuyen" runat="server" Text="+" />
+                            <asp:PopupControlExtender ID="PopAtt3" runat="server" PopupControlID="PnlHuyen" TargetControlID="btnThemHuyen">
+                    </asp:PopupControlExtender>
                     <asp:DropDownList ID="droTinhNPPTT" runat="server" AutoPostBack="true" DataTextField="TenTinh" DataValueField="MaTinh" OnSelectedIndexChanged="droTinhNPPTT_SelectedIndexChanged">
                     </asp:DropDownList>
                         </ContentTemplate>
@@ -315,9 +331,64 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                     <br />
                      
                     
-                    <!-- abc -->
-      
+ <!-- abc -->
 
+                    <asp:Panel ID="pnlThemDiaChi" CssClass="popupControl" runat="server">
+                          <br />
+                        <table style="width:100%;">
+                            <tr>
+                                <td style="text-align: right; white-space: nowrap;">Mã đường: </td>
+                                <td>
+                                    <asp:TextBox ID="txtMaD" runat="server" Width="200px"></asp:TextBox>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style16" style="text-align: right; white-space: nowrap;">Tên đường:&nbsp; </td>
+                                <td class="auto-style16">
+                                    <asp:TextBox ID="txtTenD" runat="server" Width="200px"></asp:TextBox>
+                                </td>
+                                <td class="auto-style16">
+                                    <asp:Button ID="btnThemD" runat="server" OnClick="btnThemD_Click" Text="Thêm" />
+                                </td>
+                            </tr>
+                           
+
+                        </table>
+                          <br />
+                    </asp:Panel>
+
+                    <asp:Panel ID="PnlXaPhuong" CssClass="popupControl" runat="server">
+                          <br />
+                        <table style="width:100%;">
+                             <tr>
+                                <td style="text-align: right">Tên Xã:&nbsp; </td>
+                                <td>
+                                    <asp:TextBox ID="txtTenX" runat="server" Width="200px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Button ID="btnThemXP" runat="server" Text="Thêm" OnClick="btnThemXP_Click" />
+                                </td>
+                            </tr>
+                        </table>
+                          <br />
+                    </asp:Panel>
+
+                    <asp:Panel ID="PnlHuyen" CssClass="popupControl" runat="server">
+                          <br />
+                         <table style="width:100%;">
+                            <tr>
+                                <td style="text-align: right">Tên Huyện:&nbsp; </td>
+                                <td>
+                                    <asp:TextBox ID="txtTenH" runat="server" Width="200px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Button ID="btnThemH" runat="server" Text="Thêm" OnClick="btnThemH_Click" />
+                                </td>
+                            </tr>
+                         </table>
+                          <br />
+                    </asp:Panel>
                      <!-- abc -->
                     <br />
                         <br />

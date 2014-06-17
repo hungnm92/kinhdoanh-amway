@@ -30,7 +30,7 @@
             </asp:CommandField>
              <asp:TemplateField HeaderText="   Tên sản phẩm">
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("TenMH").ToString().Length > 30 ? Eval("TenMH").ToString().Substring(0,30) +"..." : Eval("TenMH") %>'></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("TenSP").ToString().Length > 30 ? Eval("TenSP").ToString().Substring(0,30) +"..." : Eval("TenSP") %>'></asp:Label>
                             </ItemTemplate>
                             <HeaderStyle Wrap="False" />
                             <ItemStyle Wrap="False" />
@@ -38,10 +38,10 @@
             <asp:BoundField DataField="SoLuong" HeaderText="Số lượng" />
             <asp:TemplateField HeaderText="Ảnh minh họa">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("AnhMH") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("AnhSP") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Image ID="Image1" runat="server" Height="35px" ImageUrl='<%# Eval("AnhMH", "~/src/product/{0}") %>' />
+                        <asp:Image ID="Image1" runat="server" Height="35px" ImageUrl='<%# Eval("AnhSP", "~/src/product/{0}") %>' />
                     </ItemTemplate>
                     <HeaderStyle HorizontalAlign="Center" Width="1%" Wrap="False" />
                     <ItemStyle HorizontalAlign="Center" Width="1%" Wrap="False" />
@@ -69,7 +69,7 @@
             </asp:CommandField>
             <asp:TemplateField HeaderText="   Tên sản phẩm">
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("TenMH").ToString().Length > 30 ? Eval("TenMH").ToString().Substring(0,30) +"..." : Eval("TenMH") %>'></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("TenSP").ToString().Length > 30 ? Eval("TenSP").ToString().Substring(0,30) +"..." : Eval("TenSP") %>'></asp:Label>
                             </ItemTemplate>
                             <HeaderStyle Wrap="False" />
                             <ItemStyle Wrap="False" />
@@ -106,10 +106,10 @@
                 <td class="auto-style13">Mã sản phẩm:
                     </td>
                 <td class="auto-style13">
-                    <asp:TextBox ID="txtMaMH" runat="server" Enabled="False"></asp:TextBox>
+                    <asp:TextBox ID="txtMaSP" runat="server" Enabled="False"></asp:TextBox>
                 </td>
                 <td class="auto-style13" rowspan="6">
-                    <asp:Image ID="imgAnhMH" runat="server" />
+                    <asp:Image ID="imgAnhSP" runat="server" />
                 </td>
             </tr>
             <tr>
@@ -119,7 +119,7 @@
             </tr>
             <tr>
                 <td class="auto-style14" colspan="2" style="white-space: nowrap; ">
-                    <asp:TextBox ID="txtTenMH" runat="server" Enabled="False" Width="100%"></asp:TextBox>
+                    <asp:TextBox ID="txtTenSP" runat="server" Enabled="False" Width="100%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -177,8 +177,8 @@
                     <asp:CheckBox ID="chkMinhHoa" runat="server" Text="Minh họa" />
                     </td>
                 <td class="auto-style15" colspan="2">
-                    &nbsp;Loại mặt hàng:
-                    <asp:DropDownList ID="droLoaiMH" runat="server" DataTextField="TenLMH" DataValueField="MaLMH" Enabled="False">
+                    &nbsp;Loại sản phẩm:
+                    <asp:DropDownList ID="droLoaiMH" runat="server" DataTextField="TenLSP" DataValueField="MaLSP" Enabled="False">
                     </asp:DropDownList>
                 </td>
             </tr>

@@ -11,8 +11,8 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
     webdoan.KhachHang kh = new webdoan.KhachHang();
     webdoan.NPPSuDung nppsd = new webdoan.NPPSuDung();
     webdoan.KHSuDung khsd = new webdoan.KHSuDung();
-    webdoan.LoaiMH lmh = new webdoan.LoaiMH();
-    webdoan.MatHang mh = new webdoan.MatHang();
+    webdoan.LoaiSP lsp = new webdoan.LoaiSP();
+    webdoan.SanPham sp = new webdoan.SanPham();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["MaNPP"] == null)
@@ -22,10 +22,10 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
         if (Session["MaKH"] == null)
         {
             if (Session["MaNPPClick"] == null)
-                griMatHangChuaDung.DataSource = nppsd.MatHang_ChuaDung(Session["MaNPP"].ToString());
+                griMatHangChuaDung.DataSource = nppsd.SanPham_ChuaDung(Session["MaNPP"].ToString());
             else
             {
-                griMatHangChuaDung.DataSource = nppsd.MatHang_ChuaDung(Session["MaNPPClick"].ToString());
+                griMatHangChuaDung.DataSource = nppsd.SanPham_ChuaDung(Session["MaNPPClick"].ToString());
                 npp.MaNPP = Session["MaNPPClick"].ToString();
                 npp.CT();
                 lblClick.Visible = true;
@@ -38,7 +38,7 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
         {
             if (Session["MaNPPClick"] == null)
             {
-                griMatHangChuaDung.DataSource = khsd.MatHang_ChuaDung(Session["MaNPP"].ToString(), Session["MaKH"].ToString());
+                griMatHangChuaDung.DataSource = khsd.SanPham_ChuaDung(Session["MaNPP"].ToString(), Session["MaKH"].ToString());
                 kh.MaKH = Session["MaKH"].ToString();
                 kh.CT();
                 lblClick.Visible = true;
@@ -54,12 +54,12 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
                 lblClick.Visible = true;
                 lblClick.Text = "Bạn đang xem sản phẩm gợi ý của " + kh.HoKH + " " + kh.TenKH + " là khách hàng " + npp.HoNPP + " " + npp.TenNPP;
                 lbtTroVe.Visible = true;
-                griMatHangChuaDung.DataSource = khsd.MatHang_ChuaDung(Session["MaNPPClick"].ToString(), Session["MaKH"].ToString());
+                griMatHangChuaDung.DataSource = khsd.SanPham_ChuaDung(Session["MaNPPClick"].ToString(), Session["MaKH"].ToString());
             }
             griMatHangChuaDung.DataBind();
         }
-        droLoaiMH.DataSource = lmh.DS();
-        droLoaiMH.DataBind();
+        droLoaiSP.DataSource = lsp.DS();
+        droLoaiSP.DataBind();
     }
     protected void griMatHangChuaDung_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -75,17 +75,17 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
                 txtNgayHH.Visible = true;
                 txtGhiChu.Visible = true;
             }
-            mh.MaMH = griMatHangChuaDung.SelectedValue.ToString();
-            mh.CT();
-            txtMaMH.Text = mh.MaMH.ToString();
-            txtMaMH.ReadOnly = true;
-            txtTenMH.Text = mh.TenMH;
-            txtGia.Text = mh.Gia.ToString();
-            fckChiTiet.Text = mh.ChiTiet;
-            txtCachSuDung.Text = mh.CachSuDung.ToString();
-            imgAnhMH.ImageUrl = "~/src/product/" + mh.AnhMH;
-            lmh.MaLMH = mh.MaLMH;
-            droLoaiMH.SelectedValue = lmh.MaLMH.ToString();
+            sp.MaSP = griMatHangChuaDung.SelectedValue.ToString();
+            sp.CT();
+            txtMaSP.Text = sp.MaSP.ToString();
+            txtMaSP.ReadOnly = true;
+            txtTenSP.Text = sp.TenSP;
+            txtGia.Text = sp.Gia.ToString();
+            fckChiTiet.Text = sp.ChiTiet;
+            txtCachSuDung.Text = sp.CachSuDung.ToString();
+            imgAnhSP.ImageUrl = "~/src/product/" + sp.AnhSP;
+            lsp.MaLSP = sp.MaLSP;
+            droLoaiSP.SelectedValue = lsp.MaLSP.ToString();
     }
     protected void griMatHangChuaDung_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -95,9 +95,9 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
             if (Request.QueryString["MaADA"] != null)
                 Session["MaNPPClick"] = Request.QueryString["MaADA"];
             if (Session["MaNPPClick"] == null)
-                griMatHangChuaDung.DataSource = nppsd.MatHang_ChuaDung(Session["MaNPP"].ToString());
+                griMatHangChuaDung.DataSource = nppsd.SanPham_ChuaDung(Session["MaNPP"].ToString());
             else
-                griMatHangChuaDung.DataSource = nppsd.MatHang_ChuaDung(Session["MaNPPClick"].ToString());
+                griMatHangChuaDung.DataSource = nppsd.SanPham_ChuaDung(Session["MaNPPClick"].ToString());
             griMatHangChuaDung.DataBind();
         }
         else
@@ -105,9 +105,9 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
             if (Request.QueryString["MaADA"] != null)
                 Session["MaNPPClick"] = Request.QueryString["MaADA"];
             if (Session["MaNPPClick"] == null)
-                griMatHangChuaDung.DataSource = khsd.MatHang_ChuaDung(Session["MaNPP"].ToString(), Session["MaKH"].ToString());
+                griMatHangChuaDung.DataSource = khsd.SanPham_ChuaDung(Session["MaNPP"].ToString(), Session["MaKH"].ToString());
             else
-                griMatHangChuaDung.DataSource = khsd.MatHang_ChuaDung(Session["MaNPPClick"].ToString(), Session["MaKH"].ToString());
+                griMatHangChuaDung.DataSource = khsd.SanPham_ChuaDung(Session["MaNPPClick"].ToString(), Session["MaKH"].ToString());
             griMatHangChuaDung.DataBind();
         }
     }
@@ -125,7 +125,7 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
         txtGhiChu.Visible = true;
         if (Session["MaKH"] == null)
         {
-            nppsd.MaMH = griMatHangChuaDung.SelectedValue.ToString();
+            nppsd.MaSP = griMatHangChuaDung.SelectedValue.ToString();
             nppsd.MaNPP = Session["MaNPP"].ToString();
             nppsd.NgayNPPSD = txtNgaySD.Text;
             if (txtGhiChu.Text == "Ghi chú")
@@ -146,12 +146,12 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
             }
             lblTB.Visible = true;
             lblTB.Text = nppsd.ThongBao;
-            griMatHangChuaDung.DataSource = nppsd.MatHang_ChuaDung(Session["MaNPP"].ToString());
+            griMatHangChuaDung.DataSource = nppsd.SanPham_ChuaDung(Session["MaNPP"].ToString());
             griMatHangChuaDung.DataBind();
         }
         else
         {
-            khsd.MaMH = griMatHangChuaDung.SelectedValue.ToString();
+            khsd.MaSP = griMatHangChuaDung.SelectedValue.ToString();
             khsd.MaKH = Session["MaKH"].ToString();
             khsd.MaNPP = Session["MaNPP"].ToString();
             khsd.NgayKHSD = txtNgaySD.Text;
@@ -173,7 +173,7 @@ public partial class User_SanPham_ChuaDung : System.Web.UI.Page
             }
             lblTB.Visible = true;
             lblTB.Text = khsd.ThongBao;
-            griMatHangChuaDung.DataSource = khsd.MatHang_ChuaDung(Session["MaNPP"].ToString(), Session["MaKH"].ToString());
+            griMatHangChuaDung.DataSource = khsd.SanPham_ChuaDung(Session["MaNPP"].ToString(), Session["MaKH"].ToString());
             griMatHangChuaDung.DataBind();
         }
         pnlChiTietMH.Visible = false;

@@ -109,35 +109,35 @@ public partial class User_MasterPage : System.Web.UI.MasterPage
     }
     protected void SPChuyenTrang(object sender, EventArgs e)
     {
-        Session["MaLMH"] = 1;
+        Session["MaLSP"] = 1;
         if (Session["MaNPPClick"] != null)
-            Response.Redirect("~/User/SanPham.aspx?MaLMH=1&MaADA=" + Session["MaNPPClick"]);
+            Response.Redirect("~/User/SanPham.aspx?MaLSP=1&MaADA=" + Session["MaNPPClick"]);
         else
-            Response.Redirect("~/User/SanPham.aspx?MaLMH=1");
+            Response.Redirect("~/User/SanPham.aspx?MaLSP=1");
     }
     protected void SPChuyenTrang1(object sender, EventArgs e)
     {
-        Session["MaLMH"] = 2;
+        Session["MaLSP"] = 2;
         if (Session["MaNPPClick"] != null)
-            Response.Redirect("~/User/SanPham.aspx?MaLMH=2&MaADA=" + Session["MaNPPClick"]);
+            Response.Redirect("~/User/SanPham.aspx?MaLSP=2&MaADA=" + Session["MaNPPClick"]);
         else
-            Response.Redirect("~/User/SanPham.aspx?MaLMH=2");
+            Response.Redirect("~/User/SanPham.aspx?MaLSP=2");
     }
     protected void SPChuyenTrang2(object sender, EventArgs e)
     {
-        Session["MaLMH"] = 3;
+        Session["MaLSP"] = 3;
         if (Session["MaNPPClick"] != null)
-            Response.Redirect("~/User/SanPham.aspx?MaLMH=3&MaADA=" + Session["MaNPPClick"]);
+            Response.Redirect("~/User/SanPham.aspx?MaLSP=3&MaADA=" + Session["MaNPPClick"]);
         else
-            Response.Redirect("~/User/SanPham.aspx?MaLMH=3");
+            Response.Redirect("~/User/SanPham.aspx?MaLSP=3");
     }
     protected void SPChuyenTrang3(object sender, EventArgs e)
     {
-        Session["MaLMH"] = 4;
+        Session["MaLSP"] = 4;
         if (Session["MaNPPClick"] != null)
-            Response.Redirect("~/User/SanPham.aspx?MaLMH=4&MaADA=" + Session["MaNPPClick"]);
+            Response.Redirect("~/User/SanPham.aspx?MaLSP=4&MaADA=" + Session["MaNPPClick"]);
         else
-            Response.Redirect("~/User/SanPham.aspx?MaLMH=4");
+            Response.Redirect("~/User/SanPham.aspx?MaLSP=4");
     }
     protected void SPChuyenTrang4(object sender, EventArgs e)
     {

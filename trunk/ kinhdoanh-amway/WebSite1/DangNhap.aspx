@@ -190,7 +190,11 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 <li><a href='http://vbpl.vn' target="_blank"><span>Văn bản pháp luật</span></a></li>
 </ul>
 </li>
-<li><a id="show-popupDN" href='#'>Trợ giúp<span>gửi yêu cầu giúp đỡ</span></a></li>
+<li><a id="show-popupDN" href='#'>Trợ giúp<span>gửi yêu cầu giúp đỡ</span></a>
+    <ul class='sub_menu'>
+<li><a href='QuenMatKhau.aspx'><span>Quên mật khẩu</span></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class='content'>
@@ -224,10 +228,10 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
     <asp:Repeater ID="rptMarkers" runat="server">
     <ItemTemplate>
                 {
-                    "title": '<%# Eval("Ten") %>',
+                    "title": '<%# Eval("MaTT") %>',
                     "lat": '<%# Eval("ViDo") %>',
                     "lng": '<%# Eval("KinhDo") %>',
-                    "description": '<%# Eval("GhiChu") %>'
+                    "description": '<%# Eval("MoTa") %>'
                 }
 </ItemTemplate>
 <SeparatorTemplate>
