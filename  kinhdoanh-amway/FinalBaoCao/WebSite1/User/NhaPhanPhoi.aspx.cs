@@ -668,4 +668,52 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         Session["MaNPPClick"] = griNhaPhanPhoi.SelectedValue.ToString();
         Response.Redirect("~/User/TrangChu.aspx?MaADA=" + Session["MaNPPClick"]);
     }
+    protected void btnThemD_Click(object sender, EventArgs e)
+    {
+        if ((string.IsNullOrWhiteSpace(txtMaD.Text) == false) && (string.IsNullOrWhiteSpace(txtTenD.Text) == false))
+        {
+            dll.MaDuong = txtMaD.Text;
+            dll.TenDuong = txtTenD.Text;
+            dll.Them();
+            lblTB.Visible = true;
+            lblTB.Text = dll.ThongBao;
+        }
+        else
+        {
+            lblTB.Visible = true;
+            lblTB.Text = "Bạn chưa nhập mã đường hoặc tên đường.";
+        }
+    }
+    protected void btnThemXP_Click(object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(txtTenX.Text) == false)
+        {
+            xptt.MaHuyen = droHuyenNPPTT.SelectedValue.ToString();
+            xptt.TenXa = txtTenX.Text;
+            xptt.Them();
+            lblTB.Visible = true;
+            lblTB.Text = xptt.ThongBao;
+        }
+        else
+        {
+            lblTB.Visible = true;
+            lblTB.Text = "Bạn chưa nhập tên Xã/Phường.";
+        }
+    }
+    protected void btnThemH_Click(object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(txtTenH.Text) == false)
+        {
+            htt.MaTinh = droTinhNPPTT.SelectedValue.ToString();
+            htt.TenHuyen = txtTenH.Text;
+            htt.Them();
+            lblTB.Visible = true;
+            lblTB.Text = htt.ThongBao;
+        }
+        else
+        {
+            lblTB.Visible = true;
+            lblTB.Text = "Bạn chưa nhập tên Huyện.";
+        }
+    }
 }

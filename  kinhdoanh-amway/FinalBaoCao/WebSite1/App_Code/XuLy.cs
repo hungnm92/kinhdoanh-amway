@@ -29,6 +29,7 @@ namespace webdoan
         public string MaHuyen;
         public string TenHuyen;
         public string MaTinh;
+        public string ThongBao;
         public DataTable DS()
         {
             SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
@@ -55,12 +56,33 @@ namespace webdoan
             }
             return ThungChua;
         }
+        public void Them()
+        {
+            try
+            {
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlCommand Lenh = new SqlCommand("Huyen_Them", BaoVe);
+                Lenh.CommandType = CommandType.StoredProcedure;
+                SqlParameter ThamSo = new SqlParameter();
+                ThamSo = Lenh.Parameters.AddWithValue("@MaTinh", MaTinh);
+                ThamSo = Lenh.Parameters.AddWithValue("@TenHuyen", TenHuyen);
+                BaoVe.Open();
+                Lenh.ExecuteNonQuery();
+                BaoVe.Close();
+                ThongBao = "Thêm thành công!.";
+            }
+            catch (Exception ex)
+            {
+                ThongBao = ex.Message;
+            }
+        }
     }
     public class XaPhuong
     {
         public string MaXa;
         public string TenXa;
         public string MaHuyen;
+        public string ThongBao;
         public DataTable DS(string MaHuyen)
         {
             string SelectSQL = "SELECT MaXa, TenXa FROM XaPhuong, Huyen	Where Huyen.MaHuyen = XaPhuong.MaHuyen AND XaPhuong.MaHuyen = @MaHuyen";
@@ -77,11 +99,32 @@ namespace webdoan
                 }
                 return ThungChua;
         }
+        public void Them()
+        {
+            try
+            {
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlCommand Lenh = new SqlCommand("XaPhuong_Them", BaoVe);
+                Lenh.CommandType = CommandType.StoredProcedure;
+                SqlParameter ThamSo = new SqlParameter();
+                ThamSo = Lenh.Parameters.AddWithValue("@MaHuyen", MaHuyen);
+                ThamSo = Lenh.Parameters.AddWithValue("@TenXa", TenXa);
+                BaoVe.Open();
+                Lenh.ExecuteNonQuery();
+                BaoVe.Close();
+                ThongBao = "Thêm thành công!.";
+            }
+            catch (Exception ex)
+            {
+                ThongBao = ex.Message;
+            }
+        }
     }
     public class Duong
     {
         public string MaDuong;
         public string TenDuong;
+        public string ThongBao;
         public DataTable DS()
         {
             SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
@@ -91,6 +134,26 @@ namespace webdoan
             XeTai.Fill(ThungChua);
             BaoVe.Close();
             return ThungChua;
+        }
+        public void Them()
+        {
+            try
+            {
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlCommand Lenh = new SqlCommand("Duong_Them", BaoVe);
+                Lenh.CommandType = CommandType.StoredProcedure;
+                SqlParameter ThamSo = new SqlParameter();
+                ThamSo = Lenh.Parameters.AddWithValue("@MaDuong", MaDuong);
+                ThamSo = Lenh.Parameters.AddWithValue("@TenDuong", TenDuong);
+                BaoVe.Open();
+                Lenh.ExecuteNonQuery();
+                BaoVe.Close();
+                ThongBao = "Thêm thành công!.";
+            }
+            catch (Exception ex)
+            {
+                ThongBao = ex.Message;
+            }
         }
     }
     public class LoaiMH
@@ -681,6 +744,27 @@ namespace webdoan
                     Lenh.ExecuteNonQuery();
                     BaoVe.Close();
                     ThongBao = "Đổi thành công!.";
+                }
+                catch (Exception ex)
+                {
+                    ThongBao = ex.Message;
+                }
+            }
+            public void Reset_MatKhau()
+            {
+                try
+                {
+                    SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                    SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_Reset_MatKhau", BaoVe);
+                    Lenh.CommandType = CommandType.StoredProcedure;
+                    SqlParameter ThamSo = new SqlParameter();
+                    ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
+                    ThamSo = Lenh.Parameters.AddWithValue("@MaNBT", MaNBT);
+                    ThamSo = Lenh.Parameters.AddWithValue("@MatKhauMoi", MatKhauMoi);
+                    BaoVe.Open();
+                    Lenh.ExecuteNonQuery();
+                    BaoVe.Close();
+                    ThongBao = "Mật khẩu mới đã được gửi về email của bạn!.";
                 }
                 catch (Exception ex)
                 {
