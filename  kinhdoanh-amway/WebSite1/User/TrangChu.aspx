@@ -194,12 +194,15 @@
                 <td colspan="3" class="auto-style12">
                     <asp:DropDownList ID="droCapDo" runat="server" DataTextField="TenCD" DataValueField="MaCD">
                     </asp:DropDownList>
-                    &nbsp;</td>
+                    &nbsp;<asp:TextBox ID="txtNgayKyThe0" runat="server" Enabled="False" ReadOnly="True" Visible="False"></asp:TextBox>
+                    <asp:CalendarExtender ID="txtNgayKyThe0_CalendarExtender" runat="server" Format="dd/MM/yyyy"  TargetControlID="txtNgayKyThe0">
+                    </asp:CalendarExtender>
+                </td>
             </tr>
             <tr>
                 <td colspan="1">Nhà bảo trợ:</td>
                 <td colspan="3">
-                    <asp:DropDownList ID="droNBT" runat="server" DataTextField="HoTenNPP" DataValueField="MaNPP" Width="200px">
+                    <asp:DropDownList ID="droNBT" runat="server" DataTextField="HoTenNPP" DataValueField="MaNPP" Width="200px" Enabled="False">
                     </asp:DropDownList>
                     </td>
             </tr>

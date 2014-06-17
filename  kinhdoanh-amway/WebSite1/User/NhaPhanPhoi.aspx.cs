@@ -82,7 +82,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     {
         pnlChiTietNPP.Visible = true;
         txtNgayKyThe0_CalendarExtender.SelectedDate = DateTime.Today;
-        if (Session["MaNPPClick"] == null)
+        if (Session["MaNPPClick"] == null || npp.MaNBT == Session["MaNPP"])
         {
             btnXoa.Visible = true;
             //show-popup: cho nút xóa ẩn
@@ -243,6 +243,18 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         droCapDo.Enabled = false;
         droNBT.SelectedValue = Session["MaNPP"].ToString();
         droNBT.Enabled = false;
+        droDuongNPPLL.SelectedValue = "0000";
+        droDuongNPPTT.SelectedValue = "0000";
+        droXaNPPLL.DataSource = xpll.DS("0000");
+        droXaNPPLL.DataBind();
+        droXaNPPTT.DataSource = xptt.DS("0000");
+        droXaNPPTT.DataBind();
+        droHuyenNPPLL.DataSource = hll.DS_TheoTinh("00");
+        droHuyenNPPLL.DataBind();
+        droHuyenNPPTT.DataSource = htt.DS_TheoTinh("00");
+        droHuyenNPPTT.DataBind();
+        droTinhNPPLL.SelectedValue = "00";
+        droTinhNPPTT.SelectedValue = "00";
     }
     protected void btnThem_Click(object sender, EventArgs e)
     {
@@ -418,6 +430,14 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             txtNgayKyThe0_CalendarExtender.SelectedDate = DateTime.Today;
             qtcd.ThoiGian = txtNgayKyThe0.Text;//lấy ngày hệ thống
             qtcd.Them();
+            if (Session["MaNPP"] == "0000000")
+            {
+                droNBT.Enabled = true;
+                npp.MaNBT = droNBT.SelectedValue;
+                npp.Sua_NhaBaoTro();
+            }
+            else
+                droNBT.Enabled = false;
             lblTBQTCD.Visible = true;
             lblTBQTCD.Text = qtcd.ThongBao;
             lblTB.Visible = true;
@@ -456,8 +476,17 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
                 npp.Sua();
                 qtcd.MaCD = int.Parse(droCapDo.SelectedValue);
                 qtcd.MaNPP = npp.MaNPP;
-                qtcd.ThoiGian = System.DateTime.Now.ToLongTimeString();// lấy time mặc định tại hệ thống.
+                txtNgayKyThe0_CalendarExtender.SelectedDate = DateTime.Today;
+                qtcd.ThoiGian = txtNgayKyThe0.Text;//lấy ngày hệ thống
                 qtcd.Them();
+                if (Session["MaNPP"] == "0000000")
+                {
+                    droNBT.Enabled = true;
+                    npp.MaNBT = droNBT.SelectedValue;
+                    npp.Sua_NhaBaoTro();
+                }
+                else
+                    droNBT.Enabled = false;
                 lblTBQTCD.Visible = true;
                 lblTBQTCD.Text = qtcd.ThongBao;
                 lblTB.Visible = true;
@@ -584,8 +613,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     protected void lbtSP_Click(object sender, EventArgs e)
     {
         Session["MaNPPClick"] = griNhaPhanPhoi.SelectedValue.ToString();
-        Session["MaLMH"] = "0";
-        Response.Redirect("~/User/SanPham.aspx?MaADA=" + Session["MaNPPClick"] + "MaLMH=0");
+        Session["MaLSP"] = "0";
+        Response.Redirect("~/User/SanPham.aspx?MaADA=" + Session["MaNPPClick"] + "MaLSP=0");
     }
     protected void lblSPGY_Click(object sender, EventArgs e)
     {
@@ -667,5 +696,53 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     {
         Session["MaNPPClick"] = griNhaPhanPhoi.SelectedValue.ToString();
         Response.Redirect("~/User/TrangChu.aspx?MaADA=" + Session["MaNPPClick"]);
+    }
+    protected void btnThemD_Click(object sender, EventArgs e)
+    {
+        if ((string.IsNullOrWhiteSpace(txtMaD.Text) == false) && (string.IsNullOrWhiteSpace(txtTenD.Text) == false))
+        {
+            dll.MaDuong = txtMaD.Text;
+            dll.TenDuong = txtTenD.Text;
+            dll.Them();
+            lblTB.Visible = true;
+            lblTB.Text = dll.ThongBao;
+        }
+        else
+        {
+            lblTB.Visible = true;
+            lblTB.Text = "Bạn chưa nhập mã đường hoặc tên đường.";
+        }
+    }
+    protected void btnThemXP_Click(object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(txtTenX.Text) == false)
+        {
+            xptt.MaHuyen = droHuyenNPPTT.SelectedValue.ToString();
+            xptt.TenXa = txtTenX.Text;
+            xptt.Them();
+            lblTB.Visible = true;
+            lblTB.Text = xptt.ThongBao;
+        }
+        else
+        {
+            lblTB.Visible = true;
+            lblTB.Text = "Bạn chưa nhập tên Xã/Phường.";
+        }
+    }
+    protected void btnThemH_Click(object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(txtTenH.Text) == false)
+        {
+            htt.MaTinh = droTinhNPPTT.SelectedValue.ToString();
+            htt.TenHuyen = txtTenH.Text;
+            htt.Them();
+            lblTB.Visible = true;
+            lblTB.Text = htt.ThongBao;
+        }
+        else
+        {
+            lblTB.Visible = true;
+            lblTB.Text = "Bạn chưa nhập tên Huyện.";
+        }
     }
 }

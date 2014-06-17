@@ -132,28 +132,28 @@ div#popup-content {
     <asp:GridView ID="griNPP_Moi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_Moi_PageIndexChanging" OnSelectedIndexChanged="griNPP_Moi_SelectedIndexChanged" PageSize="5" Font-Underline="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem     " ControlStyle-Font-Underline="false" ShowSelectButton="True" HeaderText="Xem     ">
+            <asp:CommandField SelectText="Xem     " ControlStyle-Font-Underline="false" ShowSelectButton="True" HeaderText="Xem         ">
             <ControlStyle Font-Underline="false" ForeColor="#009900" />
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA       ">
+            <asp:BoundField DataField="MaNPP" HeaderText="    Mã ADA        ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="HoTenNPP" HeaderText="Họ tên   ">
+            <asp:BoundField DataField="HoTenNPP" HeaderText="   Họ tên       ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại     ">
+            <asp:BoundField DataField="SoDT" HeaderText="   Số điện thoại       ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="NgayKyThe" HeaderText="Ngày ký thẻ       " DataFormatString=" {0:dd/MM/yyyy}">
+            <asp:BoundField DataField="NgayKyThe" HeaderText="    Ngày ký thẻ         " DataFormatString=" {0:dd/MM/yyyy}">
             </asp:BoundField>
-            <asp:TemplateField HeaderText="Địa chỉ liên lạc">
+            <asp:TemplateField HeaderText="   Địa chỉ liên lạc    ">
                             <ItemTemplate>
                                 <asp:Label ID="Label2" runat="server" Text='<%# Eval("DiaChiLL").ToString().Length > 20 ? Eval("DiaChiLL").ToString().Substring(0,20) +"..." : Eval("DiaChiLL") %>'></asp:Label>
                             </ItemTemplate>
@@ -176,24 +176,24 @@ div#popup-content {
     <asp:GridView ID="griNPP_ThanhTichMoi" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_ThanhTichMoi_PageIndexChanging" OnSelectedIndexChanged="griNPP_ThanhTichMoi_SelectedIndexChanged" PageSize="5" Font-Underline="False" >
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem    " ControlStyle-Font-Underline="false" ShowSelectButton="True" HeaderText="Xem     ">
+            <asp:CommandField SelectText="Xem    " ControlStyle-Font-Underline="false" ShowSelectButton="True" HeaderText="Xem        ">
             <ControlStyle Font-Underline="false" ForeColor="#009900" />
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA     ">
+            <asp:BoundField DataField="MaNPP" HeaderText="   Mã ADA         ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="HoTenNPP" HeaderText="   Họ tên   ">
+            <asp:BoundField DataField="HoTenNPP" HeaderText="   Họ tên      ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại     ">
+            <asp:BoundField DataField="SoDT" HeaderText="   Số điện thoại        ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="TenCD" HeaderText="Cấp độ" />
+            <asp:BoundField DataField="TenCD" HeaderText="   Cấp độ     " />
             <asp:BoundField DataField="ThoiGian" DataFormatString=" {0:dd/MM/yyyy}" HeaderText="Thời gian" />
         </Columns>
         <EditRowStyle BackColor="#7C6F57" />
@@ -211,25 +211,25 @@ div#popup-content {
     <asp:GridView ID="griNPP_SapHetHan" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaNPP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griNPP_ThanhTichMoi_PageIndexChanging" OnSelectedIndexChanged="griNPP_SapHetHan_SelectedIndexChanged" PageSize="5" Font-Underline="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField SelectText="Xem    " ControlStyle-Font-Underline="false" ShowSelectButton="True" HeaderText="Xem     ">
+            <asp:CommandField SelectText="Xem    " ControlStyle-Font-Underline="false" ShowSelectButton="True" HeaderText="Xem        ">
             <ControlStyle Font-Underline="false" ForeColor="#009900" />
             <FooterStyle Font-Underline="False" />
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaNPP" HeaderText="Mã ADA     ">
+            <asp:BoundField DataField="MaNPP" HeaderText="   Mã ADA        ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="HoTenNPP" HeaderText="Họ tên">
+            <asp:BoundField DataField="HoTenNPP" HeaderText="    Họ tên        ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="SoDT" HeaderText="Số điện thoại     ">
+            <asp:BoundField DataField="SoDT" HeaderText="    Số điện thoại       ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="TenCD" HeaderText="Cấp độ" />
-            <asp:BoundField DataField="ThoiGian" DataFormatString=" {0:dd/MM/yyyy}" HeaderText="Thời gian" />
+            <asp:BoundField DataField="TenCD" HeaderText="   Cấp độ    " />
+            <asp:BoundField DataField="ThoiGian" DataFormatString=" {0:dd/MM/yyyy}" HeaderText="   Thời gian     " />
         </Columns>
         <EditRowStyle BackColor="#7C6F57" />
         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -428,7 +428,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
       <!--             
 <div id="popup-bg"></div>
 <div id="popup">
-	<div id="popup-header">Header<span id="popup-close" title="Close">x</span></div>
+	<div id="popup-header">Ấn phím ESC hoặc click vào X để thoát<span id="popup-close" title="Close">x</span></div>
     <div id="popup-content">
         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>

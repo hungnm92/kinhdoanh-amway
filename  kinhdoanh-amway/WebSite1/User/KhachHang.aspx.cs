@@ -377,7 +377,7 @@ public partial class User_KhachHang : System.Web.UI.Page
                 {
                     khsd.DS_KH(kh.MaKH);
                     khsd.CT();
-                    nppsd.MaMH = khsd.MaMH;
+                    nppsd.MaSP = khsd.MaSP;
                     nppsd.MaNPP = txtMaNPP.Text;
                     string temp2 = khsd.NgayKHSD.ToString().Replace(" 12:00:00 AM", "");
                     temp2 = temp2.Substring(8, 2) + "/" + temp2.Substring(5, 2) + "/" + temp2.Substring(0, 4);
@@ -461,11 +461,11 @@ public partial class User_KhachHang : System.Web.UI.Page
         Session["MaKH"] = griKhachHang.SelectedValue.ToString();
         if (Request.QueryString["MaADA"] != null)
             Session["MaNPPClick"] = Request.QueryString["MaADA"];
-        Session["MaLMH"] = "0";
+        Session["MaLSP"] = "0";
         if (Session["MaNPPClick"] != null)
-            Response.Redirect("~/User/SanPham.aspx?MaKH=" + Session["MaKH"] + "MaLMH=0" + "&MaADA=" + Session["MaNPPClick"]);
+            Response.Redirect("~/User/SanPham.aspx?MaKH=" + Session["MaKH"] + "MaLSP=0" + "&MaADA=" + Session["MaNPPClick"]);
         else
-            Response.Redirect("~/User/SanPham.aspx?MaKH=" + Session["MaKH"] + "MaLMH=0");
+            Response.Redirect("~/User/SanPham.aspx?MaKH=" + Session["MaKH"] + "MaLSP=0");
     }
     protected void lbtSPGY_Click(object sender, EventArgs e)
     {

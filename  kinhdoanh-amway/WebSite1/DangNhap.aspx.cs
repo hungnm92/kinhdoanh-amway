@@ -27,7 +27,7 @@ public partial class User_DangNhap : System.Web.UI.Page
             Session["MaNPP"] = null;
             Session["MaKH"] = null;
             Session["MaCD"] = null;
-            Session["MaLMH"] = null;
+            Session["MaLSP"] = null;
             Session["Loai"] = null;
             rptMarkers.DataSource = npp.TrungTamPP_DS_GoogleMap();
             rptMarkers.DataBind();

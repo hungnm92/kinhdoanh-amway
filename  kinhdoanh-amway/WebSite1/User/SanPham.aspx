@@ -46,26 +46,26 @@
     <div id='TroVe'>
           <asp:LinkButton ID="lbtTroVe" runat="server" Visible="False" OnClick="lbtTroVe_Click">Trở về</asp:LinkButton>
             </div>
-    <asp:GridView ID="griMatHang" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaMH" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griMatHang_PageIndexChanging" OnSelectedIndexChanged="griMatHang_SelectedIndexChanged" PageSize="5">
+    <asp:GridView ID="griMatHang" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="MaSP" ForeColor="#333333" GridLines="None" OnPageIndexChanging="griMatHang_PageIndexChanging" OnSelectedIndexChanged="griMatHang_SelectedIndexChanged" PageSize="5">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField HeaderText="Xem        " SelectText="Xem" ShowSelectButton="True">
             <HeaderStyle Wrap="False" />
             </asp:CommandField>
-            <asp:BoundField DataField="MaMH" HeaderText="Mã số         ">
+            <asp:BoundField DataField="MaSP" HeaderText="Mã số         ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="TenMH" HeaderText="  Tên sản phẩm     ">
+            <asp:BoundField DataField="TenSP" HeaderText="  Tên sản phẩm     ">
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
             <asp:TemplateField HeaderText="Ảnh      ">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("AnhMH") %>'></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("AnhSP") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Image ID="Image1" runat="server" Height="35px" ImageUrl='<%# Eval("AnhMH", "~/src/product/{0}") %>' />
+                        <asp:Image ID="Image1" runat="server" Height="35px" ImageUrl='<%# Eval("AnhSP", "~/src/product/{0}") %>' />
                     </ItemTemplate>
                     <HeaderStyle HorizontalAlign="Center" Width="1%" Wrap="False" />
                     <ItemStyle HorizontalAlign="Center" Width="1%" Wrap="False" />
@@ -101,14 +101,14 @@
                 <td class="auto-style15" style="text-align: left">Mã sản phẩm:
                     </td>
                 <td class="auto-style13" rowspan="7" style="width: 250px">
-                    <asp:Image ID="imgAnhMH" runat="server" />
+                    <asp:Image ID="imgAnhSP" runat="server" />
                     <br />
-                    <asp:FileUpload ID="fileAnhMH" runat="server" />
+                    <asp:FileUpload ID="fileAnhSP" runat="server" />
                     <br />
                     <asp:RegularExpressionValidator 
 	ID="RegularExpressionValidator1" 
 	runat="server" 
-	ControlToValidate="fileAnhMH" 
+	ControlToValidate="fileAnhSP" 
 	ErrorMessage="Không phải file ảnh" 
 	ValidationExpression= 
 "^([0-9a-zA-Z_\-~ :\\])+(.jpg|.JPG|.jpeg|.JPEG|.bmp|.BMP|.gif|.GIF|.png|.PNG)$"> 
@@ -117,7 +117,7 @@
             </tr>
             <tr>
                 <td class="auto-style15" style="text-align: left">
-                    <asp:TextBox ID="txtMaMH" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMaSP" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -135,7 +135,7 @@
             </tr>
             <tr>
                 <td class="auto-style16" style="text-align: left">
-                    <asp:TextBox ID="txtTenMH" runat="server" Height="41px" Width="100%"></asp:TextBox>
+                    <asp:TextBox ID="txtTenSP" runat="server" Height="41px" Width="100%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -144,7 +144,7 @@
             </tr>
             <tr>
                 <td class="auto-style12" style="text-align: left">Giá:&nbsp; </td>
-                <td class="auto-style13">&nbsp;Loại mặt hàng: </td>
+                <td class="auto-style13">&nbsp;Loại sản phẩm: </td>
             </tr>
             <tr>
                 <td class="auto-style12" style="text-align: left">
@@ -153,7 +153,7 @@
                     </asp:FilteredTextBoxExtender>
                 </td>
                 <td class="auto-style13">
-                    <asp:DropDownList ID="droLoaiMH" runat="server" DataTextField="TenLMH" DataValueField="MaLMH">
+                    <asp:DropDownList ID="droLoaiSP" runat="server" DataTextField="TenLSP" DataValueField="MaLSP">
                     </asp:DropDownList>
                 </td>
             </tr>

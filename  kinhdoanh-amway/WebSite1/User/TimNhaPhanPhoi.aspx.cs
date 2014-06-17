@@ -60,7 +60,7 @@ public partial class User_Default : System.Web.UI.Page
     {
         pnlChiTietNPP.Visible = true;
         txtNgayKyThe0_CalendarExtender.SelectedDate = DateTime.Today;
-        if (Session["MaNPPClick"] == null)
+        if (npp.MaNBT == Session["MaNPP"])
         {
             btnXoa.Visible = true;
             //show-popup: cho nút xóa ẩn
@@ -68,7 +68,6 @@ public partial class User_Default : System.Web.UI.Page
             lbtSP.Visible = true;
             lbtCTSDR.Visible = true;
         }
-        lbtThemMoi.Visible = false;
         btnThoat.Visible = true;
         lblTB.Visible = false;
         npp.MaNPP = griNhaPhanPhoi.SelectedValue.ToString();
@@ -123,7 +122,7 @@ public partial class User_Default : System.Web.UI.Page
         npp.NgayHetHan = temp3;
         npp.CanhBao();
         lblCanhBao.Text = npp.ThongBao; // cảnh báo gia hạn thẻ.
-        if (Session["MaNPPClick"] == null || npp.MaNBT == Session["MaNPP"])
+        if (npp.MaNBT == Session["MaNPP"])
         {
             if (npp.SL_CanhBao() != 0)
                 btnGHT.Visible = true;
@@ -166,129 +165,8 @@ public partial class User_Default : System.Web.UI.Page
     protected void griNhaPhanPhoi_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         griNhaPhanPhoi.PageIndex = e.NewPageIndex;
-        if (Request.QueryString["MaADA"] != null)
-            Session["MaNPPClick"] = Request.QueryString["MaADA"];
-        if (Session["MaNPPClick"] == null)
-        {
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
-        }
-        else
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPPClick"].ToString(), int.Parse(Session["MaCD"].ToString()));
+        griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
         griNhaPhanPhoi.DataBind();
-    }
-    protected void lbtThemMoi_Click(object sender, EventArgs e)
-    {
-        //sp.GetID();
-        // Session["URL"] = "SP_" + sp.TempID + "file";
-        txtNgaySinh.Enabled = true;
-        txtNgaySinh.ReadOnly = false;
-        txtCMND.Enabled = true;
-        txtCMND.ReadOnly = false;
-        txtNgayKyThe.ReadOnly = false;
-        txtNgayKyThe.Enabled = true;
-        txtMaNPP.Enabled = true;
-        txtMaNPP.ReadOnly = false;
-        pnlChiTietNPP.Visible = true;
-        lbtThemMoi.Visible = false;
-        btnGHT.Visible = false;
-        lblCanhBao.Visible = false;
-        btnThem.Visible = true;
-        btnXoa.Visible = false;
-        //show-popup: cho nút xóa ẩn.
-        btnSua.Visible = false;
-        btnThoat.Visible = true;
-        lblTB.Visible = false;
-        btnChuyenMacDinh.Visible = false;
-        btnChuyenTheoYeuCau.Visible = false;
-        txtMaNPP.Text = "";
-        txtMaNPP.Enabled = true;
-        txtHoNPP.Text = "";
-        txtTenNPP.Text = "";
-        qtcd.MaCD = 0;
-        imgAnhNPP.ImageUrl = "~/src/emp/";
-        txtNgaySinh.Text = "";
-        txtNgaySinh.Enabled = true;
-        txtCMND.Text = "";
-        txtCMND.Enabled = true;
-        txtSoDT.Text = "";
-        txtEmail.Text = "";
-        txtNgayKyThe.Text = "";
-        txtNgayKyThe.Enabled = true;
-        txtNgayHetHan.Text = "";
-        txtSoNhaNPPTT.Text = "";
-        txtSoNhaNPPLL.Text = "";
-        droCapDo.Enabled = false;
-        droNBT.SelectedValue = Session["MaNPP"].ToString();
-        droNBT.Enabled = false;
-    }
-    protected void btnThem_Click(object sender, EventArgs e)
-    {
-        bool bMaADA = string.IsNullOrWhiteSpace(txtMaNPP.Text);
-        bool bHoNPP = string.IsNullOrWhiteSpace(txtHoNPP.Text);
-        bool bTenNPP = string.IsNullOrWhiteSpace(txtTenNPP.Text);
-        bool bNgaySinh = string.IsNullOrWhiteSpace(txtNgaySinh.Text);
-        bool bCMND = string.IsNullOrWhiteSpace(txtCMND.Text);
-        bool bSoDT = string.IsNullOrWhiteSpace(txtSoDT.Text);
-        bool bEmail = string.IsNullOrWhiteSpace(txtEmail.Text);
-        bool bNgayKyThe = string.IsNullOrWhiteSpace(txtNgayKyThe.Text);
-        if (bMaADA == false && bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && bNgayKyThe == false && fileAnhNPP.HasFile == true)
-        {
-            npp.MaNPP = txtMaNPP.Text;
-            npp.HoNPP = txtHoNPP.Text;
-            npp.TenNPP = txtTenNPP.Text;
-            npp.NgaySinh = txtNgaySinh.Text;
-            if (rdoNam.Checked == true)
-                npp.GioiTinh = true;
-            else
-                npp.GioiTinh = false;
-            string DuongDan = "";
-            string ReName = txtMaNPP.Text;
-            DuongDan = Server.MapPath("~/src/emp/");
-            DuongDan = DuongDan + ReName + ".jpg";
-            fileAnhNPP.SaveAs(DuongDan);
-            npp.AnhNPP = ReName + ".jpg";
-            npp.CMND = txtCMND.Text;
-            npp.SoDT = txtSoDT.Text;
-            npp.Email = txtEmail.Text;
-            npp.NgayKyThe = txtNgayKyThe.Text;
-            npp.SoNhaNPPTT = txtSoNhaNPPTT.Text;
-            npp.SoNhaNPPLL = txtSoNhaNPPLL.Text;
-            npp.MaDuongNPPTT = droDuongNPPTT.SelectedValue;
-            npp.MaDuongNPPLL = droDuongNPPLL.SelectedValue;
-            npp.MaXaNPPTT = droXaNPPTT.SelectedValue;
-            npp.MaXaNPPLL = droXaNPPLL.SelectedValue;
-            npp.MaNBT = Session["MaNPP"].ToString();
-            npp.Them();
-            lblTB.Visible = true;
-            lblTB.Text = npp.ThongBao;
-            griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
-            griNhaPhanPhoi.DataBind();
-            pnlChiTietNPP.Visible = false;
-            lbtThemMoi.Visible = true;
-            npp.MaNPP = "1";
-            npp.Tim_MaNPP();
-            if (npp.MaNPP == txtMaNPP.Text)
-            {
-                qtcd.MaNPP = npp.MaNPP;
-                qtcd.MaCD = 0;
-                qtcd.ThoiGian = txtNgayKyThe.Text;
-                qtcd.Them();
-                Response.Redirect("~/User/NhaPhanPhoi.aspx");
-            }
-        }
-        else
-        {
-            if (fileAnhNPP.HasFile == false)
-            {
-                lblTB.Visible = true;
-                lblTB.Text = "Bạn cần thêm ảnh.";
-            }
-            else
-            {
-                lblTB.Visible = true;
-                lblTB.Text = "Ở các vị trí * bắt buộc bạn phải nhập.";
-            }
-        }
     }
     protected void btnXoa_Click(object sender, EventArgs e)
     {
@@ -329,7 +207,6 @@ public partial class User_Default : System.Web.UI.Page
             txtSoNhaNPPTT.Text = "";
             txtSoNhaNPPLL.Text = "";
             pnlChiTietNPP.Visible = false;
-            lbtThemMoi.Visible = true;
             npp.CMND = Session["CMND"].ToString();
             if (npp.TimXoa_MaNPP() == false)
                 Response.Redirect("~/User/NhaPhanPhoi.aspx");
@@ -347,10 +224,6 @@ public partial class User_Default : System.Web.UI.Page
     protected void btnThoat_Click(object sender, EventArgs e)
     {
         pnlChiTietNPP.Visible = false;
-        if (Session["MaNPPClick"] == null)
-            lbtThemMoi.Visible = true;
-        else
-            lbtThemMoi.Visible = false;
         lblTB.Visible = false;
         rdoNam.Checked = false;
         rdoNu.Checked = false;
@@ -395,6 +268,14 @@ public partial class User_Default : System.Web.UI.Page
             txtNgayKyThe0_CalendarExtender.SelectedDate = DateTime.Today;
             qtcd.ThoiGian = txtNgayKyThe0.Text;//lấy ngày hệ thống
             qtcd.Them();
+            if (Session["MaNPP"] == "0000000")
+            {
+                droNBT.Enabled = true;
+                npp.MaNBT = droNBT.SelectedValue;
+                npp.Sua_NhaBaoTro();
+            }
+            else
+                droNBT.Enabled = false;
             lblTBQTCD.Visible = true;
             lblTBQTCD.Text = qtcd.ThongBao;
             lblTB.Visible = true;
@@ -402,7 +283,6 @@ public partial class User_Default : System.Web.UI.Page
             griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
             griNhaPhanPhoi.DataBind();
             pnlChiTietNPP.Visible = false;
-            lbtThemMoi.Visible = true;
         }
         else
             if (bHoNPP == false && bTenNPP == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == false)
@@ -435,6 +315,14 @@ public partial class User_Default : System.Web.UI.Page
                 qtcd.MaNPP = npp.MaNPP;
                 qtcd.ThoiGian = System.DateTime.Now.ToLongTimeString();// lấy time mặc định tại hệ thống.
                 qtcd.Them();
+                if (Session["MaNPP"] == "0000000")
+                {
+                    droNBT.Enabled = true;
+                    npp.MaNBT = droNBT.SelectedValue;
+                    npp.Sua_NhaBaoTro();
+                }
+                else
+                    droNBT.Enabled = false;
                 lblTBQTCD.Visible = true;
                 lblTBQTCD.Text = qtcd.ThongBao;
                 lblTB.Visible = true;
@@ -442,7 +330,6 @@ public partial class User_Default : System.Web.UI.Page
                 griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
                 griNhaPhanPhoi.DataBind();
                 pnlChiTietNPP.Visible = false;
-                lbtThemMoi.Visible = true;
             }
             else
             {
@@ -486,7 +373,6 @@ public partial class User_Default : System.Web.UI.Page
         txtSoNhaNPPTT.Text = "";
         txtSoNhaNPPLL.Text = "";
         pnlChiTietNPP.Visible = false;
-        lbtThemMoi.Visible = true;
         npp.CMND = Session["CMND"].ToString();
         if (npp.TimXoa_MaNPP() == false)
             Response.Redirect("~/User/NhaPhanPhoi.aspx");
@@ -533,7 +419,6 @@ public partial class User_Default : System.Web.UI.Page
         txtSoNhaNPPTT.Text = "";
         txtSoNhaNPPLL.Text = "";
         pnlChiTietNPP.Visible = false;
-        lbtThemMoi.Visible = true;
         npp.CMND = Session["CMND"].ToString();
         if (npp.TimXoa_MaNPP() == false)
             Response.Redirect("~/User/NhaPhanPhoi.aspx");
@@ -561,8 +446,8 @@ public partial class User_Default : System.Web.UI.Page
     protected void lbtSP_Click(object sender, EventArgs e)
     {
         Session["MaNPPClick"] = griNhaPhanPhoi.SelectedValue.ToString();
-        Session["MaLMH"] = "0";
-        Response.Redirect("~/User/SanPham.aspx?MaADA=" + Session["MaNPPClick"] + "MaLMH=0");
+        Session["MaLSP"] = "0";
+        Response.Redirect("~/User/SanPham.aspx?MaADA=" + Session["MaNPPClick"] + "MaLSP=0");
     }
     protected void lblSPGY_Click(object sender, EventArgs e)
     {

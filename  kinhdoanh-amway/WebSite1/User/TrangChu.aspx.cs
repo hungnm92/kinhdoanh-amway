@@ -19,6 +19,7 @@ public partial class User_Default : System.Web.UI.Page
     webdoan.Huyen htt = new webdoan.Huyen();
     webdoan.Tinh tll = new webdoan.Tinh();
     webdoan.Tinh ttt = new webdoan.Tinh();
+    webdoan.QuaTrinhCD qtcd = new webdoan.QuaTrinhCD();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.QueryString["MaADA"] != null)
@@ -78,11 +79,24 @@ public partial class User_Default : System.Web.UI.Page
                 temp3 = npp.NgayHetHan.ToString();
                 temp3 = temp3.Substring(8, 2) + "/" + temp3.Substring(5, 2) + "/" + temp3.Substring(0, 4);
                 npp.NgayHetHan = temp3;
+                if (npp.MaNBT == Session["MaNPP"].ToString())
+                {
+                    btnSua.Visible = true;
+                    if (npp.SL_CanhBao() != 0)
+                        btnGHT.Visible = true;
+                }
                 cd.MaCD = npp.MaCD;
                 droCapDo.DataSource = cd.DS();
                 droCapDo.DataBind();
                 lblClick.Visible = true;
                 lblClick.Text = "Bạn đang xem: " + npp.HoNPP + " " + npp.TenNPP;
+            }
+            if (Session["MaNPP"] == "0000000" || npp.MaNBT == Session["MaNPP"].ToString())
+            {
+                btnSua.Visible = true;
+                if (npp.SL_CanhBao() != 0)
+                    btnGHT.Visible = true;
+                droNBT.Visible = true;
             }
             txtMaNPP.Text = npp.MaNPP;
             txtHoNPP.Text = npp.HoNPP;
@@ -196,8 +210,19 @@ public partial class User_Default : System.Web.UI.Page
             npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
             npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
             npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
-            npp.MaCD = int.Parse(droCapDo.SelectedValue);
-            npp.MaNBT = droNBT.SelectedValue;
+            qtcd.MaCD = int.Parse(droCapDo.SelectedValue);
+            qtcd.MaNPP = npp.MaNPP;
+            txtNgayKyThe0_CalendarExtender.SelectedDate = DateTime.Today;
+            qtcd.ThoiGian = txtNgayKyThe0.Text;//lấy ngày hệ thống
+            qtcd.Them();
+            if (Session["MaNPP"] == "0000000")
+            {
+                droNBT.Enabled = true;
+                npp.MaNBT = droNBT.SelectedValue;
+                npp.Sua_NhaBaoTro();
+            }
+            else
+                droNBT.Enabled = false;
             npp.Sua();
             lblTB.Visible = true;
             lblTB.Text = npp.ThongBao;
@@ -230,8 +255,19 @@ public partial class User_Default : System.Web.UI.Page
                 npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
                 npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
                 npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
-                npp.MaCD = int.Parse(droCapDo.SelectedValue);
-                npp.MaNBT = droNBT.SelectedValue;
+                qtcd.MaCD = int.Parse(droCapDo.SelectedValue);
+                qtcd.MaNPP = npp.MaNPP;
+                txtNgayKyThe0_CalendarExtender.SelectedDate = DateTime.Today;
+                qtcd.ThoiGian = txtNgayKyThe0.Text;//lấy ngày hệ thống
+                qtcd.Them();
+                if (Session["MaNPP"] == "0000000")
+                {
+                    droNBT.Enabled = true;
+                    npp.MaNBT = droNBT.SelectedValue;
+                    npp.Sua_NhaBaoTro();
+                }
+                else
+                    droNBT.Enabled = false;
                 npp.Sua();
                 lblTB.Visible = true;
                 lblTB.Text = npp.ThongBao;

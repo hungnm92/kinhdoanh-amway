@@ -39,7 +39,7 @@
     </div>
     <div id="popup">
         <div id="popup-header">
-            Header<span id="popup-close" title="Close">x</span></div>
+            Ấn phím ESC hoặc click vào X để thoát<span id="popup-close" title="Close">x</span></div>
         <div id="popup-content">
             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                 <ContentTemplate>
@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center">
-                                <asp:Button ID="btnXoa" runat="server" CssClass="style-button" OnClick="btnXoa_Click" Text="Đồng ý" Visible="true" />
+                                <asp:Button ID="btnXoa" runat="server" CssClass="style-button" OnClick="btnXoa_Click" Text="Đồng ý" Visible="false" />
                             </td>
                         </tr>
                         <tr>
@@ -117,8 +117,6 @@
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <br />
-    <asp:LinkButton ID="lbtThemMoi" runat="server" Font-Bold="True" OnClick="lbtThemMoi_Click">Thêm mới.</asp:LinkButton>
-&nbsp;
     <asp:Label ID="lblTB" runat="server" Font-Italic="True" ForeColor="Red" Text="Thông báo." Visible="False"></asp:Label>
 &nbsp;<asp:Label ID="lblTBQTCD" runat="server" Font-Italic="True" ForeColor="Red" Text="Thông báo." Visible="False"></asp:Label>
     <asp:Panel ID="pnlChiTietNPP" runat="server" BorderStyle="Solid" Visible="False">
@@ -305,8 +303,7 @@ TargetControlID="txtSoDT" >
                     &nbsp;<asp:LinkButton ID="lbtTTDThu" runat="server" OnClick="lbtTTDThu_Click">Thông tin doanh thu</asp:LinkButton>
                     &nbsp;<asp:LinkButton ID="lbtQTCD" runat="server" OnClick="lbtQTCD_Click">Quá trình cấp độ</asp:LinkButton>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /> &nbsp;<asp:Button ID="btnGHT" runat="server" OnClick="btnGHT_Click" Text="Gia hạn thẻ" CssClass="style-button" Visible="False" />
-                    &nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" CssClass="style-button" Width="66px" />
-&nbsp;<a id="show-popup" href="#">Xóa</a>
+                    &nbsp;<a id="show-popup" href="#">Xóa</a>
                     <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="66px" CssClass="style-button" />
                     &nbsp;<asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" CssClass="style-button" Width="66px" />
                     <br />

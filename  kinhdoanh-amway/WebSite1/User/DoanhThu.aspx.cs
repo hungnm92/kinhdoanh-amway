@@ -9,7 +9,7 @@ public partial class User_DoanhThu : System.Web.UI.Page
 {
     webdoan.NhaPhanPhoi npp = new webdoan.NhaPhanPhoi();
     webdoan.DoanhThu dt = new webdoan.DoanhThu();
-    webdoan.MatHang mh = new webdoan.MatHang();
+    webdoan.SanPham sp = new webdoan.SanPham();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
@@ -57,8 +57,8 @@ public partial class User_DoanhThu : System.Web.UI.Page
         txtThangNam.Text = dt.ThangNam;
         txtThangNam.Enabled = true;
         txtDiem.Text = dt.Diem.ToString();
-        txtDoanhThu_NPP.Text = mh.DoanhThu_NPP(dt.MaNPP, dt.ThangNam).ToString();
-        txtDoanhThu_KH.Text = mh.DoanhThu_KH(dt.MaNPP, dt.ThangNam).ToString();
+        txtDoanhThu_NPP.Text = sp.DoanhThu_NPP(dt.MaNPP, dt.ThangNam).ToString();
+        txtDoanhThu_KH.Text = sp.DoanhThu_KH(dt.MaNPP, dt.ThangNam).ToString();
     }
     protected void griDoanhThu_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -173,8 +173,8 @@ public partial class User_DoanhThu : System.Web.UI.Page
         else
             dt.MaNPP = Session["MaNPPClick"].ToString();
         dt.ThangNam = txtThangNam.Text;
-        txtDoanhThu_NPP.Text = mh.DoanhThu_NPP(dt.MaNPP, dt.ThangNam).ToString();
-        txtDoanhThu_KH.Text = mh.DoanhThu_KH(dt.MaNPP, dt.ThangNam).ToString();
+        txtDoanhThu_NPP.Text = sp.DoanhThu_NPP(dt.MaNPP, dt.ThangNam).ToString();
+        txtDoanhThu_KH.Text = sp.DoanhThu_KH(dt.MaNPP, dt.ThangNam).ToString();
 
     }
 }
