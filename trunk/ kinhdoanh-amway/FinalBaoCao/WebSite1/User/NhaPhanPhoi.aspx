@@ -30,6 +30,16 @@
            
         }
              /*phần tử phủ toàn màn hình*/          
+        .auto-style16 {
+            height: 28px;
+        }
+.popupControl { 
+ background-color: #eeeeee; 
+ border: outset 1px #c0c0c0; 
+ color: #444444; 
+ position: absolute; 
+ visibility: visible; 
+}
     </style>
               <link href="../style/Show-popup.css" rel="stylesheet" />              
 </asp:Content>
@@ -40,7 +50,7 @@
 
     <div id="popup-bg"></div>
 <div id="popup">
-	<div id="popup-header">Header<span id="popup-close" title="Close">x</span></div>
+	<div id="popup-header">Ấn phím ESC hoặc click vào X để thoát<span id="popup-close" title="Close">x</span></div>
     <div id="popup-content">
         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                     <ContentTemplate>
@@ -231,7 +241,10 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                     <asp:TextBox ID="txtSoNhaNPPTT" runat="server"></asp:TextBox>
                     &nbsp;<asp:DropDownList ID="droDuongNPPTT" runat="server" DataTextField="TenDuong" DataValueField="MaDuong">
                     </asp:DropDownList>
-                    &nbsp;</td>
+                    &nbsp;<asp:Button ID="btnThemDuong" runat="server" Text="+" />
+                    <asp:PopupControlExtender ID="PopAtt" runat="server" PopupControlID="pnlThemDiaChi" TargetControlID="btnThemDuong">
+                    </asp:PopupControlExtender>
+                </td>
             </tr>
             <tr>
                 <td  style="white-space: nowrap">&nbsp;</td>
@@ -239,8 +252,14 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                         <ContentTemplate>
                             <asp:DropDownList ID="droXaNPPTT" runat="server" AutoPostBack="false" DataTextField="TenXa" DataValueField="MaXa">
                     </asp:DropDownList>
+                            <asp:Button ID="btnThemXa" runat="server" Text="+" />
+                            <asp:PopupControlExtender ID="PopAtt2" runat="server" PopupControlID="PnlXaPhuong" TargetControlID="btnThemXa">
+                    </asp:PopupControlExtender>
                     <asp:DropDownList ID="droHuyenNPPTT" runat="server" AutoPostBack="true" DataValueField="MaHuyen" DataTextField="TenHuyen" OnSelectedIndexChanged="droHuyenNPPTT_SelectedIndexChanged">
                     </asp:DropDownList>
+                            <asp:Button ID="btnThemHuyen" runat="server" Text="+" />
+                            <asp:PopupControlExtender ID="PopAtt3" runat="server" PopupControlID="PnlHuyen" TargetControlID="btnThemHuyen">
+                    </asp:PopupControlExtender>
                     <asp:DropDownList ID="droTinhNPPTT" runat="server" AutoPostBack="true" DataTextField="TenTinh" DataValueField="MaTinh" OnSelectedIndexChanged="droTinhNPPTT_SelectedIndexChanged">
                     </asp:DropDownList>
                         </ContentTemplate>
@@ -249,7 +268,8 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
             </tr>
             <tr>
                 <td  style="white-space: nowrap">&nbsp;</td>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="2">
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td style="white-space: nowrap">Địa chỉ liên lạc:</td>
@@ -316,8 +336,63 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                      
                     
                     <!-- abc -->
-      
 
+                    <asp:Panel ID="pnlThemDiaChi" CssClass="popupControl" runat="server">
+                          <br />
+                        <table style="width:100%;">
+                            <tr>
+                                <td style="text-align: right; white-space: nowrap;">Mã đường: </td>
+                                <td>
+                                    <asp:TextBox ID="txtMaD" runat="server" Width="200px"></asp:TextBox>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style16" style="text-align: right; white-space: nowrap;">Tên đường:&nbsp; </td>
+                                <td class="auto-style16">
+                                    <asp:TextBox ID="txtTenD" runat="server" Width="200px"></asp:TextBox>
+                                </td>
+                                <td class="auto-style16">
+                                    <asp:Button ID="btnThemD" runat="server" OnClick="btnThemD_Click" Text="Thêm" />
+                                </td>
+                            </tr>
+                           
+
+                        </table>
+                          <br />
+                    </asp:Panel>
+
+                    <asp:Panel ID="PnlXaPhuong" CssClass="popupControl" runat="server">
+                          <br />
+                        <table style="width:100%;">
+                             <tr>
+                                <td style="text-align: right">Tên Xã:&nbsp; </td>
+                                <td>
+                                    <asp:TextBox ID="txtTenX" runat="server" Width="200px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Button ID="btnThemXP" runat="server" Text="Thêm" OnClick="btnThemXP_Click" />
+                                </td>
+                            </tr>
+                        </table>
+                          <br />
+                    </asp:Panel>
+
+                    <asp:Panel ID="PnlHuyen" CssClass="popupControl" runat="server">
+                          <br />
+                         <table style="width:100%;">
+                            <tr>
+                                <td style="text-align: right">Tên Huyện:&nbsp; </td>
+                                <td>
+                                    <asp:TextBox ID="txtTenH" runat="server" Width="200px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Button ID="btnThemH" runat="server" Text="Thêm" OnClick="btnThemH_Click" />
+                                </td>
+                            </tr>
+                         </table>
+                          <br />
+                    </asp:Panel>
                      <!-- abc -->
                     <br />
                         <br />
