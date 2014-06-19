@@ -91,12 +91,13 @@ public partial class User_Default : System.Web.UI.Page
                 lblClick.Visible = true;
                 lblClick.Text = "Bạn đang xem: " + npp.HoNPP + " " + npp.TenNPP;
             }
-            if (Session["MaNPP"] == "0000000" || npp.MaNBT == Session["MaNPP"].ToString())
+            if (Session["MaNPP"].ToString() == "0000000")//|| npp.MaNBT == Session["MaNPP"].ToString()
             {
                 btnSua.Visible = true;
                 if (npp.SL_CanhBao() != 0)
                     btnGHT.Visible = true;
                 droNBT.Visible = true;
+                droNBT.Enabled = true;
             }
             txtMaNPP.Text = npp.MaNPP;
             txtHoNPP.Text = npp.HoNPP;
@@ -183,7 +184,12 @@ public partial class User_Default : System.Web.UI.Page
         bool bEmail = string.IsNullOrWhiteSpace(txtEmail.Text);
         if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == true)
         {
-            npp.MaNPP = Session["MaNPP"].ToString();
+            if (Session["MaNPPClick"] == null)
+            {
+                npp.MaNPP = Session["MaNPP"].ToString();
+            }
+            else
+                npp.MaNPP = Session["MaNPPClick"].ToString();
             npp.HoNPP = txtHoNPP.Text;
             npp.TenNPP = txtTenNPP.Text;
             if(rdoNam.Checked == true)
@@ -230,7 +236,12 @@ public partial class User_Default : System.Web.UI.Page
         else
             if (bHoNPP == false && bTenNPP == false && bNgaySinh == false && bCMND == false && bSoDT == false && bEmail == false && fileAnhNPP.HasFile == false)
             {
-                npp.MaNPP = Session["MaNPP"].ToString();
+                if (Session["MaNPPClick"] == null)
+                {
+                    npp.MaNPP = Session["MaNPP"].ToString();
+                }
+                else
+                    npp.MaNPP = Session["MaNPPClick"].ToString();
                 npp.CT();
                 string temp = npp.AnhNPP.ToString();
                 npp.HoNPP = txtHoNPP.Text;
@@ -357,9 +368,16 @@ public partial class User_Default : System.Web.UI.Page
     }
     protected void btnGHT_Click(object sender, EventArgs e)
     {
-        npp.MaNPP = Session["MaNPP"].ToString();
+        if (Session["MaNPPClick"] == null)
+        {
+            npp.MaNPP = Session["MaNPP"].ToString();
+        }
+        else
+            npp.MaNPP = Session["MaNPPClick"].ToString();
         npp.CT();
+        npp.NgayHetHan = txtNgayHetHan.Text;
         npp.Sua_NgayHetHan();
+        lblCanhBao.Text = npp.ThongBao;
     }
     protected void lbtViewMap_Click(object sender, EventArgs e)
     {

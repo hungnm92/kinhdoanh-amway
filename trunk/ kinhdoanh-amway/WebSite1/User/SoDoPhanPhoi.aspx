@@ -14,7 +14,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="tree" style=" width: 4000px; height: auto;">
+    <div class="tree" style=" width: 5500px; height: auto;">
         <asp:Label ID="lblmenu" runat="server" Text="Menu"></asp:Label>
     </div>
     </form>

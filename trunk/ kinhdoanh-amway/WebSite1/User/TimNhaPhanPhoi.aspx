@@ -134,7 +134,7 @@
             <tr>
                 <td colspan="2"></td>
                 <td rowspan="4" style="vertical-align: bottom">
-                    <asp:Image ID="imgAnhNPP" runat="server" Width="85px" Height="30px" />
+                    <asp:Image ID="imgAnhNPP" runat="server" Height="100px" />
                     <br />
                     <asp:FileUpload ID="fileAnhNPP" runat="server" />
                     <br />

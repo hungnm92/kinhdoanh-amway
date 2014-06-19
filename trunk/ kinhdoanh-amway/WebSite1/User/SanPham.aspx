@@ -56,10 +56,13 @@
             <HeaderStyle Wrap="False" />
             <ItemStyle Wrap="False" />
             </asp:BoundField>
-            <asp:BoundField DataField="TenSP" HeaderText="  Tên sản phẩm     ">
-            <HeaderStyle Wrap="False" />
-            <ItemStyle Wrap="False" />
-            </asp:BoundField>
+            <asp:TemplateField HeaderText="   Tên sản phẩm">
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("TenSP").ToString().Length > 30 ? Eval("TenSP").ToString().Substring(0,30) +"..." : Eval("TenSP") %>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle Wrap="False" />
+                            <ItemStyle Wrap="False" />
+                        </asp:TemplateField>
             <asp:TemplateField HeaderText="Ảnh      ">
                     <EditItemTemplate>
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("AnhSP") %>'></asp:TextBox>

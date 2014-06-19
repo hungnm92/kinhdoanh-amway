@@ -167,6 +167,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             griNPP_Moi.DataBind();
             griNPP_ThanhTichMoi.Visible = false;
             griNPP_SapHetHan.Visible = false;
+            griSPKHSapDungHet.Visible = false;
             pnlChiTietNPP.Visible = false;
         }
         else
@@ -202,6 +203,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             griNPP_ThanhTichMoi.DataBind();
             griNPP_Moi.Visible = false;
             griNPP_SapHetHan.Visible = false;
+            griSPKHSapDungHet.Visible = false;
             pnlChiTietNPP.Visible = false;
         }
         else
@@ -510,5 +512,64 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         droDuongNPPLL.SelectedValue = dll.MaDuong.ToString();
         dtt.MaDuong = npp.MaDuongNPPTT;
         droDuongNPPTT.SelectedValue = dtt.MaDuong.ToString();
+    }
+    protected void btnNPP_DaHetHan_Click(object sender, EventArgs e)
+    {
+        lblTB.Visible = false;
+        griNPP_SapHetHan.Visible = true;
+        if (Request.QueryString["MaADA"] != null)
+            Session["MaNPPClick"] = Request.QueryString["MaADA"];
+        if (Session["MaNPPClick"] == null)
+        {
+            npp.MaNPP = Session["MaNPP"].ToString();
+            griNPP_SapHetHan.DataSource = npp.DS_DaHetHan();
+        }
+        else
+        {
+            npp.MaNPP = Session["MaNPPClick"].ToString();
+            griNPP_ThanhTichMoi.DataSource = npp.DS_DaHetHan();
+        }
+        griNPP_SapHetHan.DataBind();
+        griNPP_ThanhTichMoi.Visible = false;
+        griNPP_Moi.Visible = false;
+        griSPKHSapDungHet.Visible = false;
+        pnlChiTietNPP.Visible = false;
+    }
+    protected void btnNPP_KH_SapDungHet_Click(object sender, EventArgs e)
+    {
+        lblTB.Visible = false;
+        griSPKHSapDungHet.Visible = true;
+        if (Request.QueryString["MaADA"] != null)
+            Session["MaNPPClick"] = Request.QueryString["MaADA"];
+        if (Session["MaNPPClick"] == null)
+        {
+            npp.MaNPP = Session["MaNPP"].ToString();
+            griSPKHSapDungHet.DataSource = khsd.SanPham_SapDungHet(npp.MaNPP);
+        }
+        else
+        {
+            npp.MaNPP = Session["MaNPPClick"].ToString();
+            griSPKHSapDungHet.DataSource = khsd.SanPham_SapDungHet(npp.MaNPP);
+        }
+        griSPKHSapDungHet.DataBind();
+        griNPP_ThanhTichMoi.Visible = false;
+        griNPP_SapHetHan.Visible = false;
+        griNPP_Moi.Visible = false;
+        pnlChiTietNPP.Visible = false;
+    }
+    protected void griSPKHSapDungHet_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        griSPKHSapDungHet.PageIndex = e.NewPageIndex;
+        if (Session["MaNPPClick"] == null)
+        {
+            npp.MaNPP = Session["MaNPP"].ToString();
+            griSPKHSapDungHet.DataSource = khsd.SanPham_SapDungHet(npp.MaNPP);
+        }
+        else
+        {
+            npp.MaNPP = Session["MaNPPClick"].ToString();
+            griSPKHSapDungHet.DataSource = khsd.SanPham_SapDungHet(npp.MaNPP);
+        }
+        griSPKHSapDungHet.DataBind();
     }
 }

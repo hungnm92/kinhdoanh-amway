@@ -28,7 +28,7 @@ public partial class User_SanPham : System.Web.UI.Page
                 Session["MaNPPClick"] = Request.QueryString["MaADA"];
             if (Session["MaKH"] == null)
             {
-                if (Session["MaNPPClick"] == null)
+                if (Session["MaNPPClick"] == null || Session["MaNPP"].ToString() == "0000000")
                 {
                     lbtThemMoi.Visible = true;
                 }
@@ -74,7 +74,7 @@ public partial class User_SanPham : System.Web.UI.Page
         pnlChiTietMH.Visible = true;
         lbtThemMoi.Visible = false;
         btnThem.Visible = false;
-        if (Session["MaNPPClick"] == null && Session["MaKH"] == null)
+        if ((Session["MaNPPClick"] == null && Session["MaKH"] == null) || Session["MaNPP"].ToString() == "0000000")
         {
             btnXoa.Visible = true;
             btnSua.Visible = true;

@@ -131,7 +131,7 @@ Tôi luôn cố gắng trả lời tất cả những email gửi tới.
 <li class='selected'></li>
 <li>       <asp:Button ID="btnDangNhap" runat="server" OnClick="btnDangNhap_Click" Text="Đăng nhập" />
     </li>
-<li>       <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "trangdhnt@gmail.com";}' onfocus='if (this.value == "trangdhnt@gmail.com") {this.value = "";}; TextMode="trangdhnt@gmail.com"' value ='trangdhnt@gmail.com' ></asp:TextBox>
+<li>       <asp:TextBox ID="txtMatKhau" runat="server" onblur='if (this.value == "") {this.value = "manhhung.boy9x@gmail.com";}' onfocus='if (this.value == "manhhung.boy9x@gmail.com") {this.value = "";}; TextMode="manhhung.boy9x@gmail.com"' value ='manhhung.boy9x@gmail.com' TextMode="Password" ></asp:TextBox>
 </li>
 <li>       <asp:TextBox ID="txtMaNPP" runat="server" onblur='if (this.value == "") {this.value = "2976313";}' onfocus='if (this.value == "2976313") {this.value = "";}' value ='2976313'></asp:TextBox>
 </li>

@@ -28,6 +28,17 @@
         .auto-style13 {
 
         }
+.popupControl { 
+ background-color: #eeeeee; 
+ border: outset 1px #c0c0c0; 
+ color: #444444; 
+ position: absolute; 
+ visibility: visible; 
+ text-align: center;
+}
+        .auto-style14 {
+            height: 55px;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -225,7 +236,7 @@
                 <td class="auto-style13" colspan="2">&nbsp;</td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="3" class="auto-style14">
                     <asp:LinkButton ID="lbtSP" runat="server" OnClick="lbtSP_Click" Visible="False">Sản phẩm</asp:LinkButton>
                     &nbsp;<asp:LinkButton ID="lbtSPSD" runat="server" OnClick="lbtSPSD_Click">Sản phẩm sử dụng</asp:LinkButton>
                     &nbsp;<asp:LinkButton ID="lbtSPGY" runat="server" OnClick="lbtSPGY_Click">Sản phẩm gợi ý</asp:LinkButton>
@@ -233,7 +244,9 @@
                     <asp:LinkButton ID="lbtTTCS" runat="server" OnClick="lbtTTCS_Click">Thông tin chăm sóc</asp:LinkButton>
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm" Visible="False" Width="50px" />
-                    <asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Xóa" Visible="False" Width="50px" />
+                    <asp:Button ID="btnXoaPnl" runat="server" Text="Xóa" />
+                    <asp:PopupControlExtender ID="PopAtt" runat="server" PopupControlID="pnlXoa" TargetControlID="btnXoaPnl">
+                    </asp:PopupControlExtender>
                     <asp:Button ID="btnSua" runat="server" OnClick="btnSua_Click" Text="Sửa" Visible="False" Width="50px" />
                     <asp:Button ID="btnTroThanhNPP" runat="server" OnClick="btnTroThanhNPP_Click" Text="Trở thành NPP" Visible="False" />
                     <asp:Button ID="btnThoat" runat="server" OnClick="btnThoat_Click" Text="Thoát" Width="50px" />
@@ -241,7 +254,15 @@
                     </td>
             </tr>
             <tr>
-                <td colspan="3">&nbsp;</td>
+                <td colspan="3">
+                    <asp:Panel ID="pnlXoa" CssClass="popupControl" runat="server" Width="50%">
+                        <br />
+                        Bạn chắc chắn xóa khách hàng này!<br />
+                        <br />
+                        <asp:Button ID="btnXoa" runat="server" OnClick="btnXoa_Click" Text="Ok" Visible="False" Width="50px" />
+                        <br />
+                    </asp:Panel>
+                </td>
             </tr>
             <tr>
                 <td colspan="3">&nbsp;</td>
@@ -250,7 +271,7 @@
                 <td colspan="3">
                     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                         <ContentTemplate>
-                            <asp:LinkButton ID="lbtViewMap" runat="server" AutoPostBack="true" OnClick="lbtViewMap_Click">Xem địa chỉ trên Google Map</asp:LinkButton>
+                           <!-- <asp:LinkButton ID="lbtViewMap" runat="server" AutoPostBack="true" OnClick="lbtViewMap_Click">Xem địa chỉ trên Google Map</asp:LinkButton> -->
                             <br />
                             <cc1:GMap ID="GMap1" runat="server" AutoPostBack="false" ClientIDMode="Static" enableContinuousZoom="true" enableDoubleClickZoom="true" enableGKeyboardHandler="true" enableGoogleBar="true" enableHookMouseWheelToZoom="true" enableRotation="true" Height="500px" Width="530px" />
                         </ContentTemplate>
