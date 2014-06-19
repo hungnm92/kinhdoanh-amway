@@ -1237,6 +1237,21 @@ namespace webdoan
                 BaoVe.Close();
                 return ThungChua;
             }
+            public DataTable DS_DaHetHan()//su dung ky thuat lay danh sach co tham so truyen vao
+            {
+                SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+                SqlCommand Lenh = new SqlCommand("NhaPhanPhoi_DS_DaHetHan", BaoVe);
+                Lenh.CommandType = CommandType.StoredProcedure;
+                SqlParameter ThamSo = new SqlParameter();
+                ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
+                DataTable ThungChua = new DataTable();
+                SqlDataReader DocDL;
+                BaoVe.Open();//mở kết nối đến CSDL
+                DocDL = Lenh.ExecuteReader(CommandBehavior.CloseConnection);
+                ThungChua.Load(DocDL);
+                BaoVe.Close();
+                return ThungChua;
+            }
             public DataTable DS_ThanhTichMoi()//su dung ky thuat lay danh sach co tham so truyen vao
             {
                 SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
@@ -2230,6 +2245,21 @@ namespace webdoan
                 ThungChua.Load(DocDL);
                 BaoVe.Close();
                 return ThungChua;
+        }
+        public DataTable SanPham_SapDungHet(string MaNPP)
+        {
+            SqlConnection BaoVe = new SqlConnection("server=(local)\\SQLEXPRESS;uid=sa;pwd=123456;database=DoAn");
+            SqlCommand Lenh = new SqlCommand("SanPham_KhachHang_SapDungHet", BaoVe);
+            Lenh.CommandType = CommandType.StoredProcedure;
+            SqlParameter ThamSo = new SqlParameter();
+            ThamSo = Lenh.Parameters.AddWithValue("@MaNPP", MaNPP);
+            DataTable ThungChua = new DataTable();
+            SqlDataReader DocDL;
+            BaoVe.Open();//mở kết nối đến CSDL
+            DocDL = Lenh.ExecuteReader(CommandBehavior.CloseConnection);
+            ThungChua.Load(DocDL);
+            BaoVe.Close();
+            return ThungChua;
         }
         public DataTable SanPham_DaDung(string MaNPP, string MaKH)
         {

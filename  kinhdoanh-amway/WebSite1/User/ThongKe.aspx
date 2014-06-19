@@ -124,6 +124,9 @@ div#popup-content {
                     <asp:Button ID="btnNPP_Moi" runat="server" Text="Thống kê NNP mới" Width="22%" OnClick="btnNPP_Moi_Click" />
                     <asp:Button ID="btnNPP_ThanhTichMoi" runat="server" Text="Thống kê NPP đạt thành tích mới" Width="38%" OnClick="btnNPP_ThanhTichMoi_Click" />
                     <asp:Button ID="btnNPP_SapHetHan" runat="server" Text="Thống kê NPP sắp hết hạn" Width="30%" OnClick="btnNPP_SapHetHan_Click" />
+                    <br />
+                    <asp:Button ID="btnNPP_DaHetHan" runat="server" OnClick="btnNPP_DaHetHan_Click" Text="Thống kê NPP đã hết hạn" />
+                    &nbsp;<asp:Button ID="btnNPP_KH_SapDungHet" runat="server" OnClick="btnNPP_KH_SapDungHet_Click" Text="Thống kê SP KH sắp dùng hết" />
                 </td>
             </tr>
         </table>
@@ -243,6 +246,38 @@ div#popup-content {
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <br />
+    <asp:GridView ID="griSPKHSapDungHet" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" PageSize="5" OnPageIndexChanging="griSPKHSapDungHet_PageIndexChanging" Visible="False">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:BoundField DataField="MaSP" HeaderText="Mã sản phẩm                  " />
+            <asp:TemplateField HeaderText="   Tên sản phẩm">
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("TenSP").ToString().Length > 30 ? Eval("TenSP").ToString().Substring(0,30) +"..." : Eval("TenSP") %>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle Wrap="False" />
+                            <ItemStyle Wrap="False" />
+                        </asp:TemplateField>
+            <asp:BoundField DataField="Gia" HeaderText="    Giá     " DataFormatString="{0:0,0.vnd}">
+            <HeaderStyle Wrap="False" />
+            <ItemStyle Wrap="False" />
+            </asp:BoundField>
+            <asp:BoundField DataField="NgayKHSD" HeaderText="     Ngày sử dụng    " DataFormatString="{0:dd/MM/yyyy}">
+            </asp:BoundField>
+            <asp:BoundField DataField="MaKH" HeaderText="    Mã khách hàng        " />
+            <asp:BoundField DataField="HoTenKH" HeaderText="    Tên khách hàng     " />
+        </Columns>
+        <EditRowStyle BackColor="#7C6F57" />
+        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#E3EAEB" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F8FAFA" />
+        <SortedAscendingHeaderStyle BackColor="#246B61" />
+        <SortedDescendingCellStyle BackColor="#D4DFE1" />
+        <SortedDescendingHeaderStyle BackColor="#15524A" />
+    </asp:GridView>
+    <br />
     <asp:Panel ID="pnlChiTietNPP" runat="server" BorderStyle="Solid" Visible="False">
         <table style="width:100%;">
             <tr>
@@ -255,7 +290,7 @@ div#popup-content {
                     
                     </td>
                 <td rowspan="4" style="vertical-align: bottom">
-                    <asp:Image ID="imgAnhNPP" runat="server" Width="85px" Height="30px" />
+                    <asp:Image ID="imgAnhNPP" runat="server" Height="100px" />
                     <br />
                 </td>
             </tr>

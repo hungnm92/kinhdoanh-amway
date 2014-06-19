@@ -90,6 +90,13 @@ public partial class User_KhachHang : System.Web.UI.Page
             lbtSP.Visible = true;
             lbtCTSDR.Visible = true;
         }
+        if (Session["MaNPP"].ToString() == "0000000")
+        {
+            btnThem.Visible = false;
+            btnXoa.Visible = true;
+            btnSua.Visible = true;
+            btnTroThanhNPP.Visible = true;
+        }
         lbtThemMoi.Visible = false;
         kh.MaKH = griKhachHang.SelectedValue.ToString();
         kh.CT();

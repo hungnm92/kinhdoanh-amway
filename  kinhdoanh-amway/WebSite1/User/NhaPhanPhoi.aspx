@@ -150,7 +150,7 @@
                     
                     </td>
                 <td rowspan="4" style="vertical-align: bottom">
-                    <asp:Image ID="imgAnhNPP" runat="server" Width="85px" Height="30px" />
+                    <asp:Image ID="imgAnhNPP" runat="server" Height="100px" />
                     <br />
                     <asp:FileUpload ID="fileAnhNPP" runat="server" />
                     <br />
@@ -307,7 +307,7 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
             <tr>
                 <td colspan="1">Nhà bảo trợ:</td>
                 <td colspan="2">
-                    <asp:DropDownList ID="droNBT" runat="server" DataTextField="HoTenNPP" DataValueField="MaNPP">
+                    <asp:DropDownList ID="droNBT" runat="server" DataTextField="HoTenNPP" DataValueField="MaNPP" Enabled="False">
                     </asp:DropDownList>
                     </td>
             </tr>
@@ -363,11 +363,11 @@ TargetControlID="txtSoDT" ></asp:FilteredTextBoxExtender>
                         <table style="width:100%;">
                              <tr>
                                 <td style="text-align: right">Tên Xã:&nbsp; </td>
-                                <td>
+                                <td>&nbsp;&nbsp;
                                     <asp:TextBox ID="txtTenX" runat="server" Width="200px"></asp:TextBox>
                                 </td>
-                                <td>
-                                    <asp:Button ID="btnThemXP" runat="server" Text="Thêm" OnClick="btnThemXP_Click" />
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <asp:Button ID="btnThemXP" runat="server" Text="Thêm" OnClick="btnThemXP_Click" />&nbsp;&nbsp;
                                 </td>
                             </tr>
                         </table>

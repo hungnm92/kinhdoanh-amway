@@ -18,7 +18,7 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
             Session["MaNPPClick"] = Request.QueryString["MaADA"];
         if (Session["MaKH"] == null)
         {
-            if (Session["MaNPPClick"] == null)
+            if (Session["MaNPPClick"] == null || Session["MaNPP"].ToString() == "0000000")
             {
                 lbtThemMoi.Visible = true;
             }
@@ -63,7 +63,7 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
         pnlChiTietCT.Visible = true;
         lbtThemMoi.Visible = false;
         btnThem.Visible = false;
-        if (Session["MaNPPClick"] == null && Session["MaKH"] == null)
+        if ((Session["MaNPPClick"] == null && Session["MaKH"] == null) || Session["MaNPP"].ToString() == "0000000")
         {
             btnXoa.Visible = true;
             btnSua.Visible = true;
@@ -182,10 +182,13 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
     }
     protected void btnChamSoc_Click(object sender, EventArgs e)
     {
+        bool bThoigian = string.IsNullOrWhiteSpace(txtThoiGian.Text);
+        if (bThoigian == false)
+        {
             chkThamDu.Visible = true;
             cs.MaCT = griChuongTrinhSapDienRa.SelectedValue.ToString();
             cs.MaKH = Session["MaKH"].ToString();
-            cs.MaNPP = Session["MaNPP"].ToString();            
+            cs.MaNPP = Session["MaNPP"].ToString();
             cs.NgayCS = txtThoiGian.Text;
             if (chkThamDu.Checked == true)
                 cs.ThamDu = true;
@@ -196,22 +199,37 @@ public partial class User_ChuongTrinh_SapDienRa : System.Web.UI.Page
             lblTB.Text = cs.ThongBao;
             griChuongTrinhSapDienRa.DataSource = ct.DS();
             griChuongTrinhSapDienRa.DataBind();
-            pnlChiTietCT.Visible = false;      
+            pnlChiTietCT.Visible = false;
+        }
+        else
+        {
+            lblTB.Visible = true;
+            lblTB.Text = "Bạn chưa nhập thời gian chăm sóc.";
+        }
     }
     protected void btnDaoTao_Click(object sender, EventArgs e)
     {
-        dt.MaCT = griChuongTrinhSapDienRa.SelectedValue.ToString();
-        if (Session["MaNPPClick"] == null)
-            dt.MaNPP = Session["MaNPP"].ToString();
-        else
-            dt.MaNPP = Session["MaNPPClick"].ToString();
-        dt.NgayDT = txtThoiGian.Text;
-        dt.Them();
-        lblTB.Visible = true;
-        lblTB.Text = dt.ThongBao;
-        griChuongTrinhSapDienRa.DataSource = ct.DS();
-        griChuongTrinhSapDienRa.DataBind();
-        pnlChiTietCT.Visible = false;
+                bool bThoigian = string.IsNullOrWhiteSpace(txtThoiGian.Text);
+                if (bThoigian == false)
+                {
+                    dt.MaCT = griChuongTrinhSapDienRa.SelectedValue.ToString();
+                    if (Session["MaNPPClick"] == null)
+                        dt.MaNPP = Session["MaNPP"].ToString();
+                    else
+                        dt.MaNPP = Session["MaNPPClick"].ToString();
+                    dt.NgayDT = txtThoiGian.Text;
+                    dt.Them();
+                    lblTB.Visible = true;
+                    lblTB.Text = dt.ThongBao;
+                    griChuongTrinhSapDienRa.DataSource = ct.DS();
+                    griChuongTrinhSapDienRa.DataBind();
+                    pnlChiTietCT.Visible = false;
+                }
+                else
+                {
+                    lblTB.Visible = true;
+                    lblTB.Text = "Bạn chưa nhập thời gian đào tạo.";
+                }
     }
     protected void lbtTroVe_Click(object sender, EventArgs e)
     {

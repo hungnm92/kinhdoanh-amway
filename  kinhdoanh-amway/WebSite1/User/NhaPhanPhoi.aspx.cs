@@ -76,6 +76,10 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             droNhaBaoTro.DataBind();
             droNBT.DataSource = npp.DS();
             droNBT.DataBind();
+            if (Session["MaNPP"].ToString() == "0000000")//|| npp.MaNBT == Session["MaNPP"].ToString()
+            {
+                lbtThemMoi.Visible = true;
+            }
         }
     }
     protected void griNhaPhanPhoi_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,6 +153,17 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         {
             if (npp.SL_CanhBao() != 0)
                 btnGHT.Visible = true;
+        }
+        if (Session["MaNPP"].ToString() == "0000000")//|| npp.MaNBT == Session["MaNPP"].ToString()
+        {
+            btnSua.Visible = true;
+            if (npp.SL_CanhBao() != 0)
+                btnGHT.Visible = true;
+            droNBT.Visible = true;
+            droNBT.Enabled = true;
+            btnXoa.Visible = true;
+            lbtSP.Visible = true;
+            lbtCTSDR.Visible = true;
         }
         //Tinh
         tll.MaTinh = npp.MaTinhNPPLL;
@@ -242,7 +257,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
         txtSoNhaNPPLL.Text = "";
         droCapDo.Enabled = false;
         droNBT.SelectedValue = Session["MaNPP"].ToString();
-        droNBT.Enabled = false;
+        droNBT.Enabled = true;
         droDuongNPPLL.SelectedValue = "0000";
         droDuongNPPTT.SelectedValue = "0000";
         droXaNPPLL.DataSource = xpll.DS("0000");
@@ -292,7 +307,7 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.MaDuongNPPLL = droDuongNPPLL.SelectedValue;
             npp.MaXaNPPTT = droXaNPPTT.SelectedValue;
             npp.MaXaNPPLL = droXaNPPLL.SelectedValue;
-            npp.MaNBT = Session["MaNPP"].ToString();
+            npp.MaNBT = droNBT.SelectedValue;
             npp.Them();
             lblTB.Visible = true;
             lblTB.Text = npp.ThongBao;
@@ -423,7 +438,6 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             npp.MaHuyenNPPLL = droHuyenNPPLL.SelectedValue;
             npp.MaTinhNPPTT = droTinhNPPTT.SelectedValue;
             npp.MaTinhNPPLL = droTinhNPPLL.SelectedValue;
-            npp.MaNBT = Session["MaNPP"].ToString();
             npp.Sua();
             qtcd.MaCD = int.Parse(droCapDo.SelectedValue);
             qtcd.MaNPP = npp.MaNPP;
@@ -438,8 +452,8 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
             }
             else
                 droNBT.Enabled = false;
-            lblTBQTCD.Visible = true;
-            lblTBQTCD.Text = qtcd.ThongBao;
+            //lblTBQTCD.Visible = true;
+            //lblTBQTCD.Text = qtcd.ThongBao;
             lblTB.Visible = true;
             lblTB.Text = npp.ThongBao;
             griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
@@ -487,8 +501,6 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
                 }
                 else
                     droNBT.Enabled = false;
-                lblTBQTCD.Visible = true;
-                lblTBQTCD.Text = qtcd.ThongBao;
                 lblTB.Visible = true;
                 lblTB.Text = npp.ThongBao;
                 griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
@@ -635,7 +647,9 @@ public partial class User_NhaPhanPhoi : System.Web.UI.Page
     {
         npp.MaNPP = griNhaPhanPhoi.SelectedValue.ToString();
         npp.CT();
+        npp.NgayHetHan = txtNgayHetHan.Text;
         npp.Sua_NgayHetHan();
+        lblCanhBao.Text = npp.ThongBao;
     }
     protected void lbtQTCD_Click(object sender, EventArgs e)
     {

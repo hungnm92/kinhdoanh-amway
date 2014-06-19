@@ -60,7 +60,7 @@ public partial class User_Default : System.Web.UI.Page
     {
         pnlChiTietNPP.Visible = true;
         txtNgayKyThe0_CalendarExtender.SelectedDate = DateTime.Today;
-        if (npp.MaNBT == Session["MaNPP"])
+        if (Session["MaNPPClick"] == null || npp.MaNBT == Session["MaNPP"])
         {
             btnXoa.Visible = true;
             //show-popup: cho nút xóa ẩn
@@ -126,6 +126,17 @@ public partial class User_Default : System.Web.UI.Page
         {
             if (npp.SL_CanhBao() != 0)
                 btnGHT.Visible = true;
+        }
+        if (Session["MaNPP"].ToString() == "0000000")//|| npp.MaNBT == Session["MaNPP"].ToString()
+        {
+            btnSua.Visible = true;
+            if (npp.SL_CanhBao() != 0)
+                btnGHT.Visible = true;
+            droNBT.Visible = true;
+            droNBT.Enabled = true;
+            btnXoa.Visible = true;
+            lbtSP.Visible = true;
+            lbtCTSDR.Visible = true;
         }
         //Tinh
         tll.MaTinh = npp.MaTinhNPPLL;
@@ -276,8 +287,6 @@ public partial class User_Default : System.Web.UI.Page
             }
             else
                 droNBT.Enabled = false;
-            lblTBQTCD.Visible = true;
-            lblTBQTCD.Text = qtcd.ThongBao;
             lblTB.Visible = true;
             lblTB.Text = npp.ThongBao;
             griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
@@ -323,8 +332,6 @@ public partial class User_Default : System.Web.UI.Page
                 }
                 else
                     droNBT.Enabled = false;
-                lblTBQTCD.Visible = true;
-                lblTBQTCD.Text = qtcd.ThongBao;
                 lblTB.Visible = true;
                 lblTB.Text = npp.ThongBao;
                 griNhaPhanPhoi.DataSource = npp.NhaPhanPhoi_DS_TheoCapDo(Session["MaNPP"].ToString(), int.Parse(Session["MaCD"].ToString()));
@@ -468,7 +475,9 @@ public partial class User_Default : System.Web.UI.Page
     {
         npp.MaNPP = griNhaPhanPhoi.SelectedValue.ToString();
         npp.CT();
+        npp.NgayHetHan = txtNgayHetHan.Text;
         npp.Sua_NgayHetHan();
+        lblCanhBao.Text = npp.ThongBao;
     }
     protected void lbtQTCD_Click(object sender, EventArgs e)
     {

@@ -60,7 +60,7 @@
                     
                     </td>
                 <td class="auto-style9" rowspan="5" style="vertical-align: bottom">
-                    <asp:Image ID="imgAnhNPP" runat="server" Height="80px" />
+                    <asp:Image ID="imgAnhNPP" runat="server" Height="100px" />
                     <br />
                     <asp:FileUpload ID="fileAnhNPP" runat="server" />
                     <asp:RegularExpressionValidator 
