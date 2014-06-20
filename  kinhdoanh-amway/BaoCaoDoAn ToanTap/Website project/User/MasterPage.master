@@ -1,0 +1,206 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="User_MasterPage" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head runat="server">
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<script type='text/javascript' src="../js/ifChrome.js"></script>
+    <script type ="text/javascript">
+        function heartBeat() {
+            $.get("KeepAlive.ashx?", function (data) { });
+        }
+        $(function () {
+            setInterval("heartBeat()", 1000 * 30); // 30s gửi request một lần
+        });
+    </script>
+<link href='../src/web/amway_logo.png' rel='icon' type='../src/web/x-icon'/>
+<link href='#' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="Đồ án tốt nghiệp - Atom" href="#" />
+<link rel="alternate" type="application/rss+xml" title="Đồ án tốt nghiệp - RSS" href="#" />
+<link rel="service.post" type="application/atom+xml" title="Đồ án tốt nghiệp - Atom" href="#" />
+    <script type='text/javascript' src="../js/ifIE.js"></script>
+<title>Đồ án tốt nghiệp</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+<meta content='' name='description'/>
+<meta content='' name='keywords'/>
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js' type='text/javascript'></script>
+<link type='text/css' rel='stylesheet' href='../style/widget_css_bundle.css' />
+<link href='../style/page-skin.css' rel='stylesheet' type='text/css'/>
+<link href="../style/sidebar.css" rel="stylesheet" type='text/css'/>
+<script type='text/javascript'>//<![CDATA[
+    eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('h i(b,a){u b.j(/<.*?>/v,"").k(/\\s+/).w(0,a-1).y(" ")}h z(b){b=A.B(b);C a="",a=b.D("l");m(1<=a.E){f="F-p";9=a[0].n;8=9.k("/");c=8[2];m(-1!=c.d("G")||-1!=c.d("H")||-1!=c.d("I"))g=8[7],9=-1==g.d(".")?9.j(g,f):8[0]+"//"+8[2]+"/"+8[3]+"/"+8[4]+"/"+8[5]+"/"+8[6]+"/"+f+"/"+8[7];a=\'<e o="q"><a r="\'+x+\'"><l n="\'+9+\'" /></a></e>\'}J a=\'<a r="\'+x+\'"><e o="K-q"></e></a>\';b.t=a+i(b.t,L)+"..."};', 48, 48, '||||||||imgurl_split|imgurl|||imgurl_localhost|indexOf|div|scale_size|imgurl_scale|function|stripTags|replace|split|img|if|src|class||thumb|href||innerHTML|return|ig|slice||join|rm|document|getElementById|var|getElementsByTagName|length|s180|blogspot|googleusercontent|ggpht|else|no|32'.split('|'), 0, {}))
+    //]]></script>
+<script type="text/javascript" src="../js/if_notChrome_ie.js"></script>
+    <script type="text/javascript">
+             if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script>
+        <script  type='text/javascript' src="../js/TreeMenu.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
+<div id='wrapper'>
+<div id='outside'>
+<div class='section' id='top_nav'><div class='widget PageList' id='PageList1'>
+<div class='widget-content'>
+<ul>
+
+<li class='selected'>
+    <asp:HyperLink ID="lnkThoat" runat="server" NavigateUrl="~/DangNhap.aspx">Thoát</asp:HyperLink></li>
+    <li>
+        <asp:HyperLink ID="lnkDoiMatKhau" runat="server" NavigateUrl="~/User/DoiMatKhau.aspx">Đổi mật khẩu</asp:HyperLink>
+    </li>
+<li><asp:Label ID="lblNPP" runat="server" Font-Italic="True" ForeColor="Red"></asp:Label></li>
+    <li><a href='TroGiup.aspx'><span>TRỢ GIÚP</span></a></li>
+
+    <!-- <li><div id='search_engine'>
+<div class='field'><input name='q' onblur='if (this.value == "") {this.value = "Search...";}' onfocus='if (this.value == "Search...") {this.value = "";}' type='text' value='Search...'/></div>
+<input class='button' type='submit' value=''/>
+</div></li> -->
+</ul>
+    <div id='search_engine'>
+<div class='field'>
+    <asp:TextBox ID="txtSearch" name='q' onblur='if (this.value == "") {this.value = "Search...";}' onfocus='if (this.value == "Search...") {this.value = "";}' type='text' value='Search...' runat="server" Width="175px" BorderStyle="Groove"></asp:TextBox>
+    <asp:AutoCompleteExtender ID="AutoCompleteExtender1" TargetControlID="txtSearch" ServicePath="~/WebService.asmx" ServiceMethod="GetMaNPP" EnableCaching="false" MinimumPrefixLength="1" runat="server"></asp:AutoCompleteExtender>
+</div>
+        <asp:Button class='button' value=" " ID="find" runat="server" OnClick="find_Click" />
+</div>
+</div>
+</div></div>
+<div id='heading'>
+<div class='header section' id='header'><div class='widget Header' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h3 class='title'>
+Đồ Án Tốt Nghiệp
+</h3>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'>
+</p>
+</div>
+</div>
+</div></div>
+</div>
+<div id='navigation'>
+<ul>
+<li><a href='TrangChu.aspx?MaADA=npp'><img alt='' src='../src/web/amway_logo.png' /></a></li>
+<li><a href='#'>Nhà Phân Phối<span>Bạn là chủ.</span></a>
+<ul class='sub_menu'>
+<li><asp:LinkButton ID="LinkButton1" runat="server" OnClick="ChuyenTrang"><span>Nomal</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton2" runat="server" OnClick="ChuyenTrang1" ><span>Silver</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton3" runat="server" OnClick="ChuyenTrang2" ><span>Gold</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton4" runat="server" OnClick="ChuyenTrang3" ><span>Platinum</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton14" runat="server" OnClick="ChuyenTrang4" ><span>Founders Platinum</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton13" runat="server" OnClick="ChuyenTrang5"><span>Ruby</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton15" runat="server" OnClick="ChuyenTrang6" ><span>Founders Ruby</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton16" runat="server" OnClick="ChuyenTrang7" ><span>Sapphire</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton17" runat="server" OnClick="ChuyenTrang8" ><span>Founders Sapphire</span></asp:LinkButton></li>
+</ul>
+</li>
+<li><a href='#'>Khách Hàng<span>Hãy đến với chúng tôi.</span></a>
+<ul class='sub_menu'>
+<li><asp:LinkButton ID="LinkButton5" runat="server" OnClick="KHChuyenTrang1"><span>Khách Hàng Sử Dụng</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton6" runat="server" OnClick="KHChuyenTrang2"><span>Khách Hàng Tiềm Năng</span></asp:LinkButton></li>
+</ul>
+</li>
+<li><a href='#'>Sản Phẩm<span>Chất lượng là số 1.</span></a>
+<ul class='sub_menu'>
+<li><asp:LinkButton ID="LinkButton7" runat="server" OnClick="SPChuyenTrang"><span> SP Bổ sung dinh dưỡng Nutrilite</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton8" runat="server" OnClick="SPChuyenTrang1" ><span>SP Chăm sóc da & mỹ phẩm Artistry</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton9" runat="server" OnClick="SPChuyenTrang2" ><span>SP Chăm sóc cơ thể</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton10" runat="server" OnClick="SPChuyenTrang3" ><span>SP Chăm sóc đồ da dụng</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton11" runat="server" OnClick="SPChuyenTrang4" ><span>Sản Phẩm Gợi Ý</span></asp:LinkButton></li>
+<li><asp:LinkButton ID="LinkButton12" runat="server" OnClick="SPChuyenTrang5" ><span>Sản Phẩm Đã Dùng</span></asp:LinkButton></li>
+</ul>
+</li>
+<li><a href='#'>Chương Trình<span>Sát cánh bên bạn.</span></a>
+<ul class='sub_menu'>
+<li><a href='ChuongTrinh_SapDienRa.aspx'><span>Sắp diễn ra</span></a></li>
+<li><a href='ChuongTrinh_DaoTao.aspx'><span>Đào tạo</span></a></li>
+<li><a href='ChuongTrinh_ChamSoc.aspx'><span>Chăm sóc</span></a></li>
+</ul>
+</li>
+<li><a href='DoanhThu.aspx'>Doanh Thu<span>Theo dõi doanh thu</span></a></li>
+<li><a href='ThongKe.aspx'>Thống kê<span>Thống kê theo yêu cầu</span></a></li>
+</ul>
+</div>
+
+<div class='content'>
+
+<div id='main-wrapper'>
+   <div class='main section' id='main'><div class='widget Blog' id='Blog1'>
+<div class='post'>
+<div class='inside'>
+<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+    <script type='text/javascript' src="../js/GoogleMapAPI.js"></script>
+
+</div>
+<div class='post-footer-line-3'></div>
+</div>
+<div class='clear'></div>
+</div></div>
+</div>
+<div id='sidebar-wrapper'>
+<div class='inside'>
+<div class='clear'></div>
+<div class='sidebar section' id='sidebar'>
+<h2>Nhánh phân phối</h2>
+<div class='widget-content list-label-widget-content'>
+<script type="text/javascript">// Lưu Session khi click vào menu.
+    function setSession(value) {
+        document.location.href = "TrangChu.aspx?MaADA=" + value//Điều hướng tới TrangChu và gán Id = giá trị vào
+    }
+    </script> 
+    <div class ="menu" >
+        <asp:Label ID="lblMenu" runat="server" Text="Label"></asp:Label>
+        <script type="text/javascript">make_tree_menu('nav');</script>
+    </div>
+    <br />
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/User/SoDoPhanPhoi.aspx">Xem sơ đồ phân phối</asp:HyperLink>
+
+<div class='clear'></div>
+    <!-- Cái đoạn này để chạy cái hiệu ứng lên đầu trang. -->
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit'  onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target='configLabel1' title='Chỉnh sửa'>
+</a>
+</span>
+</span>
+    <!-- End lên đầu trang. -->
+</div>
+</div></div>
+</div>
+<div class='clear'></div>
+    </div>
+</div>
+</div>
+<div id='footer'>
+<div class='footer-wrap'>
+<div class='section' id='footer-nav'>
+</div>
+<div class='go-top'><a href='#'></a></div>
+
+<div class='copyright'>DoAn 52TH &#169; <a href='#' id='copyright'> 2014</a> and <a href='#'>doan.somee.com</a></div>
+<div class='clear'></div>
+<div class='column section' id='leftcolumn'>
+</div>
+<div class='column section' id='middlecolumn'>
+</div>
+<div class='column section' id='rightcolumn'>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../js/slide_img.js"></script>
+<script type="text/javascript">
+    if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/3186034670-widgets.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+    </form>
+
+</body>
+</html>
