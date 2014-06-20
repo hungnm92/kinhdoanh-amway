@@ -1,0 +1,860 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0049)http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong2 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Wiki Courses Web/Đề tài: Tìm hiểu GOOGLE MAP API V3 - xây dựng ứng dụng đánh dấu các điểm trên bản đồ cùng với Google Map API, PHP, Mysql, XML</title>
+	<link rel="stylesheet" type="text/css" href="./GOOGLE MAP API V3_files/default.css" media="screen" title="style (screen)">
+	<link rel="stylesheet" type="text/css" href="./GOOGLE MAP API V3_files/color.css" media="screen" title="style (screen)">
+<!--HTMLHeader--><style type="text/css"><!--#header #logo-box { width: 530px; } #header .headerphoto { width: 450px; } #logo-box .sitetitle a{ height:0px; background: url(http://dev.vast.vn/tuananh/pub/skins/pmwiki/pmwiki-32.gif) left 16px no-repeat; } #logo-box .sitetitle a, #logo-box .sitetag{ padding-left: 0px; } #wrap { width: 980px; } #sidebar { width: 212px; margin-left: -222px; } #content { margin-right: 214px; } #header .headerphoto { background: #FFF url(http://dev.vast.vn/tuananh/pub/skins/enlighten/brown/headerphoto.jpg) no-repeat; } .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style>  <meta name="robots" content="index,follow">
+
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="pageactions">
+			<!--PageActionFmt-->
+			<ul><li class="browse">      <a accesskey="" rel="nofollow" class="selflink" href="http://dev.vast.vn/tuananh/Web/C%c4%90077">View</a>
+</li><li class="edit">      <a accesskey="e" rel="nofollow" class="wikilink" href="http://dev.vast.vn/tuananh/Web/C%c4%90077?action=edit">Edit</a>
+</li><li class="diff">   <a accesskey="h" rel="nofollow" class="wikilink" href="http://dev.vast.vn/tuananh/Web/C%c4%90077?action=diff">History</a>
+</li><li class="print">     <a accesskey="" rel="nofollow" class="wikilink" href="http://dev.vast.vn/tuananh/Web/C%c4%90077?action=print">Print</a>
+</li></ul>
+
+			<!--/PageActionFmt-->
+		</div>
+
+		<div id="logo-box">
+			<!--PageHeaderFmt-->
+			<h1 class="sitetitle"><a class="urllink" href="http://dev.vast.vn/tuananh" rel="nofollow">Wiki Courses</a></h1>
+<div class="sitetag">
+</div>
+
+			<!--/PageHeaderFmt-->
+		</div>
+		<div class="headerphoto"></div>
+	</div>
+
+	<div id="menu">
+		<!--PageTabsFmt-->
+		<ul><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Main/HomePage">Trang chủ</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/HomePage">Công nghệ Web</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Project/HomePage">Đồ án CNTT</a>
+</li></ul>
+
+		<!--/PageTabsFmt-->
+	</div>
+
+	<div id="body-wrap">
+		<div id="content-wrap"><div id="content">
+			<div id="main">
+				<!--PageTitleGroupFmt-->
+				<a href="http://dev.vast.vn/tuananh/Web" class="pagegroup">Web</a>
+				<!--/PageTitleGroupFmt-->
+				<!--PageTitleFmt-->
+				<h2 class="page-head"><a href="http://dev.vast.vn/tuananh/Web/C%c4%90077">Đề tài: Tìm hiểu GOOGLE MAP API V3 - xây dựng ứng dụng đánh dấu các điểm trên bản đồ cùng với Google Map API, PHP, Mysql, XML</a></h2>
+				<!--/PageTitleFmt-->
+
+				<!--PageText-->
+<div id="wikitext">
+<div class="frame lfloat" style="font-size: 12px;"> 
+<h2><a name="contents" id="contents"></a>Mục lục</h2>
+<ol><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong1">Lời mở đầu</a>
+</li><li><a href="./GOOGLE MAP API V3_files/GOOGLE MAP API V3.htm">Tổng quan về Google Map API v3</a>
+<ol><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong21">Giới thiệu về công nghệ</a>
+</li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong22">Các ứng dụng thực tế</a>
+</li></ol></li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong3">Cách sử dụng và phát triển công nghệ</a>
+<ol><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong31">Đăng ký sử dụng Google Map API</a>
+</li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong32">Load bản đồ của google map về trang web cá nhân</a>
+</li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong33">Lớp phủ lên bản đồ</a>
+<ol><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong331">Markers</a>
+</li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong332">Polylines</a>
+</li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong333">Polygon</a>
+</li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong334">Infowindows</a>
+</li></ol></li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong34">Sự kiện</a>
+</li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong35">Chỉ dẫn đường trên bản đồ sử dụng service google</a>
+<ol><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong351">Một ứng dụng chỉ dẫn đường nhỏ</a>
+</li></ol></li></ol></li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong4">Sử dụng PHP, Mysql, XML cùng với google map xây dựng ứng dụng đánh dấu các địa điểm trên bản đồ</a>
+<ol><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong41">Tạo bảng</a>
+</li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong42">Xuất ra XML với PHP</a>
+</li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong43">Tạo bản đồ</a>
+</li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong44">Hướng phát triển của ứng dụng</a>
+</li></ol></li><li><a href="http://dev.vast.vn/tuananh/Web/C%C4%90077#chuong5">Tài liệu tham khảo</a>
+</li></ol></div>
+<div class="frame lfloat" style="font-size: 13px;"> 
+<h1><a name="chuong1" id="chuong1"></a>1. Lời mở đầu</h1>
+<ul><li>Từ xưa tới nay việc thiết lập một bản đồ địa lý cho một vùng luôn luôn được sự quan tâm lớn đối với con người. Nhắc tới bản đồ ta thường hình dung tới nó chỉ phục vụ cho các nhà thám hiểm các nhà địa lý, khảo cổ. Nhưng không hẳn vậy một bản đồ được xây dựng giúp cho nhà nước, cho tất cả các nghiên cứu khoa học, các thương nhân...Mỗi người dùng đều có mục đích riêng của mình. 
+</li><li>Ngày nay với sự bùng nổ của Internet, có rất nhiều bản đồ số được xây dựng. Nó rất quan trọng cho con người và công việc. Nhu cầu con người ngày càng lớn, ai cũng cần đến bản đồ( bạn thử hình dung khi đầu tiên đến Hà Nội với kiến trúc như bây giờ nếu không có bản đồ trong tay thì sẽ như thế nào? ). Vì vậy ai, đơn vị, tổ chức nào? sẽ cung cấp cho chúng ta?
+</li><li>Google Map cung cấp cho chúng ta toàn bộ bản đồ của thế giới. Không những vậy, các API họ cung cấp giúp cho các nhà phát triển xây dựng nên các ứng dụng đáp ứng phần nào đó nhu cầu của con người. Giờ đây Google đã phát triển nên đến phiên bản gọi là :"Google Map API V3".
+</li></ul><h1><a name="chuong2" id="chuong2"></a>2. Tổng Quan về Google Map API v3</h1>
+<h2><a name="chuong21" id="chuong21"></a>2.1. Google Map API là gì?</h2>
+<ul><li>Google Maps là một dịch vụ ứng dụng và công nghệ bản đồ trực tuyến trên web miễn phí được cung cấp bởi Google, hỗ trợ nhiều dịch vụ khác của Google nổi bật là dẫn đường.  Nó cho phép thấy bản đồ đường sá, đường đi cho xe đạp, cho người đi bộ và xe hơi, và những địa điểm kinh doanh trong khu vực cũng như khắp nơi trên thế giới.
+</li><li>Map API là gì?
+<ul><li>Đó là một phương thức cho phép 1 website B sử dụng dịch vụ bản đồ của site A (gọi là Map API) và nhúng vào website của mình (site B). Site A ở đây là google map, site B là các web site cá nhân hoặc tổ chức muốn sử dụng dịch vụ của google, có thể rê chuột, room, đánh dấu trên bản đồ...
+</li><li>Các ứng dụng xây dựng trên maps được nhúng vào trang web cá nhân thông qua các thẻ javascripts do vậy việc sử dụng API google rất dễ dàng.
+</li></ul></li><li>Google Map API đã được nâng cấp lên phiên bản thứ 3. Phiên bản này hỗ trợ không chỉ cho các máy để bàn truyền thống mà cho cả các thiết bị di động. Nhanh hơn và nhiều hơn các ứng dụng.
+</li><li>Điều quan trọng là các dịch vụ hoàn toàn miễn phí với việc xây dựng một ứng dụng nhỏ. Trả phí nếu đó là việc sử dụng cho mục đích kinh doanh, doanh nghiệp.
+</li></ul></div>
+<div class="frame lfloat" style="font-size: 12px;"> 
+<h2><a name="chuong22" id="chuong22"></a>2.2. Một số ứng dụng có thể xây dựng</h2>
+<ul><li>Đánh dấu các địa điểm trên bản đồ cùng các thông tin cho địa điểm: các khu vui chơi giải trí, nhà hàng khách sạn, các quán ăn ngon, các shop quần áo, nữ trang...
+</li><li>Chỉ dẫn đường đến các địa điểm cần tìm,chỉ dẫn đường giao thông công cộng, có thể là các địa điểm cung cấp như trên. Ở đây sử dụng các service google cung cấp.
+</li><li>Khoanh vùng khu vực: các trung tâm kinh tế, khu đô thị, khu ô nhiễm...
+</li><li>Tình trạng giao thông các khu vực...Đưa ra các giải pháp có thể...
+</li></ul><p>Còn rất nhiều ứng dụng cho phép bạn xây dựng. Quan trọng là đều mang lại lợi ích cho người cung cấp dịch vụ và người sử dụng dịch vụ. Có thể đem lại lợi ích kinh tế nếu như ứng dụng áp dụng tốt trong thực tế!
+</p><h1><a name="chuong3" id="chuong3"></a>3. Cách sử dụng và phát triển công nghệ</h1>
+<ul><li>Hoàn toàn bằng các mã javascripts.
+</li></ul><h2><a name="chuong31" id="chuong31"></a>3.1 Đăng ký sử dụng Google map API</h2>
+<ul><li>Tất cả các ứng dụng Maps API nên tải Maps API sử dụng một API key. Một key API cho bạn kiểm soát các ứng dụng của mình và cũng là việc google có thể liên lạc với bạn về ứng dụng có ích bạn đang xây dựng. Từ đó có cơ hội phát triển bản thân mình.
+</li><li>Tạo một API key:
+<ul><li>Truy cập vào <a class="urllink" href="https://code.google.com/apis/console" rel="nofollow">https://code.google.com/apis/console</a> và đăng nhập bằng tài khoản gmail của mình.
+</li><li>Click vào Services link bên trái menu.
+</li><li>Kéo xuống dưới tìm Google Maps API v3 service và kích hoạt dịch vụ.
+</li><li>Click API Access, một API key sẽ hiện lên và bạn sẽ coppy lại để sử dụng.
+</li></ul></li></ul><div class="text-align" style="text-align: center;"> <img src="./GOOGLE MAP API V3_files/g_key.jpg" alt="" title=""><br><strong>Hình 1.1</strong></div>
+<h2><a name="chuong32" id="chuong32"></a>3.2 Load bản đồ về trang web cá nhân</h2>
+<ul><li>Khi đã có key google cung cấp ta sử dụng key đó trong đoạn mã javascripts trong thẻ &lt;head&gt;:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">&lt;script type="text/javascript"
+     src="http://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;sensor=SET_TO_TRUE_OR_FALSE"&gt;
+    &lt;/script&gt;</pre>
+<ul><li>Tạo một hàm trong javascripts:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">''&lt;script type="text/javascript"&gt;
+      function initialize() {
+        var myOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            myOptions);
+      }
+    &lt;/script&gt;''</pre>
+<ul><li>Đầu tiên tạo một đối tượng bản đồ chứa các biến khởi tạo bản đồ
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped"> var myOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };</pre>
+<dl><dd><ul><li>center: một điểm làm trung tâm của bản đồ Latitudes(vĩ độ) và Longitudes(kinh độ). Tương tự như trên khi ta định nghĩa 1 điểm là tọa độ trong Map ta để nó nằm trong new google.maps.LatLng(lat,lng). Một điểm được xác định bởi vĩ độ và kinh độ.
+</li><li>zoom: độ zoom được quy định khi Map được load.
+</li><li>Map type: loại Map được hiển thị sau khi load xong. có 4 loại để chọn: ROADMAP, SATELLITE, HYBRID, TERRAIN
+</li><li>Map object: var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions); Xác định id html chứa đối tượng Map với tùy chọn "myOptions" như trên.
+</li></ul></dd></dl><ul><li>Mã javascripts:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">''''&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta name="viewport" content="initial-scale=1.0, user-scalable=no" /&gt;
+    &lt;style type="text/css"&gt;
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    &lt;/style&gt;
+    &lt;script type="text/javascrip"&gt;
+      src="http://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;sensor=SET_TO_TRUE_OR_FALSE"&gt;
+    &lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
+      function initialize() {
+        var myOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            myOptions);
+      }
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body onload="initialize()"&gt;
+    &lt;div id="map_canvas" style="width:100%; height:100%"&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+<ul><li>Trong thẻ &lt;body&gt; gọi onload = "initialize()" để load bản đồ vào trong thân của trang html.
+</li><li>Bạn có thể xem kết quả tại: <a class="urllink" href="https://google-developers.appspot.com/maps/documentation/javascript/examples/map-simple" rel="nofollow">https://google-developers.appspot.com/maps/documentation/javascript/examples/map-simple</a>
+</li><li>Với kết quả trên ta chỉ có thể thao tác zoom, rê chuột, xem trên bản đồ. Để làm được các thao tác khác như: vẽ, đánh dấu điểm, lấy tọa độ trên bản đồ, chỉ dẫn đường...chúng ta cần xem thêm các mục được xây dựng dưới đây.
+</li></ul><h2><a name="chuong33" id="chuong33"></a>3.1 Lớp phủ trên bản đồ(Overlays)</h2>
+<ul><li>Sau khi load được bản đồ ta thêm các đoạn code xây dựng lớp phủ sau khi đối tượng map được khởi tạo: <strong>var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);</strong>. Sau này cũng vậy các ứng dụng khác nếu muốn được thêm vào thì các đoạn code được khai báo sau khi đối tượng map được khởi tạo.
+</li><li><strong>Tổng quan</strong>: Lớp phủ(overlays) là các đối tượng trên bản đồ và được gắn với vĩ độ, kinh độ cho nên nó sẽ di chuyển cùng bản đỗ khi ta kéo hoặc zoom bản đồ. Overlays phản ánh các đối tượng mà bạn thêm vào bản đồ như points, line, areas, hoặc các "collections of object" tạm gọi là bộ sưu tập đối tượng, các đối tượng mà bạn muốn xây dựng. Vd: 1 khu vực công nghiệp, khu vực sông, khu vui chơi giải trí...
+</li><li><strong>Các loại lớp phủ</strong>: <strong><em>markers, polylines, areas, info windows, polygons.</em></strong>
+</li><li><strong>Thêm các lớp phủ</strong>: Đầu tiên phải xác định lớp phủ nào cần xây dựng để có thể hiên thị trên Map. Thêm lớp phủ trực tiếp lên bản đồ sử dụng phương thức setmap(). Ví dụ sau thêm lớp phủ Markers để đánh giấu điểm trên map
+<ul><li>mã javascripts:
+</li></ul></li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+var myOptions = {
+  zoom: 4,
+  center: myLatlng,
+  mapTypeId: google.maps.MapTypeId.ROADMAP,
+}
+var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+var marker = new google.maps.Marker({
+    position: myLatlng, //vị trí này sẽ xuất hiện điểm đánh dấu với icon mặc định của google.
+    title:"Hello World!"
+});
+marker.setMap(map);// đối tượng map được khởi tạo ở trên
+</pre>
+<dl><dd><ul><li>Lớp phủ Markers được thêm vào bởi đối tượng trong javascripts cùng các tùy chọn của lớp phủ:
+</li></ul></dd></dl><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped"> var marker = new google.maps.Marker({
+    position: myLatlng,// vị trí này sẽ xuất hiện điểm đánh dấu với icon mặc định của google.
+    title:"Hello World!"
+});</pre>
+<p>sau đó gọi phương thức setmap() để thêm vào bản đồ "marker.setMap(map)"
+</p><ul><li><strong>Loại bỏ lớp phủ:</strong> Để loại bỏ ta gọi phương thức setmap() của lớp phủ và đặt là null "setmap(null)". Nhưng đây mới chỉ loại bỏ tạm thời không cho chúng xuất hiện chứ chưa xóa hoàn toàn.
+</li><li>Nhưng trên bản đồ với một ứng dụng nhỏ thì ít nhất ta cũng phải sử dụng trên 2 lớp phủ. Vì vậy để quản lý chúng thật sự dễ dàng ta tạo một mảng chứa các lớp phủ. Khi muốn tạo một lớp phủ ta chỉ setmap() trên các phần tử của mảng hoặc loại bỏ chúng cũng vậy. Điều quan trọng là có thể xóa các lớp phủ khi cho độ dài của mảng bằng 0.
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">var map;
+var markersArray = [];
+
+function initialize() {
+  var haightAshbury = new google.maps.LatLng(37.7699298, -122.4469157);
+  var mapOptions = {
+    zoom: 12,
+    center: haightAshbury,
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  };
+  map =  new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+  google.maps.event.addListener(map, 'click', function(event) {
+    addMarker(event.latLng);
+  });
+}
+
+function addMarker(location) {
+  marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+  markersArray.push(marker);
+}
+
+// Removes the overlays from the map, but keeps them in the array
+function clearOverlays() {
+  if (markersArray) {
+    for (i in markersArray) {
+      markersArray[i].setMap(null);
+    }
+  }
+}
+
+// Shows any overlays currently in the array
+function showOverlays() {
+  if (markersArray) {
+    for (i in markersArray) {
+      markersArray[i].setMap(map);
+    }
+  }
+}
+
+// Deletes all markers in the array by removing references to them
+function deleteOverlays() {
+  if (markersArray) {
+    for (i in markersArray) {
+      markersArray[i].setMap(null);
+    }
+    markersArray.length = 0;
+  }
+}</pre>
+<ul><li>Xem kết quả tại:<a class="urllink" href="https://google-developers.appspot.com/maps/documentation/javascript/examples/overlay-remove" rel="nofollow">https://google-developers.appspot.com/maps/documentation/javascript/examples/overlay-remove</a>
+</li><li>Sau đây chúng a xẽ tìm hiểu kỹ về các lớp phủ.
+</li></ul><h3><a name="chuong331" id="chuong331"></a>3.3.1 Markers</h3>
+<ul><li>Markers dùng để xác định một điểm trên bản đồ hoặc đánh dấu địa điểm dựa trên vĩ độ và kinh độ. Theo mặc định sử dụng icon của google làm hình ảnh hiện lên điểm đánh dấu. Hoặc muốn một icon của mình thì ta gọi phương thức setIcon().
+</li><li>Sau đây là các trường được xây dựng trong <strong>new google.maps.Marker</strong>:
+<ul><li>Position(bắt buộc): quy định là tọa độ LatLng của điểm được đánh dấu.
+</li><li>map(tùy chọn): quy định đối tượng bản đồ được đánh dấu. nếu thuộc tính này được khai báo trong đây nó sẽ thay thế cho Markers.setMap(map).
+</li><li>Icon(tùy chọn): hình ảnh tùy chọn mà bạn muốn hiển thị thay thế hình ảnh mặc định. Dùng tùy chọn này thay thế cho marker.setIcon(link đến hình ảnh trong thư mục).
+</li><li>Title(tùy chọn): tiêu đề của địa điểm.
+</li><li>draggable(tùy chọn): thuộc tính động của điểm đánh dấu, thể hiện sự chuyển động của điểm được đánh dấu. Nếu <strong>TRUE</strong> tính động được khởi động.
+</li><li>animation: cách thức chuyển động của điểm đánh dấu. CÓ 2 cách thức DRAG, Bounce.
+</li></ul></li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped"> var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+  var myOptions = {
+    zoom: 4,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  var icon = "link đến hình ảnh";
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      icon:icon,
+      title:"Hello World!",
+      draggable:true,
+      animation:google.maps.Animation.DROP
+  });</pre>
+<dl><dd><ul><li>xem KQ ví dụ:<a class="urllink" href="https://google-developers.appspot.com/maps/documentation/javascript/examples/marker-simple" rel="nofollow">https://google-developers.appspot.com/maps/documentation/javascript/examples/marker-simple</a>
+</li><li>Hoặc Icon tùy chọn mã nguồn:<a class="urllink" href="http://www.mediafire.com/?tbagn3ab456tjuq" rel="nofollow">http://www.mediafire.com/?tbagn3ab456tjuq</a>.
+</li><li>Tính động của Marker:<a class="urllink" href="https://google-developers.appspot.com/maps/documentation/javascript/examples/marker-animations" rel="nofollow">https://google-developers.appspot.com/maps/documentation/javascript/examples/marker-animations</a> hoặc theo icon tùy chọn:<a class="urllink" href="http://www.mediafire.com/?s2s772yc7edib62" rel="nofollow">http://www.mediafire.com/?s2s772yc7edib62</a>
+</li></ul></dd></dl><ul><li>Mã javascripts sau mô tả việc đánh dấu nhiều địa điểm trên bản đồ:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">&lt;script type="text/javascript"&gt;
+function initialize() {
+  var myOptions = {
+    zoom: 10,
+    center: new google.maps.LatLng(20.779227,107.0755),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+  var image = "vietnam_32.png";
+for (var i = 0; i &lt; toado.length; i++) {
+    var beach = toado[i];
+    var myLatLng = new google.maps.LatLng(beach[0], beach[1]);
+    var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        icon: image
+    });
+  }
+  //setMarkers(map, beaches);
+}
+var toado = [
+  [20.817741,106.751404],
+  [20.964004,107.004089],
+  [20.807472,106.99585]
+];
+&lt;/script&gt;
+</pre>
+<p>Hình ảnh của kết quả:<img src="./GOOGLE MAP API V3_files/Kq_icon1.png" alt="" title="">
+hoặc link mã nguồn:<a class="urllink" href="http://www.mediafire.com/?cdps776024e7xe2" rel="nofollow">http://www.mediafire.com/?cdps776024e7xe2</a>
+</p><h3><a name="chuong332" id="chuong332"></a>3.3.2 Polylines</h3>
+<ul><li>Polylines dùng để thể hiện đường kết nối trên bản đồ dựa vào các tọa độ. Các đoạn thẳng được hiển thị với các tùy chọn cho nó như màu sắc, độ đậm nhạt, độ rộng cùa đường. Phải có tối đa 2 điểm để tạo nên 1 đường thẳng.
+</li><li>Cũng giống như lớp phủ Markers ta khai báo lớp phủ Polyline và các thuộc tính của nó như sau:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">new google.maps.Polyline({
+    path: //giá trị là một mảng chứa các tọa độ cần nối với nhau
+    strokeColor: "#FF0000",// tùy chọn màu sắc
+    strokeOpacity: 1.0,//độ  đậm nhạt của màu sắc
+    strokeWeight: 2//độ rộng của đường
+  })
+</pre>
+<ul><li>Mã javascripts sau sẽ hiển thị đường nối các điểm được khai báo trong 1 mảng.
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">&lt;script type="text/javascript"&gt;
+
+  function initialize() {
+    var myLatLng = new google.maps.LatLng(21.010163,105.817823);
+    var myOptions = {
+      zoom: 14,
+      center: myLatLng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+    var flightPlanCoordinates = [
+        new google.maps.LatLng(21.010163,105.817823),
+        new google.maps.LatLng(20.998785,105.84074),
+        new google.maps.LatLng(21.005676,105.876961),
+        new google.maps.LatLng(21.037403,105.84383)
+    ];
+    var flightPath = new google.maps.Polyline({
+      path: flightPlanCoordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    });
+
+   flightPath.setMap(map);
+  }
+&lt;/script&gt;</pre>
+<ul><li>Hình ảnh của kết quả:<img src="./GOOGLE MAP API V3_files/poly1.png" alt="" title="">
+</li><li>Mã nguồn:<a class="urllink" href="http://www.mediafire.com/?tfww26l2flwrqi5" rel="nofollow">http://www.mediafire.com/?tfww26l2flwrqi5</a>
+</li></ul><h3><a name="chuong333" id="chuong333"></a>3.3.3 Polygon</h3>
+<ul><li>Cũng giống như đối tượng Polylines, Polygon xây dựng dựa trên một loạt các tọa độ, tuy nhiên thay vì mở thì nó hoàn toàn khép kín trong một khu vực.
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">new google.maps.Polygon({
+    paths: triangleCoords,//tập các tọa độ với tọa độ đầu trùng tọa độ cuối đảm bảo cho việc khép kín.
+    strokeColor: "#FF0000",//màu sắc của đường nối điểm
+    strokeOpacity: 0.8,//độ đậm nhạt
+    strokeWeight: 2,//độ rộng
+    fillColor: "#FF0000",//màu sắc của đa giác
+    fillOpacity: 0.35//độ đậm nhạt của đa giác
+  });</pre><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">
+&lt;script type="text/javascript"&gt;
+
+  function initialize() {
+    var myLatLng = new google.maps.LatLng(21.037403,105.84383);
+    var myOptions = {
+      zoom: 14,
+      center: myLatLng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var bermudaTriangle;
+
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var triangleCoords = [
+        new google.maps.LatLng(21.037403,105.84383),
+        new google.maps.LatLng(21.022983,105.832672),
+        new google.maps.LatLng(21.02779,105.867691),
+        new google.maps.LatLng(21.037403,105.84383)
+    ];
+
+    // Construct the polygon
+    bermudaTriangle = new google.maps.Polygon({
+      paths: triangleCoords,
+      strokeColor: "#FF0000",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#FF0000",
+      fillOpacity: 0.35
+    });
+
+   bermudaTriangle.setMap(map);
+  }
+&lt;/script&gt;</pre>
+<ul><li>Hình ảnh kết quả:<img src="./GOOGLE MAP API V3_files/polygon.png" alt="" title="">
+</li><li>Mã nguồn: <a class="urllink" href="http://www.mediafire.com/?4b7i1glj488zj2b" rel="nofollow">http://www.mediafire.com/?4b7i1glj488zj2b</a>
+</li></ul><h3><a name="chuong334" id="chuong334"></a>3.3.4 Infowindows</h3>
+<ul><li>Infowindows là một cửa sổ chứa các thông tin. Trông như hình ảnh sau:<img src="./GOOGLE MAP API V3_files/Info.png" alt="" title="">
+</li><li>Tạo một Infowindows cũng giống như các lớp phủ khác:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">new google.maps.InfoWindow({
+    content: 'text'//chứa nội dung Infowindows
+});</pre>
+<ul><li>Gọi Infowindows.open() để có thể mở được cửa sổ.
+</li><li>Xem và tham khảo tại: <a class="urllink" href="https://google-developers.appspot.com/maps/documentation/javascript/examples/infowindow-simple" rel="nofollow">https://google-developers.appspot.com/maps/documentation/javascript/examples/infowindow-simple</a>
+</li></ul><h2><a name="chuong34" id="chuong34"></a>3.4 Sự kiện</h2>
+<ul><li>Một số đối tượng trong Maps API được thiết kế để đáp ứng với sự kiện người sử dụng chẳng hạn như các sự kiện chuột hoặc bàn phím . Một đối tượng google.maps.Marker có thể lắng nghe người sử dụng các sự kiện sau đây , ví dụ :
+<ul><li>'click'
+</li><li>'dblclick'
+</li><li>'mouseup'
+</li><li>'mousedown'
+</li><li>'mouseover'
+</li><li>'mouseout'
+</li></ul></li><li>Một sự kiện được gọi như sau:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped"> google.maps.event.addListener(đối tượng, sự kiện gọi, function() {
+}</pre>
+<ul><li>Sau đây sẽ trình bày các sự kiện trên các đối tượng map:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">&lt;script type="text/javascript"&gt;
+
+  function initialize() {
+    var myLatLng = new google.maps.LatLng(21.037403,105.84383);
+    var myOptions = {
+      zoom: 14,
+      center: myLatLng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+	google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
+  });
+  function placeMarker(location) {
+  var marker = new google.maps.Marker({
+      position: location,
+      map: map
+  });
+  }
+  }
+&lt;/script&gt;</pre>
+<p>Khi click chuột vào map thì các điểm đánh dấu sẽ xuất hiện trông giống như hình ảnh sau các icon là mặc định, nếu muốn thay đổi thi đặt lại icon:<img src="./GOOGLE MAP API V3_files/point.png" alt="" title="">
+</p><ul><li>Mã nguồn: <a class="urllink" href="http://www.mediafire.com/?6oc3xo6lq7oab59" rel="nofollow">http://www.mediafire.com/?6oc3xo6lq7oab59</a>
+</li><li>Sự kiện trên đối tượng markers:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">&lt;script type="text/javascript"&gt;
+
+  function initialize() {
+    var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+var myOptions = {
+  zoom: 4,
+  center: myLatlng,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+}
+
+var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+var contentString = 'Hello world'
+
+var infowindow = new google.maps.InfoWindow({
+    content: contentString
+});
+
+var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title:"Uluru (Ayers Rock)"
+});
+
+google.maps.event.addListener(marker, 'click', function() {
+  infowindow.open(map,marker);
+});
+  }
+&lt;/script&gt;</pre>
+<p>Sự kiện xuất hiện khi click chuột vào marker một cửa sổ thông tin sẽ xuất hiện:<img src="./GOOGLE MAP API V3_files/clickmarker.png" alt="" title="">
+</p><h2><a name="chuong35" id="chuong35"></a>3.5 Chỉ dẫn đường trên bản đồ sử dụng service google</h2>
+<ul><li>Google service cung cấp cho chúng ta một tiện ích rất hay là chỉ dẫn đường cho người sử dụng. Khi người dùng muốn đi từ điểm đầu tới đích. Dịch vụ trả về môt hướng dẫn men theo các con đường.
+</li><li>Ứng dụng này được sử dụng phổ biến trong google map, chức năng chỉ dẫn đường "direction".
+</li><li>Không cần vào google map ta cũng có thể sử dụng ứng dụng này chỉ bằng một vài đoạn mã javascripts:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">&lt;script type="text/javascript"&gt;
+  var directionDisplay;
+  var directionservice = new google.maps.DirectionsService();
+  var map;
+  var haight = new google.maps.LatLng(21.00183,105.841212);
+  var oceanBeach = new google.maps.LatLng(21.016493,105.815377);
+
+  function initialize() {
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    var myOptions = {
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: haight
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    directionsDisplay.setMap(map);
+  }
+
+  function calcRoute() {
+    var request = {
+        origin: haight,
+        destination: oceanBeach,
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+    directionservice.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      }
+    });
+  }
+&lt;/script&gt;</pre>
+<p>Kết quả như:
+</p><div><img src="./GOOGLE MAP API V3_files/direct.png" alt="" title=""></div>
+<ul><li>Để làm được điều này chúng ta tìm hiểu từng chi tiết sau:
+<ul><li>Để sử dụng hướng dẫn chỉ đường trong V3 , tạo ra một đối tượng của loại DirectionsService và gọi DirectionsService.route() để bắt đầu một yêu cầu dịch vụ Hướng dẫn. đối tượng DirectionsRenderer chứa các kết quả trả ra. Khác với cách load bản đồ thông thường chúng ta gọi thêm:
+</li><li>Đối tượng DirectionService được khởi tạo:
+</li></ul></li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped"> 
+var directionservice = new google.maps.DirectionsService();</pre>
+<dl><dd><ul><li>Kết quả trả về cho đối tượng map
+</li></ul></dd></dl><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">directionsDisplay = new google.maps.DirectionsRenderer();</pre>
+<pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">directionsDisplay.setMap(map);</pre>
+<dl><dd><ul><li>Request tới service google:
+</li></ul></dd></dl><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped"> directionservice.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      }
+    });</pre>
+<ul><li>Yêu cầu phải có điểm đầu điểm cuối và loại đường đi như: ô tô, đi bộ. Các thuộc tính này là của đối tượng DirectionRequest gửi đến service google xử lý. Sau đó kết quả được trả lại phù hơp với các thuộc tính.
+</li></ul><p>Đoạn mã sau khai báo các thuộc tính và chúng được gửi đến service google:
+</p><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped"> var request = {
+        origin: //điểm đầu
+        destination: điểm cuối
+        travelMode: google.maps.DirectionsTravelMode.DRIVING //chỉ dẫn theo đường ô tô(DRIVING), đi bộ WALKING.
+    };
+    directionservice.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      }
+    });</pre>
+<h3><a name="chuong351" id="chuong351"></a>3.5.1 Ứng dụng chỉ dẫn đường nhỏ</h3>
+<ul><li>Tôi sẽ sử dụng service google làm nên một ứng dụng nhỏ giống như ứng dụng chỉ dẫn đường trong google map "Direction".
+</li><li>Ứng dụng có chức năng: chấm 2 điểm bất kỳ trên map sau đó click button "click" để xem chỉ dẫn đường từ điểm đầu đến điểm cuối. Kết quả đảm bảo giống như kết quả tìm đường của google map.
+</li><li>Ứng dụng sẽ vẫn cho kết quả cho dù google map có sự cố gần đây với dịch vụ tìm đường.
+</li><li>Giao diện và kết quả như hình:<img src="./GOOGLE MAP API V3_files/testdirect.png" alt="" title="">
+</li><li>Mã nguồn: <a class="urllink" href="http://www.mediafire.com/?tml48yosn5dqbd2" rel="nofollow">http://www.mediafire.com/?tml48yosn5dqbd2</a>
+</li></ul><h1><a name="chuong4" id="chuong4"></a>4. Sử dụng PHP, Mysql, XML cùng với google map xây dựng ứng dụng đánh dấu các địa điểm trên bản đồ</h1>
+<ul><li>Với lượng kiến thức tôi trình bày ở trên, và một số kiến thức về PHP/Mysql cũng đủ giúp chúng ta hiểu và làm được ứng dụng này.
+</li><li>Hướng dẫn dành cho người hay sử dụng PHP, Mysql và làm thế nào để sử dụng Google Maps với một cơ sở dữ liệu Mysql.
+</li><li>Bản đồ sẽ phân biệt giữa 2 loại địa điểm: quán karaoke - nhà hàng ăn. Một cửa sổ thông tin với tên và thông tin địa chỉ sẽ hiển thị ở trên một điểm đánh dấu khi click vào.
+</li><li>Hướng dẫn được chia thành các bước sau:
+</li></ul><h2><a name="chuong41" id="chuong41"></a>4.1 Tạo bảng</h2>
+<ul><li>Để phù hợp ta tạo các trường: tên và địa chỉ của địa điểm cho cửa sổ thông tin, lat và lng là các kinh độ và vĩ đỗ, ngoài ra còn có id và type để phân biệt nhà hàng hay quán karaoke.
+</li><li>Tạo bảng với các cột sau:<img src="./GOOGLE MAP API V3_files/csdl.png" alt="" title="">
+</li><li>Sau đó nhập đầy đủ các dữ liệu cho bảng. Các dữ liệu của tôi nhập vào csdl:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">karaoke Ban Mai,"121 Đại La, Trương Định, Hai Bà Trưng Hanoi, Vietnam", 20.996662,105.846963,karaoke
+karaoke Hoa Hồng,"74 phố Vọng, Phương Mai, Đống Đa Hanoi, Vietnam",20.997783,105.842242,karaoke
+nhà hàng Xuân Tuyết,"226, Đồng Tâm, Hai Bà Trưng, Hanoi, Vietnam",21.002231,105.843186,nhahang
+karaoke New Star,"345 phố Vọng, Đồng Tâm, Hai Bà Trưng Hanoi, Vietnam",20.993536,105.842199,karaoke
+nhà hàng Be Bon,"546 Bạch Mai, Trương Định, Hai Bà Trưng Hanoi, Vietnam",20.996181,105.850396,nhahang
+Nhà hàng Hoàng Gia,"4 Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng Hanoi, Vietnam",21.008,105.847607,nhahang
+nhà hàng Mái Đỏ,"29 Đại Cồ Việt, Hai Bà Trưng Hanoi, Vietnam",21.008601,105.849581,nhahang
+karaoke Alibaba,"5 Hoa Lư, Lê Đại Hành, Hai Bà Trưng Hanoi, Vietnam",21.010364,105.847907,karaoke
+Nhà hàng Hải Hưng,"283 HỒ BA MẪU, Phương Liên, Đống Đa Hanoi, Vietnam",21.010364,105.84074,nhahang</pre>
+<h2><a name="chuong42" id="chuong42"></a>4.2 Xuất ra XML với PHP</h2>
+<ul><li>Bây giờ chúng ta cần phải viết một số câu lệnh PHP để xuất dữ liệu bảng vào một định dạng XML. Để Bản đồ có thể lấy dữ liệu thông qua các cuộc gọi JavaScript không đồng bộ.
+</li><li>Đưa thông tin kết nối CSDL ra một file riêng biệt CSDL.php
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">&lt;?
+$username="username";
+$password="password";
+$database="username-databaseName";
+?&gt;</pre>
+<ul><li>Sử dụng chức năng domxml PHP xuất ra XML. file "xuat_xml.php"
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">&lt;?php  
+
+require("CSDL.php"); 
+
+$dom = new DOMDocument("1.0");
+$node = $dom-&gt;createElement("points");
+$parnode = $dom-&gt;appendChild($node); 
+
+$connection=mysql_connect (localhost, $username, $password);
+if (!$connection) {  die('Not connected : ' . mysql_error());} 
+
+$db_selected = mysql_select_db($database, $connection);
+mysql_query("SET NAMES utf8");
+if (!$db_selected) {
+	die ('Can\'t use db : ' . mysql_error());
+} 
+
+$query = "SELECT * FROM point";
+$result = mysql_query($query);
+if (!$result) {  
+  die('Invalid query: ' . mysql_error());
+}
+header("Content-type: text/xml");
+while (($row = mysql_fetch_array($result))){  
+
+  $node = $dom-&gt;createElement("point");  
+  $newnode = $parnode-&gt;appendChild($node);   
+  $newnode-&gt;setAttribute("Ten", $row['name']);
+  $newnode-&gt;setAttribute("address", $row['address']);  
+  $newnode-&gt;setAttribute("lat", $row['lat']);  
+  $newnode-&gt;setAttribute("lng", $row['lng']);  
+  $newnode-&gt;setAttribute("type", $row['type']);
+}
+echo $dom-&gt;saveXML();
+
+?&gt;</pre>
+<ul><li>Nếu đoạn mã xuất ra chính xác kết quả giống như thế này:<img src="./GOOGLE MAP API V3_files/xml.png" alt="" title="">
+</li></ul><h2><a name="chuong43" id="chuong43"></a> 4.3 Tạo bản đồ</h2>
+<ul><li>Để tải các tập tin XML vào các trang web, bạn có thể tận dụng lợi thế của các trình duyệt cung cấp đối tượng XMLHttpRequest. Đối tượng này cho phép bạn lấy một tập tin nằm trên cùng tên miền với trang web yêu cầu, và là cơ sở của lập trình "AJAX".
+</li><li>Vì vậy, bạn có thể xác định chức năng của riêng để tải các tập tin, và gọi nó là downloadUrl (). Chức năng có hai tham số:
+<ul><li><strong>url</strong> xác định đường dẫn đến tập tin XML của bạn hoặc kịch bản PHP mà tạo ra các tập tin, nếu bạn muốn XML được tự động cập nhật khi CSDL thay đổi.
+</li><li>callback chức năng đó được gọi lại khi XML được trả về JavaScript.
+</li></ul></li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">function downloadUrl(url,callback) {
+ var request = window.ActiveXObject ?
+     new ActiveXObject('Microsoft.XMLHTTP') :
+     new XMLHttpRequest;
+
+ request.onreadystatechange = function() {
+   if (request.readyState == 4) {
+     request.onreadystatechange = doNothing;
+     callback(request, request.status);
+   }
+ };
+
+ request.open('GET', url, true);
+ request.send(null);
+}</pre>
+<ul><li>Với function đã được định nghĩa ta thực hiện gọi file xml và nhận kết quả trả về và lặp lại từ đầu đến cuối file xml để xử lý chúng. Ta lấy tất cả các trường: Ten, address, lat, lang, type để tạo các điểm đánh dấu và thông tin khi click vào.
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">downloadUrl("xuat_xml.php", function(data) {
+        var xml = data.responseXML;
+        var markers = xml.documentElement.getElementsByTagName("point");
+        for (var i = 0; i &lt; markers.length; i++) {
+          var name = markers[i].getAttribute("Ten");
+          var address = markers[i].getAttribute("address");
+          var type = markers[i].getAttribute("type");
+          var point = new google.maps.LatLng(
+              parseFloat(markers[i].getAttribute("lat")),
+              parseFloat(markers[i].getAttribute("lng")));
+          var html = "&lt;b&gt;" + name + "&lt;/b&gt; &lt;br/&gt;" + address;
+          var icon = customIcons[type] || {};
+          var marker = new google.maps.Marker({
+            map: map,
+            position: point,
+            icon: icon.icon,
+            shadow: icon.shadow
+          });
+          bindInfoWindow(marker, map, infoWindow, html);
+        }
+      });</pre>
+<ul><li>Các Icon của nhà hàng và quán karaoke
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">var customIcons = {
+      nhahang: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      karaoke: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      }
+    };</pre>
+<ul><li>Hàm tạo thông tin khi click vào điểm đánh dấu:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">function bindInfoWindow(marker, map, infoWindow, html) {
+  google.maps.event.addListener(marker, 'click', function() {
+    infoWindow.setContent(html);
+    infoWindow.open(map, marker);
+  });
+}</pre>
+<ul><li>Dưới đây là toàn bộ mã kết hợp các yếu tố trên tạo thành 1 ứng dụng hoàn chỉnh:
+</li></ul><pre style="background-color: #FCFCFC; border: 1px solid gray; padding: 5px;" class="escaped">&lt;!DOCTYPE html &gt;
+  &lt;head&gt;
+    &lt;meta name="viewport" content="initial-scale=1.0, user-scalable=no" /&gt;
+    &lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"/&gt;
+    &lt;title&gt;PHP/MySQL &amp; Google Maps Example&lt;/title&gt;
+    &lt;script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
+    //&lt;![CDATA[
+
+    var customIcons = {
+      nhahang: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      karaoke: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      }
+    };
+
+    function load() {
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(20.997663,105.842628),
+        zoom: 14,
+        mapTypeId: 'roadmap'
+      });
+      var infoWindow = new google.maps.InfoWindow;
+      downloadUrl("xuat_xml.php", function(data) {
+        var xml = data.responseXML;
+        var markers = xml.documentElement.getElementsByTagName("point");
+        for (var i = 0; i &lt; markers.length; i++) {
+          var name = markers[i].getAttribute("Ten");
+          var address = markers[i].getAttribute("address");
+          var type = markers[i].getAttribute("type");
+          var point = new google.maps.LatLng(
+              parseFloat(markers[i].getAttribute("lat")),
+              parseFloat(markers[i].getAttribute("lng")));
+          var html = "&lt;b&gt;" + name + "&lt;/b&gt; &lt;br/&gt;" + address;
+          var icon = customIcons[type] || {};
+          var marker = new google.maps.Marker({
+            map: map,
+            position: point,
+            icon: icon.icon,
+            shadow: icon.shadow
+          });
+          bindInfoWindow(marker, map, infoWindow, html);
+        }
+      });
+    }
+
+    function bindInfoWindow(marker, map, infoWindow, html) {
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.setContent(html);
+        infoWindow.open(map, marker);
+      });
+    }
+
+    function downloadUrl(url, callback) {
+      var request = window.ActiveXObject ?
+          new ActiveXObject('Microsoft.XMLHTTP') :
+          new XMLHttpRequest;
+
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          request.onreadystatechange = doNothing;
+          callback(request, request.status);
+        }
+      };
+
+      request.open('GET', url, true);
+      request.send(null);
+    }
+
+    function doNothing() {}
+  &lt;/script&gt;
+
+  &lt;/head&gt;
+
+  &lt;body onload="load()"&gt;
+    &lt;div id="map" style="width: 960px; height: 500px"&gt;&lt;/div&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;</pre>
+<ul><li><strong>Bản đồ trông giống như thế này sau khi load xong</strong>:<img src="./GOOGLE MAP API V3_files/map1.png" alt="" title="">
+</li><li>Bạn hãy thử làm một cái sẽ thấy khá thú vị!
+</li></ul><h2><a name="chuong44" id="chuong44"></a>4.4 Hướng phát triển của ứng dụng</h2>
+<ul><li>Các dữ liệu trên chỉ mang tính minh họa.
+</li><li>Với ứng dụng trên sẽ giúp ích cho người sử dụng dễ dàng tìm được địa điểm như nhà hàng hay một quán karaoke nào đó để thỏa mãn nhu cầu của mình. Hoặc những người chủ của các cửa hàng hay các quán karaoke muốn cho người nào có nhu cầu sử dụng tìm đến dịch vụ của họ, thì chỉ việc post địa điểm của mình lên ứng dụng Map này. Lưu ý rằng google map không hề cho các địa điểm đó lên Map của họ. Và từ đó người xây dựng ứng dụng sẽ được một khoản chi phí nho nhỏ từ những người chủ này.
+</li><li>Có thể bạn đã từng đi đến một địa điểm nào đó và rất thích nó không chỉ là nhà hàng hay quán karaoke. Mà bất cứ địa điểm nào bạn lưu địa điểm của nó lên trên Map để ghi nhớ cho những lần sau nếu muốn đến lần nữa.
+</li><li>Để làm được điều này bạn hãy thử làm thêm trong ứng dụng một chức năng đánh dấu trên bản đồ mà tôi đã hướng dẫn ở trên. Và nhập các thông tin cần thiết. Với các tọa độ lấy trực tiếp trên bản đồ. Sau đó submit vào cơ sở dữ liệu. Các điểm đánh dấu sẽ tự động cập nhật. Tôi đã làm thử một chức năng nhập liệu đơn giản như hình ảnh sau:
+</li></ul><div><img src="./GOOGLE MAP API V3_files/nhaplieu.png" alt="" title=""></div>
+<ul><li>Như vậy với các điểm đã được đánh dấu người sử dụng muốn đến đâu chỉ cần mở ứng dụng tra cứu mà không cần phải ghi nhớ trong đầu.
+</li><li>Có thể bạn không thông thuộc đường đi đến các điểm đó. Chúng ta lại xây dựng thêm một ứng dụng là tìm đường đi đến các điểm đánh dấu sử dụng Service của google. Với dịch vụ direction tôi đã trình bày ở trên thì điều đó cũng thật là dễ dàng!
+</li><li>Ứng dụng sẽ chia sẻ các địa điểm được đánh dấu trên bản đồ với tất cả mọi người. Và cộng đồng tham gia sẽ dần dần tăng nhanh theo thời gian.
+</li><li>Ngày nay với sự phát triển của các thiêt bị di động với thiết bị định vị GPS để làm được điều này cũng thật đơn giản, và tiện lợi. Google Map API v3 hỗ trợ trên cả di động do vậy ứng dụng có thể phát triển trên cả các thiết bị này.
+</li><li>Như vậy hướng phát triển và tương lai của ứng dụng cũng rất lớn mặc dù tôi chỉ mới đưa ra một vài ví dụ nhỏ. Vậy nếu hứng thú hãy tham gia vào các nhà phát triển Google Map API.
+</li><li>Rất mong được sự đóng góp hoặc có thông tin trao đổi xin liên lạc qua địa chỉ: datnv030691@gmail.com
+</li></ul><h1><a name="chuong5" id="chuong5"></a>5. Tài liệu tham khảo</h1>
+<ul><li>Document toturial của các ngôn ngữ hay thiết bị tìm kiếm tại:<a class="urllink" href="https://developers.google.com/maps/" rel="nofollow">https://developers.google.com/maps/</a>
+</li><li>Hoặc toturial phổ biến nhất:<a class="urllink" href="https://developers.google.com/maps/documentation/javascript/" rel="nofollow">https://developers.google.com/maps/documentation/javascript/</a>
+</li></ul></div>
+</div>
+
+			</div>
+		</div></div>
+
+		<div id="sidebar">
+			<!--PageSearchFmt-->
+			<p class="sidehead clear">Search</p>
+			<form id="searchform" class="searchform" action="http://dev.vast.vn/tuananh" method="get"><fieldset><p>
+				<input type="hidden" name="n" value="Web.CĐ077">
+				<input type="hidden" name="action" value="search">
+				<input id="s" class="textbox" type="text" name="q" value="">
+				<input id="searchsubmit" class="button" type="submit" value="Go">
+			</p></fieldset></form>
+			<!--/PageSearchFmt-->
+
+			<!--PageRightFmt-->
+			<ul><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/Th%c3%b4ngB%c3%a1oL%e1%bb%9bpH%e1%bb%8dc">Thông báo lớp học</a>  
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/T%c3%a0iLi%e1%bb%87uM%c3%b4nH%e1%bb%8dc">Tài liệu môn học</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/%c4%90%c4%83ngK%c3%bdK53">Đăng ký K53</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/%c4%90%c4%83ngK%c3%bdK54">Đăng ký K54</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/%c4%90%c4%83ngK%c3%bdK55">Đăng ký K55</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/S%e1%ba%a3nPh%e1%ba%a9mTi%c3%aauBi%e1%bb%83u">Sản phẩm tiêu biểu</a>
+</li></ul><p class="vspace sidehead"> <a class="wikilink" href="http://dev.vast.vn/tuananh/Web/Ki%e1%ba%bfnTh%e1%bb%a9cChung">Kiến thức chung</a>
+</p><ul><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/M%c3%b4H%c3%acnhKi%e1%ba%bfnTr%c3%bac%e1%bb%a9ngD%e1%bb%a5ngWeb">Mô hình kiến trúc ứng dụng Web</a>  
+</li><li><a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/GiaoTh%e1%bb%a9cHTTP?action=edit">Giao thức HTTP</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/GiaoTh%e1%bb%a9cHTTP?action=edit">?</a> 
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/Ph%c3%a2nLo%e1%ba%a1iNg%c3%b4nNg%e1%bb%afL%e1%ba%adpTr%c3%acnhWeb">Phân loại ngôn ngữ lập trình Web</a>
+</li><li><a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/C%c3%a1cTh%e1%ba%bfH%e1%bb%87WebM%e1%bb%9bi?action=edit">Các thế hệ Web mới</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/C%c3%a1cTh%e1%ba%bfH%e1%bb%87WebM%e1%bb%9bi?action=edit">?</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/M%c3%b4H%c3%acnhPh%c3%a1tTri%e1%bb%83nD%e1%bb%8bchV%e1%bb%a5Web">Mô hình phát triển dịch vụ Web</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/C%c4%90030">Công nghệ lập trình AJAX</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/Ph%c3%a1tTri%e1%bb%83n%e1%bb%a9ngD%e1%bb%a5ngWebTheoM%c3%b4H%c3%acnhMVC">Phát triển ứng dụng web theo mô hình MVC</a>
+</li></ul><p class="vspace sidehead"> <a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/Ng%e1%bb%93nNg%e1%bb%afV%c3%a0FrameworkL%e1%ba%adpTr%c3%acnh?action=edit">Ngồn ngữ và framework lập trình</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/Ng%e1%bb%93nNg%e1%bb%afV%c3%a0FrameworkL%e1%ba%adpTr%c3%acnh?action=edit">?</a>
+</p><ul><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/L%e1%ba%adpTr%c3%acnhPHP">Lập trình PHP</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/L%e1%ba%adpTr%c3%acnhV%e1%bb%9biYii">Lập trình với Yii</a> 
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/L%e1%ba%adpTr%c3%acnhJSP">Lập trình JSP</a> 
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/L%e1%ba%adpTr%c3%acnhStruts">Lập trình Struts</a> 
+</li></ul><p class="vspace sidehead"> <a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/D%e1%bb%afLi%e1%bb%87uV%c3%a0D%e1%bb%8bchV%e1%bb%a5Web?action=edit">Dữ liệu và dịch vụ web</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/D%e1%bb%afLi%e1%bb%87uV%c3%a0D%e1%bb%8bchV%e1%bb%a5Web?action=edit">?</a>
+</p><ul><li><a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/XML?action=edit">XML</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/XML?action=edit">?</a>  
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/JSON">JSON</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/XML-RPC">XML-RPC</a>
+</li><li><a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/SOAP?action=edit">SOAP</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/SOAP?action=edit">?</a>  
+</li></ul><p class="vspace sidehead"> <a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/C%c3%a1cM%c3%b4H%c3%acnh%e1%bb%a9ngD%e1%bb%a5ng?action=edit">Các mô hình ứng dụng</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/C%c3%a1cM%c3%b4H%c3%acnh%e1%bb%a9ngD%e1%bb%a5ng?action=edit">?</a>
+</p><ul><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/H%e1%bb%87Qu%e1%ba%a3nTr%e1%bb%8bN%e1%bb%99iDung-CMS">Hệ quản trị nội dung - CMS</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/C%e1%bb%95ngTh%c3%b4ngTin%c4%90i%e1%bb%87nT%e1%bb%ad-Portal">Cổng thông tin điện tử - Portal</a>
+</li><li><a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/C%c3%a1cPh%e1%ba%a7nM%e1%bb%81mX%c3%a3H%e1%bb%99i-Socialware?action=edit">Các phần mềm xã hội - Socialware</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/C%c3%a1cPh%e1%ba%a7nM%e1%bb%81mX%c3%a3H%e1%bb%99i-Socialware?action=edit">?</a>
+</li><li><a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/Th%c3%b4ngTin%c4%90%e1%bb%8baL%c3%bd-WebGIS?action=edit">Thông tin địa lý - WebGIS</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/Th%c3%b4ngTin%c4%90%e1%bb%8baL%c3%bd-WebGIS?action=edit">?</a>
+</li><li><a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/Th%c6%b0%c6%a1ngM%e1%ba%a1i%c4%90i%e1%bb%87nT%e1%bb%ad-ECommerce?action=edit">Thương mại điện tử - eCommerce</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/Th%c6%b0%c6%a1ngM%e1%ba%a1i%c4%90i%e1%bb%87nT%e1%bb%ad-ECommerce?action=edit">?</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/H%e1%bb%8dcT%e1%bb%abXa-ELearning">Học từ xa - eLearning</a>
+</li><li><a class="wikilink" href="http://dev.vast.vn/tuananh/Web/Ch%c3%adnhPh%e1%bb%a7%c4%90i%e1%bb%87nT%e1%bb%ad-EGoverment">Chính phủ điện tử - eGoverment</a>
+</li><li><a class="createlinktext" rel="nofollow" href="http://dev.vast.vn/tuananh/Web/YT%e1%ba%bf%c4%90i%e1%bb%87nT%e1%bb%ad-EHealth?action=edit">Y tế điện tử - eHealth</a><a rel="nofollow" class="createlink" href="http://dev.vast.vn/tuananh/Web/YT%e1%ba%bf%c4%90i%e1%bb%87nT%e1%bb%ad-EHealth?action=edit">?</a>
+</li></ul>
+
+			<!--/PageRightFmt-->
+		</div>
+	</div>
+	<div id="footer">
+		<!--PageFooterFmt-->
+			<p>Page last modified on May 24, 2012, at 09:56 PM
+</p>
+
+		<!--/PageFooterFmt-->
+		<p class="credits">
+			<a href="http://pmwiki.com/Cookbook/Enlighten">Enlighten</a> theme originally by <a href="http://www.styleshout.com/templates/preview/Enlighten1-1/index.html">styleshout</a>, adapted by <a href="http://solidgone.org/Skins">David Gilbert</a>, powered by <a href="http://pmwiki.com/">PmWiki</a>
+		</p>
+	</div>
+
+</div>
+<!--HTMLFooter-->
+
+
+</body></html>
